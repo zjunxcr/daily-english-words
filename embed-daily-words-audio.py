@@ -59,17 +59,27 @@ def extract_speak_calls(html: str):
 
 
 async def main():
+    from datetime import datetime
+    from pathlib import Path
+    
     if len(sys.argv) < 2:
-        print("Usage: python embed-daily-words-audio.py <html_file> [output_file]")
-        sys.exit(1)
+        # 自动查找当天文件
+        today = datetime.now().strftime('%Y-%m-%d')
+        html_path = f"每日英语单词_{today}.html"
+        if not Path(html_path).exists():
+            # 尝试找任意一个每日英语单词文件
+            files = list(Path('.').glob('每日英语单词_*.html'))
+            if files:
+                html_path = str(files[0])
+            else:
+                print("Error: No daily words HTML file found")
+                sys.exit(1)
+        output_path = html_path
+        print(f"[*] Auto-detected file: {html_path}")
+    else:
+        html_path = sys.argv[1]
+        output_path = sys.argv[2] if len(sys.argv) > 2 else html_path
 
-    html_path = sys.argv[1]
-    output_path = sys.argv[2] if len(sys.argv) > 2 else html_path
-
-    with open(html_path, "r", encoding="utf-8") as f:
-        html = f.read()
-
-    print(f"[*] Reading: {html_path}")
 
     # Extract all speak calls
     calls = extract_speak_calls(html)
