@@ -1,6 +1,6 @@
 name: Daily English Words
 
-on:
+于:
   schedule:
     # 每天 UTC 01:00 = 北京时间 09:00
     - cron: '0 1 * * *'
@@ -28,7 +28,8 @@ jobs:
       run: python generate-today-words.py
       
     - name: Embed audio data
-      run: python embed-daily-words-audio.py
+      run: HTML_FILE=$(ls 每日英语单词_*.html | head -1)
+        python embed-daily-words-audio.py "$HTML_FILE"
       
     - name: Send to all channels
       env:
