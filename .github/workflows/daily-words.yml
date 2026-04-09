@@ -1,45 +1,21 @@
 name: Daily English Words
 
-于:
+on:
   schedule:
-    # 每天 UTC 01:00 = 北京时间 09:00
     - cron: '0 1 * * *'
-  workflow_dispatch:  # 支持手动触发
+  workflow_dispatch:
 
 jobs:
   build-and-send:
     runs-on: ubuntu-latest
-    
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      
-    - name: Set up Python
-      uses: actions/setup-python@v5
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
       with:
         python-version: '3.13'
-        
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        
-    - name: Generate daily words HTML
-      run: python generate-today-words.py
-      
-    - name: Embed audio data
-      run: python embed-daily-words-audio.py
-      
-    - name: Send to all channels
+    - run: pip install -r requirements.txt
+    - run: python generate-today-words.py
+    - run: python embed-daily-words-audio.py
+    - run: python send-all-v2.py
       env:
         SERVERCHAN_KEY: ${{ secrets.SERVERCHAN_KEY }}
-      run: python send-all-v2.py
-      
-    - name: Upload generated files
-      uses: actions/upload-artifact@v4
-      with:
-        name: daily-words-${{ github.run_id }}
-        path: |
-          每日英语单词_*.html
-          每日英语单词_*.pagedrop.json
-        retention-days: 7
