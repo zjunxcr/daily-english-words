@@ -64,7 +64,7 @@ async def main():
     
     if len(sys.argv) < 2:
         # 自动查找当天文件
-        today = datetime.now().strftime('%Y-%m-%d')
+        today = datetime.当前().strftime('%Y-%m-%d')
         html_path = f"每日英语单词_{today}.html"
         if not Path(html_path).exists():
             # 尝试找任意一个每日英语单词文件
@@ -79,7 +79,9 @@ async def main():
     else:
         html_path = sys.argv[1]
         output_path = sys.argv[2] if len(sys.argv) > 2 else html_path
-
+    with open(html_path, "r", encoding="utf-8") as f:
+        html = f.read()
+    print(f"[*] Reading: {html_path}")
 
     # Extract all speak calls
     calls = extract_speak_calls(html)
