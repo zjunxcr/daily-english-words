@@ -28,8 +28,7 @@ jobs:
       run: python generate-today-words.py
       
     - name: Embed audio data
-      run: HTML_FILE=$(ls 每日英语单词_*.html | head -1)
-        python embed-daily-words-audio.py "$HTML_FILE"
+      run: python embed-daily-words-audio.py
       
     - name: Send to all channels
       env:
