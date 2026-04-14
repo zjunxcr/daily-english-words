@@ -46,6 +46,7 @@ WORD_BANK = {
              {"word": "carefully", "phonetic": "/ˈkeəfəli/", "syllable": "care·ful·ly", "meaning": "adv. 仔细地"},
              {"word": "signing", "phonetic": "/ˈsaɪnɪŋ/", "syllable": "sign·ing", "meaning": "v. 签字（现在分词）"},
              {"word": "read", "phonetic": "/riːd/", "syllable": "read", "meaning": "v. 阅读；读（read过去式仍写read）"},
+             {"word": "tenancy", "phonetic": "/ˈtenənsi/", "syllable": "ten·an·cy", "meaning": "n. 租赁"}
          ]},
         {"word": "bond", "phonetic": "/bɒnd/", "syllable": "bond", "pos": "n.",
          "meaning": "押金（租房）",
@@ -56,6 +57,7 @@ WORD_BANK = {
              {"word": "damage", "phonetic": "/ˈdæmɪdʒ/", "syllable": "dam·age", "meaning": "n. 损坏；损害"},
              {"word": "rent", "phonetic": "/rent/", "syllable": "rent", "meaning": "n. 租金"},
              {"word": "weeks", "phonetic": "/wiːks/", "syllable": "weeks", "meaning": "n. 周（week的复数）"},
+             {"word": "bond", "phonetic": "/bɒnd/", "syllable": "bond", "meaning": "n. 押金"}
          ]},
         {"word": "landlord", "phonetic": "/ˈlændlɔːd/", "syllable": "land · lord", "pos": "n.",
          "meaning": "房东",
@@ -66,6 +68,8 @@ WORD_BANK = {
              {"word": "chill", "phonetic": "/tʃɪl/", "syllable": "chill", "meaning": "adj. 随和的；放松的（口语）"},
              {"word": "fixing", "phonetic": "/ˈfɪksɪŋ/", "syllable": "fix·ing", "meaning": "v. 修理（现在分词）"},
              {"word": "pretty", "phonetic": "/ˈprɪti/", "syllable": "pret·ty", "meaning": "adv. 挺；相当（口语）"},
+            {"word": "landlord", "phonetic": "/ˈlændlɔːd/", "syllable": "land·lord", "meaning": "n. 房东"},
+            {"word": "things", "phonetic": "/θɪŋz/", "syllable": "things", "meaning": "n. 东西（复数）"}
          ]},
         {"word": "flatmate", "phonetic": "/ˈflætmeɪt/", "syllable": "flat · mate", "pos": "n.",
          "meaning": "室友；合租伙伴",
@@ -75,6 +79,8 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "moving out", "phonetic": "/ˈmuːvɪŋ aʊt/", "syllable": "mov·ing out", "meaning": "v. 搬出去（move out 短语动词）"},
              {"word": "month", "phonetic": "/mʌnθ/", "syllable": "month", "meaning": "n. 月；月份"},
+             {"word": "flatmate", "phonetic": "/ˈflætmeɪt/", "syllable": "flat·mate", "meaning": "n. 合租室友"},
+             {"word": "moving", "phonetic": "/ˈmuːvɪŋ/", "syllable": "mov·ing", "meaning": "v. 搬家（现在分词/动名词）"}
          ]},
         {"word": "inspection", "phonetic": "/ɪnˈspekʃn/", "syllable": "in · spec · tion", "pos": "n.",
          "meaning": "检查（租房定期检查）",
@@ -86,6 +92,8 @@ WORD_BANK = {
              {"word": "tidy up", "phonetic": "/ˈtaɪdi ʌp/", "syllable": "ti·dy up", "meaning": "v. 整理；收拾（短语动词）"},
              {"word": "Thursday", "phonetic": "/ˈθɜːzdeɪ/", "syllable": "Thurs·day", "meaning": "n. 周四"},
              {"word": "bit", "phonetic": "/bɪt/", "syllable": "bit", "meaning": "n. 一点；少量（a bit = 有点儿）"},
+             {"word": "inspection", "phonetic": "/ɪnˈspekʃn/", "syllable": "in·spec·tion", "meaning": "n. 检查；视察"},
+             {"word": "tidy", "phonetic": "/ˈtaɪdi/", "syllable": "ti·dy", "meaning": "v./adj. 整理；整洁的"}
          ]},
         {"word": "notice", "phonetic": "/ˈnəʊtɪs/", "syllable": "no · tice", "pos": "n.",
          "meaning": "通知；提前通知（退租等）",
@@ -96,6 +104,9 @@ WORD_BANK = {
              {"word": "give notice", "phonetic": "/ɡɪv ˈnəʊtɪs/", "syllable": "give no·tice", "meaning": "v. 提前通知（固定搭配）"},
              {"word": "moving out", "phonetic": "/ˈmuːvɪŋ aʊt/", "syllable": "mov·ing out", "meaning": "v. 搬出去"},
              {"word": "before", "phonetic": "/bɪˈfɔːr/", "syllable": "be·fore", "meaning": "prep. 在……之前"},
+             {"word": "days", "phonetic": "/deɪz/", "syllable": "days", "meaning": "n. 天（复数）"},
+             {"word": "moving", "phonetic": "/ˈmuːvɪŋ/", "syllable": "mov·ing", "meaning": "v. 搬家（现在分词/动名词）"},
+             {"word": "notice", "phonetic": "/ˈnəʊtɪs/", "syllable": "no·tice", "meaning": "n. 通知；提前告知"}
          ]},
         {"word": "furnished", "phonetic": "/ˈfɜːnɪʃt/", "syllable": "fur · nished", "pos": "adj.",
          "meaning": "带家具的",
@@ -108,6 +119,7 @@ WORD_BANK = {
              {"word": "stuff", "phonetic": "/stʌf/", "syllable": "stuff", "meaning": "n. 东西；物品（口语）"},
              {"word": "buy", "phonetic": "/baɪ/", "syllable": "buy", "meaning": "v. 买；购买"},
              {"word": "own", "phonetic": "/əʊn/", "syllable": "own", "meaning": "adj. 自己的；pron. 自己的东西"},
+             {"word": "furnished", "phonetic": "/ˈfɜːnɪʃt/", "syllable": "fur·nished", "meaning": "adj. 配备家具的"}
          ]},
         {"word": "lease", "phonetic": "/liːs/", "syllable": "lease", "pos": "n.",
          "meaning": "租约",
@@ -118,6 +130,7 @@ WORD_BANK = {
              {"word": "signed", "phonetic": "/saɪnd/", "syllable": "signed", "meaning": "v. 签署（过去式）"},
              {"word": "one-year", "phonetic": "/wʌn jɪər/", "syllable": "one-year", "meaning": "adj. 一年期的（复合形容词）"},
              {"word": "place", "phonetic": "/pleɪs/", "syllable": "place", "meaning": "n. 地方；住所"},
+             {"word": "lease", "phonetic": "/liːs/", "syllable": "lease", "meaning": "n. 租约；租期"}
          ]},
 
         # ---- 超市/购物 ----
@@ -131,6 +144,7 @@ WORD_BANK = {
              {"word": "milk", "phonetic": "/mɪlk/", "syllable": "milk", "meaning": "n. 牛奶"},
              {"word": "down the road", "phonetic": "/daʊn ðə rəʊd/", "syllable": "down the road", "meaning": "prep. 在路的尽头；不远处"},
              {"word": "road", "phonetic": "/rəʊd/", "syllable": "road", "meaning": "n. 路；道路"},
+             {"word": "dairy", "phonetic": "/ˈdeəri/", "syllable": "dai·ry", "meaning": "n. 便利店（NZ用法）"}
          ]},
         {"word": "queue", "phonetic": "/kjuː/", "syllable": "queue（单音节）", "pos": "n./v.",
          "meaning": "排队；队列",
@@ -141,6 +155,8 @@ WORD_BANK = {
              {"word": "checkout", "phonetic": "/ˈtʃekaʊt/", "syllable": "check·out", "meaning": "n. 收银台；结账处"},
              {"word": "self-service", "phonetic": "/ˌself ˈsɜːvɪs/", "syllable": "self-ser·vice", "meaning": "n. 自助服务"},
              {"word": "long", "phonetic": "/lɒŋ/", "syllable": "long", "meaning": "adj. 长的（此处指队伍长）"},
+             {"word": "at", "phonetic": "/æt/", "syllable": "at", "meaning": "prep. 在（此处人名At）"},
+             {"word": "queue", "phonetic": "/kjuː/", "syllable": "queue", "meaning": "n. 排队；队伍"}
          ]},
         {"word": "trolley", "phonetic": "/ˈtrɒli/", "syllable": "trol · ley", "pos": "n.",
          "meaning": "购物车（NZ/英式）",
@@ -149,6 +165,8 @@ WORD_BANK = {
          "grammar": "Can you...? 表示请求；I forgot to do sth. 忘记做某事",
          "sentence_words": [
              {"word": "forgot", "phonetic": "/fəˈɡɒt/", "syllable": "for·got", "meaning": "v. 忘记（forget 的过去式）"},
+             {"word": "grab", "phonetic": "/ɡræb/", "syllable": "grab", "meaning": "v. 拿；取（口语常用）"},
+             {"word": "trolley", "phonetic": "/ˈtrɒli/", "syllable": "trol·ley", "meaning": "n. 购物车"}
          ]},
         {"word": "receipt", "phonetic": "/rɪˈsiːt/", "syllable": "re · ceipt", "pos": "n.",
          "meaning": "收据；小票",
@@ -159,6 +177,7 @@ WORD_BANK = {
              {"word": "keep", "phonetic": "/kiːp/", "syllable": "keep", "meaning": "v. 保留；保存"},
              {"word": "in case", "phonetic": "/ɪn keɪs/", "syllable": "in case", "meaning": "conj. 以防；万一（固定搭配）"},
              {"word": "return", "phonetic": "/rɪˈtɜːn/", "syllable": "re·turn", "meaning": "v. 退还；归还"},
+             {"word": "receipt", "phonetic": "/rɪˈsiːt/", "syllable": "re·ceipt", "meaning": "n. 收据；小票"}
          ]},
         {"word": "special", "phonetic": "/ˈspeʃl/", "syllable": "spe · cial", "pos": "n./adj.",
          "meaning": "特价商品；特别的",
@@ -168,6 +187,9 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "mince", "phonetic": "/mɪns/", "syllable": "mince", "meaning": "n. 肉末；绞肉（NZ超市常见）"},
              {"word": "on special", "phonetic": "/ɒn ˈspeʃl/", "syllable": "on spe·cial", "meaning": "phrase. 特价中（NZ口语）"},
+             {"word": "at", "phonetic": "/æt/", "syllable": "at", "meaning": "prep. 在（此处人名At）"},
+             {"word": "pak'nsave", "phonetic": "/ˌpæk ən ˈseɪv/", "syllable": "Pak'nSave", "meaning": "n. 纽村平价超市名"},
+             {"word": "special", "phonetic": "/ˈspeʃl/", "syllable": "spe·cial", "meaning": "adj. 特价的；特别的"}
          ]},
         {"word": "eftpos", "phonetic": "/ˈeftɒs/", "syllable": "ef · tpos", "pos": "n.",
          "meaning": "电子刷卡机（NZ通用）",
@@ -178,6 +200,7 @@ WORD_BANK = {
              {"word": "pay by", "phonetic": "/peɪ baɪ/", "syllable": "pay by", "meaning": "v. 以...方式支付（固定搭配）"},
              {"word": "cash", "phonetic": "/kæʃ/", "syllable": "cash", "meaning": "n. 现金"},
              {"word": "on me", "phonetic": "/ɒn miː/", "syllable": "on me", "meaning": "phrase. 随身携带（口语）"},
+             {"word": "eftpos", "phonetic": "/ˈeftpɒs/", "syllable": "EFT·POS", "meaning": "n. 电子刷卡支付系统"}
          ]},
         {"word": "produce", "phonetic": "/ˈprɒdjuːs/", "syllable": "pro · duce", "pos": "n.",
          "meaning": "农产品区（水果蔬菜）",
@@ -198,6 +221,8 @@ WORD_BANK = {
          "grammar": "情态动词 can + 动词原形，表示可能性；at any chemist（在任何药店）",
          "sentence_words": [
              {"word": "cream", "phonetic": "/kriːm/", "syllable": "cream", "meaning": "n. 药膏；乳霜"},
+             {"word": "at", "phonetic": "/æt/", "syllable": "at", "meaning": "prep. 在（此处人名At）"},
+             {"word": "chemist", "phonetic": "/ˈkemɪst/", "syllable": "chem·ist", "meaning": "n. 药房；药剂师"}
          ]},
         {"word": "prescription", "phonetic": "/prɪˈskrɪpʃn/", "syllable": "pre · scrip · tion", "pos": "n.",
          "meaning": "处方；药方",
@@ -207,6 +232,7 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "doctor", "phonetic": "/ˈdɒktər/", "syllable": "doc·tor", "meaning": "n. 医生"},
              {"word": "antibiotics", "phonetic": "/ˌæntibaɪˈɒtɪks/", "syllable": "an·ti·bi·ot·ics", "meaning": "n. 抗生素（复数）"},
+             {"word": "prescription", "phonetic": "/prɪˈskrɪpʃn/", "syllable": "pre·scrip·tion", "meaning": "n. 处方"}
          ]},
         {"word": "GP", "phonetic": "/ˌdʒiː ˈpiː/", "syllable": "G · P", "pos": "n.",
          "meaning": "全科医生",
@@ -216,6 +242,9 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "get better", "phonetic": "/ɡet ˈbetər/", "syllable": "get bet·ter", "meaning": "v. 好转；康复（固定搭配）"},
              {"word": "in a few days", "phonetic": "/ɪn ə fjuː deɪz/", "syllable": "in a few days", "meaning": "phrase. 在几天内"},
+             {"word": "better", "phonetic": "/ˈbetər/", "syllable": "bet·ter", "meaning": "adj./adv. 更好的"},
+             {"word": "days", "phonetic": "/deɪz/", "syllable": "days", "meaning": "n. 天（复数）"},
+             {"word": "gp", "phonetic": "/ˌdʒiː ˈpiː/", "syllable": "GP", "meaning": "n. 全科医生（General Practitioner）"}
          ]},
         {"word": "ACC", "phonetic": "/ˌeɪ siː ˈsiː/", "syllable": "A · C · C", "pos": "n.",
          "meaning": "事故赔偿公司（NZ特有）",
@@ -226,6 +255,10 @@ WORD_BANK = {
              {"word": "injured", "phonetic": "/ˈɪndʒəd/", "syllable": "in·jured", "meaning": "adj. 受伤的；v. 受伤（过去分词）"},
              {"word": "covers", "phonetic": "/ˈkʌvəz/", "syllable": "cov·ers", "meaning": "v. 覆盖；承担（第三人称单数）"},
              {"word": "medical costs", "phonetic": "/ˈmedɪkl kɒsts/", "syllable": "med·i·cal costs", "meaning": "n. 医疗费用"},
+             {"word": "acc", "phonetic": "/ˌeɪ siː ˈsiː/", "syllable": "ACC", "meaning": "n. 新西兰意外伤害赔偿局"},
+             {"word": "costs", "phonetic": "/kɒsts/", "syllable": "costs", "meaning": "n. 费用（复数）"},
+             {"word": "medical", "phonetic": "/ˈmedɪkl/", "syllable": "med·i·cal", "meaning": "adj. 医疗的"},
+             {"word": "nz", "phonetic": "/ˌen ˈzed/", "syllable": "NZ", "meaning": "n. 新西兰（New Zealand缩写）"}
          ]},
         {"word": "appointment", "phonetic": "/əˈpɔɪntmənt/", "syllable": "ap · point · ment", "pos": "n.",
          "meaning": "预约",
@@ -234,6 +267,9 @@ WORD_BANK = {
          "grammar": "现在完成时（口语）：I've got = I have got，表示当前拥有的安排",
          "sentence_words": [
              {"word": "doctor's", "phonetic": "/ˈdɒktəz/", "syllable": "doc·tor's", "meaning": "n. 医生的（所有格）"},
+             {"word": "appointment", "phonetic": "/əˈpɔɪntmənt/", "syllable": "ap·point·ment", "meaning": "n. 预约"},
+             {"word": "at", "phonetic": "/æt/", "syllable": "at", "meaning": "prep. 在（此处人名At）"},
+             {"word": "pm", "phonetic": "/ˌpiː ˈem/", "syllable": "PM", "meaning": "n./abbr. 下午（Post Meridiem）"}
          ]},
 
         # ---- 交通 ----
@@ -245,6 +281,8 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "drive", "phonetic": "/draɪv/", "syllable": "drive", "meaning": "v. 驾车；开车"},
              {"word": "rush hour", "phonetic": "/rʌʃ aʊər/", "syllable": "rush hour", "meaning": "n. 高峰时段；早晚高峰"},
+             {"word": "lane", "phonetic": "/leɪn/", "syllable": "lane", "meaning": "n. 车道"},
+             {"word": "rush", "phonetic": "/rʌʃ/", "syllable": "rush", "meaning": "n./adj. 高峰；匆忙的"}
          ]},
         {"word": "motorway", "phonetic": "/ˈməʊtəweɪ/", "syllable": "mo · tor · way", "pos": "n.",
          "meaning": "高速公路（NZ叫法）",
@@ -254,6 +292,9 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "south", "phonetic": "/saʊθ/", "syllable": "south", "meaning": "adv./n. 向南；南方"},
              {"word": "through", "phonetic": "/θruː/", "syllable": "through", "meaning": "prep. 穿过；经过"},
+             {"word": "city", "phonetic": "/ˈsɪti/", "syllable": "cit·y", "meaning": "n. 城市"},
+             {"word": "faster", "phonetic": "/ˈfɑːstər/", "syllable": "fas·ter", "meaning": "adv. 更快地"},
+             {"word": "motorway", "phonetic": "/ˈməʊtəweɪ/", "syllable": "mo·tor·way", "meaning": "n. 高速公路"}
          ]},
         {"word": "roundabout", "phonetic": "/ˈraʊndəbaʊt/", "syllable": "round · a · bout", "pos": "n.",
          "meaning": "环岛；环形交叉路口",
@@ -263,6 +304,8 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "exit", "phonetic": "/ˈeksɪt/", "syllable": "ex·it", "meaning": "n. 出口；出路"},
              {"word": "second", "phonetic": "/ˈsekənd/", "syllable": "sec·ond", "meaning": "adj. 第二的（序数词）"},
+             {"word": "at", "phonetic": "/æt/", "syllable": "at", "meaning": "prep. 在（此处人名At）"},
+             {"word": "roundabout", "phonetic": "/ˈraʊndəbaʊt/", "syllable": "round·a·bout", "meaning": "n. 环岛（交通）"}
          ]},
         {"word": "transfer", "phonetic": "/trænsˈfɜː/", "syllable": "trans · fer", "pos": "n./v.",
          "meaning": "换乘；转账",
@@ -271,6 +314,9 @@ WORD_BANK = {
          "grammar": "need to + 动词原形：需要做某事；transfer to 换乘到（某路线）",
          "sentence_words": [
              {"word": "transfer to", "phonetic": "/trænsˈfɜː tuː/", "syllable": "trans·fer to", "meaning": "v. 换乘；转乘（固定搭配）"},
+             {"word": "at", "phonetic": "/æt/", "syllable": "at", "meaning": "prep. 在（此处人名At）"},
+             {"word": "britomart", "phonetic": "/ˈbrɪtəmɑːt/", "syllable": "Bri·to·mart", "meaning": "n. 奥克兰市中心交通枢纽"},
+             {"word": "transfer", "phonetic": "/trænsˈfɜːr/", "syllable": "trans·fer", "meaning": "v. 换乘；转车"}
          ]},
         {"word": "AT HOP card", "phonetic": "/eɪ tiː hɒp kɑːd/", "syllable": "AT HOP card", "pos": "n.",
          "meaning": "奥克兰公交卡",
@@ -280,6 +326,10 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "tag on", "phonetic": "/tæɡ ɒn/", "syllable": "tag on", "meaning": "v. 刷卡进站（NZ公交用语）"},
              {"word": "tag off", "phonetic": "/tæɡ ɒf/", "syllable": "tag off", "meaning": "v. 刷卡出站（NZ公交用语）"},
+             {"word": "at", "phonetic": "/æt/", "syllable": "at", "meaning": "prep. 在（此处人名At）"},
+             {"word": "card", "phonetic": "/kɑːd/", "syllable": "card", "meaning": "n. 卡"},
+             {"word": "hop", "phonetic": "/hɒp/", "syllable": "hop", "meaning": "n. 跳（AT HOP = 奥克兰公交卡）"},
+             {"word": "tag", "phonetic": "/tæɡ/", "syllable": "tag", "meaning": "v. 刷卡；贴标签"}
          ]},
         {"word": "carpark", "phonetic": "/ˈkɑːpɑːk/", "syllable": "car · park", "pos": "n.",
          "meaning": "停车场（NZ合写）",
@@ -289,6 +339,9 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "full", "phonetic": "/fʊl/", "syllable": "full", "meaning": "adj. 满的；满员"},
              {"word": "around the corner", "phonetic": "/əˈraʊnd ðə ˈkɔːnər/", "syllable": "a·round the cor·ner", "meaning": "phrase. 在拐角处；即将到来"},
+             {"word": "around", "phonetic": "/əˈraʊnd/", "syllable": "a·round", "meaning": "adv./prep. 在附近；围绕"},
+             {"word": "carpark", "phonetic": "/ˈkɑːpɑːk/", "syllable": "car·park", "meaning": "n. 停车场"},
+             {"word": "corner", "phonetic": "/ˈkɔːnər/", "syllable": "cor·ner", "meaning": "n. 拐角；角落"}
          ]},
 
         # ---- NZ口语/俚语 ----
@@ -300,6 +353,7 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "barbecue", "phonetic": "/ˈbɑːbɪkjuː/", "syllable": "bar·be·cue", "meaning": "n. 烧烤（也缩写为 barbie）"},
              {"word": "weekend", "phonetic": "/ˌwiːkˈend/", "syllable": "week·end", "meaning": "n. 周末"},
+             {"word": "kiwis", "phonetic": "/ˈkiːwiːz/", "syllable": "ki·wis", "meaning": "n. 新西兰人（复数）"}
          ]},
         {"word": "heaps", "phonetic": "/hiːps/", "syllable": "heaps", "pos": "adv./n.",
          "meaning": "很多；大量（口语）",
@@ -309,6 +363,10 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "market", "phonetic": "/ˈmɑːkɪt/", "syllable": "mar·ket", "meaning": "n. 集市；市场"},
              {"word": "heaps of", "phonetic": "/hiːps ɒv/", "syllable": "heaps of", "meaning": "phrase. 大量的（NZ口语）"},
+             {"word": "at", "phonetic": "/æt/", "syllable": "at", "meaning": "prep. 在（此处人名At）"},
+             {"word": "heaps", "phonetic": "/hiːps/", "syllable": "heaps", "meaning": "adv. 大量；很多（NZ口语）"},
+             {"word": "people", "phonetic": "/ˈpiːpl/", "syllable": "peo·ple", "meaning": "n. 人们"},
+             {"word": "today", "phonetic": "/təˈdeɪ/", "syllable": "to·day", "meaning": "n. 今天"}
          ]},
         {"word": "sweet as", "phonetic": "/swiːt æz/", "syllable": "sweet as", "pos": "phrase",
          "meaning": "太好了；没问题（NZ经典口语）",
@@ -318,6 +376,8 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "pick up", "phonetic": "/pɪk ʌp/", "syllable": "pick up", "meaning": "v. 开车来接（短语动词）"},
              {"word": "no worries", "phonetic": "/nəʊ ˈwʌriz/", "syllable": "no wor·ries", "meaning": "phrase. 没问题；不客气（NZ口语）"},
+             {"word": "at", "phonetic": "/æt/", "syllable": "at", "meaning": "prep. 在（此处人名At）"},
+             {"word": "sweet", "phonetic": "/swiːt/", "syllable": "sweet", "meaning": "adj. 太好了；没问题（NZ口语）"}
          ]},
         {"word": "no worries", "phonetic": "/nəʊ ˈwʌriz/", "syllable": "no wor · ries", "pos": "phrase",
          "meaning": "没事；不客气（NZ万能回应）",
@@ -335,6 +395,8 @@ WORD_BANK = {
          "grammar": "感叹语（单词句）：Ta = Thank you 的极简口语形式",
          "sentence_words": [
              {"word": "here's", "phonetic": "/hɪəz/", "syllable": "here's", "meaning": "这是...（Here is 的缩写）"},
+             {"word": "coffee", "phonetic": "/ˈkɒfi/", "syllable": "cof·fee", "meaning": "n. 咖啡"},
+             {"word": "ta", "phonetic": "/tɑː/", "syllable": "ta", "meaning": "interj. 谢了！（口语）"}
          ]},
         {"word": "arvo", "phonetic": "/ɑːˈvəʊ/", "syllable": "ar · vo", "pos": "n.",
          "meaning": "下午（afternoon缩写）",
@@ -343,6 +405,9 @@ WORD_BANK = {
          "grammar": "简短邀请句型：Want to do...?（想做...吗？）省略了主语 Do you",
          "sentence_words": [
              {"word": "grab a coffee", "phonetic": "/ɡræb ə ˈkɒfi/", "syllable": "grab a cof·fee", "meaning": "v. 去喝杯咖啡（口语）"},
+             {"word": "arvo", "phonetic": "/ˈɑːvəʊ/", "syllable": "ar·vo", "meaning": "n. 下午（AU/NZ俚语）"},
+             {"word": "coffee", "phonetic": "/ˈkɒfi/", "syllable": "cof·fee", "meaning": "n. 咖啡"},
+             {"word": "grab", "phonetic": "/ɡræb/", "syllable": "grab", "meaning": "v. 拿；取（口语常用）"}
          ]},
         {"word": "cheers", "phonetic": "/tʃɪəz/", "syllable": "cheers", "pos": "int.",
          "meaning": "谢谢；再见；干杯",
@@ -361,6 +426,7 @@ WORD_BANK = {
          "grammar": "问候句型：How's it going? = How are you?（最近怎样？）口语化问候",
          "sentence_words": [
              {"word": "how's it going", "phonetic": "/haʊz ɪt ˈɡəʊɪŋ/", "syllable": "how's it go·ing", "meaning": "phrase. 最近怎样？（口语问候）"},
+             {"word": "mate", "phonetic": "/meɪt/", "syllable": "mate", "meaning": "n. 伙计；哥们"}
          ]},
         {"word": "brekkie", "phonetic": "/ˈbreki/", "syllable": "brek · kie", "pos": "n.",
          "meaning": "早餐（breakfast缩写）",
@@ -370,6 +436,8 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "making", "phonetic": "/ˈmeɪkɪŋ/", "syllable": "mak·ing", "meaning": "v. 制作；烹饪（现在分词）"},
              {"word": "eggs", "phonetic": "/eɡz/", "syllable": "eggs", "meaning": "n. 鸡蛋（复数）"},
+             {"word": "brekkie", "phonetic": "/ˈbreki/", "syllable": "brek·kie", "meaning": "n. 早餐（AU/NZ俚语）"},
+             {"word": "i'm", "phonetic": "/aɪm/", "syllable": "I'm", "meaning": "abbr. I am 的缩写"}
          ]},
         {"word": "reckon", "phonetic": "/ˈrekən/", "syllable": "reck · on", "pos": "v.",
          "meaning": "觉得；认为（口语）",
@@ -379,6 +447,7 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "it'll", "phonetic": "/ɪtl/", "syllable": "it'll", "meaning": "it will 的缩写，将来时"},
              {"word": "rain", "phonetic": "/reɪn/", "syllable": "rain", "meaning": "v. 下雨；n. 雨"},
+             {"word": "reckon", "phonetic": "/ˈrekən/", "syllable": "reck·on", "meaning": "v. 认为；觉得（口语）"}
          ]},
         {"word": "beaut", "phonetic": "/bjuːt/", "syllable": "beaut", "pos": "n./adj.",
          "meaning": "好东西；太棒了",
@@ -396,6 +465,8 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "concert", "phonetic": "/ˈkɒnsət/", "syllable": "con·cert", "meaning": "n. 音乐会；演唱会"},
              {"word": "next week", "phonetic": "/nekst wiːk/", "syllable": "next week", "meaning": "n. 下周"},
+             {"word": "i'm", "phonetic": "/aɪm/", "syllable": "I'm", "meaning": "abbr. I am 的缩写"},
+             {"word": "stoked", "phonetic": "/stəʊkt/", "syllable": "stoked", "meaning": "adj. 非常兴奋；超开心"}
          ]},
 
         # ---- 日常生活 ----
@@ -425,6 +496,7 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "hired", "phonetic": "/ˈhaɪəd/", "syllable": "hired", "meaning": "v. 租用（过去式）"},
              {"word": "weekend trip", "phonetic": "/ˈwiːkend trɪp/", "syllable": "week·end trip", "meaning": "n. 周末旅行"},
+             {"word": "weekend", "phonetic": "/ˌwiːkˈend/", "syllable": "week·end", "meaning": "n. 周末"}
          ]},
         {"word": "rate", "phonetic": "/reɪt/", "syllable": "rate", "pos": "n.",
          "meaning": "费率；税率（NZ有GST）",
@@ -434,6 +506,7 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "GST", "phonetic": "/ˌdʒiːesˈtiː/", "syllable": "G·S·T", "meaning": "n. 商品服务税（新西兰消费税）"},
              {"word": "percent", "phonetic": "/pəˈsent/", "syllable": "per·cent", "meaning": "n. 百分之..."},
+             {"word": "rate", "phonetic": "/reɪt/", "syllable": "rate", "meaning": "n. 费率；比率"}
          ]},
         {"word": "power", "phonetic": "/ˈpaʊə/", "syllable": "pow · er", "pos": "n.",
          "meaning": "电；电力",
@@ -443,6 +516,7 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "power bill", "phonetic": "/ˈpaʊər bɪl/", "syllable": "pow·er bill", "meaning": "n. 电费账单"},
              {"word": "way higher", "phonetic": "/weɪ ˈhaɪər/", "syllable": "way high·er", "meaning": "phrase. 高多了（way 加强比较级）"},
+             {"word": "higher", "phonetic": "/ˈhaɪər/", "syllable": "high·er", "meaning": "adj. 更高的"}
          ]},
         {"word": "bach", "phonetic": "/bætʃ/", "syllable": "bach", "pos": "n.",
          "meaning": "度假小屋（NZ经典）",
@@ -452,6 +526,7 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "heading to", "phonetic": "/ˈhedɪŋ tuː/", "syllable": "head·ing to", "meaning": "v. 前往；出发去（口语）"},
              {"word": "long weekend", "phonetic": "/lɒŋ ˈwiːkend/", "syllable": "long week·end", "meaning": "n. 长周末（含公假）"},
+             {"word": "weekend", "phonetic": "/ˌwiːkˈend/", "syllable": "week·end", "meaning": "n. 周末"}
          ]},
         {"word": "barbie", "phonetic": "/ˈbɑːbi/", "syllable": "bar · bie", "pos": "n.",
          "meaning": "烧烤（barbecue缩写）",
@@ -461,6 +536,7 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "throw", "phonetic": "/θrəʊ/", "syllable": "throw", "meaning": "v. 扔；放上去（口语）"},
              {"word": "sausages", "phonetic": "/ˈsɒsɪdʒɪz/", "syllable": "sau·sag·es", "meaning": "n. 香肠（复数）"},
+             {"word": "mate", "phonetic": "/meɪt/", "syllable": "mate", "meaning": "n. 伙计；哥们"}
          ]},
         {"word": "jandal", "phonetic": "/ˈdʒændl/", "syllable": "jan · dal", "pos": "n.",
          "meaning": "人字拖（NZ叫法）",
@@ -479,6 +555,8 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "went", "phonetic": "/went/", "syllable": "went", "meaning": "v. 去（go 的过去式）"},
              {"word": "last weekend", "phonetic": "/lɑːst ˈwiːkend/", "syllable": "last week·end", "meaning": "n. 上个周末"},
+             {"word": "tramping", "phonetic": "/ˈtræmpɪŋ/", "syllable": "tramp·ing", "meaning": "n. 徒步旅行（NZ用法）"},
+             {"word": "weekend", "phonetic": "/ˌwiːkˈend/", "syllable": "week·end", "meaning": "n. 周末"}
          ]},
         {"word": "plug", "phonetic": "/plʌɡ/", "syllable": "plug", "pos": "n./v.",
          "meaning": "插头；插上",
@@ -488,6 +566,7 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "adapter", "phonetic": "/əˈdæptər/", "syllable": "a·dap·ter", "meaning": "n. 适配器；转接器"},
              {"word": "power plugs", "phonetic": "/ˈpaʊər plʌɡz/", "syllable": "pow·er plugs", "meaning": "n. 电源插头（复数）"},
+             {"word": "nz", "phonetic": "/ˌen ˈzed/", "syllable": "NZ", "meaning": "n. 新西兰（New Zealand缩写）"}
          ]},
         {"word": "radiator", "phonetic": "/ˈreɪdieɪtə/", "syllable": "ra · di · a · tor", "pos": "n.",
          "meaning": "暖气片",
@@ -497,6 +576,7 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "get cold", "phonetic": "/ɡet kəʊld/", "syllable": "get cold", "meaning": "v. 变冷（get + 形容词，表状态变化）"},
              {"word": "really", "phonetic": "/ˈrɪəli/", "syllable": "re·al·ly", "meaning": "adv. 真的；非常"},
+             {"word": "nz", "phonetic": "/ˌen ˈzed/", "syllable": "NZ", "meaning": "n. 新西兰（New Zealand缩写）"}
          ]},
 
         # ---- 学校/工作 ----
@@ -508,6 +588,7 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "studying", "phonetic": "/ˈstʌdiɪŋ/", "syllable": "stud·y·ing", "meaning": "v. 学习（现在分词）"},
              {"word": "nursing", "phonetic": "/ˈnɜːsɪŋ/", "syllable": "nurs·ing", "meaning": "n. 护理学"},
+             {"word": "at", "phonetic": "/æt/", "syllable": "at", "meaning": "prep. 在（此处人名At）"}
          ]},
         {"word": "NCEA", "phonetic": "/ˈensiːeɪ/", "syllable": "N · C · E · A", "pos": "n.",
          "meaning": "新西兰国家教育证书",
@@ -517,6 +598,9 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "work towards", "phonetic": "/wɜːk təˈwɔːdz/", "syllable": "work to·wards", "meaning": "v. 努力争取；朝...努力"},
              {"word": "levels", "phonetic": "/ˈlevlz/", "syllable": "lev·els", "meaning": "n. 级别；等级（复数）"},
+             {"word": "nz", "phonetic": "/ˌen ˈzed/", "syllable": "NZ", "meaning": "n. 新西兰（New Zealand缩写）"},
+             {"word": "students", "phonetic": "/ˈstjuːdənts/", "syllable": "stu·dents", "meaning": "n. 学生（复数）"},
+             {"word": "work", "phonetic": "/wɜːk/", "syllable": "work", "meaning": "n./v. 工作"}
          ]},
         {"word": "deadline", "phonetic": "/ˈdedlaɪn/", "syllable": "dead · line", "pos": "n.",
          "meaning": "截止日期",
@@ -535,6 +619,7 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "check", "phonetic": "/tʃek/", "syllable": "check", "meaning": "v. 查看；检查"},
              {"word": "working", "phonetic": "/ˈwɜːkɪŋ/", "syllable": "work·ing", "meaning": "v. 工作（现在分词）"},
+             {"word": "i'm", "phonetic": "/aɪm/", "syllable": "I'm", "meaning": "abbr. I am 的缩写"}
          ]},
         {"word": "reference", "phonetic": "/ˈrefrəns/", "syllable": "ref · er · ence", "pos": "n.",
          "meaning": "推荐信；推荐人",
@@ -544,6 +629,8 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "employers", "phonetic": "/ɪmˈplɔɪəz/", "syllable": "em·ploy·ers", "meaning": "n. 雇主（复数）"},
              {"word": "at least", "phonetic": "/æt liːst/", "syllable": "at least", "meaning": "adv. 至少"},
+             {"word": "at", "phonetic": "/æt/", "syllable": "at", "meaning": "prep. 在（此处人名At）"},
+             {"word": "least", "phonetic": "/liːst/", "syllable": "least", "meaning": "n./adj. 最少；最小的"}
          ]},
 
         # ---- 银行/政府 ----
@@ -563,6 +650,7 @@ WORD_BANK = {
          "grammar": "need + 名词 + 不定式：need sth. to do，表示为了做某事需要某物",
          "sentence_words": [
              {"word": "start working", "phonetic": "/stɑːt ˈwɜːkɪŋ/", "syllable": "start work·ing", "meaning": "v. 开始工作（start + 动名词）"},
+             {"word": "working", "phonetic": "/ˈwɜːkɪŋ/", "syllable": "work·ing", "meaning": "v. 工作（现在分词/动名词）"}
          ]},
         {"word": "WINZ", "phonetic": "/wɪnz/", "syllable": "WINZ", "pos": "n.",
          "meaning": "工作收入局（社会福利）",
@@ -583,6 +671,8 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "work visa", "phonetic": "/wɜːk ˈviːzə/", "syllable": "work vi·sa", "meaning": "n. 工作签证"},
              {"word": "job offer", "phonetic": "/dʒɒb ˈɒfər/", "syllable": "job of·fer", "meaning": "n. 工作邀请；录用通知"},
+             {"word": "visa", "phonetic": "/ˈviːzə/", "syllable": "vi·sa", "meaning": "n. 签证"},
+             {"word": "work", "phonetic": "/wɜːk/", "syllable": "work", "meaning": "n./v. 工作"}
          ]},
         {"word": "infrastructure", "phonetic": "/ˈɪnfrəstrʌktʃə/", "syllable": "in · fra · struc · ture", "pos": "n.",
          "meaning": "基础设施",
@@ -592,6 +682,7 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "investing", "phonetic": "/ɪnˈvestɪŋ/", "syllable": "in·vest·ing", "meaning": "v. 投资（现在分词）"},
              {"word": "public transport", "phonetic": "/ˈpʌblɪk ˈtrænspɔːt/", "syllable": "pub·lic trans·port", "meaning": "n. 公共交通"},
+             {"word": "auckland", "phonetic": "/ˈɔːklənd/", "syllable": "Auck·land", "meaning": "n. 奥克兰（新西兰最大城市）"}
          ]},
         {"word": "sustainability", "phonetic": "/səˌsteɪnəˈbɪləti/", "syllable": "sus · tain · a · bil · i · ty", "pos": "n.",
          "meaning": "可持续性",
@@ -601,6 +692,9 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "policies", "phonetic": "/ˈpɒlɪsiz/", "syllable": "pol·i·cies", "meaning": "n. 政策（复数）"},
              {"word": "focused on", "phonetic": "/ˈfəʊkəst ɒn/", "syllable": "fo·cused on", "meaning": "adj. 专注于；以...为重点（过去分词作后置定语）"},
+             {"word": "focused", "phonetic": "/ˈfəʊkəst/", "syllable": "fo·cused", "meaning": "adj. 专注的；聚焦于"},
+             {"word": "nz", "phonetic": "/ˌen ˈzed/", "syllable": "NZ", "meaning": "n. 新西兰（New Zealand缩写）"},
+             {"word": "sustainability", "phonetic": "/səˌsteɪnəˈbɪləti/", "syllable": "sus·tain·a·bil·i·ty", "meaning": "n. 可持续性"}
          ]},
         {"word": "acknowledge", "phonetic": "/əkˈnɒlɪdʒ/", "syllable": "ac · knowl · edge", "pos": "v.",
          "meaning": "承认；致谢",
@@ -610,6 +704,7 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "cultural", "phonetic": "/ˈkʌltʃərəl/", "syllable": "cul·tur·al", "meaning": "adj. 文化的；文化上的"},
              {"word": "perspectives", "phonetic": "/pəˈspektɪvz/", "syllable": "per·spec·tives", "meaning": "n. 观点；视角（复数）"},
+             {"word": "acknowledge", "phonetic": "/əkˈnɒlɪdʒ/", "syllable": "ac·know·ledge", "meaning": "v. 承认；认可"}
          ]},
         {"word": "migrate", "phonetic": "/maɪˈɡreɪt/", "syllable": "mi · grate", "pos": "v.",
          "meaning": "移民；迁徙",
@@ -619,6 +714,10 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "families", "phonetic": "/ˈfæmɪliz/", "syllable": "fam·i·lies", "meaning": "n. 家庭（复数）"},
              {"word": "better education", "phonetic": "/ˈbetər ˌedʒuˈkeɪʃn/", "syllable": "bet·ter ed·u·ca·tion", "meaning": "n. 更好的教育（比较级+名词）"},
+             {"word": "better", "phonetic": "/ˈbetər/", "syllable": "bet·ter", "meaning": "adj./adv. 更好的"},
+             {"word": "education", "phonetic": "/ˌedʒuˈkeɪʃn/", "syllable": "ed·u·ca·tion", "meaning": "n. 教育"},
+             {"word": "migrate", "phonetic": "/maɪˈɡreɪt/", "syllable": "mi·grate", "meaning": "v. 移居；迁移"},
+             {"word": "nz", "phonetic": "/ˌen ˈzed/", "syllable": "NZ", "meaning": "n. 新西兰（New Zealand缩写）"}
          ]},
         {"word": "adapt", "phonetic": "/əˈdæpt/", "syllable": "a · dapt", "pos": "v.",
          "meaning": "适应；调整",
@@ -628,6 +727,9 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "took", "phonetic": "/tʊk/", "syllable": "took", "meaning": "v. 花（take 的过去式）"},
              {"word": "way of life", "phonetic": "/weɪ əv laɪf/", "syllable": "way of life", "meaning": "n. 生活方式（固定搭配）"},
+             {"word": "adapt", "phonetic": "/əˈdæpt/", "syllable": "a·dapt", "meaning": "v. 适应"},
+             {"word": "months", "phonetic": "/mʌnθs/", "syllable": "months", "meaning": "n. 月（复数）"},
+             {"word": "nz", "phonetic": "/ˌen ˈzed/", "syllable": "NZ", "meaning": "n. 新西兰（New Zealand缩写）"}
          ]},
         {"word": "resident", "phonetic": "/ˈrezɪdənt/", "syllable": "res · i · dent", "pos": "n./adj.",
          "meaning": "居民；居住的",
@@ -638,6 +740,9 @@ WORD_BANK = {
              {"word": "permanent", "phonetic": "/ˈpɜːmənənt/", "syllable": "per·ma·nent", "meaning": "adj. 永久的；长期的"},
              {"word": "vote", "phonetic": "/vəʊt/", "syllable": "vote", "meaning": "v. 投票；参选"},
              {"word": "local elections", "phonetic": "/ˈləʊkl ɪˈlekʃnz/", "syllable": "lo·cal e·lec·tions", "meaning": "n. 地方选举"},
+             {"word": "elections", "phonetic": "/ɪˈlekʃnz/", "syllable": "e·lec·tions", "meaning": "n. 选举（复数）"},
+             {"word": "local", "phonetic": "/ˈləʊkl/", "syllable": "lo·cal", "meaning": "adj. 当地的"},
+             {"word": "residents", "phonetic": "/ˈrezɪdənts/", "syllable": "res·i·dents", "meaning": "n. 居民（复数）"}
          ]},
         {"word": "income", "phonetic": "/ˈɪnkʌm/", "syllable": "in · come", "pos": "n.",
          "meaning": "收入",
@@ -648,6 +753,8 @@ WORD_BANK = {
              {"word": "declare", "phonetic": "/dɪˈkleər/", "syllable": "de·clare", "meaning": "v. 申报；声明"},
              {"word": "filing", "phonetic": "/ˈfaɪlɪŋ/", "syllable": "fil·ing", "meaning": "v. 提交；申报（动名词）"},
              {"word": "tax return", "phonetic": "/tæks rɪˈtɜːn/", "syllable": "tax re·turn", "meaning": "n. 报税表；税务申报"},
+             {"word": "income", "phonetic": "/ˈɪnkʌm/", "syllable": "in·come", "meaning": "n. 收入"},
+             {"word": "tax", "phonetic": "/tæks/", "syllable": "tax", "meaning": "n. 税"}
          ]},
         {"word": "opportunity", "phonetic": "/ˌɒpəˈtjuːnəti/", "syllable": "op · por · tu · ni · ty", "pos": "n.",
          "meaning": "机会",
@@ -657,6 +764,10 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "studying abroad", "phonetic": "/ˈstʌdiɪŋ əˈbrɔːd/", "syllable": "stud·y·ing a·broad", "meaning": "v. 出国留学（动名词短语）"},
              {"word": "great", "phonetic": "/ɡreɪt/", "syllable": "great", "meaning": "adj. 很好的；巨大的"},
+             {"word": "abroad", "phonetic": "/əˈbrɔːd/", "syllable": "a·broad", "meaning": "adv. 在国外"},
+             {"word": "gives", "phonetic": "/ɡɪvz/", "syllable": "gives", "meaning": "v. 给（第三人称单数）"},
+             {"word": "opportunities", "phonetic": "/ˌɒpəˈtjuːnɪtiz/", "syllable": "op·por·tu·ni·ties", "meaning": "n. 机会（复数）"},
+             {"word": "studying", "phonetic": "/ˈstʌdiɪŋ/", "syllable": "stud·y·ing", "meaning": "v. 学习（现在分词）"}
          ]},
         {"word": "previous", "phonetic": "/ˈpriːviəs/", "syllable": "pre · vi · ous", "pos": "adj.",
          "meaning": "以前的；先前的",
@@ -665,6 +776,7 @@ WORD_BANK = {
          "grammar": "一般过去时疑问句：What was...? 询问过去的信息",
          "sentence_words": [
              {"word": "address", "phonetic": "/əˈdres/", "syllable": "ad·dress", "meaning": "n. 地址"},
+             {"word": "previous", "phonetic": "/ˈpriːviəs/", "syllable": "pre·vi·ous", "meaning": "adj. 以前的；之前的"}
          ]},
         {"word": "accommodation", "phonetic": "/əˌkɒməˈdeɪʃn/", "syllable": "ac · com · mo · da · tion", "pos": "n.",
          "meaning": "住宿；住处",
@@ -674,6 +786,9 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "affordable", "phonetic": "/əˈfɔːdəbl/", "syllable": "af·ford·a·ble", "meaning": "adj. 负担得起的；价格合理的"},
              {"word": "quite", "phonetic": "/kwaɪt/", "syllable": "quite", "meaning": "adv. 相当；非常"},
+             {"word": "accommodation", "phonetic": "/əˌkɒməˈdeɪʃn/", "syllable": "ac·com·mo·da·tion", "meaning": "n. 住宿"},
+             {"word": "auckland", "phonetic": "/ˈɔːklənd/", "syllable": "Auck·land", "meaning": "n. 奥克兰（新西兰最大城市）"},
+             {"word": "finding", "phonetic": "/ˈfaɪndɪŋ/", "syllable": "find·ing", "meaning": "v. 找到（现在分词）"}
          ]},
         {"word": "settle", "phonetic": "/ˈsetl/", "syllable": "set · tle", "pos": "v.",
          "meaning": "安顿；定居",
@@ -683,6 +798,8 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "takes time", "phonetic": "/teɪks taɪm/", "syllable": "takes time", "meaning": "v. 需要时间（固定搭配）"},
              {"word": "settle into", "phonetic": "/ˈsetl ˈɪntuː/", "syllable": "set·tle in·to", "meaning": "v. 融入；安顿下来（短语动词）"},
+             {"word": "settle", "phonetic": "/ˈsetl/", "syllable": "set·tle", "meaning": "v. 安顿；定居"},
+             {"word": "takes", "phonetic": "/teɪks/", "syllable": "takes", "meaning": "v. 花费（第三人称单数）"}
          ]},
         {"word": "certificate", "phonetic": "/səˈtɪfɪkət/", "syllable": "cer · ti · fi · cate", "pos": "n.",
          "meaning": "证书；证明",
@@ -692,6 +809,10 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "police certificate", "phonetic": "/pəˈliːs səˈtɪfɪkət/", "syllable": "po·lice cer·tif·i·cate", "meaning": "n. 无犯罪记录证明"},
              {"word": "visa application", "phonetic": "/ˈviːzə ˌæplɪˈkeɪʃn/", "syllable": "vi·sa ap·pli·ca·tion", "meaning": "n. 签证申请"},
+             {"word": "application", "phonetic": "/ˌæplɪˈkeɪʃn/", "syllable": "ap·pli·ca·tion", "meaning": "n. 申请"},
+             {"word": "certificate", "phonetic": "/sərˈtɪfɪkət/", "syllable": "cer·tif·i·cate", "meaning": "n. 证书"},
+             {"word": "police", "phonetic": "/pəˈliːs/", "syllable": "po·lice", "meaning": "n. 警察"},
+             {"word": "visa", "phonetic": "/ˈviːzə/", "syllable": "vi·sa", "meaning": "n. 签证"}
          ]},
         {"word": "fluent", "phonetic": "/ˈfluːənt/", "syllable": "flu · ent", "pos": "adj.",
          "meaning": "流利的",
@@ -701,6 +822,9 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "fluent in", "phonetic": "/ˈfluːənt ɪn/", "syllable": "flu·ent in", "meaning": "adj. 精通；流利（固定搭配）"},
              {"word": "Mandarin", "phonetic": "/ˈmændərɪn/", "syllable": "Man·da·rin", "meaning": "n. 普通话；官话"},
+             {"word": "both", "phonetic": "/bəʊθ/", "syllable": "both", "meaning": "pron./adj. 两者都"},
+             {"word": "english", "phonetic": "/ˈɪŋɡlɪʃ/", "syllable": "Eng·lish", "meaning": "n. 英语"},
+             {"word": "fluent", "phonetic": "/ˈfluːənt/", "syllable": "flu·ent", "meaning": "adj. 流利的"}
          ]},
         {"word": "diverse", "phonetic": "/daɪˈvɜːs/", "syllable": "di · verse", "pos": "adj.",
          "meaning": "多元的；多样化的",
@@ -710,6 +834,9 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "society", "phonetic": "/səˈsaɪəti/", "syllable": "so·ci·e·ty", "meaning": "n. 社会"},
              {"word": "cultures", "phonetic": "/ˈkʌltʃəz/", "syllable": "cul·tures", "meaning": "n. 文化（复数）"},
+             {"word": "diverse", "phonetic": "/daɪˈvɜːs/", "syllable": "di·verse", "meaning": "adj. 多样的；多元化的"},
+             {"word": "nz", "phonetic": "/ˌen ˈzed/", "syllable": "NZ", "meaning": "n. 新西兰（New Zealand缩写）"},
+             {"word": "people", "phonetic": "/ˈpiːpl/", "syllable": "peo·ple", "meaning": "n. 人们"}
          ]},
         {"word": "contribute", "phonetic": "/kənˈtrɪbjuːt/", "syllable": "con · trib · ute", "pos": "v.",
          "meaning": "贡献；捐助",
@@ -719,6 +846,8 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "volunteering", "phonetic": "/ˌvɒlənˈtɪərɪŋ/", "syllable": "vol·un·teer·ing", "meaning": "v. 做志愿者（动名词）"},
              {"word": "community", "phonetic": "/kəˈmjuːnəti/", "syllable": "com·mu·ni·ty", "meaning": "n. 社区；团体"},
+             {"word": "contribute", "phonetic": "/kənˈtrɪbjuːt/", "syllable": "con·trib·ute", "meaning": "v. 贡献；做贡献"},
+             {"word": "great", "phonetic": "/ɡreɪt/", "syllable": "great", "meaning": "adj. 很好的；很棒的"}
          ]},
         {"word": "require", "phonetic": "/rɪˈkwaɪə/", "syllable": "re · quire", "pos": "v.",
          "meaning": "需要；要求",
@@ -728,6 +857,11 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "supporting documents", "phonetic": "/səˈpɔːtɪŋ ˈdɒkjuménts/", "syllable": "sup·port·ing doc·u·ments", "meaning": "n. 支持性文件；证明材料"},
              {"word": "several", "phonetic": "/ˈsevrəl/", "syllable": "sev·er·al", "meaning": "adj. 几个；若干"},
+             {"word": "application", "phonetic": "/ˌæplɪˈkeɪʃn/", "syllable": "ap·pli·ca·tion", "meaning": "n. 申请"},
+             {"word": "documents", "phonetic": "/ˈdɒkjumənts/", "syllable": "doc·u·ments", "meaning": "n. 文件（复数）"},
+             {"word": "requires", "phonetic": "/rɪˈkwaɪəz/", "syllable": "re·quires", "meaning": "v. 要求（第三人称单数）"},
+             {"word": "supporting", "phonetic": "/səˈpɔːtɪŋ/", "syllable": "sup·port·ing", "meaning": "adj. 支持的；辅助的"},
+             {"word": "visa", "phonetic": "/ˈviːzə/", "syllable": "vi·sa", "meaning": "n. 签证"}
          ]},
         {"word": "temporary", "phonetic": "/ˈtemprəri/", "syllable": "tem · po · ra · ry", "pos": "adj.",
          "meaning": "临时的；暂时的",
@@ -737,6 +871,10 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "on a visa", "phonetic": "/ɒn ə ˈviːzə/", "syllable": "on a vi·sa", "meaning": "phrase. 持有签证（固定搭配）"},
              {"word": "right now", "phonetic": "/raɪt naʊ/", "syllable": "right now", "meaning": "adv. 现在；此刻（口语）"},
+             {"word": "i'm", "phonetic": "/aɪm/", "syllable": "I'm", "meaning": "abbr. I am 的缩写"},
+             {"word": "temporary", "phonetic": "/ˈtemprəri/", "syllable": "tem·po·rary", "meaning": "adj. 临时的"},
+             {"word": "visa", "phonetic": "/ˈviːzə/", "syllable": "vi·sa", "meaning": "n. 签证"},
+             {"word": "work", "phonetic": "/wɜːk/", "syllable": "work", "meaning": "n./v. 工作"}
          ]},
         {"word": "minimum", "phonetic": "/ˈmɪnɪməm/", "syllable": "min · i · mum", "pos": "n./adj.",
          "meaning": "最低限度；最低的",
@@ -746,6 +884,10 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "wage", "phonetic": "/weɪdʒ/", "syllable": "wage", "meaning": "n. 工资；薪酬"},
              {"word": "reviewed", "phonetic": "/rɪˈvjuːd/", "syllable": "re·viewed", "meaning": "v. 审查；审核（被动语态）"},
+             {"word": "every", "phonetic": "/ˈevri/", "syllable": "ev·ery", "meaning": "adj. 每一（个）"},
+             {"word": "minimum", "phonetic": "/ˈmɪnɪməm/", "syllable": "min·i·mum", "meaning": "adj. 最低的；最小的"},
+             {"word": "nz", "phonetic": "/ˌen ˈzed/", "syllable": "NZ", "meaning": "n. 新西兰（New Zealand缩写）"},
+             {"word": "year", "phonetic": "/jɪər/", "syllable": "year", "meaning": "n. 年"}
          ]},
         {"word": "essential", "phonetic": "/ɪˈsenʃl/", "syllable": "es · sen · tial", "pos": "adj.",
          "meaning": "必不可少的；核心的",
@@ -755,6 +897,10 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "for working in", "phonetic": "/fɔː ˈwɜːkɪŋ ɪn/", "syllable": "for work·ing in", "meaning": "prep. 对于在...工作（for + 动名词）"},
              {"word": "companies", "phonetic": "/ˈkʌmpəniz/", "syllable": "com·pa·nies", "meaning": "n. 公司（复数）"},
+             {"word": "english", "phonetic": "/ˈɪŋɡlɪʃ/", "syllable": "Eng·lish", "meaning": "n. 英语"},
+             {"word": "essential", "phonetic": "/ɪˈsenʃl/", "syllable": "es·sen·tial", "meaning": "adj. 必要的；必不可少的"},
+             {"word": "nz", "phonetic": "/ˌen ˈzed/", "syllable": "NZ", "meaning": "n. 新西兰（New Zealand缩写）"},
+             {"word": "working", "phonetic": "/ˈwɜːkɪŋ/", "syllable": "work·ing", "meaning": "v. 工作（现在分词/动名词）"}
          ]},
         {"word": "application", "phonetic": "/ˌæplɪˈkeɪʃn/", "syllable": "ap · pli · ca · tion", "pos": "n.",
          "meaning": "申请；申请表",
@@ -764,6 +910,12 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "submit", "phonetic": "/səbˈmɪt/", "syllable": "sub·mit", "meaning": "v. 提交；递交"},
              {"word": "in advance", "phonetic": "/ɪn ədˈvɑːns/", "syllable": "in ad·vance", "meaning": "adv. 提前；预先（固定搭配）"},
+             {"word": "advance", "phonetic": "/ədˈvɑːns/", "syllable": "ad·vance", "meaning": "n./adv. 提前"},
+             {"word": "application", "phonetic": "/ˌæplɪˈkeɪʃn/", "syllable": "ap·pli·ca·tion", "meaning": "n. 申请"},
+             {"word": "at", "phonetic": "/æt/", "syllable": "at", "meaning": "prep. 在（此处人名At）"},
+             {"word": "least", "phonetic": "/liːst/", "syllable": "least", "meaning": "n./adj. 最少；最小的"},
+             {"word": "months", "phonetic": "/mʌnθs/", "syllable": "months", "meaning": "n. 月（复数）"},
+             {"word": "visa", "phonetic": "/ˈviːzə/", "syllable": "vi·sa", "meaning": "n. 签证"}
          ]},
         {"word": "duration", "phonetic": "/djʊˈreɪʃn/", "syllable": "du · ra · tion", "pos": "n.",
          "meaning": "持续时间；期限",
@@ -773,6 +925,7 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "course", "phonetic": "/kɔːs/", "syllable": "course", "meaning": "n. 课程"},
              {"word": "semesters", "phonetic": "/sɪˈmestəz/", "syllable": "se·mes·ters", "meaning": "n. 学期（复数，一年两学期）"},
+             {"word": "duration", "phonetic": "/djʊˈreɪʃn/", "syllable": "du·ra·tion", "meaning": "n. 期间；持续时间"}
          ]},
         {"word": "approximately", "phonetic": "/əˈprɒksɪmətli/", "syllable": "ap · prox · i · mate · ly", "pos": "adv.",
          "meaning": "大约；大概",
@@ -781,6 +934,9 @@ WORD_BANK = {
          "grammar": "主系表结构：The...time is + 副词 + 数量，用副词 approximately 修饰",
          "sentence_words": [
              {"word": "processing time", "phonetic": "/ˈprəʊsesɪŋ taɪm/", "syllable": "pro·cess·ing time", "meaning": "n. 处理时间；审批时间"},
+             {"word": "approximately", "phonetic": "/əˈprɒksɪmətli/", "syllable": "ap·prox·i·mate·ly", "meaning": "adv. 大约；约"},
+             {"word": "processing", "phonetic": "/ˈprəʊsesɪŋ/", "syllable": "pro·cess·ing", "meaning": "n./v. 处理；审核"},
+             {"word": "weeks", "phonetic": "/wiːks/", "syllable": "weeks", "meaning": "n. 周（复数）"}
          ]},
         {"word": "recommend", "phonetic": "/ˌrekəˈmend/", "syllable": "re · com · mend", "pos": "v.",
          "meaning": "推荐；建议",
@@ -791,6 +947,9 @@ WORD_BANK = {
              {"word": "highly", "phonetic": "/ˈhaɪli/", "syllable": "high·ly", "meaning": "adv. 高度；强烈地"},
              {"word": "Italian", "phonetic": "/ɪˈtæliən/", "syllable": "I·tal·ian", "meaning": "adj. 意大利的；n. 意大利人"},
              {"word": "restaurant", "phonetic": "/ˈrestrɒnt/", "syllable": "res·tau·rant", "meaning": "n. 餐厅；饭店"},
+             {"word": "queen", "phonetic": "/kwiːn/", "syllable": "Queen", "meaning": "n. 女王（此处为街名）"},
+             {"word": "recommend", "phonetic": "/ˌrekəˈmend/", "syllable": "rec·om·mend", "meaning": "v. 推荐"},
+             {"word": "street", "phonetic": "/striːt/", "syllable": "street", "meaning": "n. 街道"}
          ]},
         {"word": "enrol", "phonetic": "/ɪnˈrəʊl/", "syllable": "en · rol", "pos": "v.",
          "meaning": "注册；报名",
@@ -800,6 +959,7 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "semester", "phonetic": "/sɪˈmestər/", "syllable": "se·mes·ter", "meaning": "n. 学期"},
              {"word": "starts", "phonetic": "/stɑːts/", "syllable": "starts", "meaning": "v. 开始（第三人称单数）"},
+             {"word": "enrol", "phonetic": "/ɪnˈrəʊl/", "syllable": "en·rol", "meaning": "v. 注册；报名"}
          ]},
         {"word": "tuition", "phonetic": "/tjuˈɪʃn/", "syllable": "tu · i · tion", "pos": "n.",
          "meaning": "学费",
@@ -809,6 +969,11 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "international students", "phonetic": "/ˌɪntəˈnæʃnəl ˈstjuːdənts/", "syllable": "in·ter·na·tion·al stu·dents", "meaning": "n. 国际学生（复数）"},
              {"word": "locals", "phonetic": "/ˈləʊkəlz/", "syllable": "lo·cals", "meaning": "n. 本地人（复数口语）"},
+             {"word": "fees", "phonetic": "/fiːz/", "syllable": "fees", "meaning": "n. 费用（复数）"},
+             {"word": "higher", "phonetic": "/ˈhaɪər/", "syllable": "high·er", "meaning": "adj. 更高的"},
+             {"word": "international", "phonetic": "/ˌɪntəˈnæʃənl/", "syllable": "in·ter·na·tion·al", "meaning": "adj. 国际的"},
+             {"word": "students", "phonetic": "/ˈstjuːdənts/", "syllable": "stu·dents", "meaning": "n. 学生（复数）"},
+             {"word": "tuition", "phonetic": "/tjuˈɪʃn/", "syllable": "tu·i·tion", "meaning": "n. 学费"}
          ]},
         {"word": "community", "phonetic": "/kəˈmjuːnəti/", "syllable": "com · mu · ni · ty", "pos": "n.",
          "meaning": "社区",
@@ -819,6 +984,11 @@ WORD_BANK = {
              {"word": "getting involved", "phonetic": "/ˈɡetɪŋ ɪnˈvɒlvd/", "syllable": "get·ting in·volved", "meaning": "v. 参与；融入（动名词短语）"},
              {"word": "settle in", "phonetic": "/ˈsetl ɪn/", "syllable": "set·tle in", "meaning": "v. 安顿下来；适应（短语动词）"},
              {"word": "faster", "phonetic": "/ˈfɑːstər/", "syllable": "fast·er", "meaning": "adv. 更快（比较级）"},
+             {"word": "community", "phonetic": "/kəˈmjuːnɪti/", "syllable": "com·mu·ni·ty", "meaning": "n. 社区"},
+             {"word": "helps", "phonetic": "/helps/", "syllable": "helps", "meaning": "v. 帮助（第三人称单数）"},
+             {"word": "involved", "phonetic": "/ɪnˈvɒlvd/", "syllable": "in·volved", "meaning": "adj. 参与的"},
+             {"word": "local", "phonetic": "/ˈləʊkl/", "syllable": "lo·cal", "meaning": "adj. 当地的"},
+             {"word": "settle", "phonetic": "/ˈsetl/", "syllable": "set·tle", "meaning": "v. 安顿；定居"}
          ]},
     ],
 }
@@ -923,9 +1093,9 @@ DIALOGUES = [
             ("B", "I need your advice on something...", "我需要你帮我出出主意..."),
         ],
         "expressions": [
-            {"en": "Fancy seeing you here!", "phonetic": "/ˈfænsi ˈsiːɪŋ juː hɪər/", "syllable": "Fan·cy see·ing you here", "cn": "真巧在这儿碰到你！（惊喜偶遇）"},
-            {"en": "Mind if I join you?", "phonetic": "/maɪnd ɪf aɪ dʒɔɪn juː/", "syllable": "Mind if I join you?", "cn": "介意我一起吗？（礼貌询问）"},
-            {"en": "I ran into you", "phonetic": "/aɪ ræn ˈɪntuː juː/", "syllable": "I ran in·to you", "cn": "我碰到你了（run into = 偶遇）"},
+            {"en": "Fancy seeing you here!", "phonetic": "/ˈfænsi ˈsiːɪŋ juː hɪər/", "syllable": "Fan·cy see·ing you here", "cn": "真巧在这儿碰到你！（惊喜偶遇）", "grammar": "Fancy + doing sth = 没想到会做某事（英式口语常用）"},
+            {"en": "Mind if I join you?", "phonetic": "/maɪnd ɪf aɪ dʒɔɪn juː/", "syllable": "Mind if I join you?", "cn": "介意我一起吗？（礼貌询问）", "grammar": "Mind if + 从句 = 介意吗？（= Do you mind if...的省略）"},
+            {"en": "I ran into you", "phonetic": "/aɪ ræn ˈɪntuː juː/", "syllable": "I ran in·to you", "cn": "我碰到你了（run into = 偶遇）", "grammar": "run into sb = 偶然遇到某人（run的过去式是ran）"},
         ]
     },
     {
@@ -939,9 +1109,9 @@ DIALOGUES = [
             ("B", "No way, let's go Dutch.", "不行，我们AA吧。"),
         ],
         "expressions": [
-            {"en": "Wanna grab a bite?", "phonetic": "/ˈwɒnə ɡræb ə baɪt/", "syllable": "Wan·na grab a bite?", "cn": "去吃点东西？（Wanna = Want to，bite = 一口食物）"},
-            {"en": "What are you in the mood for?", "phonetic": "/wɒt ɑː juː ɪn ðə muːd fɔː/", "syllable": "What are you in the mood for?", "cn": "你想吃什么？/你想干嘛？（in the mood for）"},
-            {"en": "go Dutch", "phonetic": "/ɡəʊ dʌtʃ/", "syllable": "go Dutch", "cn": "AA制（各自付账）"},
+            {"en": "Wanna grab a bite?", "phonetic": "/ˈwɒnə ɡræb ə baɪt/", "syllable": "Wan·na grab a bite?", "cn": "去吃点东西？（Wanna = Want to，bite = 一口食物）", "grammar": "Wanna = Want to 的口语缩写，grab a bite = 随便吃点"},
+            {"en": "What are you in the mood for?", "phonetic": "/wɒt ɑː juː ɪn ðə muːd fɔː/", "syllable": "What are you in the mood for?", "cn": "你想吃什么？/你想干嘛？（in the mood for）", "grammar": "be in the mood for sth = 有心情做某事"},
+            {"en": "go Dutch", "phonetic": "/ɡəʊ dʌtʃ/", "syllable": "go Dutch", "cn": "AA制（各自付账）", "grammar": "go Dutch = 各自付账（固定搭配，Dutch首字母大写）"},
         ]
     },
     {
@@ -955,9 +1125,9 @@ DIALOGUES = [
             ("B", "Okay okay, I'm getting up now...", "好好好，我现在就去..."),
         ],
         "expressions": [
-            {"en": "My bad!", "phonetic": "/maɪ bæd/", "syllable": "My bad!", "cn": "我的错！（口语化道歉）"},
-            {"en": "right after", "phonetic": "/raɪt ˈɑːftər/", "syllable": "right af·ter", "cn": "……之后马上（表示立即行动）"},
-            {"en": "You said that yesterday.", "phonetic": "/juː sed ðæt ˈjestədeɪ/", "syllable": "You said that yes·ter·day.", "cn": "你昨天也是这么说的。（吐槽专用）"},
+            {"en": "My bad!", "phonetic": "/maɪ bæd/", "syllable": "My bad!", "cn": "我的错！（口语化道歉）", "grammar": "My bad = 我的错（非正式口语，= My fault）"},
+            {"en": "right after", "phonetic": "/raɪt ˈɑːftər/", "syllable": "right af·ter", "cn": "……之后马上（表示立即行动）", "grammar": "right after = ...之后马上（right加强语气）"},
+            {"en": "You said that yesterday.", "phonetic": "/juː sed ðæt ˈjestədeɪ/", "syllable": "You said that yes·ter·day.", "cn": "你昨天也是这么说的。（吐槽专用）", "grammar": "过去时：said（say的过去式）；吐槽对方食言常用句"},
         ]
     },
     {
@@ -971,9 +1141,9 @@ DIALOGUES = [
             ("B", "Next time you should come with us!", "下次你跟我们一起去吧！"),
         ],
         "expressions": [
-            {"en": "Pretty good!", "phonetic": "/ˈprɪti ɡʊd/", "syllable": "Pret·ty good!", "cn": "挺好的！（比Just good更热情的回应）"},
-            {"en": "I need to get out more.", "phonetic": "/aɪ niːd tə ɡet aʊt mɔː/", "syllable": "I need to get out more.", "cn": "我得出去多走走/多社交。（常用自嘲）"},
-            {"en": "You should come with us!", "phonetic": "/juː ʃʊd kʌm wɪð ʌs/", "syllable": "You should come with us!", "cn": "你应该跟我们一起去！（热情邀请）"},
+            {"en": "Pretty good!", "phonetic": "/ˈprɪti ɡʊd/", "syllable": "Pret·ty good!", "cn": "挺好的！（比Just good更热情的回应）", "grammar": "pretty = 相当/挺（副词修饰形容词）"},
+            {"en": "I need to get out more.", "phonetic": "/aɪ niːd tə ɡet aʊt mɔː/", "syllable": "I need to get out more.", "cn": "我得出去多走走/多社交。（常用自嘲）", "grammar": "need to do sth = 需要做某事；get out = 出去（反义：stay in 宅家）"},
+            {"en": "You should come with us!", "phonetic": "/juː ʃʊd kʌm wɪð ʌs/", "syllable": "You should come with us!", "cn": "你应该跟我们一起去！（热情邀请）", "grammar": "should + 动词原形 = 应该...（表示建议）"},
         ]
     },
     {
@@ -987,9 +1157,9 @@ DIALOGUES = [
             ("B", "You should check out the farmer's market on Sunday. It's great.", "你应该去看看周日的农贸市场，非常好。"),
         ],
         "expressions": [
-            {"en": "Long time no see!", "phonetic": "/lɒŋ taɪm nəʊ siː/", "syllable": "Long time no see!", "cn": "好久不见！（经典口语问候）"},
-            {"en": "How have you been?", "phonetic": "/haʊ hæv juː biːn/", "syllable": "How have you been?", "cn": "你最近怎么样？（比How are you更关注对方状态）"},
-            {"en": "You should check out...", "phonetic": "/juː ʃʊd tʃek aʊt/", "syllable": "You should check out...", "cn": "你应该去看看/试试……（推荐用句）"},
+            {"en": "Long time no see!", "phonetic": "/lɒŋ taɪm nəʊ siː/", "syllable": "Long time no see!", "cn": "好久不见！（经典口语问候）", "grammar": "中式英语来源的口语，现已被英语世界广泛使用"},
+            {"en": "How have you been?", "phonetic": "/haʊ hæv juː biːn/", "syllable": "How have you been?", "cn": "你最近怎么样？（比How are you更关注对方状态）", "grammar": "现在完成时：have been = 一直以来的状态"},
+            {"en": "You should check out...", "phonetic": "/juː ʃʊd tʃek aʊt/", "syllable": "You should check out...", "cn": "你应该去看看/试试……（推荐用句）", "grammar": "check out = 去看看/去体验（phrasal verb）"},
         ]
     },
     {
@@ -1003,9 +1173,9 @@ DIALOGUES = [
             ("B", "Sounds good! Let's meet at the cinema at 2:45.", "听起来不错！2点45在电影院见。"),
         ],
         "expressions": [
-            {"en": "Are you free this Saturday?", "phonetic": "/ɑː juː friː ðɪs ˈsætədeɪ/", "syllable": "Are you free this Sat·ur·day?", "cn": "这周六有空吗？（约人必备句型）"},
-            {"en": "What's on?", "phonetic": "/wɒts ɒn/", "syllable": "What's on?", "cn": "有什么在上映？/有什么活动？（万能问句）"},
-            {"en": "Sounds good!", "phonetic": "/saʊndz ɡʊd/", "syllable": "Sounds good!", "cn": "听起来不错！（轻松同意）"},
+            {"en": "Are you free this Saturday?", "phonetic": "/ɑː juː friː ðɪs ˈsætədeɪ/", "syllable": "Are you free this Sat·ur·day?", "cn": "这周六有空吗？（约人必备句型）", "grammar": "一般疑问句：Are you + 形容词?（free = 有空的）"},
+            {"en": "What's on?", "phonetic": "/wɒts ɒn/", "syllable": "What's on?", "cn": "有什么在上映？/有什么活动？（万能问句）", "grammar": "What's on? = 有什么（电影/活动）？（on = 在上映/在进行）"},
+            {"en": "Sounds good!", "phonetic": "/saʊndz ɡʊd/", "syllable": "Sounds good!", "cn": "听起来不错！（轻松同意）", "grammar": "Sounds = It sounds 的省略（第三人称单数+s）"},
         ]
     },
 ]
@@ -1024,6 +1194,507 @@ def generate_bonus(today_words):
         return generate_song_bonus()
 
 
+# ============================================================
+# 对话生词字典（初一水平以下需要标注的词）
+# ============================================================
+DIALOGUE_WORDS = {
+    "fancy": ("/ˈfænsi/", "fan·cy", "v. 想象（Fancy seeing you = 没想到会碰到你）"),
+    "grabbing": ("/ˈɡræbɪŋ/", "grab·bing", "v. 买/拿（现在分词）"),
+    "coffee": ("/ˈkɒfi/", "cof·fee", "n. 咖啡"),
+    "join": ("/dʒɔɪn/", "join", "v. 加入；一起"),
+    "actually": ("/ˈæktʃuəli/", "ac·tu·al·ly", "adv. 实际上；其实"),
+    "glad": ("/ɡlæd/", "glad", "adj. 高兴的"),
+    "advice": ("/ədˈvaɪs/", "ad·vice", "n. 建议；忠告"),
+    "starving": ("/ˈstɑːvɪŋ/", "starv·ing", "adj. 饿死了（口语）"),
+    "wanna": ("/ˈwɒnə/", "wan·na", "v. 想要（=want to，口语）"),
+    "bite": ("/baɪt/", "bite", "n. 一口食物；吃点东西"),
+    "mood": ("/muːd/", "mood", "n. 心情；情绪"),
+    "pizza": ("/ˈpiːtsə/", "piz·za", "n. 披萨"),
+    "place": ("/pleɪs/", "place", "n. 地方；店"),
+    "treat": ("/triːt/", "treat", "n. 请客"),
+    "dutch": ("/dʌtʃ/", "Dutch", "adj. 荷兰的（go Dutch = AA制）"),
+    "dude": ("/djuːd/", "dude", "n. 哥们儿（口语）"),
+    "dishes": ("/ˈdɪʃɪz/", "dish·es", "n. 碗碟（复数）"),
+    "sink": ("/sɪŋk/", "sink", "n. 水槽"),
+    "show": ("/ʃəʊ/", "show", "n. 节目；一集"),
+    "hiking": ("/ˈhaɪkɪŋ/", "hik·ing", "n. 徒步旅行"),
+    "views": ("/vjuːz/", "views", "n. 风景（复数）"),
+    "amazing": ("/əˈmeɪzɪŋ/", "a·maz·ing", "adj. 令人惊叹的"),
+    "stayed": ("/steɪd/", "stayed", "v. 待在（stay的过去式）"),
+    "moved": ("/muːvd/", "moved", "v. 搬（move的过去式）"),
+    "unpacking": ("/ʌnˈpækɪŋ/", "un·pack·ing", "v. 拆包（现在分词）"),
+    "exciting": ("/ɪkˈsaɪtɪŋ/", "ex·cit·ing", "adj. 令人兴奋的"),
+    "close": ("/kləʊs/", "close", "adj. 近的"),
+    "nearby": ("/ˌnɪəˈbaɪ/", "near·by", "adv. 附近"),
+    "farmer": ("/ˈfɑːmər/", "farm·er", "n. 农民（farmer's market = 农贸市场）"),
+    "market": ("/ˈmɑːkɪt/", "mar·ket", "n. 市场"),
+    "free": ("/friː/", "free", "adj. 有空的"),
+    "saturday": ("/ˈsætədeɪ/", "Sat·ur·day", "n. 星期六"),
+    "afternoon": ("/ˌɑːftəˈnuːn/", "af·ter·noon", "n. 下午"),
+    "awesome": ("/ˈɔːsəm/", "awe·some", "adj. 太棒了"),
+    "catch": ("/kætʃ/", "catch", "v. 看（电影）；抓住"),
+    "movie": ("/ˈmuːvi/", "mov·ie", "n. 电影"),
+    "marvel": ("/ˈmɑːvl/", "Mar·vel", "n. 漫威"),
+    "film": ("/fɪlm/", "film", "n. 电影"),
+    "session": ("/ˈseʃn/", "ses·sion", "n. 场次"),
+    "cinema": ("/ˈsɪnɪmə/", "cin·e·ma", "n. 电影院"),
+    "sounds": ("/saʊndz/", "sounds", "v. 听起来"),
+    "flat": ("/flæt/", "flat", "n. 公寓"),
+    "still": ("/stɪl/", "still", "adv. 还在（做某事）"),
+    "area": ("/ˈeəriə/", "ar·e·a", "n. 区域；地区"),
+    "god": ("/ɡɒd/", "God", "n. 上帝（Oh my God = 天哪）"),
+    "pretty": ("/ˈprɪti/", "pret·ty", "adv. 挺；相当"),
+    "friends": ("/frendz/", "friends", "n. 朋友（复数）"),
+    "nice": ("/naɪs/", "nice", "adj. 不错；很好"),
+    "whole": ("/həʊl/", "whole", "adj. 整个的"),
+    "home": ("/həʊm/", "home", "n. 家"),
+    "next": ("/nekst/", "next", "adj. 下一次的"),
+    "time": ("/taɪm/", "time", "n. 次"),
+    "come": ("/kʌm/", "come", "v. 来"),
+    "long": ("/lɒŋ/", "long", "adj. 长时间的"),
+    "bad": ("/bæd/", "bad", "adj. 不好；还行（Not bad）"),
+    "new": ("/njuː/", "new", "adj. 新的"),
+    "weekend": ("/ˌwiːkˈend/", "week·end", "n. 周末"),
+    "work": ("/wɜːk/", "work", "n. 工作"),
+    "waitakere": ("/ˌwaɪtəˈkɪəri/", "Wai·ta·kere", "n. 怀塔凯雷山脉（奥克兰地名）"),
+    "ranges": ("/ˈreɪndʒɪz/", "rang·es", "n. 山脉（复数）"),
+    "mountains": ("/ˈmaʊntɪnz/", "moun·tains", "n. 山（复数）"),
+    "today": ("/təˈdeɪ/", "to·day", "n. 今天"),
+    "hungry": ("/ˈhʌŋɡri/", "hun·gry", "adj. 饿的"),
+    "something": ("/ˈsʌmθɪŋ/", "some·thing", "pron. 某事"),
+    "hungry": ("/ˈhʌŋɡri/", "hun·gry", "adj. 饿的"),
+    "just": ("/dʒʌst/", "just", "adv. 刚刚；只是"),
+    "before": ("/bɪˈfɔːr/", "be·fore", "prep./conj. 在……之前"),
+    "glad": ("/ɡlæd/", "glad", "adj. 高兴的"),
+    "right": ("/raɪt/", "right", "adv. 马上"),
+    "getting": ("/ˈɡetɪŋ/", "get·ting", "v. 起来（现在分词）"),
+    "yesterday": ("/ˈjestədeɪ/", "yes·ter·day", "n. 昨天"),
+    "drive": ("/draɪv/", "drive", "v. 开车"),
+    "check": ("/tʃek/", "check", "v. 查看；去看看"),
+    "sunday": ("/ˈsʌndeɪ/", "Sun·day", "n. 星期天"),
+    "great": ("/ɡreɪt/", "great", "adj. 很棒的"),
+    "thinking": ("/ˈθɪŋkɪŋ/", "think·ing", "n. 想法"),
+    "ed": ("/ɪˈdiː/", "Ed", "n. 伊甸山（奥克兰地名缩写Mt Eden）"),
+    "honestly": ("/ˈɒnɪstli/", "hon·est·ly", "adv. 说实话"),
+    "welcome": ("/ˈwelkəm/", "wel·come", "interj. 不客气"),
+    "amazing": ("/əˈmeɪzɪŋ/", "a·maz·ing", "adj. 太棒了"),
+    "look": ("/lʊk/", "look", "v. 看"),
+    "forward": ("/ˈfɔːwəd/", "for·ward", "adv. 向前（look forward to = 期待）"),
+    "looking": ("/ˈlʊkɪŋ/", "look·ing", "v. 看（现在分词）"),
+    "hope": ("/həʊp/", "hope", "v. 希望"),
+    "perfect": ("/ˈpɜːfɪkt/", "per·fect", "adj. 完美的"),
+    "dinner": ("/ˈdɪnər/", "din·ner", "n. 晚餐"),
+    "hungry": ("/ˈhʌŋɡri/", "hun·gry", "adj. 饿的"),
+    "know": ("/nəʊ/", "know", "v. 知道"),
+    "idea": ("/aɪˈdɪə/", "i·de·a", "n. 主意"),
+    "favorite": ("/ˈfeɪvərɪt/", "fa·vor·ite", "adj. 最喜欢的"),
+    "kind": ("/kaɪnd/", "kind", "n. 种类（What kind = 什么类型）"),
+    "prefer": ("/prɪˈfɜːr/", "pre·fer", "v. 更喜欢"),
+    "cheap": ("/tʃiːp/", "cheap", "adj. 便宜的"),
+    "fast": ("/fɑːst/", "fast", "adj. 快的"),
+    "healthy": ("/ˈhelθi/", "health·y", "adj. 健康的"),
+    "true": ("/truː/", "true", "adj. 真的"),
+    "serious": ("/ˈsɪriəs/", "se·ri·ous", "adj. 严肃的；认真的"),
+    "joke": ("/dʒəʊk/", "joke", "n. 玩笑"),
+    "funny": ("/ˈfʌni/", "fun·ny", "adj. 有趣的"),
+    "laugh": ("/lɑːf/", "laugh", "v. 笑"),
+    "together": ("/təˈɡeðər/", "to·geth·er", "adv. 一起"),
+    "soon": ("/suːn/", "soon", "adv. 很快；不久"),
+    "busy": ("/ˈbɪzi/", "bus·y", "adj. 忙的"),
+    "finish": ("/ˈfɪnɪʃ/", "fin·ish", "v. 完成"),
+    "usually": ("/ˈjuːʒuəli/", "u·su·al·ly", "adv. 通常"),
+    "maybe": ("/ˈmeɪbi/", "may·be", "adv. 也许"),
+    "later": ("/ˈleɪtər/", "lat·er", "adv. 稍后"),
+    "tonight": ("/təˈnaɪt/", "to·night", "n. 今晚"),
+    "ready": ("/ˈredi/", "read·y", "adj. 准备好的"),
+    "plan": ("/plæn/", "plan", "n. 计划"),
+    "week": ("/wiːk/", "week", "n. 周"),
+    "stress": ("/stres/", "stress", "n. 压力"),
+    "relax": ("/rɪˈlæks/", "re·lax", "v. 放松"),
+    "exercise": ("/ˈeksəsaɪz/", "ex·er·cise", "n. 运动"),
+    "gym": ("/dʒɪm/", "gym", "n. 健身房"),
+    "swimming": ("/ˈswɪmɪŋ/", "swim·ming", "n. 游泳"),
+    "painting": ("/ˈpeɪntɪŋ/", "paint·ing", "n. 画画"),
+    "cooking": ("/ˈkʊkɪŋ/", "cook·ing", "n. 做饭"),
+    "reading": ("/ˈriːdɪŋ/", "read·ing", "n. 阅读"),
+    "watching": ("/ˈwɒtʃɪŋ/", "watch·ing", "v. 看（现在分词）"),
+    "really": ("/ˈrɪəli/", "re·al·ly", "adv. 真的"),
+    "enjoy": ("/ɪnˈdʒɔɪ/", "en·joy", "v. 喜欢；享受"),
+    "fun": ("/fʌn/", "fun", "n. 乐趣"),
+    "feel": ("/fiːl/", "feel", "v. 感觉"),
+    "tired": ("/taɪəd/", "tired", "adj. 累的"),
+    "sleep": ("/sliːp/", "sleep", "n./v. 睡觉"),
+    "worry": ("/ˈwʌri/", "wor·ry", "v. 担心"),
+    "fine": ("/faɪn/", "fine", "adj. 好的"),
+    "weather": ("/ˈweðər/", "weath·er", "n. 天气"),
+    "sunny": ("/ˈsʌni/", "sun·ny", "adj. 晴朗的"),
+    "warm": ("/wɔːm/", "warm", "adj. 暖和的"),
+    "cold": ("/kəʊld/", "cold", "adj. 冷的"),
+    "supermarket": ("/ˈsuːpəmɑːkɪt/", "su·per·mar·ket", "n. 超市"),
+    "groceries": ("/ˈɡrəʊsəriz/", "gro·cer·ies", "n. 食品杂货"),
+    "kitchen": ("/ˈkɪtʃɪn/", "kitch·en", "n. 厨房"),
+    "bedroom": ("/ˈbedruːm/", "bed·room", "n. 卧室"),
+    "living": ("/ˈlɪvɪŋ/", "liv·ing", "n. 生活（living room = 客厅）"),
+    "room": ("/ruːm/", "room", "n. 房间"),
+    "bathroom": ("/ˈbɑːθruːm/", "bath·room", "n. 浴室"),
+    "garden": ("/ˈɡɑːdn/", "gar·den", "n. 花园"),
+    "beautiful": ("/ˈbjuːtɪfl/", "beau·ti·ful", "adj. 美丽的"),
+    "quiet": ("/ˈkwaɪət/", "qui·et", "adj. 安静的"),
+    "rent": ("/rent/", "rent", "n. 租金"),
+    "expensive": ("/ɪkˈspensɪv/", "ex·pen·sive", "adj. 昂贵的"),
+    "cheap": ("/tʃiːp/", "cheap", "adj. 便宜的"),
+    "neighbor": ("/ˈneɪbər/", "neigh·bor", "n. 邻居"),
+    "friendly": ("/ˈfrendli/", "friend·ly", "adj. 友好的"),
+    "breakfast": ("/ˈbrekfəst/", "break·fast", "n. 早餐"),
+    "lunch": ("/lʌntʃ/", "lunch", "n. 午餐"),
+    "already": ("/ɔːlˈredi/", "al·read·y", "adv. 已经"),
+    "late": ("/leɪt/", "late", "adj. 迟的"),
+    "hurry": ("/ˈhʌri/", "hur·ry", "v. 匆忙；快点"),
+    "class": ("/klɑːs/", "class", "n. 课"),
+    "homework": ("/ˈhəʊmwɜːk/", "home·work", "n. 作业"),
+    "difficult": ("/ˈdɪfɪkəlt/", "dif·fi·cult", "adj. 困难的"),
+    "easy": ("/ˈiːzi/", "ea·sy", "adj. 容易的"),
+    "test": ("/test/", "test", "n. 测试"),
+    "exam": ("/ɪɡˈzæm/", "ex·am", "n. 考试"),
+    "study": ("/ˈstʌdi/", "stud·y", "v./n. 学习"),
+    "subject": ("/ˈsʌbdʒɪkt/", "sub·ject", "n. 科目"),
+    "science": ("/ˈsaɪəns/", "sci·ence", "n. 科学"),
+    "math": ("/mæθ/", "math", "n. 数学"),
+    "english": ("/ˈɪŋɡlɪʃ/", "Eng·lish", "n. 英语"),
+    "history": ("/ˈhɪstəri/", "his·to·ry", "n. 历史"),
+    "music": ("/ˈmjuːzɪk/", "mu·sic", "n. 音乐"),
+    "sport": ("/spɔːt/", "sport", "n. 运动"),
+    "team": ("/tiːm/", "team", "n. 队"),
+    "practice": ("/ˈpræktɪs/", "prac·tice", "n./v. 练习"),
+    "practice": ("/ˈpræktɪs/", "prac·tice", "v. 练习"),
+    "boring": ("/ˈbɔːrɪŋ/", "bor·ing", "adj. 无聊的"),
+    "interesting": ("/ˈɪntrəstɪŋ/", "in·ter·est·ing", "adj. 有趣的"),
+    "important": ("/ɪmˈpɔːtənt/", "im·por·tant", "adj. 重要的"),
+    "remember": ("/rɪˈmembər/", "re·mem·ber", "v. 记住"),
+    "forget": ("/fəˈɡet/", "for·get", "v. 忘记"),
+    "forgot": ("/fəˈɡɒt/", "for·got", "v. 忘记（过去式）"),
+    "understand": ("/ˌʌndəˈstænd/", "un·der·stand", "v. 理解"),
+    "explain": ("/ɪkˈspleɪn/", "ex·plain", "v. 解释"),
+    "listen": ("/ˈlɪsn/", "lis·ten", "v. 听"),
+    "speak": ("/spiːk/", "speak", "v. 说"),
+    "talk": ("/tɔːk/", "talk", "v. 谈话"),
+    "write": ("/raɪt/", "write", "v. 写"),
+    "read": ("/riːd/", "read", "v. 读"),
+    "learn": ("/lɜːn/", "learn", "v. 学习"),
+    "teach": ("/tiːtʃ/", "teach", "v. 教"),
+    "school": ("/skuːl/", "school", "n. 学校"),
+    "teacher": ("/ˈtiːtʃər/", "teach·er", "n. 老师"),
+    "student": ("/ˈstjuːdənt/", "stu·dent", "n. 学生"),
+    "classmate": ("/ˈklɑːsmeɪt/", "class·mate", "n. 同学"),
+    "birthday": ("/ˈbɜːθdeɪ/", "birth·day", "n. 生日"),
+    "party": ("/ˈpɑːti/", "par·ty", "n. 派对"),
+    "present": ("/ˈpreznt/", "pres·ent", "n. 礼物"),
+    "celebrate": ("/ˈselɪbreɪt/", "cel·e·brate", "v. 庆祝"),
+    "holiday": ("/ˈhɒlɪdeɪ/", "hol·i·day", "n. 假日"),
+    "travel": ("/ˈtrævl/", "trav·el", "v. 旅行"),
+    "airport": ("/ˈeəpɔːt/", "air·port", "n. 机场"),
+    "flight": ("/flaɪt/", "flight", "n. 航班"),
+    "ticket": ("/ˈtɪkɪt/", "tick·et", "n. 票"),
+    "passport": ("/ˈpɑːspɔːt/", "pass·port", "n. 护照"),
+    "hotel": ("/həʊˈtel/", "ho·tel", "n. 酒店"),
+    "restaurant": ("/ˈrestrɒnt/", "res·tau·rant", "n. 餐厅"),
+    "order": ("/ˈɔːdər/", "or·der", "v./n. 点餐；订单"),
+    "menu": ("/ˈmenjuː/", "men·u", "n. 菜单"),
+    "waiter": ("/ˈweɪtər/", "wait·er", "n. 服务员"),
+    "bill": ("/bɪl/", "bill", "n. 账单"),
+    "miss": ("/mɪs/", "miss", "v. 想念；错过"),
+    "meet": ("/miːt/", "meet", "v. 见面；遇见"),
+    "invite": ("/ɪnˈvaɪt/", "in·vite", "v. 邀请"),
+    "agree": ("/əˈɡriː/", "a·gree", "v. 同意"),
+    "promise": ("/ˈprɒmɪs/", "prom·ise", "v. 承诺；保证"),
+    "surprise": ("/sərˈpraɪz/", "sur·prise", "n. 惊喜"),
+    "excited": ("/ɪkˈsaɪtɪd/", "ex·cit·ed", "adj. 兴奋的"),
+    "worried": ("/ˈwʌrid/", "wor·ried", "adj. 担心的"),
+    "angry": ("/ˈæŋɡri/", "an·gry", "adj. 生气的"),
+    "scared": ("/skeəd/", "scared", "adj. 害怕的"),
+    "lonely": ("/ˈləʊnli/", "lone·ly", "adj. 孤独的"),
+    "happy": ("/ˈhæpi/", "hap·py", "adj. 开心的"),
+    "sad": ("/sæd/", "sad", "adj. 伤心的"),
+    "proud": ("/praʊd/", "proud", "adj. 骄傲的"),
+    "shy": ("/ʃaɪ/", "shy", "adj. 害羞的"),
+    "brave": ("/breɪv/", "brave", "adj. 勇敢的"),
+    "kind": ("/kaɪnd/", "kind", "adj. 善良的"),
+    "polite": ("/pəˈlaɪt/", "po·lite", "adj. 有礼貌的"),
+    "patient": ("/ˈpeɪʃnt/", "pa·tient", "adj. 有耐心的"),
+    "sorry": ("/ˈsɒri/", "sor·ry", "adj. 抱歉的"),
+    "problem": ("/ˈprɒbləm/", "prob·lem", "n. 问题"),
+    "answer": ("/ˈɑːnsər/", "an·swer", "n./v. 回答"),
+    "question": ("/ˈkwestʃən/", "ques·tion", "n. 问题"),
+    "help": ("/help/", "help", "v./n. 帮助"),
+    "try": ("/traɪ/", "try", "v. 尝试"),
+    "again": ("/əˈɡen/", "a·gain", "adv. 再一次"),
+    "still": ("/stɪl/", "still", "adv. 仍然"),
+    "always": ("/ˈɔːlweɪz/", "al·ways", "adv. 总是"),
+    "sometimes": ("/ˈsʌmtaɪmz/", "some·times", "adv. 有时候"),
+    "never": ("/ˈnevər/", "nev·er", "adv. 从不"),
+    "often": ("/ˈɒfn/", "of·ten", "adv. 经常"),
+    "usually": ("/ˈjuːʒuəli/", "u·su·al·ly", "adv. 通常"),
+    "begin": ("/bɪˈɡɪn/", "be·gin", "v. 开始"),
+    "finish": ("/ˈfɪnɪʃ/", "fin·ish", "v. 完成"),
+    "stop": ("/stɒp/", "stop", "v. 停止"),
+    "start": ("/stɑːt/", "start", "v. 开始"),
+    "change": ("/tʃeɪndʒ/", "change", "v./n. 改变"),
+    "grow": ("/ɡrəʊ/", "grow", "v. 成长"),
+    "happen": ("/ˈhæpən/", "hap·pen", "v. 发生"),
+    "believe": ("/bɪˈliːv/", "be·lieve", "v. 相信"),
+    "choose": ("/tʃuːz/", "choose", "v. 选择"),
+    "decide": ("/dɪˈsaɪd/", "de·cide", "v. 决定"),
+    "hope": ("/həʊp/", "hope", "v. 希望"),
+    "wish": ("/wɪʃ/", "wish", "v. 希望；祝愿"),
+    "worry": ("/ˈwʌri/", "wor·ry", "v. 担心"),
+    "care": ("/keər/", "care", "v. 在乎；关心"),
+    "love": ("/lʌv/", "love", "v. 爱"),
+    "hate": ("/heɪt/", "hate", "v. 讨厌"),
+    "need": ("/niːd/", "need", "v. 需要"),
+    "want": ("/wɒnt/", "want", "v. 想要"),
+    "might": ("/maɪt/", "might", "v. 可能"),
+    "could": ("/kʊd/", "could", "v. 可以（could的过去式也是could）"),
+    "quite": ("/kwaɪt/", "quite", "adv. 相当"),
+    "enough": ("/ɪˈnʌf/", "e·nough", "adj./adv. 足够的"),
+    "sure": ("/ʃʊər/", "sure", "adj. 确定的"),
+    "maybe": ("/ˈmeɪbi/", "may·be", "adv. 也许"),
+    "perhaps": ("/pərˈhæps/", "per·haps", "adv. 也许"),
+    "certainly": ("/ˈsɜːtnli/", "cer·tain·ly", "adv. 当然"),
+    "especially": ("/ɪˈspeʃəli/", "es·pe·cial·ly", "adv. 特别地"),
+    "example": ("/ɪɡˈzɑːmpl/", "ex·am·ple", "n. 例子"),
+    "special": ("/ˈspeʃl/", "spe·cial", "adj. 特别的"),
+    "different": ("/ˈdɪfrənt/", "dif·fer·ent", "adj. 不同的"),
+    "similar": ("/ˈsɪmɪlər/", "sim·i·lar", "adj. 相似的"),
+    "popular": ("/ˈpɒpjələr/", "pop·u·lar", "adj. 受欢迎的"),
+    "famous": ("/ˈfeɪməs/", "fa·mous", "adj. 著名的"),
+    "comfortable": ("/ˈkʌmftəbl/", "com·fort·a·ble", "adj. 舒适的"),
+    "dangerous": ("/ˈdeɪndʒərəs/", "dan·ger·ous", "adj. 危险的"),
+    "safe": ("/seɪf/", "safe", "adj. 安全的"),
+    "clean": ("/kliːn/", "clean", "adj. 干净的"),
+    "dirty": ("/ˈdɜːti/", "dir·ty", "adj. 脏的"),
+    "dry": ("/draɪ/", "dry", "adj. 干的"),
+    "wet": ("/wet/", "wet", "adj. 湿的"),
+    "dark": ("/dɑːk/", "dark", "adj. 暗的"),
+    "bright": ("/braɪt/", "bright", "adj. 明亮的"),
+    "loud": ("/laʊd/", "loud", "adj. 吵的"),
+    "soft": ("/sɒft/", "soft", "adj. 柔软的"),
+    "heavy": ("/ˈhevi/", "heav·y", "adj. 重的"),
+    "light": ("/laɪt/", "light", "adj. 轻的；浅色的"),
+    "thick": ("/θɪk/", "thick", "adj. 厚的"),
+    "thin": ("/θɪn/", "thin", "adj. 薄的"),
+    "wide": ("/waɪd/", "wide", "adj. 宽的"),
+    "narrow": ("/ˈnærəʊ/", "nar·row", "adj. 窄的"),
+    "deep": ("/diːp/", "deep", "adj. 深的"),
+    "shallow": ("/ˈʃæləʊ/", "shal·low", "adj. 浅的"),
+    "straight": ("/streɪt/", "straight", "adj./adv. 直的；直接"),
+    "broken": ("/ˈbrəʊkən/", "bro·ken", "adj. 坏的"),
+    "correct": ("/kəˈrekt/", "cor·rect", "adj. 正确的"),
+    "wrong": ("/rɒŋ/", "wrong", "adj. 错的"),
+    "true": ("/truː/", "true", "adj. 真的"),
+    "real": ("/rɪəl/", "real", "adj. 真实的"),
+    "main": ("/meɪn/", "main", "adj. 主要的"),
+    "whole": ("/həʊl/", "whole", "adj. 整个的"),
+    "simple": ("/ˈsɪmpl/", "sim·ple", "adj. 简单的"),
+    "complicated": ("/ˈkɒmplɪkeɪtɪd/", "com·pli·cat·ed", "adj. 复杂的"),
+    "imagine": ("/ɪˈmædʒɪn/", "i·mag·ine", "v. 想象"),
+    "suppose": ("/səˈpəʊz/", "sup·pose", "v. 假设；认为"),
+    "matter": ("/ˈmætər/", "mat·ter", "v. 要紧（What's the matter? = 怎么了？）"),
+    "depend": ("/dɪˈpend/", "de·pend", "v. 取决于"),
+    "expect": ("/ɪkˈspekt/", "ex·pect", "v. 期待"),
+    "suggest": ("/səˈdʒest/", "sug·gest", "v. 建议"),
+    "prepare": ("/prɪˈpeər/", "pre·pare", "v. 准备"),
+    "allow": ("/əˈlaʊ/", "al·low", "v. 允许"),
+    "prevent": ("/prɪˈvent/", "pre·vent", "v. 防止"),
+    "provide": ("/prəˈvaɪd/", "pro·vide", "v. 提供"),
+    "require": ("/rɪˈkwaɪər/", "re·quire", "v. 要求"),
+    "compare": ("/kəmˈpeər/", "com·pare", "v. 比较"),
+    "improve": ("/ɪmˈpruːv/", "im·prove", "v. 改善"),
+    "increase": ("/ɪnˈkriːs/", "in·crease", "v. 增加"),
+    "reduce": ("/rɪˈdjuːs/", "re·duce", "v. 减少"),
+    "include": ("/ɪnˈkluːd/", "in·clude", "v. 包括"),
+    "contain": ("/kənˈteɪn/", "con·tain", "v. 包含"),
+    "produce": ("/prəˈdjuːs/", "pro·duce", "v. 生产"),
+    "protect": ("/prəˈtekt/", "pro·tect", "v. 保护"),
+    "receive": ("/rɪˈsiːv/", "re·ceive", "v. 收到"),
+    "accept": ("/əkˈsept/", "ac·cept", "v. 接受"),
+    "refuse": ("/rɪˈfjuːz/", "re·fuse", "v. 拒绝"),
+    "offer": ("/ˈɒfər/", "of·fer", "v./n. 提供"),
+    "afford": ("/əˈfɔːd/", "af·ford", "v. 负担得起"),
+    "waste": ("/weɪst/", "waste", "v. 浪费"),
+    "save": ("/seɪv/", "save", "v. 节省；拯救"),
+    "spend": ("/spend/", "spend", "v. 花费"),
+    "cost": ("/kɒst/", "cost", "v. 花费（多少钱）"),
+    "pay": ("/peɪ/", "pay", "v. 付款"),
+    "borrow": ("/ˈbɒrəʊ/", "bor·row", "v. 借"),
+    "lend": ("/lend/", "lend", "v. 借出"),
+    "return": ("/rɪˈtɜːn/", "re·turn", "v. 归还"),
+    "exchange": ("/ɪksˈtʃeɪndʒ/", "ex·change", "v. 交换"),
+    "share": ("/ʃeər/", "share", "v. 分享"),
+    "argue": ("/ˈɑːɡjuː/", "ar·gue", "v. 争吵"),
+    "apologize": ("/əˈpɒlədʒaɪz/", "a·pol·o·gize", "v. 道歉"),
+    "forgive": ("/fəˈɡɪv/", "for·give", "v. 原谅"),
+    "trust": ("/trʌst/", "trust", "v. 信任"),
+    "encourage": ("/ɪnˈkʌrɪdʒ/", "en·cour·age", "v. 鼓励"),
+    "discover": ("/dɪˈskʌvər/", "dis·cov·er", "v. 发现"),
+    "notice": ("/ˈnəʊtɪs/", "no·tice", "v. 注意到"),
+    "realize": ("/ˈrɪəlaɪz/", "re·al·ize", "v. 意识到"),
+    "avoid": ("/əˈvɔɪd/", "a·void", "v. 避免"),
+    "complete": ("/kəmˈpliːt/", "com·plete", "v./adj. 完成；完整的"),
+    "reach": ("/riːtʃ/", "reach", "v. 到达"),
+    "enter": ("/ˈentər/", "en·ter", "v. 进入"),
+    "leave": ("/liːv/", "leave", "v. 离开"),
+    "arrive": ("/əˈraɪv/", "ar·rive", "v. 到达"),
+    "cross": ("/krɒs/", "cross", "v. 穿过"),
+    "pass": ("/pɑːs/", "pass", "v. 经过"),
+    "follow": ("/ˈfɒləʊ/", "fol·low", "v. 跟随"),
+    "carry": ("/ˈkæri/", "car·ry", "v. 携带"),
+    "drop": ("/drɒp/", "drop", "v. 掉落"),
+    "pick": ("/pɪk/", "pick", "v. 捡起"),
+    "pull": ("/pʊl/", "pull", "v. 拉"),
+    "push": ("/pʊʃ/", "push", "v. 推"),
+    "hold": ("/həʊld/", "hold", "v. 拿着；举办"),
+    "touch": ("/tʌtʃ/", "touch", "v. 触摸"),
+    "collect": ("/kəˈlekt/", "col·lect", "v. 收集"),
+    "throw": ("/θrəʊ/", "throw", "v. 扔"),
+    "catch": ("/kætʃ/", "catch", "v. 接住"),
+    "hang": ("/hæŋ/", "hang", "v. 挂"),
+    "cut": ("/kʌt/", "cut", "v. 切"),
+    "fix": ("/fɪks/", "fix", "v. 修理"),
+    "build": ("/bɪld/", "build", "v. 建造"),
+    "destroy": ("/dɪˈstrɔɪ/", "de·stroy", "v. 破坏"),
+    "create": ("/kriˈeɪt/", "cre·ate", "v. 创造"),
+    "describe": ("/dɪˈskraɪb/", "de·scribe", "v. 描述"),
+    "mention": ("/ˈmenʃn/", "men·tion", "v. 提到"),
+    "discuss": ("/dɪˈskʌs/", "dis·cuss", "v. 讨论"),
+    "consider": ("/kənˈsɪdər/", "con·sid·er", "v. 考虑"),
+    "wonder": ("/ˈwʌndər/", "won·der", "v. 想知道"),
+    "mean": ("/miːn/", "mean", "v. 意思是"),
+    "translate": ("/trænsˈleɪt/", "trans·late", "v. 翻译"),
+    "repeat": ("/rɪˈpiːt/", "re·peat", "v. 重复"),
+    "copy": ("/ˈkɒpi/", "cop·y", "v./n. 复制；抄"),
+    "type": ("/taɪp/", "type", "v./n. 打字；类型"),
+    "search": ("/sɜːtʃ/", "search", "v. 搜索"),
+    "record": ("/rɪˈkɔːd/", "re·cord", "v. 录制"),
+    "print": ("/prɪnt/", "print", "v. 打印"),
+    "connect": ("/kəˈnekt/", "con·nect", "v. 连接"),
+    "communicate": ("/kəˈmjuːnɪkeɪt/", "com·mu·ni·cate", "v. 交流"),
+    "interview": ("/ˈɪntəvjuː/", "in·ter·view", "n. 面试；采访"),
+    "conversation": ("/ˌkɒnvəˈseɪʃn/", "con·ver·sa·tion", "n. 对话"),
+    "experience": ("/ɪkˈspɪəriəns/", "ex·pe·ri·ence", "n. 经验；经历"),
+    "knowledge": ("/ˈnɒlɪdʒ/", "knowl·edge", "n. 知识"),
+    "information": ("/ˌɪnfəˈmeɪʃn/", "in·for·ma·tion", "n. 信息"),
+    "education": ("/ˌedʒuˈkeɪʃn/", "ed·u·ca·tion", "n. 教育"),
+    "opportunity": ("/ˌɒpəˈtjuːnɪti/", "op·por·tu·ni·ty", "n. 机会"),
+    "situation": ("/ˌsɪtʃuˈeɪʃn/", "sit·u·a·tion", "n. 情况"),
+    "condition": ("/kənˈdɪʃn/", "con·di·tion", "n. 条件；状况"),
+    "advantage": ("/ədˈvɑːntɪdʒ/", "ad·van·tage", "n. 优势"),
+    "disadvantage": ("/ˌdɪsədˈvɑːntɪdʒ/", "dis·ad·van·tage", "n. 劣势"),
+    "success": ("/səkˈses/", "suc·cess", "n. 成功"),
+    "failure": ("/ˈfeɪljər/", "fail·ure", "n. 失败"),
+    "mistake": ("/mɪˈsteɪk/", "mis·take", "n. 错误"),
+    "trouble": ("/ˈtrʌbl/", "trou·ble", "n. 麻烦"),
+    "effort": ("/ˈefət/", "ef·fort", "n. 努力"),
+    "progress": ("/ˈprəʊɡres/", "prog·ress", "n. 进步"),
+    "result": ("/rɪˈzʌlt/", "re·sult", "n. 结果"),
+    "reason": ("/ˈriːzn/", "rea·son", "n. 原因"),
+    "purpose": ("/ˈpɜːpəs/", "pur·pose", "n. 目的"),
+    "chance": ("/tʃɑːns/", "chance", "n. 机会"),
+    "choice": ("/tʃɔɪs/", "choice", "n. 选择"),
+    "habit": ("/ˈhæbɪt/", "hab·it", "n. 习惯"),
+    "hobby": ("/ˈhɒbi/", "hob·by", "n. 爱好"),
+    "interest": ("/ˈɪntrəst/", "in·ter·est", "n. 兴趣"),
+    "talent": ("/ˈtælənt/", "tal·ent", "n. 天赋"),
+    "skill": ("/skɪl/", "skill", "n. 技能"),
+    "ability": ("/əˈbɪlɪti/", "a·bil·i·ty", "n. 能力"),
+    "spirit": ("/ˈspɪrɪt/", "spir·it", "n. 精神"),
+    "energy": ("/ˈenədʒi/", "en·er·gy", "n. 精力；能量"),
+    "health": ("/helθ/", "health", "n. 健康"),
+    "memory": ("/ˈmeməri/", "mem·o·ry", "n. 记忆"),
+    "opinion": ("/əˈpɪnjən/", "o·pin·ion", "n. 观点；看法"),
+    "feeling": ("/ˈfiːlɪŋ/", "feel·ing", "n. 感受"),
+    "emotion": ("/ɪˈməʊʃn/", "e·mo·tion", "n. 情感"),
+    "pressure": ("/ˈpreʃər/", "pres·sure", "n. 压力"),
+    "influence": ("/ˈɪnfluəns/", "in·flu·ence", "n./v. 影响"),
+    "environment": ("/ɪnˈvaɪrənmənt/", "en·vi·ron·ment", "n. 环境"),
+    "pollution": ("/pəˈluːʃn/", "pol·lu·tion", "n. 污染"),
+    "technology": ("/tekˈnɒlədʒi/", "tech·nol·o·gy", "n. 科技"),
+    "machine": ("/məˈʃiːn/", "ma·chine", "n. 机器"),
+    "computer": ("/kəmˈpjuːtər/", "com·put·er", "n. 电脑"),
+    "internet": ("/ˈɪntənet/", "in·ter·net", "n. 互联网"),
+    "website": ("/ˈwebsaɪt/", "web·site", "n. 网站"),
+    "program": ("/ˈprəʊɡræm/", "pro·gram", "n. 程序"),
+    "system": ("/ˈsɪstəm/", "sys·tem", "n. 系统"),
+    "software": ("/ˈsɒftweər/", "soft·ware", "n. 软件"),
+    "message": ("/ˈmesɪdʒ/", "mes·sage", "n. 消息"),
+    "phone": ("/fəʊn/", "phone", "n. 电话"),
+    "camera": ("/ˈkæmərə/", "cam·er·a", "n. 相机"),
+    "screen": ("/skriːn/", "screen", "n. 屏幕"),
+    "battery": ("/ˈbætəri/", "bat·ter·y", "n. 电池"),
+    "charge": ("/tʃɑːdʒ/", "charge", "v./n. 充电；费用"),
+    "recently": ("/ˈriːsntli/", "re·cent·ly", "adv. 最近"),
+    "finally": ("/ˈfaɪnəli/", "fi·nal·ly", "adv. 最终"),
+    "immediately": ("/ɪˈmiːdiətli/", "im·me·di·ate·ly", "adv. 立即"),
+    "suddenly": ("/ˈsʌdənli/", "sud·den·ly", "adv. 突然"),
+    "especially": ("/ɪˈspeʃəli/", "es·pe·cial·ly", "adv. 特别地"),
+    "exactly": ("/ɪɡˈzæktli/", "ex·act·ly", "adv. 确切地"),
+    "probably": ("/ˈprɒbəbli/", "prob·a·bly", "adv. 大概"),
+    "actually": ("/ˈæktʃuəli/", "ac·tu·al·ly", "adv. 实际上"),
+    "unfortunately": ("/ʌnˈfɔːtʃənətli/", "un·for·tu·nate·ly", "adv. 不幸地"),
+    "lucky": ("/ˈlʌki/", "luck·y", "adj. 幸运的"),
+    "culture": ("/ˈkʌltʃər/", "cul·ture", "n. 文化"),
+    "tradition": ("/trəˈdɪʃn/", "tra·di·tion", "n. 传统"),
+    "festival": ("/ˈfestɪvl/", "fes·ti·val", "n. 节日"),
+    "ceremony": ("/ˈserɪməni/", "cer·e·mo·ny", "n. 仪式"),
+    "background": ("/ˈbækɡraʊnd/", "back·ground", "n. 背景"),
+    "government": ("/ˈɡʌvənmənt/", "gov·ern·ment", "n. 政府"),
+    "law": ("/lɔː/", "law", "n. 法律"),
+    "rule": ("/ruːl/", "rule", "n. 规则"),
+    "society": ("/səˈsaɪəti/", "so·ci·e·ty", "n. 社会"),
+    "population": ("/ˌpɒpjuˈleɪʃn/", "pop·u·la·tion", "n. 人口"),
+    "citizen": ("/ˈsɪtɪzn/", "cit·i·zen", "n. 公民"),
+    "abroad": ("/əˈbrɔːd/", "a·broad", "adv. 在国外"),
+    "foreign": ("/ˈfɒrɪn/", "for·eign", "adj. 外国的"),
+    "international": ("/ˌɪntəˈnæʃənl/", "in·ter·na·tion·al", "adj. 国际的"),
+    "global": ("/ˈɡləʊbl/", "glo·bal", "adj. 全球的"),
+    "local": ("/ˈləʊkl/", "lo·cal", "adj. 当地的"),
+    "public": ("/ˈpʌblɪk/", "pub·lic", "adj. 公共的"),
+    "private": ("/ˈpraɪvɪt/", "pri·vate", "adj. 私人的"),
+    "common": ("/ˈkɒmən/", "com·mon", "adj. 常见的"),
+    "normal": ("/ˈnɔːml/", "nor·mal", "adj. 正常的"),
+    "natural": ("/ˈnætʃrəl/", "nat·u·ral", "adj. 自然的"),
+    "regular": ("/ˈreɡjələr/", "reg·u·lar", "adj. 定期的"),
+    "general": ("/ˈdʒenərəl/", "gen·er·al", "adj. 一般的"),
+    "particular": ("/pəˈtɪkjələr/", "par·tic·u·lar", "adj. 特别的"),
+    "necessary": ("/ˈnesəsəri/", "nec·es·sa·ry", "adj. 必要的"),
+    "possible": ("/ˈpɒsɪbl/", "pos·si·ble", "adj. 可能的"),
+    "impossible": ("/ɪmˈpɒsɪbl/", "im·pos·si·ble", "adj. 不可能的"),
+    "available": ("/əˈveɪləbl/", "a·vail·a·ble", "adj. 可用的"),
+    "obvious": ("/ˈɒbviəs/", "ob·vi·ous", "adj. 明显的"),
+    "recent": ("/ˈriːsnt/", "re·cent", "adj. 最近的"),
+    "current": ("/ˈkʌrənt/", "cur·rent", "adj. 当前的"),
+    "modern": ("/ˈmɒdən/", "mod·ern", "adj. 现代的"),
+    "ancient": ("/ˈeɪnʃənt/", "an·cient", "adj. 古代的"),
+    "traditional": ("/trəˈdɪʃənl/", "tra·di·tion·al", "adj. 传统的"),
+}
+
+
+def annotate_dialogue_text(text):
+    """给对话文本中的生词自动加注音标+拼读（内联标注）。
+    在句子下方生成一个生词列表，不改变原句结构。
+    """
+    import re
+    words_in_text = re.findall(r"[a-zA-Z]+(?:[-'][a-zA-Z]+)*", text)
+    annotated = []
+    seen = set()
+    for w in words_in_text:
+        wl = w.lower()
+        if wl in DIALOGUE_WORDS and wl not in seen:
+            seen.add(wl)
+            phonetic, syllable, meaning = DIALOGUE_WORDS[wl]
+            annotated.append((w, phonetic, syllable, meaning))
+    return annotated
+
+
 def generate_dialogue_bonus():
     """生成老友记风格对话兴趣加餐"""
     # 基于日期确定性选择对话（同一周内不同）
@@ -1033,6 +1704,25 @@ def generate_dialogue_bonus():
     lines_html = ""
     for speaker, text, trans in d["lines"]:
         text_safe = text.replace("'", "\\'")
+        # 检测生词
+        annotated = annotate_dialogue_text(text)
+        vocab_html = ""
+        if annotated:
+            vocab_items = ""
+            for w, phonetic, syllable, meaning in annotated:
+                w_safe = w.replace("'", "\\'")
+                vocab_items += f'''
+              <div class="dialogue-vocab-item">
+                <span class="dv-word">{w}</span>
+                <span class="dv-phonetic">{phonetic}</span>
+                <span class="dv-syllable">{syllable}</span>
+                <span class="dv-mean">{meaning}</span>
+                <button class="dv-speak" onclick="speakWord(this,'{w_safe}')">{SVG_SPEAKER}</button>
+              </div>'''
+            vocab_html = f'''
+          <div class="dialogue-vocab">
+            <div class="dv-title">📝 生词</div>{vocab_items}
+          </div>'''
         lines_html += f'''
         <div class="dialogue-line">
           <div class="dialogue-en-row">
@@ -1044,6 +1734,7 @@ def generate_dialogue_bonus():
             <svg viewBox="0 0 24 24" width="12" height="12"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
             听这句
           </button>
+          {vocab_html}
         </div>'''
 
     expr_html = ""
@@ -1051,8 +1742,10 @@ def generate_dialogue_bonus():
         ex_safe = ex['en'].replace("'", "\\'")
         phonetic = ex.get('phonetic', '')
         syllable = ex.get('syllable', '')
+        grammar = ex.get('grammar', '')
         syllable_html = f'<span class="ex-syllable">{syllable}</span>' if syllable else ''
         phonetic_html = f'<div class="ex-phonetic">{phonetic}</div>' if phonetic else ''
+        grammar_html = f'<div class="ex-grammar">📘 {grammar}</div>' if grammar else ''
         expr_html += f'''
         <div class="expression-card">
           <div class="ex-header">
@@ -1061,6 +1754,7 @@ def generate_dialogue_bonus():
           </div>
           {phonetic_html}
           <div class="ex-meta">{syllable_html}</div>
+          {grammar_html}
           <div class="ex-cn">{ex['cn']}</div>
         </div>'''
 
@@ -1073,11 +1767,11 @@ def generate_dialogue_bonus():
       {lines_html}
     </div>
     <div class="expressions-box">
-      <div class="expressions-title">🗣️ 可直接套用的口语表达（点击🔊听发音）</div>
+      <div class="expressions-title">🗣️ 可直接套用的口语表达 + 📘 语法说明（点击🔊听发音）</div>
       {expr_html}
     </div>
     <div class="bonus-tip">
-      <strong>💡 学习建议：</strong>大声朗读对话3遍，然后遮住英文只看中文试着翻译，最后模仿语气跟读。把这些表达用到今天的聊天里！
+      <strong>💡 学习建议：</strong>大声朗读对话3遍，遇到生词先点🔊听发音再看拼读和释义。然后遮住英文只看中文试着翻译，最后模仿语气跟读。
     </div>
   </div>
 </div>'''
@@ -1134,9 +1828,27 @@ def generate_song_bonus():
         slang_html = ""
         if line.get("slang"):
             for slang in line["slang"]:
-                # 检查是否有生词拼读
+                # 检查是否有生词拼读（支持两种格式：hard_words子数组 或 直接字段）
                 hard_words_html = ""
-                if slang.get("hard_words"):
+                # 方式1：slang自身包含 phonetic/syllable 字段
+                if slang.get("phonetic") or slang.get("syllable"):
+                    hw_word = slang.get("word", "")
+                    hw_phonetic = slang.get("phonetic", "")
+                    hw_syllable = slang.get("syllable", "")
+                    hw_note = slang.get("note", "")
+                    hw_word_safe = hw_word.replace("'", "\\'")
+                    syllable_span = f'<span class="hw-syllable">{hw_syllable}</span>' if hw_syllable else ''
+                    phonetic_span = f'<span class="hw-phonetic">{hw_phonetic}</span>' if hw_phonetic else ''
+                    hard_words_html = f'''
+            <div class="hw-item">
+              <span class="hw-word">{hw_word}</span>
+              {phonetic_span}
+              {syllable_span}
+              <span class="hw-mean">{hw_note}</span>
+              <button class="hw-speak" onclick="speakWord(this,'{hw_word_safe}')">{SVG_SPEAKER}</button>
+            </div>'''
+                # 方式2：slang包含 hard_words 子数组
+                elif slang.get("hard_words"):
                     for hw in slang["hard_words"]:
                         hw_word = hw.get("word", "")
                         hw_phonetic = hw.get("phonetic", "")
@@ -1163,15 +1875,17 @@ def generate_song_bonus():
                 # 把 word 做成可发音的格式
                 slang_word = slang["word"]
                 slang_word_safe = slang_word.replace("'", "\\'")
-                # 从 keywords 中查找匹配的音标
-                slang_phonetic = ""
-                slang_syllable = ""
-                for kw in song.get("keywords", []):
-                    # 模糊匹配：kw的phrase包含slang的word，或反之
-                    if slang_word.lower() in kw["phrase"].lower() or kw["phrase"].lower() in slang_word.lower():
-                        slang_phonetic = kw.get("phonetic", "")
-                        slang_syllable = kw.get("syllable", "")
-                        break
+                # 优先使用slang自带的phonetic/syllable，否则从keywords匹配
+                slang_phonetic = slang.get("phonetic", "")
+                slang_syllable = slang.get("syllable", "")
+                if not slang_phonetic or not slang_syllable:
+                    for kw in song.get("keywords", []):
+                        if slang_word.lower() in kw["phrase"].lower() or kw["phrase"].lower() in slang_word.lower():
+                            if not slang_phonetic:
+                                slang_phonetic = kw.get("phonetic", "")
+                            if not slang_syllable:
+                                slang_syllable = kw.get("syllable", "")
+                            break
                 slang_word_display = f'<b>{slang_word}</b>'
                 if slang_phonetic:
                     slang_word_display += f' <span class="slang-phonetic">{slang_phonetic}</span>'
@@ -1569,6 +2283,21 @@ CSS = '''
     }
     .dialogue-speak-btn:hover { background: #ffe0b2; }
     .dialogue-speak-btn svg { fill: #e65100; }
+    .dialogue-vocab { background: #fff3e0; border-radius: 8px; padding: 8px 12px; margin-top: 6px; margin-left: 24px; }
+    .dv-title { font-size: 12px; font-weight: 700; color: #e65100; margin-bottom: 4px; }
+    .dialogue-vocab-item { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 3px; font-size: 12px; }
+    .dialogue-vocab-item:last-child { margin-bottom: 0; }
+    .dv-word { font-weight: 700; color: #bf360c; }
+    .dv-phonetic { color: #666; font-size: 11px; }
+    .dv-syllable { background: #ffe0b2; color: #e65100; padding: 1px 6px; border-radius: 4px; font-size: 11px; }
+    .dv-mean { color: #555; font-size: 11px; }
+    .dv-speak {
+      width: 20px; height: 20px; border-radius: 50%; border: none;
+      background: #fff3e0; color: #e65100; cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    .dv-speak svg { width: 10px; height: 10px; fill: #e65100; }
+    .dv-speak:hover { background: #ffe0b2; }
     .expressions-box { background: #e3f2fd; border-radius: 12px; padding: 14px; }
     .expressions-title { font-size: 14px; font-weight: 700; color: #1565c0; margin-bottom: 12px; }
     .expression-card { background: #fff; border-radius: 10px; padding: 12px 14px; margin-bottom: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
@@ -1588,6 +2317,7 @@ CSS = '''
     .ex-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 6px; }
     .ex-syllable { font-size: 13px; color: #e65100; font-weight: 600; background: #fff8e1; padding: 3px 10px; border-radius: 6px; border: 1px solid #ffcc80; }
     .ex-cn { color: #333; font-size: 14px; }
+    .ex-grammar { font-size: 12px; color: #5e35b1; background: #ede7f6; padding: 3px 10px; border-radius: 6px; display: inline-block; margin-top: 4px; margin-bottom: 4px; }
 
     /* ===== 兴趣加餐 - 歌曲版 ===== */
     .song-day {
