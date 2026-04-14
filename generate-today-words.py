@@ -26,8 +26,8 @@ WEEKDAY = TODAY_DATE.weekday()  # 0=周一 ... 6=周日
 WEEKDAY_NAMES = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
 OUTPUT = BASE_DIR / f"每日英语单词_{TODAY}.html"
 
-# 导入歌曲数据库
-from songs_db import SONGS_DB
+# 导入歌曲数据库（使用自动歌曲系统）
+import auto_songs
 
 
 # ============================================================
@@ -1191,7 +1191,12 @@ def generate_bonus(today_words):
     elif WEEKDAY == 6:  # 周日 → 轻松复习
         return generate_review_bonus(today_words)
     else:  # 周一、三、五 → 英文歌曲
-        return generate_song_bonus()
+        result = generate_song_bonus()
+        if result:
+            return result
+        # 歌曲生成失败时回退到对话
+        print("  [WARN] 歌曲生成失败，回退到老友记对话")
+        return generate_dialogue_bonus()
 
 
 # ============================================================
@@ -1778,177 +1783,14 @@ def generate_dialogue_bonus():
 
 
 def generate_song_bonus():
-    """生成英文歌曲兴趣加餐（从歌曲库动态选择）"""
-    song_keys = list(SONGS_DB.keys())
-    # 用日期种子选择，保证同一天选同一首歌，不同天选不同的
-    day_seed = int(hashlib.md5(TODAY.encode()).hexdigest(), 16)
-    song_key = song_keys[day_seed % len(song_keys)]
-    song = SONGS_DB[song_key]
-
-    # 尝试获取MP3直链，失败则回退到搜索链接
-    import urllib.parse
-    search_query = urllib.parse.quote(f"{song['name']} {song['artist']}")
-    netease_search_url = f"https://music.163.com/#/search/m/?s={search_query}"
-    print(f"  [音频] 歌曲: {song['name']} - {song['artist']}")
-
-    mp3_url = None
-    if song.get('netease_id'):
-        from songs_db import fetch_mp3_url
-        mp3_url = fetch_mp3_url(song['netease_id'])
-        if mp3_url:
-            print(f"  [音频] MP3链接获取成功: {mp3_url[:60]}...")
-        else:
-            print(f"  [音频] MP3链接获取失败，使用搜索链接作为备选")
-
-    if mp3_url:
-        # 成功获取MP3：使用 <audio> 内嵌播放器 + 搜索链接备选
-        player_html = f'''
-    <div class="song-player">
-      <audio controls preload="metadata" style="width:100%;border-radius:8px;">
-        <source src="{mp3_url}" type="audio/mpeg">
-        您的浏览器不支持音频播放
-      </audio>
-      <div class="song-play-hint">🎧 播放失败？<a href="{netease_search_url}" target="_blank" rel="noopener" style="color:#1e88e5;">点击前往网易云音乐收听</a></div>
-    </div>'''
+    """生成英文歌曲兴趣加餐（使用自动歌曲系统）"""
+    html, song_info = auto_songs.generate_auto_song_html(SVG_SPEAKER)
+    if html:
+        print(f"  [歌曲] 推送歌曲: {song_info['name']} - {song_info['artist']} (难度{song_info['level']})")
+        return html
     else:
-        # 获取MP3失败：显示搜索跳转按钮
-        player_html = f'''
-    <div class="song-player">
-      <a class="song-play-btn" href="{netease_search_url}" target="_blank" rel="noopener">
-        🎧 点击前往网易云音乐收听
-      </a>
-      <div class="song-play-hint">👉 打开链接后点击播放即可收听完整歌曲</div>
-    </div>'''
-
-    # 歌词HTML
-    lyrics_html = ""
-    for line in song["lyrics"]:
-        en = line["en"]
-        zh = line["zh"]
-        slang_html = ""
-        if line.get("slang"):
-            for slang in line["slang"]:
-                # 检查是否有生词拼读（支持两种格式：hard_words子数组 或 直接字段）
-                hard_words_html = ""
-                # 方式1：slang自身包含 phonetic/syllable 字段
-                if slang.get("phonetic") or slang.get("syllable"):
-                    hw_word = slang.get("word", "")
-                    hw_phonetic = slang.get("phonetic", "")
-                    hw_syllable = slang.get("syllable", "")
-                    hw_note = slang.get("note", "")
-                    hw_word_safe = hw_word.replace("'", "\\'")
-                    syllable_span = f'<span class="hw-syllable">{hw_syllable}</span>' if hw_syllable else ''
-                    phonetic_span = f'<span class="hw-phonetic">{hw_phonetic}</span>' if hw_phonetic else ''
-                    hard_words_html = f'''
-            <div class="hw-item">
-              <span class="hw-word">{hw_word}</span>
-              {phonetic_span}
-              {syllable_span}
-              <span class="hw-mean">{hw_note}</span>
-              <button class="hw-speak" onclick="speakWord(this,'{hw_word_safe}')">{SVG_SPEAKER}</button>
-            </div>'''
-                # 方式2：slang包含 hard_words 子数组
-                elif slang.get("hard_words"):
-                    for hw in slang["hard_words"]:
-                        hw_word = hw.get("word", "")
-                        hw_phonetic = hw.get("phonetic", "")
-                        hw_syllable = hw.get("syllable", "")
-                        hw_note = hw.get("note", "")
-                        hw_word_safe = hw_word.replace("'", "\\'")
-                        syllable_span = f'<span class="hw-syllable">{hw_syllable}</span>' if hw_syllable else ''
-                        hard_words_html += f'''
-            <div class="hw-item">
-              <span class="hw-word">{hw_word}</span>
-              <span class="hw-phonetic">{hw_phonetic}</span>
-              {syllable_span}
-              <span class="hw-mean">{hw_note}</span>
-              <button class="hw-speak" onclick="speakWord(this,'{hw_word_safe}')">{SVG_SPEAKER}</button>
-            </div>'''
-                if hard_words_html:
-                    hard_words_block = f'''
-        <div class="hard-words-box">
-          <div class="hw-title">📝 生词拼读</div>
-          {hard_words_html}
-        </div>'''
-                else:
-                    hard_words_block = ""
-                # 把 word 做成可发音的格式
-                slang_word = slang["word"]
-                slang_word_safe = slang_word.replace("'", "\\'")
-                # 优先使用slang自带的phonetic/syllable，否则从keywords匹配
-                slang_phonetic = slang.get("phonetic", "")
-                slang_syllable = slang.get("syllable", "")
-                if not slang_phonetic or not slang_syllable:
-                    for kw in song.get("keywords", []):
-                        if slang_word.lower() in kw["phrase"].lower() or kw["phrase"].lower() in slang_word.lower():
-                            if not slang_phonetic:
-                                slang_phonetic = kw.get("phonetic", "")
-                            if not slang_syllable:
-                                slang_syllable = kw.get("syllable", "")
-                            break
-                slang_word_display = f'<b>{slang_word}</b>'
-                if slang_phonetic:
-                    slang_word_display += f' <span class="slang-phonetic">{slang_phonetic}</span>'
-                if slang_syllable:
-                    slang_word_display += f' <span class="slang-syllable">{slang_syllable}</span>'
-                slang_word_display += f' <button class="slang-speak" onclick="speakWord(this,\'{slang_word_safe}\')">{SVG_SPEAKER}</button>'
-                slang_html += f'<div class="slang-note">💡 {slang_word_display}: {slang["note"]}</div>{hard_words_block}'
-        lyrics_html += f'''
-      <div class="lyric-line">
-        <div class="lyric-en">{en}</div>
-        <div class="lyric-zh">{zh}</div>
-        {slang_html}
-      </div>'''
-
-    # 关键词
-    keywords_html = ""
-    for kw in song["keywords"]:
-        phrase_safe = kw["phrase"].replace("'", "\\'")
-        syllable = kw.get("syllable", "")
-        syllable_html = f'<span class="kw-syllable">{syllable}</span>' if syllable else ''
-        keywords_html += f'''
-      <div class="keyword-card">
-        <div class="kw-header">
-          <span class="kw-phrase">"{kw["phrase"]}"</span>
-          <button class="kw-speak" onclick="speakWord(this,'{phrase_safe}')">{SVG_SPEAKER}</button>
-        </div>
-        <div class="kw-phonetic">{kw["phonetic"]}</div>
-        <div class="kw-meta">
-          {syllable_html}
-          <span class="kw-grammar">📘 {kw["grammar"]}</span>
-        </div>
-        <div class="kw-mean">{kw["meaning"]}</div>
-      </div>'''
-
-    return f'''
-<div class="bonus-section song-day">
-  <div class="bonus-title">🎵 兴趣加餐 · 听歌学英语</div>
-  <div class="bonus-content">
-    <div class="song-header">
-      <div class="song-name">{song["name"]} <span class="song-year">({song["year"]})</span></div>
-      <div class="song-artist">🎤 {song["artist"]}</div>
-      <div class="song-tense">
-        <span class="tense-badge">{song["tense"]}</span>
-        <span class="tense-en">{song["tense_en"]}</span>
-      </div>
-      <div class="tense-rule">📌 {song["tense_rule"]}</div>
-    </div>
-    {player_html}
-    <div class="lyrics-box">
-      <div class="lyrics-title">🎶 完整歌词（橙色标注为俚语/地道表达）</div>
-      {lyrics_html}
-    </div>
-    <div class="keywords-box">
-      <div class="keywords-title">🎯 重点句型解析（点击🔊听发音）</div>
-      <div class="keywords-grid">
-        {keywords_html}
-      </div>
-    </div>
-    <div class="bonus-tip">
-      <strong>🎧 学习建议：</strong>先完整听两遍感受旋律，再看歌词跟读，最后对照关键表达理解语法。每天一首歌，时态全搞懂！
-    </div>
-  </div>
-</div>'''
+        print("  [WARN] 自动歌曲系统生成失败，使用备选方案")
+        return None
 
 
 def generate_review_bonus(today_words):
@@ -2359,6 +2201,10 @@ CSS = '''
     .lyric-en { font-size: 15px; color: #333; font-weight: 500; margin-bottom: 4px; }
     .lyric-zh { font-size: 13px; color: #666; margin-bottom: 4px; }
     .slang-note { font-size: 12px; color: #e65100; background: #fff8e1; padding: 6px 10px; border-radius: 6px; margin-top: 4px; border-left: 3px solid #ffb74d; }
+    .slang-highlight { color: #e65100; font-weight: 700; background: #fff3e0; padding: 1px 4px; border-radius: 3px; }
+    .slang-grammar { font-size: 11px; color: #1565c0; }
+    .level-badge { display: inline-block; font-size: 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2px 10px; border-radius: 12px; margin-left: 6px; }
+    .hw-count { font-size: 11px; color: #888; margin-left: 2px; }
     .slang-phonetic { font-size: 11px; color: #888; font-family: 'Segoe UI', Arial, sans-serif; }
     .slang-syllable { font-size: 11px; color: #e65100; font-weight: 600; background: #fff3e0; padding: 1px 6px; border-radius: 4px; margin-left: 2px; }
     .slang-speak {
