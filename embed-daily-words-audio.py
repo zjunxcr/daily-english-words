@@ -156,6 +156,61 @@ async def main():
     print(f"[OK] Written: {output_path} ({original_size} -> {new_size} bytes)")
     print(f"[OK] All audio embedded as base64. No external API needed!")
 
+    # ============================================================
+    # 嵌入歌曲 MP3（base64，不依赖外网，国内手机可播）
+    # ============================================================
+    import urllib.request
+    import time
+
+    def embed_song_mp3(html_content, output_file):
+        """从 HTML 中提取 Worker URL，下载 MP3 并 base64 嵌入，替换 src"""
+        import re as re2
+        import base64 as b64
+
+        # 找所有指向 Worker 的 audio src
+        pattern = re2.compile(r'<audio[^>]+src="(https://quiet-term-cc2f\.zjunxcr\.workers\.dev/proxy/([^"]+\.mp3))"')
+        matches = pattern.findall(html_content)
+        if not matches:
+            print("[SKIP] No song audio with Worker URL found in HTML")
+            return html_content
+
+        print(f"[*] Found {len(matches)} song audio(s) with Worker URL, embedding as base64...")
+        for worker_url, mp3_path in matches:
+            try:
+                # 通过 byfuns API 获取真实 HTTP 直链（去掉 Worker 前缀）
+                api_url = f'https://api.byfuns.top/1/?id={21198949}'
+                # 从 URL 中提取netease_id（简单策略：直接用已知歌曲ID或从URL推断）
+                # 这里用直接下载的方式，Worker URL 直接作为音频地址下载
+                print(f"    Downloading: {worker_url[:80]}...")
+                req = urllib.request.Request(worker_url, headers={
+                    'User-Agent': 'Mozilla/5.0',
+                    'Referer': 'https://music.163.com'
+                })
+                with urllib.request.urlopen(req, timeout=30) as resp:
+                    mp3_data = resp.read()
+                print(f"    Downloaded: {len(mp3_data):,} bytes")
+
+                # 转 base64
+                b64_str = b64.b64encode(mp3_data).decode()
+                data_uri = f'data:audio/mpeg;base64,{b64_str}'
+                html_content = html_content.replace(
+                    f'src="{worker_url}"',
+                    f'src="{data_uri}"'
+                )
+                print(f"    Embedded OK! HTML grew by {len(mp3_data)*4//3:,} bytes (base64)")
+            except Exception as e:
+                print(f"    [WARN] Failed to embed: {e}")
+        return html_content
+
+    # 在保存后嵌入歌曲（读取新保存的文件再处理）
+    with open(output_path, "r", encoding="utf-8") as f:
+        html = f.read()
+    html = embed_song_mp3(html, output_path)
+    with open(output_path, "w", encoding="utf-8") as f:
+        f.write(html)
+    final_size = os.path.getsize(output_path)
+    print(f"[OK] Song embedded. Final HTML size: {final_size:,} bytes")
+
 
 if __name__ == "__main__":
     asyncio.run(main())
