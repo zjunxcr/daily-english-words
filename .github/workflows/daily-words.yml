@@ -10,6 +10,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+
+    # 日期校验：只有今天才执行，防止 GitHub 延迟触发导致重复
+    - name: Check date
+      run: |
+        TODAY=$(date -u +%Y-%m-%d)
+        echo "Today is: $TODAY"
+        if [ -n "$TARGET_DATE" ] && [ "$TARGET_DATE" != "$TODAY" ]; then
+          echo "Date mismatch, skipping..."
+          exit 78
+        fi
+      env:
+        TARGET_DATE: ${{ github.event.inputs.target_date || '' }}
+
     - uses: actions/setup-python@v5
       with:
         python-version: '3.13'
