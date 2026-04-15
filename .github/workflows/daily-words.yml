@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: '0 1 * * *'
   workflow_dispatch:
+    inputs:
+      force:
+        description: '强制执行（忽略日期检查）'
+        required: false
+        default: 'false'
 
 jobs:
   build-and-send:
@@ -11,24 +16,66 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    # 日期校验：只有今天才执行，防止 GitHub 延迟触发导致重复
-    - name: Check date
+    # 读取上次运行的日期，防止 GitHub 延迟触发导致同一天重复执行
+    - name: Check if already run today
+      id: date_check
       run: |
         TODAY=$(date -u +%Y-%m-%d)
-        echo "Today is: $TODAY"
-        if [ -n "$TARGET_DATE" ] && [ "$TARGET_DATE" != "$TODAY" ]; then
-          echo "Date mismatch, skipping..."
-          exit 78
+        echo "Today (UTC): $TODAY"
+
+        LAST_RUN_FILE=".last_run_date"
+        LAST_RUN=""
+        if [ -f "$LAST_RUN_FILE" ]; then
+          LAST_RUN=$(cat "$LAST_RUN_FILE")
         fi
-      env:
-        TARGET_DATE: ${{ github.event.inputs.target_date || '' }}
+        echo "Last run: $LAST_RUN"
+
+        FORCE=${{ github.event.inputs.force || 'false' }}
+        echo "Force: $FORCE"
+
+        if [ "$FORCE" != "true" ] && [ "$LAST_RUN" == "$TODAY" ]; then
+          echo "Already ran today ($TODAY), skipping to avoid duplicate..."
+          echo "skip=true" >> $GITHUB_OUTPUT
+        else
+          echo "skip=false" >> $GITHUB_OUTPUT
+        fi
+
+    # 克隆仓库用于提交（主 clone 是 detached HEAD，无法 push）
+    - name: Prepare for commit
+      if: steps.date_check.outputs.skip != 'true'
+      run: |
+        git config user.name "github-actions"
+        git config user.email "github-actions@github.com"
+        git checkout main
 
     - uses: actions/setup-python@v5
+      if: steps.date_check.outputs.skip != 'true'
       with:
         python-version: '3.13'
-    - run: pip install -r requirements.txt
-    - run: python generate-today-words.py
-    - run: python embed-daily-words-audio.py
-    - run: python send-all-v2.py
+
+    - name: Install dependencies
+      if: steps.date_check.outputs.skip != 'true'
+      run: pip install -r requirements.txt
+
+    - name: Generate daily words
+      if: steps.date_check.outputs.skip != 'true'
+      run: python generate-today-words.py
+
+    - name: Embed audio
+      if: steps.date_check.outputs.skip != 'true'
+      run: python embed-daily-words-audio.py
+
+    - name: Send notifications
+      if: steps.date_check.outputs.skip != 'true'
+      run: python send-all-v2.py
       env:
         SERVERCHAN_KEY: ${{ secrets.SERVERCHAN_KEY }}
+
+    # 无论是否跳过，都更新日期文件，防止下次延迟触发再次进入
+    - name: Update last run date
+      run: |
+        TODAY=$(date -u +%Y-%m-%d)
+        echo "$TODAY" > .last_run_date
+        git add .last_run_date
+        git commit -m "update last_run_date: $TODAY" || echo "No change to commit"
+        git push origin main || echo "Push skipped (no changes or permission)"
