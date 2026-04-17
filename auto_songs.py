@@ -749,7 +749,7 @@ def parse_lyric_lines(raw_lyric):
         if not ts_match:
             continue
         ts = ts_match.group(1)
-        text = re.sub(r"\[\d{2}:\d{2}\.\d{2,3}\]", "", line).strip()
+        text = re.sub(r"\[\d{2}:\d{2}\.\d{1,3}\]", "", line).strip()
         # 跳过标签行
         if not text or text.startswith(("作词", "作曲", "编曲", "混音", "制作人", "by:", "By:", "offset")):
             continue
