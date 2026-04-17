@@ -259,7 +259,7 @@ SONG_LIBRARY = [
     {"name": "As Long As You Love Me", "artist": "Backstreet Boys", "year": "1997", "netease_id": "191248",
      "tense": "一般现在时 + 条件句", "tense_en": "Simple Present + Conditionals", "level": 2,
      "tense_rule": "as long as = 只要；条件状语从句"},
-    {"name": "I Want It That Way", "artist": "Backstreet Boys", "year": "1999", "netease_id": "191250",
+    {"name": "I Want It That Way", "artist": "Backstreet Boys", "year": "1999", "netease_id": "16835293",
      "tense": "一般现在时", "tense_en": "Simple Present", "level": 2,
      "tense_rule": "主语+动词原形，表达想法和感受"},
     {"name": "My Love", "artist": "Westlife", "year": "2000", "netease_id": "230232",
@@ -726,8 +726,43 @@ def search_netease_id(song_name, artist=""):
     return None, None
 
 
+def is_english_text(text):
+    """判断文本是否主要是英文（ASCII字符占多数）"""
+    # 计算ASCII字符占比
+    ascii_count = sum(1 for c in text if ord(c) < 128)
+    # 跳过标点和空白后检查
+    alpha = [c for c in text if c.isalpha()]
+    if not alpha:
+        return True  # 没有字母，按英文处理
+    ascii_alpha = sum(1 for c in alpha if ord(c) < 128)
+    return ascii_alpha / len(alpha) > 0.5
+
+
+def parse_lyric_lines(raw_lyric):
+    """解析歌词，返回按时间戳组织的列表"""
+    lines = []
+    for line in raw_lyric.split("\n"):
+        line = line.strip()
+        if not line:
+            continue
+        ts_match = re.match(r"\[(\d{2}:\d{2}\.\d{1,3})\]", line)
+        if not ts_match:
+            continue
+        ts = ts_match.group(1)
+        text = re.sub(r"\[\d{2}:\d{2}\.\d{2,3}\]", "", line).strip()
+        # 跳过标签行
+        if not text or text.startswith(("作词", "作曲", "编曲", "混音", "制作人", "by:", "By:", "offset")):
+            continue
+        if len(text) < 2:
+            continue
+        lines.append((ts, text))
+    return lines
+
+
 def fetch_lyrics(netease_id):
-    """通过网易云API获取歌词和中文翻译，返回 (英文字幕列表, 中文字幕列表)"""
+    """通过网易云API获取歌词和中文翻译，返回 (英文字幕列表, 中文字幕列表)
+    智能判断：如果是英文歌用lrc作主歌词，如果是中文歌用tlyric作主歌词（英文翻译）
+    """
     api_url = f"https://music.163.com/api/song/lyric?id={netease_id}&lv=1&tv=1"
     try:
         req = urllib.request.Request(api_url, headers={
@@ -737,59 +772,41 @@ def fetch_lyrics(netease_id):
         with urllib.request.urlopen(req, timeout=15) as resp:
             data = json.loads(resp.read().decode("utf-8"))
 
-        # 解析英文歌词
-        en_lyrics = []
-        if data.get("lrc") and data["lrc"].get("lyric"):
-            raw = data["lrc"]["lyric"]
-            for line in raw.split("\n"):
-                line = line.strip()
-                if not line:
-                    continue
-                # 去掉时间标签 [00:00.000]
-                text = re.sub(r"\[\d{2}:\d{2}\.\d{2,3}\]", "", line).strip()
-                # 跳过纯标签行（作词、作曲等）
-                if not text or text.startswith(("作词", "作曲", "编曲", "混音", "制作人", "by:", "By:")):
-                    continue
-                if len(text) < 3:
-                    continue
-                en_lyrics.append(text)
+        lrc_data = data.get("lrc", {}).get("lyric", "")
+        tlyric_data = data.get("tlyric", {}).get("lyric", "")
 
-        if not en_lyrics:
+        # 解析两套歌词
+        lrc_lines = parse_lyric_lines(lrc_data) if lrc_data else []
+        tlyric_lines = parse_lyric_lines(tlyric_data) if tlyric_data else []
+
+        # 建立时间戳到文本的映射
+        lrc_map = {ts: text for ts, text in lrc_lines}
+        tlyric_map = {ts: text for ts, text in tlyric_lines}
+
+        # 收集所有时间戳
+        all_ts = sorted(set(list(lrc_map.keys()) + list(tlyric_map.keys())))
+
+        # 判断原歌词是英文还是非英文
+        # 采样前10行检查
+        sample_texts = [text for ts, text in lrc_lines[:10]]
+        is_english_song = all(is_english_text(t) for t in sample_texts if t)
+
+        if is_english_song:
+            # 英文歌：lrc是英文，tlyric是中文翻译
+            en_lyrics = [lrc_map.get(ts, "") for ts in all_ts]
+            zh_lyrics = [tlyric_map.get(ts, "") for ts in all_ts]
+        else:
+            # 非英文歌（如中文歌）：tlyric是英文翻译，lrc是中文原文
+            en_lyrics = [tlyric_map.get(ts, lrc_map.get(ts, "")) for ts in all_ts]
+            zh_lyrics = [lrc_map.get(ts, "") for ts in all_ts]
+
+        # 过滤空行
+        result = [(e, z) for e, z in zip(en_lyrics, zh_lyrics) if e.strip()]
+
+        if not result:
             return [], []
 
-        # 解析中文翻译
-        zh_map = {}
-        if data.get("tlyric") and data["tlyric"].get("lyric"):
-            raw = data["tlyric"]["lyric"]
-            for line in raw.split("\n"):
-                line = line.strip()
-                if not line:
-                    continue
-                # 提取时间戳
-                ts_match = re.match(r"\[(\d{2}:\d{2})\.\d{2,3}\]", line)
-                if ts_match:
-                    ts = ts_match.group(1)
-                    text = re.sub(r"\[\d{2}:\d{2}\.\d{2,3}\]", "", line).strip()
-                    if text and not text.startswith(("by:", "By:")):
-                        zh_map[ts] = text
-
-        # 构建翻译列表（按时间戳对齐）
-        zh_lyrics = []
-        raw = data.get("lrc", {}).get("lyric", "") if data.get("lrc") else ""
-        if raw:
-            for line in raw.split("\n"):
-                ts_match = re.match(r"\[(\d{2}:\d{2})\.\d{2,3}\]", line)
-                if ts_match:
-                    ts = ts_match.group(1)
-                    text = re.sub(r"\[\d{2}:\d{2}\.\d{2,3}\]", "", line).strip()
-                    if not text or text.startswith(("作词", "作曲", "编曲", "混音", "制作人", "by:", "By:")) or len(text) < 3:
-                        continue
-                    if ts in zh_map:
-                        zh_lyrics.append(zh_map[ts])
-                    else:
-                        zh_lyrics.append("")  # 没有翻译的行
-
-        return en_lyrics, zh_lyrics[:len(en_lyrics)]
+        return list(zip(*result)) if result else ([], [])
 
     except Exception as e:
         print(f"[WARN] 获取歌词失败: {e}")
