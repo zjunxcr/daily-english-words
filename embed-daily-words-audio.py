@@ -167,22 +167,20 @@ async def main():
         import re as re2
         import base64 as b64
 
-        # 找所有指向 Worker 的 audio src
-        pattern = re2.compile(r'<audio[^>]+src="(https://quiet-term-cc2f\.zjunxcr\.workers\.dev/proxy/([^"]+\.mp3))"')
+        # 找所有指向 Worker 的 audio src（id可能是纯数字或.netease后缀）
+        pattern = re2.compile(r'<audio[^>]+src="(https://quiet-term-cc2f\.zjunxcr\.workers\.dev/proxy/(\d+)[^"]*)"')
         matches = pattern.findall(html_content)
         if not matches:
             print("[SKIP] No song audio with Worker URL found in HTML")
             return html_content
 
         print(f"[*] Found {len(matches)} song audio(s) with Worker URL, embedding as base64...")
-        for worker_url, mp3_path in matches:
+        for worker_url, mp3_id in matches:
             try:
-                # 通过 byfuns API 获取真实 HTTP 直链（去掉 Worker 前缀）
-                api_url = f'https://api.byfuns.top/1/?id={21198949}'
-                # 从 URL 中提取netease_id（简单策略：直接用已知歌曲ID或从URL推断）
-                # 这里用直接下载的方式，Worker URL 直接作为音频地址下载
-                print(f"    Downloading: {worker_url[:80]}...")
-                req = urllib.request.Request(worker_url, headers={
+                # 通过 byfuns API 获取真实 MP3
+                api_url = f'https://api.byfuns.top/1/?id={mp3_id}'
+                print(f"    Fetching MP3 id={mp3_id} via byfuns API...")
+                req = urllib.request.Request(api_url, headers={
                     'User-Agent': 'Mozilla/5.0',
                     'Referer': 'https://music.163.com'
                 })
