@@ -1025,33 +1025,23 @@ def generate_auto_song_html(svg_speaker):
     found_slang = find_slang_in_lyrics(en_lyrics)
     slang_phrases = {s["phrase"].lower() for s in found_slang}
 
-    # 生成每行歌词HTML
+    # 生成每行歌词HTML（图片样式：行内标注俚语+生词）
     lyrics_html = ""
     for i, en_line in enumerate(en_lyrics):
         zh_line = zh_lyrics[i] if i < len(zh_lyrics) else ""
 
-        # 在英文歌词中高亮俚语
-        en_display = en_line
-        for slang in found_slang:
-            phrase = slang["phrase"]
-            if phrase.lower() in en_line.lower():
-                # 在原文本中找到并高亮
-                idx = en_line.lower().find(phrase.lower())
-                if idx >= 0:
-                    original = en_line[idx:idx+len(phrase)]
-                    en_display = en_line.replace(original, f'<span class="slang-highlight">{original}</span>', 1)
+        # 收集该行所有的俚语和生词标注
+        note_items = []
 
-        # 生成该行的俚语标注
-        slang_html = ""
+        # 检测俚语
         for slang in found_slang:
             if slang["phrase"].lower() in en_line.lower():
                 phrase_safe = slang["phrase"].replace("'", "\\'")
-                slang_html += f'''<div class="slang-note">💡 <b>{slang["phrase"]}</b>: {slang["meaning"]} <span class="slang-grammar">📘 {slang["grammar"]}</span></div>'''
+                note_items.append(f'<span class="lyric-note slang-note">💡 {slang["phrase"]} /{slang["meaning"]}/ <button onclick="speakWord(this,\'{phrase_safe}\')">{svg_speaker}</button></span>')
 
-        # 生成该行的生词标注
+        # 检测生词
         line_words = extract_words(en_line)
         line_hard = [w for w in line_words if w in hard_word_set and len(w) > 2]
-        # 去重
         seen = set()
         unique_hard = []
         for w in line_hard:
@@ -1059,66 +1049,33 @@ def generate_auto_song_html(svg_speaker):
                 seen.add(w)
                 unique_hard.append(w)
 
-        hard_words_html = ""
-        if unique_hard:
-            for hw in unique_hard[:5]:  # 每行最多标5个生词
-                hw_safe = hw.replace("'", "\\'")
-                hard_words_html += f'''<div class="hw-item">
-              <span class="hw-word">{hw}</span>
-              <button class="hw-speak" onclick="speakWord(this,'{hw_safe}')">{svg_speaker}</button>
-            </div>'''
-            hard_words_html = f'''
-        <div class="hard-words-box">
-          <div class="hw-title">📝 生词（点击🔊听发音）</div>
-          {hard_words_html}
-        </div>'''
+        for hw in unique_hard[:5]:  # 每行最多标5个生词
+            hw_safe = hw.replace("'", "\\'")
+            note_items.append(f'<span class="lyric-note hard-note">💡 {hw} <button onclick="speakWord(this,\'{hw_safe}\')">{svg_speaker}</button></span>')
+
+        # 合并标注
+        notes_html = ""
+        if note_items:
+            notes_html = '<div class="lyric-notes">' + " ".join(note_items) + '</div>'
 
         lyrics_html += f'''
       <div class="lyric-line">
-        <div class="lyric-en">{en_display}</div>
+        <div class="lyric-en">{en_line}</div>
         <div class="lyric-zh">{zh_line}</div>
-        {slang_html}{hard_words_html}
+        {notes_html}
       </div>'''
 
-    # 生词总览
+    # 生词总览（现在只在行内标注，删除总览）
     hard_overview_html = ""
-    if hard_words:
-        for word, count in hard_words[:15]:  # 最多展示15个生词
-            word_safe = word.replace("'", "\\'")
-            hard_overview_html += f'''<div class="hw-item">
-              <span class="hw-word">{word}</span>
-              <span class="hw-count">({count})</span>
-              <button class="hw-speak" onclick="speakWord(this,'{word_safe}')">{svg_speaker}</button>
-            </div>'''
-
-    # 俚语总览
     slang_overview_html = ""
-    if found_slang:
-        for slang in found_slang[:10]:
-            phrase_safe = slang["phrase"].replace("'", "\\'")
-            slang_overview_html += f'''
-      <div class="keyword-card">
-        <div class="kw-header">
-          <span class="kw-phrase">"{slang["phrase"]}"</span>
-          <button class="kw-speak" onclick="speakWord(this,'{phrase_safe}')">{svg_speaker}</button>
-        </div>
-        <div class="kw-meta">
-          <span class="kw-grammar">📘 {slang["grammar"]}</span>
-        </div>
-        <div class="kw-mean">{slang["meaning"]}</div>
-      </div>'''
 
-    # 获取 MP3 直链（用于内嵌播放）
-    mp3_https_url = fetch_mp3_url(mp3_id) if mp3_id else None
-
-    # 完整播放方案：内嵌音频（首选）+ 外链按钮（备用/手机端）
+    # 播放器：内嵌优先 + 备用链接
     player_html = f'''
     <div class="song-player">
       <audio id="song-audio" src="https://quiet-term-cc2f.zjunxcr.workers.dev/proxy/{mp3_id}.mp3" controls preload="none" style="width:100%;border-radius:10px;">
       </audio>
-      <div class="audio-links">
-        <a href="https://music.163.com/song?id={mp3_id}" target="_blank" class="audio-link netease">▶ 网易云</a>
-        <a href="https://y.qq.com/n/ryqq/song/{mp3_id}" target="_blank" class="audio-link qq">▶ QQ音乐</a>
+      <div class="player-fallback">
+        播放失败？<a href="https://music.163.com/song?id={mp3_id}" target="_blank">点击前往网易云音乐收听</a>
       </div>
     </div>'''
 
@@ -1145,33 +1102,22 @@ def generate_auto_song_html(svg_speaker):
     # 歌词区域
     html += f'''
     <div class="lyrics-box">
-      <div class="lyrics-title">🎶 歌词（<span class="slang-highlight">橙色</span>=俚语/地道表达，每行下方自动标注生词）</div>
+      <div class="lyrics-title">🎶 歌词</div>
       {lyrics_html}
     </div>'''
 
-    # 俚语总结
-    if found_slang:
-        html += f'''
-    <div class="keywords-box">
-      <div class="keywords-title">🎯 地道表达解析（点击🔊听发音）</div>
-      <div class="keywords-grid">
-        {slang_overview_html}
-      </div>
-    </div>'''
-
-    # 生词总览
-    if hard_words:
-        html += f'''
-    <div class="keywords-box">
-      <div class="keywords-title">📚 歌词生词总览（点击🔊听发音，数字=出现次数）</div>
-      <div class="keywords-grid">
-        {hard_overview_html}
+    # 重点句型解析
+    html += f'''
+    <div class="grammar-box">
+      <div class="grammar-title">📝 重点句型解析</div>
+      <div class="grammar-content">
+        <p><b>本曲时态：</b>{song["tense_en"]} — {song["tense_rule"]}</p>
       </div>
     </div>'''
 
     html += f'''
     <div class="bonus-tip">
-      <strong>🎧 学习建议：</strong>先完整听两遍感受旋律，再看歌词跟读。遇到生词点🔊听发音。关注橙色标注的地道表达，这些都是英语母语者常用的说法！
+      <strong>🎧 学习建议：</strong>先完整听两遍感受旋律，再看歌词跟读。标注的俚语和生词点击🔊听发音。
     </div>
   </div>
 </div>'''
