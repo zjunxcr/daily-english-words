@@ -2194,6 +2194,9 @@ CSS = '''
     .song-player .song-play-btn:active { transform: scale(0.97); }
     .song-player .song-play-hint { font-size: 12px; color: #888; margin-top: 10px; }
     .song-player-error { color: #e65100; font-size: 13px; text-align: center; padding: 12px; background: #fff3e0; border-radius: 8px; }
+    .player-fallback { font-size: 13px; color: #666; text-align: center; margin-top: 8px; }
+    .player-fallback a { color: #1e88e5; text-decoration: none; font-weight: 600; }
+    .player-fallback a:hover { text-decoration: underline; }
     .lyrics-box { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 16px; }
     .lyrics-title { font-size: 14px; font-weight: 700; color: #2e7d32; margin-bottom: 12px; }
     .lyric-line { margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px dashed #e0e0e0; }
@@ -2201,6 +2204,16 @@ CSS = '''
     .lyric-en { font-size: 15px; color: #333; font-weight: 500; margin-bottom: 4px; }
     .lyric-zh { font-size: 13px; color: #666; margin-bottom: 4px; }
     .slang-note { font-size: 12px; color: #e65100; background: #fff8e1; padding: 6px 10px; border-radius: 6px; margin-top: 4px; border-left: 3px solid #ffb74d; }
+    .lyric-notes { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .lyric-note { font-size: 12px; padding: 4px 8px; border-radius: 6px; display: inline-flex; align-items: center; gap: 4px; }
+    .lyric-note.slang-note { background: #fff8e1; border: 1px solid #ffcc80; }
+    .lyric-note.hard-note { background: #e8f5e9; border: 1px solid #a5d6a7; }
+    .grammar-box { background: #fff3e0; border-radius: 12px; padding: 14px; margin-bottom: 16px; border: 1px solid #ffcc80; }
+    .grammar-title { font-size: 14px; font-weight: 700; color: #e65100; margin-bottom: 10px; }
+    .grammar-content { font-size: 14px; color: #333; line-height: 1.6; }
+    .grammar-content p { margin: 4px 0; }
+    .lyric-note button { background: none; border: none; cursor: pointer; padding: 0; display: inline-flex; }
+    .lyric-note button svg { width: 14px; height: 14px; }
     .slang-highlight { color: #e65100; font-weight: 700; background: #fff3e0; padding: 1px 4px; border-radius: 3px; }
     .slang-grammar { font-size: 11px; color: #1565c0; }
     .level-badge { display: inline-block; font-size: 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2px 10px; border-radius: 12px; margin-left: 6px; }
