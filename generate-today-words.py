@@ -2208,6 +2208,29 @@ CSS = '''
     .lyric-note { font-size: 12px; padding: 4px 8px; border-radius: 6px; display: inline-flex; align-items: center; gap: 4px; }
     .lyric-note.slang-note { background: #fff8e1; border: 1px solid #ffcc80; }
     .lyric-note.hard-note { background: #e8f5e9; border: 1px solid #a5d6a7; }
+    /* 生词拼读区块 */
+    .vocab-phonetic { background: #fff; border-radius: 12px; padding: 14px; margin-bottom: 16px; border: 1px solid #e0e0e0; }
+    .vocab-phonetic-title { font-size: 14px; font-weight: 700; color: #2e7d32; margin-bottom: 10px; }
+    .phonetic-entry { font-size: 14px; color: #333; margin-bottom: 6px; line-height: 1.6; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+    .phonetic-entry strong { color: #1a237e; font-size: 15px; }
+    .phonetic-entry .syllables { color: #e65100; font-weight: 600; }
+    .phonetic-entry .pos { color: #666; }
+    .phonetic-entry button { background: #e8f5e9; border: none; border-radius: 50%; width: 22px; height: 22px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+    .phonetic-entry button:hover { background: #c8e6c9; }
+    .phonetic-entry button svg { width: 12px; height: 12px; }
+    /* 重点句型解析 */
+    .key-patterns { background: #fff3e0; border-radius: 12px; padding: 14px; margin-bottom: 16px; border: 1px solid #ffcc80; }
+    .key-patterns-title { font-size: 14px; font-weight: 700; color: #e65100; margin-bottom: 12px; }
+    .pattern-item { background: #fff; border-radius: 10px; padding: 12px 14px; margin-bottom: 10px; }
+    .pattern-item:last-child { margin-bottom: 0; }
+    .pattern-quote { font-size: 15px; font-weight: 700; color: #333; margin-bottom: 6px; }
+    .pattern-ipa { font-size: 13px; color: #888; font-family: 'Segoe UI', Arial, sans-serif; margin-bottom: 6px; }
+    .pattern-syllables { font-size: 13px; color: #555; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+    .pattern-syllables .grammar-tag { font-size: 12px; color: #5e35b1; background: #ede7f6; padding: 2px 8px; border-radius: 4px; margin-left: 4px; }
+    .pattern-syllables button { background: #fff3e0; border: none; border-radius: 50%; width: 22px; height: 22px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+    .pattern-syllables button:hover { background: #ffe0b2; }
+    .pattern-syllables button svg { width: 12px; height: 12px; }
+    .pattern-translation { font-size: 13px; color: #666; font-style: italic; }
     .grammar-box { background: #fff3e0; border-radius: 12px; padding: 14px; margin-bottom: 16px; border: 1px solid #ffcc80; }
     .grammar-title { font-size: 14px; font-weight: 700; color: #e65100; margin-bottom: 10px; }
     .grammar-content { font-size: 14px; color: #333; line-height: 1.6; }
