@@ -1,64 +1,78 @@
 """
 embed-daily-words-audio.py
-Read daily words HTML, generate TTS audio for each word and example sentence,
-embed as base64 data URIs, write updated HTML.
+歌曲MP3离线嵌入脚本
+
+功能：
+1. 从HTML中提取 Cloudflare Worker 代理的歌曲音频URL
+2. 通过 byfuns API 获取真实 MP3 数据
+3. 转换为 base64 内嵌到 HTML，替换外链
+
+注意：
+- 单词/例句发音已由 generate-today-words.py 使用 speechSynthesis 实现（无需edge-tts）
+- 本脚本只处理歌曲MP3的离线嵌入
 
 Usage:
   python embed-daily-words-audio.py <html_file> [output_file]
-
-Voice: en-NZ-MitchellNeural (NZ male, closest to NZ accent)
-Word rate: -20% (slower, clearer pronunciation)
-Sentence rate: -30% (slow for learners to follow along)
+  python embed-daily-words-audio.py  # 自动查找当天文件
 """
 
 import re
 import sys
 import os
 import base64
-import asyncio
-import edge_tts
-
-VOICE = "en-NZ-MitchellNeural"
-WORD_RATE = "-20%"       # 单词：明显放慢，发音更清晰
-SENTENCE_RATE = "-30%"   # 例句：明显放慢，便于跟读
-
-audio_cache = {}
+import urllib.request
+import time
 
 
-async def generate_audio(text: str, rate: str) -> str:
-    """Generate TTS audio, return base64 data URI."""
-    cache_key = f"{rate}:{text}"
-    if cache_key in audio_cache:
-        return audio_cache[cache_key]
+def embed_song_mp3(html_content):
+    """从 HTML 中提取 Worker URL，下载 MP3 并 base64 嵌入，替换 src"""
+    
+    # 找所有指向 Worker 的 audio src（id是纯数字）
+    pattern = re.compile(r'<audio[^>]+src="(https://quiet-term-cc2f\.zjunxcr\.workers\.dev/proxy/(\d+)[^"]*)"')
+    matches = pattern.findall(html_content)
+    
+    if not matches:
+        print("[SKIP] No song audio with Worker URL found in HTML")
+        return html_content
+    
+    print(f"[*] Found {len(matches)} song audio(s) with Worker URL, embedding as base64...")
+    
+    for worker_url, mp3_id in matches:
+        try:
+            # 通过 byfuns API 获取真实 MP3
+            api_url = f'https://api.byfuns.top/1/?id={mp3_id}'
+            print(f"    Fetching MP3 id={mp3_id} via byfuns API...")
+            
+            req = urllib.request.Request(api_url, headers={
+                'User-Agent': 'Mozilla/5.0',
+                'Referer': 'https://music.163.com'
+            })
+            
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                mp3_data = resp.read()
+            
+            print(f"    Downloaded: {len(mp3_data):,} bytes")
+            
+            # 转 base64
+            b64_str = base64.b64encode(mp3_data).decode()
+            data_uri = f'data:audio/mpeg;base64,{b64_str}'
+            
+            # 替换 HTML 中的 src
+            html_content = html_content.replace(
+                f'src="{worker_url}"',
+                f'src="{data_uri}"'
+            )
+            
+            print(f"    Embedded OK! HTML grew by {len(mp3_data)*4//3:,} bytes (base64)")
+            time.sleep(0.5)  # 避免请求过快
+            
+        except Exception as e:
+            print(f"    [WARN] Failed to embed: {e}")
+    
+    return html_content
 
-    communicate = edge_tts.Communicate(text, VOICE, rate=rate)
-    mp3_bytes = b""
-    async for chunk in communicate.stream():
-        if chunk["type"] == "audio":
-            mp3_bytes += chunk["data"]
 
-    b64 = base64.b64encode(mp3_bytes).decode("utf-8")
-    data_uri = f"data:audio/mpeg;base64,{b64}"
-    audio_cache[cache_key] = data_uri
-    print(f"  [OK] \"{text[:50]}{'...' if len(text)>50 else ''}\" ({len(mp3_bytes)} bytes)")
-    return data_uri
-
-
-def extract_speak_calls(html: str):
-    """Extract all speakWord and speakSentence calls from onclick handlers."""
-    results = []
-    # Match: speakWord(this,'word') or speakSentence(this,'sentence')
-    # Handle escaped quotes: \' inside the string
-    pattern = r"(speakWord|speakSentence)\(this,'((?:[^'\\]|\\.)*?)'\)"
-    for m in re.finditer(pattern, html):
-        func = m.group(1)
-        text = m.group(2).replace("\\'", "'")  # Unescape \' -> '
-        rate = WORD_RATE if func == "speakWord" else SENTENCE_RATE
-        results.append((m.start(), m.end(), func, text, rate))
-    return results
-
-
-async def main():
+def main():
     from datetime import datetime
     from pathlib import Path
     
@@ -66,14 +80,16 @@ async def main():
         # 自动查找当天文件
         today = datetime.now().strftime('%Y-%m-%d')
         html_path = f"每日英语单词_{today}.html"
+        
         if not Path(html_path).exists():
-            # 尝试找任意一个每日英语单词文件
-            files = list(Path('.').glob('每日英语单词_*.html'))
+            # 尝试找最新的文件
+            files = sorted(Path('.').glob('每日英语单词_*.html'), key=lambda p: p.stat().st_mtime, reverse=True)
             if files:
                 html_path = str(files[0])
             else:
                 print("Error: No daily words HTML file found")
                 sys.exit(1)
+        
         output_path = html_path
         print(f"[*] Auto-detected file: {html_path}")
     else:
@@ -82,133 +98,20 @@ async def main():
 
     with open(html_path, "r", encoding="utf-8") as f:
         html = f.read()
-
+    
     print(f"[*] Reading: {html_path}")
-
-    # Extract all speak calls
-    calls = extract_speak_calls(html)
-    print(f"[*] Found {len(calls)} audio items to generate")
-
-    # Generate all audio in parallel
-    print(f"[*] Generating audio with voice: {VOICE} ...")
-    audio_map = {}  # (start, end) -> data_uri
-    tasks = []
-    for start, end, func, text, rate in calls:
-        tasks.append((start, end, text, generate_audio(text, rate)))
-
-    for start, end, text, coro in tasks:
-        data_uri = await coro
-        audio_map[(start, end)] = data_uri
-
-    print(f"[*] All {len(audio_map)} audio items generated. Embedding into HTML...")
-
-    # Replace JS speak functions with base64 audio playback
-    # Strategy: create an audio map object and replace each onclick handler
-    # Build the audio map as JSON
-    audio_data_js = "{\n"
-    items = []
-    for (start, end), data_uri in audio_map.items():
-        # Use the text as key (escape for JS)
-        key = f"{calls[[c[:2] for c in calls].index((start, end))][3]}"
-        escaped_key = key.replace("\\", "\\\\").replace("'", "\\'")
-        # Truncate base64 for readability in source, but keep full in actual
-        items.append(f"  '{escaped_key}': '{data_uri}'")
-    audio_data_js += ",\n".join(items)
-    audio_data_js += "\n}"
-
-    # Build new script section
-    new_script = f"""<script>
-  // Pre-embedded audio data (generated by edge-tts, voice: {VOICE})
-  const AUDIO_MAP = {audio_data_js};
-  let currentAudio = null;
-
-  function playAudio(text, btn) {{
-    if (currentAudio) {{
-      currentAudio.pause();
-      currentAudio = null;
-    }}
-    const dataUri = AUDIO_MAP[text];
-    if (!dataUri) {{
-      console.warn('Audio not found for:', text);
-      if (btn) btn.classList.remove('playing');
-      return;
-    }}
-    const audio = new Audio(dataUri);
-    currentAudio = audio;
-    if (btn) btn.classList.add('playing');
-    audio.onended = function() {{ if (btn) btn.classList.remove('playing'); currentAudio = null; }};
-    audio.onerror = function() {{ if (btn) btn.classList.remove('playing'); currentAudio = null; }};
-    audio.play().catch(function(e) {{ console.warn('Play failed:', e); if (btn) btn.classList.remove('playing'); }});
-  }}
-
-  function speakWord(btn, word)    {{ playAudio(word, btn); }}
-  function speakSentence(btn, sen) {{ playAudio(sen, btn); }}
-</script>"""
-
-    # Replace the entire <script>...</script> block at the end
-    html = re.sub(r'<script>[\s\S]*?</script>\s*</body>', new_script + '\n</body>', html)
-
+    original_size = len(html)
+    
+    # 嵌入歌曲MP3
+    html = embed_song_mp3(html)
+    
+    # 保存
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(html)
-
-    original_size = os.path.getsize(html_path)
-    new_size = os.path.getsize(output_path)
-    print(f"[OK] Written: {output_path} ({original_size} -> {new_size} bytes)")
-    print(f"[OK] All audio embedded as base64. No external API needed!")
-
-    # ============================================================
-    # 嵌入歌曲 MP3（base64，不依赖外网，国内手机可播）
-    # ============================================================
-    import urllib.request
-    import time
-
-    def embed_song_mp3(html_content, output_file):
-        """从 HTML 中提取 Worker URL，下载 MP3 并 base64 嵌入，替换 src"""
-        import re as re2
-        import base64 as b64
-
-        # 找所有指向 Worker 的 audio src（id可能是纯数字或.netease后缀）
-        pattern = re2.compile(r'<audio[^>]+src="(https://quiet-term-cc2f\.zjunxcr\.workers\.dev/proxy/(\d+)[^"]*)"')
-        matches = pattern.findall(html_content)
-        if not matches:
-            print("[SKIP] No song audio with Worker URL found in HTML")
-            return html_content
-
-        print(f"[*] Found {len(matches)} song audio(s) with Worker URL, embedding as base64...")
-        for worker_url, mp3_id in matches:
-            try:
-                # 通过 byfuns API 获取真实 MP3
-                api_url = f'https://api.byfuns.top/1/?id={mp3_id}'
-                print(f"    Fetching MP3 id={mp3_id} via byfuns API...")
-                req = urllib.request.Request(api_url, headers={
-                    'User-Agent': 'Mozilla/5.0',
-                    'Referer': 'https://music.163.com'
-                })
-                with urllib.request.urlopen(req, timeout=30) as resp:
-                    mp3_data = resp.read()
-                print(f"    Downloaded: {len(mp3_data):,} bytes")
-
-                # 转 base64
-                b64_str = b64.b64encode(mp3_data).decode()
-                data_uri = f'data:audio/mpeg;base64,{b64_str}'
-                html_content = html_content.replace(
-                    f'src="{worker_url}"',
-                    f'src="{data_uri}"'
-                )
-                print(f"    Embedded OK! HTML grew by {len(mp3_data)*4//3:,} bytes (base64)")
-            except Exception as e:
-                print(f"    [WARN] Failed to embed: {e}")
-        return html_content
-
-    # 在保存后嵌入歌曲（读取新保存的文件再处理）
-    with open(output_path, "r", encoding="utf-8") as f:
-        html = f.read()
-    html = embed_song_mp3(html, output_path)
-    with open(output_path, "w", encoding="utf-8") as f:
-        f.write(html)
+    
     final_size = os.path.getsize(output_path)
-    print(f"[OK] Song embedded. Final HTML size: {final_size:,} bytes")
+    print(f"[OK] Done! HTML size: {original_size:,} -> {final_size:,} bytes (Δ +{final_size - original_size:,})")
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()
