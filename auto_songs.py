@@ -1095,9 +1095,9 @@ def generate_auto_song_html(svg_speaker):
     mp3_https_url = fetch_mp3_url(mp3_id) if mp3_id else None
 
     # 纯音频播放器（音频由 embed-daily-words-audio.py 下载并 base64 内嵌，此处不出现任何外部跳转链接）
-    player_html = '''
+    player_html = f'''
     <div class="song-player">
-      <audio id="song-audio" controls preload="none" style="width:100%;border-radius:10px;">
+      <audio id="song-audio" src="https://quiet-term-cc2f.zjunxcr.workers.dev/proxy/{mp3_id}.mp3" controls preload="none" style="width:100%;border-radius:10px;">
       </audio>
     </div>'''
 
