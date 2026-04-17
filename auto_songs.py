@@ -1106,6 +1106,19 @@ def generate_auto_song_html(svg_speaker):
     found_slang = find_slang_in_lyrics(en_lyrics)
     slang_phrases = {s["phrase"].lower() for s in found_slang}
 
+    # 预先生成生词音标数据（避免重复请求）
+    hard_word_data = {}
+    for word, count in hard_words[:20]:
+        phonetic = get_phonetic(word)
+        syll = syllabify(word)
+        hard_word_data[word] = {
+            "ipa": phonetic["ipa"],
+            "syllables": syll,
+            "pos": phonetic["pos"],
+            "definition": phonetic["definition"]
+        }
+        time.sleep(0.05)  # 避免请求过快
+
     # 生成每行歌词HTML（图片样式：行内标注俚语+生词）
     lyrics_html = ""
     for i, en_line in enumerate(en_lyrics):
@@ -1120,7 +1133,7 @@ def generate_auto_song_html(svg_speaker):
                 phrase_safe = slang["phrase"].replace("'", "\\'")
                 note_items.append(f'<span class="lyric-note slang-note">💡 {slang["phrase"]} /{slang["meaning"]}/ <button onclick="speakWord(this,\'{phrase_safe}\')">{svg_speaker}</button></span>')
 
-        # 检测生词（简化标注）
+        # 检测生词（完整标注：单词/音标/音节 词性 中文）
         line_words = extract_words(en_line)
         line_hard = [w for w in line_words if w in hard_word_set and len(w) > 2]
         seen = set()
@@ -1132,7 +1145,11 @@ def generate_auto_song_html(svg_speaker):
 
         for hw in unique_hard[:5]:  # 每行最多标5个生词
             hw_safe = hw.replace("'", "\\'")
-            note_items.append(f'<span class="lyric-note hard-note"><b>{hw}</b> <button onclick="speakWord(this,\'{hw_safe}\')">{svg_speaker}</button></span>')
+            hw_data = hard_word_data.get(hw, {})
+            ipa_str = f" /{hw_data.get('ipa', '')}/" if hw_data.get('ipa') else ""
+            syll_str = hw_data.get('syllables', hw)
+            pos_str = f" {hw_data.get('pos', '')}." if hw_data.get('pos') else ""
+            note_items.append(f'<span class="lyric-note hard-note"><b>{hw}</b>{ipa_str} {syll_str}{pos_str} <button onclick="speakWord(this,\'{hw_safe}\')">{svg_speaker}</button></span>')
 
         # 合并标注
         notes_html = ""
@@ -1151,19 +1168,8 @@ def generate_auto_song_html(svg_speaker):
     slang_overview_html = ""
 
     # ============== 添加生词拼读区块 ==============
-    # 收集所有生词，获取音标
-    all_hard_words = []
-    for word, count in hard_words[:20]:  # 最多20个生词
-        phonetic = get_phonetic(word)
-        syll = syllabify(word)
-        all_hard_words.append({
-            "word": word,
-            "ipa": phonetic["ipa"],
-            "syllables": syll,
-            "pos": phonetic["pos"],
-            "definition": phonetic["definition"]
-        })
-        time.sleep(0.1)  # 避免请求过快
+    # 直接从预先生成的 hard_word_data 构建
+    all_hard_words = [{"word": w, **hard_word_data[w]} for w in hard_word_data]
 
     vocab_phonetic_html = ""
     if all_hard_words:
