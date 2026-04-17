@@ -21,7 +21,14 @@ import sys
 import os
 import base64
 import urllib.request
+import ssl
 import time
+
+# 创建不验证SSL的context（解决某些环境SSL错误）
+SSL_CONTEXT = ssl.create_default_context()
+SSL_CONTEXT.check_hostname = False
+SSL_CONTEXT.verify_mode = ssl.CERT_NONE
+OPENER = urllib.request.build_opener(urllib.request.HTTPSHandler(context=SSL_CONTEXT))
 
 
 def get_mp3_from_byfuns(mp3_id):
@@ -33,7 +40,7 @@ def get_mp3_from_byfuns(mp3_id):
         'Referer': 'https://music.163.com'
     })
     
-    with urllib.request.urlopen(req, timeout=15) as resp:
+    with OPENER.open(req, timeout=15) as resp:
         data = resp.read()
     
     # byfuns可能返回直链URL（需要再请求一次）或直接返回MP3
@@ -46,7 +53,7 @@ def get_mp3_from_byfuns(mp3_id):
             'User-Agent': 'Mozilla/5.0',
             'Referer': 'https://music.163.com'
         })
-        with urllib.request.urlopen(req2, timeout=15) as resp2:
+        with OPENER.open(req2, timeout=20) as resp2:
             mp3_data = resp2.read()
         return mp3_data
     else:
