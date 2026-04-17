@@ -89,6 +89,151 @@ def syllabify(word):
         syllables.append(current)
     return "·".join(syllables) if syllables else word
 
+# ============================================================
+# 歌词常见词汇中文释义词库
+# ============================================================
+LYRIC_VOCAB = {
+    # 口语/俚语
+    "ain't": ("/eɪnt/", "a·in'·n't", "v.", "不是；没有（非正式）"),
+    "aint": ("/eɪnt/", "a·in'·t", "v.", "不是；没有（非正式）"),
+    "nothin": ("/ˈnʌθɪŋ/", "noth·in", "pron.", "没什么（nothing的口语）"),
+    "nothin'": ("/ˈnʌθɪŋ/", "noth·in'", "pron.", "没什么（nothing的口语）"),
+    "gonna": ("/ˈɡɒnə/", "gon·na", "v.", "将要（going to的口语）"),
+    "wanna": ("/ˈwɒnə/", "wan·na", "v.", "想要（want to的口语）"),
+    "gotta": ("/ˈɡɒtə/", "got·ta", "v.", "必须（got to的口语）"),
+    "kinda": ("/ˈkaɪndə/", "kin·da", "adv.", "有点（kind of的口语）"),
+    "outta": ("/ˈaʊtə/", "out·ta", "prep.", "从...出来（out of的口语）"),
+    "sorta": ("/ˈsɔːtə/", "sor·ta", "adv.", "有点（sort of的口语）"),
+    "lemme": ("/ˈlemi/", "lem·me", "v.", "让我（let me的口语）"),
+    "gimme": ("/ˈɡɪmi/", "gim·me", "v.", "给我（give me的口语）"),
+    "dunno": ("/dəˈnəʊ/", "du·nno", "v.", "不知道（I don't know的口语）"),
+    "cause": ("/kɔːz/", "cau·se", "conj.", "因为（because的口语）"),
+    "cuz": ("/kʌz/", "cuz", "conj.", "因为（because的口语）"),
+    # 歌词常见词
+    "heartache": ("/ˈhɑːteɪk/", "heart·ache", "n.", "心痛；伤心"),
+    "heartbreak": ("/ˈhɑːtbreɪk/", "heart·break", "n.", "心碎； heartbreak的变形"),
+    "dream": ("/driːm/", "dream", "n./v.", "梦；做梦"),
+    "forever": ("/fəˈrevər/", "for·ev·er", "adv.", "永远"),
+    "desire": ("/dɪˈzaɪər/", "de·sire", "n.", "渴望；欲望"),
+    "anytime": ("/ˈenitaɪm/", "a·ny·time", "adv.", "随时；任何时候"),
+    "anyway": ("/ˈenɪweɪ/", "a·ny·way", "adv.", "反正；无论如何"),
+    "promise": ("/ˈprɒmɪs/", "prom·ise", "v./n.", "承诺；答应"),
+    "believe": ("/bɪˈliːv/", "be·lieve", "v.", "相信"),
+    "believe": ("/bɪˈliːv/", "be·lieve", "v.", "相信"),
+    "belong": ("/bɪˈlɒŋ/", "be·long", "v.", "属于"),
+    "believed": ("/bɪˈliːvd/", "be·lieved", "v.", "相信（过去式）"),
+    "together": ("/təˈɡeðər/", "to·geth·er", "adv.", "一起"),
+    "remember": ("/rɪˈmembər/", "re·mem·ber", "v.", "记得；记住"),
+    "together": ("/təˈɡeðər/", "to·geth·er", "adv.", "一起"),
+    "away": ("/əˈweɪ/", "a·way", "adv.", "离开；去"),
+    "always": ("/ˈɔːlweɪz/", "al·ways", "adv.", "总是；永远"),
+    "until": ("/ənˈtɪl/", "un·til", "prep.", "直到"),
+    "minute": ("/ˈmɪnɪt/", "min·ute", "n.", "分钟"),
+    "moment": ("/ˈməʊmənt/", "mo·ment", "n.", "时刻"),
+    "tonight": ("/təˈnaɪt/", "to·night", "adv.", "今晚"),
+    "tomorrow": ("/təˈmɒrəʊ/", "to·mor·row", "adv.", "明天"),
+    "yesterday": ("/ˈjestədeɪ/", "yes·ter·day", "adv.", "昨天"),
+    "somewhere": ("/ˈsʌmweər/", "some·where", "adv.", "某处"),
+    "nowhere": ("/ˈnəʊweər/", "no·where", "adv.", "无处"),
+    "everywhere": ("/ˈevrɪweər/", "ev·ery·where", "adv.", "到处"),
+    "sunshine": ("/ˈsʌnʃaɪn/", "sun·shine", "n.", "阳光"),
+    "moonlight": ("/ˈmuːnlaɪt/", "moon·light", "n.", "月光"),
+    "starlight": ("/ˈstɑːlaɪt/", "star·light", "n.", "星光"),
+    "daylight": ("/ˈdeɪlaɪt/", "day·light", "n.", "日光"),
+    "sunrise": ("/ˈsʌnraɪz/", "sun·rise", "n.", "日出"),
+    "sunset": ("/ˈsʌnset/", "sun·set", "n.", "日落"),
+    "midnight": ("/ˈmɪdnaɪt/", "mid·night", "n.", "午夜"),
+    "daybreak": ("/ˈdeɪbreɪk/", "day·break", "n.", "黎明"),
+    "earth": ("/ɜːθ/", "earth", "n.", "地球；土地"),
+    "world": ("/wɜːld/", "world", "n.", "世界"),
+    "people": ("/ˈpiːpl/", "peo·ple", "n.", "人们"),
+    "friend": ("/frend/", "friend", "n.", "朋友"),
+    "family": ("/ˈfæməli/", "fam·i·ly", "n.", "家庭"),
+    "heaven": ("/ˈhevən/", "heav·en", "n.", "天堂"),
+    "angel": ("/ˈeɪndʒəl/", "an·gel", "n.", "天使"),
+    "reason": ("/ˈriːzən/", "rea·son", "n.", "理由"),
+    "answer": ("/ˈɑːnsər/", "an·swer", "n.", "回答"),
+    "question": ("/ˈkwestʃən/", "ques·tion", "n.", "问题"),
+    "problem": ("/ˈprɒbləm/", "prob·lem", "n.", "问题"),
+    "answer": ("/ˈɑːnsər/", "an·swer", "n.", "回答"),
+    "change": ("/tʃeɪndʒ/", "change", "v./n.", "改变"),
+    "chance": ("/tʃɑːns/", "chance", "n.", "机会"),
+    "dance": ("/dɑːns/", "dance", "v.", "跳舞"),
+    "romance": ("/rəˈmæns/", "ro·mance", "n.", "浪漫；爱情"),
+    "danger": ("/ˈdeɪndʒər/", "dan·ger", "n.", "危险"),
+    "dangerous": ("/ˈdeɪndʒərəs/", "dan·ger·ous", "adj.", "危险的"),
+    "stranger": ("/ˈstreɪndʒər/", "stran·ger", "n.", "陌生人"),
+    "strange": ("/streɪndʒ/", "strange", "adj.", "奇怪的"),
+    "stranger": ("/ˈstreɪndʒər/", "stran·ger", "n.", "陌生人"),
+    "magic": ("/ˈmædʒɪk/", "mag·ic", "n./adj.", "魔法；神奇的"),
+    "tragic": ("/ˈtrædʒɪk/", "tra·gic", "adj.", "悲剧的"),
+    "music": ("/ˈmjuːzɪk/", "mu·sic", "n.", "音乐"),
+    "musician": ("/mjuːˈzɪʃən/", "mu·si·cian", "n.", "音乐家"),
+    "basic": ("/ˈbeɪsɪk/", "ba·sic", "adj.", "基本的"),
+    "basic": ("/ˈbeɪsɪk/", "ba·sic", "adj.", "基本的"),
+    "crazy": ("/ˈkreɪzi/", "craz·y", "adj.", "疯狂的"),
+    "lazy": ("/ˈleɪzi/", "la·zy", "adj.", "懒惰的"),
+    "easy": ("/ˈiːzi/", "ea·sy", "adj.", "容易的"),
+    "sorry": ("/ˈsɒri/", "sor·ry", "adj.", "对不起"),
+    "happy": ("/ˈhæpi/", "hap·py", "adj.", "快乐的"),
+    "sadly": ("/ˈsædli/", "sad·ly", "adv.", "悲伤地"),
+    "lonely": ("/ˈləʊnli/", "lone·ly", "adj.", "孤独的"),
+    "lovely": ("/ˈlʌvli/", "love·ly", "adj.", "可爱的"),
+    "simply": ("/ˈsɪmpli/", "sim·ply", "adv.", "简单地"),
+    "simply": ("/ˈsɪmpli/", "sim·ply", "adv.", "简单地"),
+    "truly": ("/ˈtruːli/", "tru·ly", "adv.", "真正地"),
+    "finally": ("/ˈfaɪnəli/", "fi·nal·ly", "adv.", "最后"),
+    "completely": ("/kəmˈpliːtli/", "com·plete·ly", "adv.", "完全地"),
+    "absolutely": ("/ˈæbsəluːtli/", "ab·so·lute·ly", "adv.", "绝对地"),
+    "desperately": ("/ˈdespərətli/", "des·per·ate·ly", "adv.", "绝望地"),
+    "together": ("/təˈɡeðər/", "to·geth·er", "adv.", "一起"),
+    "whatever": ("/wɒtˈevər/", "what·ev·er", "pron.", "无论什么"),
+    "whenever": ("/wenˈevər/", "when·ev·er", "conj.", "无论何时"),
+    "wherever": ("/weərˈevər/", "where·ev·er", "adv.", "无论哪里"),
+    "however": ("/haʊˈevər/", "how·ev·er", "adv.", "无论如何"),
+    "beautiful": ("/ˈbjuːtɪfəl/", "beau·ti·ful", "adj.", "美丽的"),
+    "wonderful": ("/ˈwʌndəfəl/", "won·der·ful", "adj.", "精彩的"),
+    "powerful": ("/ˈpaʊəfəl/", "pow·er·ful", "adj.", "强大的"),
+    "fearless": ("/ˈfɪələs/", "fear·less", "adj.", "无畏的"),
+    "careless": ("/ˈkeələs/", "care·less", "adj.", "粗心的"),
+    "useless": ("/ˈjuːsləs/", "use·less", "adj.", "无用的"),
+    "hopeless": ("/ˈhəʊpləs/", "hope·less", "adj.", "绝望的"),
+    "endless": ("/ˈendləs/", "end·less", "adj.", "无尽的"),
+    "priceless": ("/ˈpraɪsləs/", "price·less", "adj.", "无价的"),
+    "restless": ("/ˈrestləs/", "rest·less", "adj.", "焦躁不安的"),
+    "countless": ("/ˈkaʊntləs/", "count·less", "adj.", "无数的"),
+    "breathless": ("/ˈbreθləs/", "breath·less", "adj.", "气喘吁吁的"),
+    "fearless": ("/ˈfɪələs/", "fear·less", "adj.", "无畏的"),
+    "childhood": ("/ˈtʃaɪldhʊd/", "child·hood", "n.", "童年"),
+    "boyhood": ("/ˈbɔɪhʊd/", "boy·hood", "n.", "男孩时代"),
+    "neighborhood": ("/ˈneɪbəhʊd/", "neigh·bor·hood", "n.", "社区"),
+    "understood": ("/ˌʌndəˈstʊd/", "un·der·stood", "v.", "理解（过去式）"),
+    "goodness": ("/ˈɡʊdnəs/", "good·ness", "n.", "善良"),
+    "happiness": ("/ˈhæpinəs/", "hap·pi·ness", "n.", "幸福"),
+    "sadness": ("/ˈsædnəs/", "sad·ness", "n.", "悲伤"),
+    "kindness": ("/ˈkaɪndnəs/", "kind·ness", "n.", "善良"),
+    "darkness": ("/ˈdɑːknəs/", "dark·ness", "n.", "黑暗"),
+    "weakness": ("/ˈwiːknəs/", "weak·ness", "n.", "弱点"),
+    "illness": ("/ˈɪlnəs/", "ill·ness", "n.", "疾病"),
+    "madness": ("/ˈmædnəs/", "mad·ness", "n.", "疯狂"),
+    "loneliness": ("/ˈləʊnlinəs/", "lone·li·ness", "n.", "孤独"),
+    "willingness": ("/ˈwɪlɪŋnəs/", "will·ing·ness", "n.", "愿意"),
+    "bitterness": ("/ˈbɪtənəs/", "bit·ter·ness", "n.", "苦涩"),
+    "emptiness": ("/ˈemptinəs/", "emp·ty·ness", "n.", "空虚"),
+    "forgiveness": ("/fərˈɡɪvnəs/", "for·give·ness", "n.", "原谅"),
+    "faithful": ("/ˈfeɪθfəl/", "faith·ful", "adj.", "忠诚的"),
+    "painful": ("/ˈpeɪnfəl/", "pain·ful", "adj.", "痛苦的"),
+    "colorful": ("/ˈkʌləfəl/", "col·or·ful", "adj.", "丰富多彩的"),
+    "successful": ("/səkˈsesfəl/", "suc·cess·ful", "adj.", "成功的"),
+    "wonderful": ("/ˈwʌndəfəl/", "won·der·ful", "adj.", "精彩的"),
+    "beautiful": ("/ˈbjuːtɪfəl/", "beau·ti·ful", "adj.", "美丽的"),
+    "merciful": ("/ˈmɜːsɪfəl/", "mer·ci·ful", "adj.", "仁慈的"),
+    "wonderful": ("/ˈwʌndəfəl/", "won·der·ful", "adj.", "精彩的"),
+    "painful": ("/ˈpeɪnfəl/", "pain·ful", "adj.", "痛苦的"),
+    "beautiful": ("/ˈbjuːtɪfəl/", "beau·ti·ful", "adj.", "美丽的"),
+    "wonderful": ("/ˈwʌndəfəl/", "won·der·ful", "adj.", "精彩的"),
+}
+
 
 
 import re
@@ -1109,14 +1254,25 @@ def generate_auto_song_html(svg_speaker):
     # 预先生成生词音标数据（避免重复请求）
     hard_word_data = {}
     for word, count in hard_words[:20]:
-        phonetic = get_phonetic(word)
-        syll = syllabify(word)
-        hard_word_data[word] = {
-            "ipa": phonetic["ipa"],
-            "syllables": syll,
-            "pos": phonetic["pos"],
-            "definition": phonetic["definition"]
-        }
+        # 优先使用本地词库
+        if word.lower() in LYRIC_VOCAB:
+            ipa, syll, pos, definition = LYRIC_VOCAB[word.lower()]
+            hard_word_data[word] = {
+                "ipa": ipa,
+                "syllables": syll,
+                "pos": pos,
+                "definition": definition
+            }
+        else:
+            # API获取
+            phonetic = get_phonetic(word)
+            syll = syllabify(word)
+            hard_word_data[word] = {
+                "ipa": phonetic["ipa"],
+                "syllables": syll,
+                "pos": phonetic["pos"],
+                "definition": phonetic["definition"]
+            }
         time.sleep(0.05)  # 避免请求过快
 
     # 生成每行歌词HTML（图片样式：行内标注俚语+生词）
@@ -1133,7 +1289,7 @@ def generate_auto_song_html(svg_speaker):
                 phrase_safe = slang["phrase"].replace("'", "\\'")
                 note_items.append(f'<span class="lyric-note slang-note">💡 {slang["phrase"]} /{slang["meaning"]}/ <button onclick="speakWord(this,\'{phrase_safe}\')">{svg_speaker}</button></span>')
 
-        # 检测生词（完整标注：单词/音标/音节 词性 中文）
+        # 检测生词（完整标注：单词 /音标/ 音节 词性 中文释义）
         line_words = extract_words(en_line)
         line_hard = [w for w in line_words if w in hard_word_set and len(w) > 2]
         seen = set()
@@ -1148,8 +1304,9 @@ def generate_auto_song_html(svg_speaker):
             hw_data = hard_word_data.get(hw, {})
             ipa_str = f" /{hw_data.get('ipa', '')}/" if hw_data.get('ipa') else ""
             syll_str = hw_data.get('syllables', hw)
-            pos_str = f" {hw_data.get('pos', '')}." if hw_data.get('pos') else ""
-            note_items.append(f'<span class="lyric-note hard-note"><b>{hw}</b>{ipa_str} {syll_str}{pos_str} <button onclick="speakWord(this,\'{hw_safe}\')">{svg_speaker}</button></span>')
+            pos_str = f" {hw_data.get('pos', '')}" if hw_data.get('pos') else ""
+            def_str = f" {hw_data.get('definition', '')}" if hw_data.get('definition') else ""
+            note_items.append(f'<span class="lyric-note hard-note"><b>{hw}</b>{ipa_str} {syll_str}{pos_str} {def_str} <button onclick="speakWord(this,\'{hw_safe}\')">{svg_speaker}</button></span>')
 
         # 合并标注
         notes_html = ""
