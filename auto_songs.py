@@ -1108,13 +1108,14 @@ def generate_auto_song_html(svg_speaker):
         <div class="kw-mean">{slang["meaning"]}</div>
       </div>'''
 
-    # 获取 MP3 直链（不再使用Worker代理，改为直接显示歌曲外链按钮）
-    # 4月15日推送成功方案：简单外链按钮，不内嵌MP3
+    # 获取 MP3 直链（用于内嵌播放）
     mp3_https_url = fetch_mp3_url(mp3_id) if mp3_id else None
 
-    # 纯音频播放器（4月15日方案：简单外链按钮）
+    # 完整播放方案：内嵌音频（首选）+ 外链按钮（备用/手机端）
     player_html = f'''
     <div class="song-player">
+      <audio id="song-audio" src="https://quiet-term-cc2f.zjunxcr.workers.dev/proxy/{mp3_id}.mp3" controls preload="none" style="width:100%;border-radius:10px;">
+      </audio>
       <div class="audio-links">
         <a href="https://music.163.com/song?id={mp3_id}" target="_blank" class="audio-link netease">▶ 网易云</a>
         <a href="https://y.qq.com/n/ryqq/song/{mp3_id}" target="_blank" class="audio-link qq">▶ QQ音乐</a>
