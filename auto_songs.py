@@ -15,6 +15,87 @@ import urllib.request
 import urllib.parse
 import json
 import time
+import random
+
+# ============================================================
+# 音标缓存（避免重复请求）
+# ============================================================
+_pronunciation_cache = {}
+
+def get_phonetic(word):
+    """通过 Free Dictionary API 获取音标和词性"""
+    if word in _pronunciation_cache:
+        return _pronunciation_cache[word]
+    
+    try:
+        url = f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}"
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            data = json.loads(resp.read().decode())
+            if data and len(data) > 0:
+                entry = data[0]
+                # 优先取英式音标
+                phonetics = entry.get("phonetics", [])
+                ipa = ""
+                for p in phonetics:
+                    if p.get("text", "").startswith("/"):
+                        ipa = p["text"]
+                        break
+                if not ipa and phonetics:
+                    ipa = phonetics[0].get("text", "")
+                
+                # 取词性和释义
+                meanings = entry.get("meanings", [])
+                pos = ""
+                definition = ""
+                if meanings:
+                    pos = meanings[0].get("partOfSpeech", "")
+                    defs = meanings[0].get("definitions", [])
+                    if defs:
+                        definition = defs[0].get("definition", "")
+                
+                result = {
+                    "ipa": ipa,
+                    "pos": pos,
+                    "definition": definition
+                }
+                _pronunciation_cache[word] = result
+                return result
+    except Exception as e:
+        pass
+    
+    _pronunciation_cache[word] = {"ipa": "", "pos": "", "definition": ""}
+    return {"ipa": "", "pos": "", "definition": ""}
+
+def syllabify(word):
+    """简单的音节拆分（基于元音分组）"""
+    vowels = "aeiouy"
+    syllables = []
+    current = ""
+    for i, char in enumerate(word.lower()):
+        current += char
+        if char in vowels:
+            # 检查是否是非重读e结尾
+            if i > 0 and i < len(word) - 1 and (word[i+1] if i+1 < len(word) else "") == "e":
+                continue
+            # 找下一个辅音
+            j = i + 1
+            while j < len(word) and word[j] not in vowels and j < len(word) - 1:
+                current += word[j]
+                j += 1
+            syllables.append(current)
+            current = ""
+    if current:
+        syllables.append(current)
+    return "·".join(syllables) if syllables else word
+
+
+
+import re
+import urllib.request
+import urllib.parse
+import json
+import time
 
 # ============================================================
 # 初一水平基础词表（约800词）——这些词不需要标注
@@ -1039,7 +1120,7 @@ def generate_auto_song_html(svg_speaker):
                 phrase_safe = slang["phrase"].replace("'", "\\'")
                 note_items.append(f'<span class="lyric-note slang-note">💡 {slang["phrase"]} /{slang["meaning"]}/ <button onclick="speakWord(this,\'{phrase_safe}\')">{svg_speaker}</button></span>')
 
-        # 检测生词
+        # 检测生词（简化标注）
         line_words = extract_words(en_line)
         line_hard = [w for w in line_words if w in hard_word_set and len(w) > 2]
         seen = set()
@@ -1051,7 +1132,7 @@ def generate_auto_song_html(svg_speaker):
 
         for hw in unique_hard[:5]:  # 每行最多标5个生词
             hw_safe = hw.replace("'", "\\'")
-            note_items.append(f'<span class="lyric-note hard-note">💡 {hw} <button onclick="speakWord(this,\'{hw_safe}\')">{svg_speaker}</button></span>')
+            note_items.append(f'<span class="lyric-note hard-note"><b>{hw}</b> <button onclick="speakWord(this,\'{hw_safe}\')">{svg_speaker}</button></span>')
 
         # 合并标注
         notes_html = ""
@@ -1069,13 +1150,88 @@ def generate_auto_song_html(svg_speaker):
     hard_overview_html = ""
     slang_overview_html = ""
 
+    # ============== 添加生词拼读区块 ==============
+    # 收集所有生词，获取音标
+    all_hard_words = []
+    for word, count in hard_words[:20]:  # 最多20个生词
+        phonetic = get_phonetic(word)
+        syll = syllabify(word)
+        all_hard_words.append({
+            "word": word,
+            "ipa": phonetic["ipa"],
+            "syllables": syll,
+            "pos": phonetic["pos"],
+            "definition": phonetic["definition"]
+        })
+        time.sleep(0.1)  # 避免请求过快
+
+    vocab_phonetic_html = ""
+    if all_hard_words:
+        entries = []
+        for item in all_hard_words:
+            word_safe = item["word"].replace("'", "\\'")
+            ipa_str = f" {item['ipa']}" if item['ipa'] else ""
+            pos_str = f" {item['pos']}." if item['pos'] else ""
+            def_str = f" {item['definition']}" if item['definition'] else ""
+            entries.append(f'<p class="phonetic-entry"><strong>{item["word"]}</strong>{ipa_str} {item["syllables"]}{pos_str}{def_str} <button onclick="speakWord(this,\'{word_safe}\')">{svg_speaker}</button></p>')
+        vocab_phonetic_html = f'''
+    <div class="vocab-phonetic">
+      <h4 class="vocab-phonetic-title">📝 生词拼读</h4>
+      {"".join(entries)}
+    </div>'''
+
+    # ============== 添加重点句型解析 ==============
+    # 从歌词中选择几句有代表性的作为重点句型
+    key_sentences = []
+    for i, en_line in enumerate(en_lyrics):
+        # 选择有完整意思、比较短或语法有代表性的行
+        clean_line = en_line.strip()
+        if len(clean_line) > 5 and len(clean_line) < 60 and not clean_line.startswith("["):
+            zh_line = zh_lyrics[i] if i < len(zh_lyrics) else ""
+            # 获取该句的音标
+            words_in_line = list(extract_words(clean_line))
+            sentence_phonetic = ""
+            for w in words_in_line[:3]:  # 只取前3个词的音标
+                p = get_phonetic(w)
+                if p["ipa"]:
+                    sentence_phonetic = p["ipa"]
+                    break
+            
+            key_sentences.append({
+                "en": clean_line,
+                "zh": zh_line,
+                "ipa": sentence_phonetic
+            })
+            time.sleep(0.1)
+            if len(key_sentences) >= 3:  # 最多3句
+                break
+
+    key_patterns_html = ""
+    if key_sentences:
+        pattern_items = []
+        for item in key_sentences:
+            en_safe = item["en"].replace("'", "\\'")
+            ipa_str = f"<p class=\"pattern-ipa\">/{item['ipa']}/</p>" if item['ipa'] else ""
+            pattern_items.append(f'''
+      <div class="pattern-item">
+        <p class="pattern-quote">"{item['en']}"</p>
+        {ipa_str}
+        <p class="pattern-syllables">{item['en']} <button onclick="speakWord(this,\'{en_safe}\')">{svg_speaker}</button></p>
+        <p class="pattern-translation">{item['zh']}</p>
+      </div>''')
+        key_patterns_html = f'''
+    <div class="key-patterns">
+      <h4 class="key-patterns-title">🎯 重点句型解析（点击🔊听发音）</h4>
+      {"".join(pattern_items)}
+    </div>'''
+
     # 播放器：内嵌优先 + 备用链接
     player_html = f'''
     <div class="song-player">
       <audio id="song-audio" src="https://quiet-term-cc2f.zjunxcr.workers.dev/proxy/{mp3_id}.mp3" controls preload="none" style="width:100%;border-radius:10px;">
       </audio>
       <div class="player-fallback">
-        播放失败？<a href="https://music.163.com/song?id={mp3_id}" target="_blank">点击前往网易云音乐收听</a>
+        🎧 播放失败？<a href="https://music.163.com/song?id={mp3_id}" target="_blank">点击前往网易云音乐收听</a>
       </div>
     </div>'''
 
@@ -1106,14 +1262,11 @@ def generate_auto_song_html(svg_speaker):
       {lyrics_html}
     </div>'''
 
+    # 生词拼读区块
+    html += vocab_phonetic_html
+
     # 重点句型解析
-    html += f'''
-    <div class="grammar-box">
-      <div class="grammar-title">📝 重点句型解析</div>
-      <div class="grammar-content">
-        <p><b>本曲时态：</b>{song["tense_en"]} — {song["tense_rule"]}</p>
-      </div>
-    </div>'''
+    html += key_patterns_html
 
     html += f'''
     <div class="bonus-tip">
