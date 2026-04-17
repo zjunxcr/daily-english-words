@@ -62,40 +62,12 @@ def get_mp3_from_byfuns(mp3_id):
 
 
 def embed_song_mp3(html_content):
-    """从 HTML 中提取 Worker URL，下载 MP3 并 base64 嵌入，替换 src"""
-    
-    # 找所有指向 Worker 的 audio src（id是纯数字）
-    pattern = re.compile(r'<audio[^>]+src="(https://quiet-term-cc2f\.zjunxcr\.workers\.dev/proxy/(\d+)[^"]*)"')
-    matches = pattern.findall(html_content)
-    
-    if not matches:
-        print("[SKIP] No song audio with Worker URL found in HTML")
-        return html_content
-    
-    print(f"[*] Found {len(matches)} song audio(s) with Worker URL, embedding as base64...")
-    
-    for worker_url, mp3_id in matches:
-        try:
-            print(f"    Fetching MP3 id={mp3_id} via byfuns API...")
-            mp3_data = get_mp3_from_byfuns(mp3_id)
-            print(f"    Downloaded: {len(mp3_data):,} bytes")
-            
-            # 转 base64
-            b64_str = base64.b64encode(mp3_data).decode()
-            data_uri = f'data:audio/mpeg;base64,{b64_str}'
-            
-            # 替换 HTML 中的 src
-            html_content = html_content.replace(
-                f'src="{worker_url}"',
-                f'src="{data_uri}"'
-            )
-            
-            print(f"    Embedded OK! HTML grew by {len(mp3_data)*4//3:,} bytes (base64)")
-            time.sleep(0.5)  # 避免请求过快
-            
-        except Exception as e:
-            print(f"    [WARN] Failed to embed: {e}")
-    
+    """4月15日方案：不再内嵌MP3，歌曲使用外链按钮
+    保留函数签名以兼容原调用，但不做任何处理
+    """
+    # 新方案不再需要内嵌MP3，歌曲通过外链按钮播放
+    # 如果将来需要恢复内嵌功能，只需在此函数中实现
+    print("[SKIP] 歌曲使用外链按钮，不再需要内嵌MP3")
     return html_content
 
 
