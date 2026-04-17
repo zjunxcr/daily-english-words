@@ -1094,42 +1094,11 @@ def generate_auto_song_html(svg_speaker):
     # 获取 MP3 直链（转成 HTTPS，手机可内嵌播放）
     mp3_https_url = fetch_mp3_url(mp3_id) if mp3_id else None
 
-    # 使用直链播放按钮（备用fallback）
-    import urllib.parse as up
-    search_query = up.quote(f"{song['name']} {song['artist']}")
-    netease_song_url = f"https://music.163.com/song?id={mp3_id}" if mp3_id else f"https://music.163.com/#/search/m/?s={search_query}"
-    qq_song_url = f"https://y.qq.com/n/ryqq/song/{mp3_id}" if mp3_id else f"https://y.qq.com/n/ryqq/search/?search_key={search_query}"
-
-    # 优先内嵌 audio 播放器，失败则直链按钮
-    if mp3_https_url:
-        player_html = f'''
+    # 纯音频播放器（音频由 embed-daily-words-audio.py 下载并 base64 内嵌，此处不出现任何外部跳转链接）
+    player_html = '''
     <div class="song-player">
-      <audio id="song-audio" src="{mp3_https_url}" controls preload="none" style="width:100%;border-radius:10px;">
+      <audio id="song-audio" controls preload="none" style="width:100%;border-radius:10px;">
       </audio>
-      <div class="song-play-btn-wrap" style="margin-top:8px;">
-        <a class="song-play-btn" href="{netease_song_url}" target="_blank" rel="noopener">
-          ▶ 网易云
-        </a>
-        <a class="song-play-btn qq" href="{qq_song_url}" target="_blank" rel="noopener">
-          ▶ QQ音乐
-        </a>
-      </div>
-    </div>'''
-    else:
-        player_html = f'''
-    <div class="song-player">
-      <div class="song-play-btn-wrap">
-        <a class="song-play-btn" href="{netease_song_url}" target="_blank" rel="noopener">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-          ▶ 网易云播放
-        </a>
-        <a class="song-play-btn qq" href="{qq_song_url}" target="_blank" rel="noopener">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-          ▶ QQ音乐播放
-        </a>
-      </div>
-      <div class="song-play-hint">👆 点击上方按钮，手机会自动调用网易云/QQ音乐播放器播放歌曲</div>
-      <div class="song-platform-note">（⚠️ 如遇版权限制，请换一个平台尝试）</div>
     </div>'''
 
     # 难度标签
