@@ -1226,12 +1226,34 @@ def generate_auto_song_html(svg_speaker):
 
     print(f"  [歌曲] 今日推荐: {song['name']} - {song['artist']} (难度{song['level']})")
 
-    # 获取歌词（带搜索备选）
+    # 获取歌词（带搜索备选），失败时最多尝试3首不同的歌
+    tried = set()
+    tried.add(song["name"])
     en_lyrics, zh_lyrics, actual_id = get_lyrics_with_fallback(
         song["name"], song["artist"], song["netease_id"]
     )
+    max_retry = 3
+    retry = 0
+    while not en_lyrics and retry < max_retry:
+        retry += 1
+        print(f"  [WARN] 歌词获取失败，换下一首（第{retry}次重试）")
+        # 从库里选另一首（排除已用和已尝试的）
+        pool_retry = [s for s in SONG_LIBRARY if s["name"] not in used and s["name"] not in tried]
+        if not pool_retry:
+            pool_retry = [s for s in SONG_LIBRARY if s["name"] not in tried]
+        if not pool_retry:
+            break
+        # 用retry次序选不同的歌
+        day_seed = int(hashlib.md5(f"{date.today().isoformat()}-retry{retry}".encode()).hexdigest(), 16)
+        song = pool_retry[day_seed % len(pool_retry)]
+        tried.add(song["name"])
+        print(f"  [歌曲] 换用: {song['name']} - {song['artist']} (难度{song['level']})")
+        en_lyrics, zh_lyrics, actual_id = get_lyrics_with_fallback(
+            song["name"], song["artist"], song["netease_id"]
+        )
+
     if not en_lyrics:
-        print(f"  [WARN] 歌词获取失败，跳过歌曲: {song['name']}")
+        print(f"  [WARN] 连续{max_retry}首歌歌词均获取失败，放弃歌曲模块")
         return None, None
 
     # 用实际获取到的ID获取MP3
