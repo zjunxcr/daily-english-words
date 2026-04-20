@@ -101,7 +101,15 @@ def embed_tts_audio(html: str) -> str:
     # 注入音频数据池 + 播放函数到 <script> 区域
     # 用 JSON 格式嵌入所有音频
     import json
-    audio_json = json.dumps(audio_map, ensure_ascii=False)
+    # 修复：JSON 不接受 \' 作为转义字符，改为双引号字符串键，或预先转义反斜杠
+    # 正确做法：先把键中的单反斜杠替换为双反斜杠，再 json.dumps
+    fixed_map = {}
+    for k, v in audio_map.items():
+        # 把 \ 替换为 \\（这样 json.dumps 输出 \\，JS 解析为 \）
+        # 把 ' 保留为字面值（JSON 里 ' 不需要转义，但如果键含 '，不影响）
+        fixed_key = k.replace('\\', '\\\\')
+        fixed_map[fixed_key] = v
+    audio_json = json.dumps(fixed_map, ensure_ascii=False)
 
     inject_script = f"""
 <script id="audio-pool">
