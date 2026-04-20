@@ -2375,7 +2375,16 @@ def generate_html(words, bonus_html):
   }}
 
   function speak(text, btn, rate) {{
-    if (!synth) {{ alert('请使用 Chrome 或 Edge 浏览器打开以获得最佳体验。'); return; }}
+    if (!synth || !synth.speak) {{
+      // 静默降级：不弹窗，仅在按钮上短暂提示
+      if (btn) {{
+        const orig = btn.innerHTML;
+        btn.innerHTML = '⚠️';
+        btn.title = '当前浏览器不支持朗读，建议用Chrome/Edge打开';
+        setTimeout(() => {{ btn.innerHTML = orig; btn.title = ''; }}, 2000);
+      }}
+      return;
+    }}
     synth.cancel();
     const utter = new SpeechSynthesisUtterance(text);
     const voice = getEnglishVoice();
@@ -2386,9 +2395,11 @@ def generate_html(words, bonus_html):
     if (btn) {{
       btn.classList.add('playing');
       utter.onend   = () => btn.classList.remove('playing');
-      utter.onerror = () => btn.classList.remove('playing');
+      utter.onerror = () => {{ btn.classList.remove('playing'); }};
     }}
-    synth.speak(utter);
+    try {{ synth.speak(utter); }} catch(e) {{
+      if (btn) btn.classList.remove('playing');
+    }}
   }}
 
   function speakWord(btn, word)    {{ speak(word, btn, 0.5); }}
