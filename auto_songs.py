@@ -1327,7 +1327,7 @@ def generate_auto_song_html(svg_speaker):
             ipa_str = f" /{hw_data.get('ipa', '')}/" if hw_data.get('ipa') else ""
             syll_str = hw_data.get('syllables', hw)
             pos_str = f" {hw_data.get('pos', '')}" if hw_data.get('pos') else ""
-            def_str = f" {hw_data.get('definition', '')}" if hw_data.get('definition') else ""
+            def_str = f" {hw_data.get('definition', '')}" if hw_data.get('definition', None) is not None else "（释义待补充）"
             note_items.append(f'<span class="lyric-note hard-note"><b>{hw}</b>{ipa_str} {syll_str}{pos_str} {def_str}</span>')
 
         # 合并标注
@@ -1357,7 +1357,7 @@ def generate_auto_song_html(svg_speaker):
             word_safe = item["word"].replace("'", "\\'")
             ipa_str = f" {item['ipa']}" if item['ipa'] else ""
             pos_str = f" {item['pos']}." if item['pos'] else ""
-            def_str = f" {item['definition']}" if item['definition'] else ""
+            def_str = f" {item['definition']}" if item.get('definition', None) is not None else "（释义待补充）"
             entries.append(f'<p class="phonetic-entry"><strong>{item["word"]}</strong>{ipa_str} {item["syllables"]}{pos_str}{def_str}</p>')
         vocab_phonetic_html = f'''
     <div class="vocab-phonetic">
