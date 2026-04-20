@@ -221,10 +221,8 @@ def main():
     # Step 1: 嵌入单词/例句 TTS 音频
     html = embed_tts_audio(html)
 
-    # Step 2: 歌曲 MP3 不嵌入（保留 Worker URL 作为外链）
-    # 嵌入4MB MP3会导致页面6.9MB，加载极慢
-    # 歌曲播放依赖 Worker URL 或页面上的"网易云音乐"外链按钮
-    print("[*] Skipping song MP3 embed (too large, keeping Worker URL)")
+    # Step 2: 嵌入歌曲 MP3
+    html = embed_song_mp3(html)
 
     with open(output_path, 'w', encoding='utf-8') as f:
         f.write(html)
