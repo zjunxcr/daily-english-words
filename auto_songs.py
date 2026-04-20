@@ -35,7 +35,7 @@ def get_phonetic(word):
 
     ipa = ""
     pos = ""
-    definition = ""  # 默认空，等待有道词典填充
+    definition = "（释义待补充）"  # 默认值，API失败时显示
 
     # Step 1: 获取音标和词性（来自英文词典）
     try:
@@ -1679,7 +1679,17 @@ def generate_auto_song_html(svg_speaker):
             ipa_str = f" {item['ipa']}" if item['ipa'] else ""
             pos_str = f" {item['pos']}." if item['pos'] else ""
             def_str = f" {item['definition']}" if item.get('definition', None) is not None else "（释义待补充）"
-            entries.append(f'<p class="phonetic-entry"><strong>{item["word"]}</strong>{ipa_str} {item["syllables"]}{pos_str}{def_str}</p>')
+            entries.append(
+                f'<div class="phonetic-entry">'
+                f'<strong>{item["word"]}</strong>'
+                f'{ipa_str} {item["syllables"]}{pos_str}{def_str}'
+                f'<button class="sw-speak" onclick="speakWord(this,\'{word_safe}\')">'
+                f'<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">'
+                f'<path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/>'
+                f'</svg>'
+                f'</button>'
+                f'</div>'
+            )
         vocab_phonetic_html = f'''
     <div class="vocab-phonetic">
       <h4 class="vocab-phonetic-title">📝 生词拼读</h4>
@@ -1717,12 +1727,20 @@ def generate_auto_song_html(svg_speaker):
         pattern_items = []
         for item in key_sentences:
             en_safe = item["en"].replace("'", "\\'")
-            ipa_str = f"<p class=\"pattern-ipa\">/{item['ipa']}/</p>" if item['ipa'] else ""
+            ipa_str = f"<p class=\"pattern-ipa\">{item['ipa']}</p>" if item['ipa'] else ""
             pattern_items.append(f'''
       <div class="pattern-item">
         <p class="pattern-quote">"{item['en']}"</p>
-        {ipa_str}
-        <p class="pattern-syllables">{item['en']}</p>
+        <p class="pattern-ipa">{item['ipa']}</p>
+        <p class="pattern-syllables">
+          {item['en']}
+          <button class="sw-speak" onclick="speakSentence(this,\'{en_safe}\')">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+              <path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/>
+            </svg>
+          </button>
+        </p>
         <p class="pattern-translation">{item['zh']}</p>
       </div>''')
         key_patterns_html = f'''
