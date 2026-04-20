@@ -72,8 +72,9 @@ def embed_tts_audio(html: str) -> str:
     """
     # 提取所有唯一文本（避免重复生成）
     word_texts     = set(re.findall(r"speakWord\(this,'([^']+)'\)", html))
-    sentence_texts = set(re.findall(r'speakSentence\(this,"([^"]+)"\)', html))
-    sentence_texts |= set(re.findall(r"speakSentence\(this,'([^']+)'\)", html))
+    # 注意：HTML中单引号被转义为 \'，正则需匹配转义字符
+    sentence_texts = set(re.findall(r'speakSentence\(this,"((?:[^"\\]|\\.)*)"\)', html))
+    sentence_texts |= set(re.findall(r"speakSentence\(this,'((?:[^'\\]|\\.)+)'\)", html))
 
     total = len(word_texts) + len(sentence_texts)
     print(f"[*] Found {len(word_texts)} word texts + {len(sentence_texts)} sentence texts = {total} items")
@@ -106,7 +107,9 @@ def embed_tts_audio(html: str) -> str:
 <script id="audio-pool">
   const AUDIO_MAP = {audio_json};
   function playAudio(text, btn) {{
-    const uri = AUDIO_MAP[text];
+    // HTML中的转义引号 \' 或 \" 需还原为正常引号
+    const key = text.replace(/\\\\(.)/g, '$1');
+    const uri = AUDIO_MAP[key];
     if (!uri) {{
       // 回退到 speechSynthesis
       if (window.speechSynthesis) {{
