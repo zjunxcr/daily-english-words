@@ -305,7 +305,7 @@ conduct confirm connect consider contact continue control conversation cook
 correct cost cotton count couple courage course cousin cover crack crash crazy
 cream create crowd cry culture cup curious customer cute damage danger dangerous
 dark daughter deal dear death decision decrease deep deeply defeat defend degree
-delay deliver demand department depend describe desert design desire detail develop
+delay deliver demand department depend describe desert design detail develop
 device die diet dinner direction director dirty discover discussion disease dish
 distance district divide doctor dollar door double doubt down downstairs downtown
 draft drama draw dream dress drink drive drop drug dry due during dust duty each
