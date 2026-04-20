@@ -2361,9 +2361,23 @@ def generate_html(words, bonus_html):
 <script>
   const synth = window.speechSynthesis;
   let voices = [];
-  function loadVoices() {{ voices = synth.getVoices(); }}
-  if (synth.onvoiceschanged !== undefined) synth.onvoiceschanged = loadVoices;
-  loadVoices();
+  let voicesLoaded = false;
+  let ttsUnsupported = false;
+
+  function loadVoices() {{
+    voices = synth ? synth.getVoices() : [];
+    if (voices.length > 0) voicesLoaded = true;
+  }}
+
+  if (synth) {{
+    if (synth.onvoiceschanged !== undefined) synth.onvoiceschanged = loadVoices;
+    loadVoices();
+    // 部分浏览器需要延迟等 voices 加载
+    setTimeout(loadVoices, 300);
+    setTimeout(loadVoices, 1000);
+  }} else {{
+    ttsUnsupported = true;
+  }}
 
   function getEnglishVoice() {{
     const preferred = ['en-NZ','en-AU','en-GB','en-US'];
@@ -2376,28 +2390,28 @@ def generate_html(words, bonus_html):
 
   function speak(text, btn, rate) {{
     if (!synth || !synth.speak) {{
-      // 静默降级：不弹窗，仅在按钮上短暂提示
-      if (btn) {{
-        const orig = btn.innerHTML;
-        btn.innerHTML = '⚠️';
-        btn.title = '当前浏览器不支持朗读，建议用Chrome/Edge打开';
-        setTimeout(() => {{ btn.innerHTML = orig; btn.title = ''; }}, 2000);
-      }}
+      ttsUnsupported = true;
+      if (btn) btn.classList.remove('playing');
       return;
     }}
     synth.cancel();
     const utter = new SpeechSynthesisUtterance(text);
     const voice = getEnglishVoice();
     if (voice) utter.voice = voice;
+    // 即使没有找到指定voice，也尝试用默认语音播放
     utter.lang  = 'en-NZ';
     utter.rate  = rate;
     utter.pitch = 1;
     if (btn) {{
       btn.classList.add('playing');
-      utter.onend   = () => btn.classList.remove('playing');
-      utter.onerror = () => {{ btn.classList.remove('playing'); }};
+      utter.onend = () => btn.classList.remove('playing');
+      utter.onerror = (e) => {{
+        btn.classList.remove('playing');
+      }};
     }}
-    try {{ synth.speak(utter); }} catch(e) {{
+    try {{
+      synth.speak(utter);
+    }} catch(e) {{
       if (btn) btn.classList.remove('playing');
     }}
   }}
