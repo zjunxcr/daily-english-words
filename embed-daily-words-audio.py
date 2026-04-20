@@ -5,8 +5,8 @@ embed-daily-words-audio.py
 功能：
 1. 扫描 HTML 中所有 speakWord / speakSentence 按钮，提取文本
 2. 用 edge-tts (en-NZ-MitchellNeural) 生成 MP3，base64 嵌入 HTML
-3. 将 onclick 替换为播放内嵌音频（不依赖 speechSynthesis）
-4. 同时处理歌曲 MP3（Worker URL → base64）
+3. 注入 AUDIO_MAP + playAudio 函数，单引号键（JS对象字面量，非JSON）
+4. 同时处理歌曲 MP3（Worker URL → base64 嵌入）
 
 Usage:
   python embed-daily-words-audio.py [html_file] [output_file]
@@ -34,15 +34,14 @@ SSL_CONTEXT.verify_mode = ssl.CERT_NONE
 OPENER = urllib.request.build_opener(urllib.request.HTTPSHandler(context=SSL_CONTEXT))
 
 # ── edge-tts 语音设置 ─────────────────────────────────────────────────
-VOICE_WORD     = "en-NZ-MitchellNeural"   # 单词发音
-VOICE_SENTENCE = "en-NZ-MitchellNeural"   # 例句发音（同一语音，速率不同）
-RATE_WORD      = "-20%"                    # 单词语速（慢）
-RATE_SENTENCE  = "-35%"                    # 例句语速（更慢）
+VOICE_WORD     = "en-NZ-MitchellNeural"
+VOICE_SENTENCE = "en-NZ-MitchellNeural"
+RATE_WORD      = "-20%"
+RATE_SENTENCE  = "-35%"
 
 
 # ── edge-tts 生成音频 ──────────────────────────────────────────────────
 async def tts_to_bytes(text: str, voice: str, rate: str) -> bytes:
-    """用 edge-tts 将文本转为 MP3 字节"""
     import edge_tts
     communicate = edge_tts.Communicate(text, voice, rate=rate)
     buf = bytearray()
@@ -53,7 +52,6 @@ async def tts_to_bytes(text: str, voice: str, rate: str) -> bytes:
 
 
 def make_audio_b64(text: str, is_sentence: bool = False) -> str:
-    """返回 base64 data URI，失败返回空字符串"""
     voice = VOICE_SENTENCE if is_sentence else VOICE_WORD
     rate  = RATE_SENTENCE  if is_sentence else RATE_WORD
     try:
@@ -64,24 +62,26 @@ def make_audio_b64(text: str, is_sentence: bool = False) -> str:
         return ""
 
 
-# ── 替换 speak 按钮为内嵌音频播放 ────────────────────────────────────────
+# ── 单词/例句 TTS 嵌入 ─────────────────────────────────────────────────
 def embed_tts_audio(html: str) -> str:
     """
     扫描所有 onclick="speakWord(this,'...')" 和 speakSentence(this,'...')
-    生成 edge-tts 音频并嵌入，将按钮改为直接播放 <audio> 的方式。
+    生成 edge-tts 音频并嵌入，注入 AUDIO_MAP + playAudio 函数。
     """
     # 提取所有唯一文本（避免重复生成）
-    word_texts     = set(re.findall(r"speakWord\(this,'([^']+)'\)", html))
-    # 注意：HTML中单引号被转义为 \'，正则需匹配转义字符
-    sentence_texts = set(re.findall(r'speakSentence\(this,"((?:[^"\\]|\\.)*)"\)', html))
-    sentence_texts |= set(re.findall(r"speakSentence\(this,'((?:[^'\\]|\\.)+)'\)", html))
+    # 注意：HTML 中单引号被转义为 \'，正则提取后需要还原为真实撇号
+    # 例如: "Here\'s" -> "Here's"
+    def unescape(text):
+        return text.replace("\\'", "'").replace('\\"', '"')
+
+    word_texts     = set(unescape(t) for t in re.findall(r"speakWord\(this,'([^']+)'\)", html))
+    sentence_texts = set(unescape(t) for t in re.findall(r'speakSentence\(this,"((?:[^"\\]|\\.)*)"\)', html))
+    sentence_texts |= set(unescape(t) for t in re.findall(r"speakSentence\(this,'((?:[^'\\]|\\.)+)'\)", html))
 
     total = len(word_texts) + len(sentence_texts)
     print(f"[*] Found {len(word_texts)} word texts + {len(sentence_texts)} sentence texts = {total} items")
 
-    # 为每条文本生成 base64
-    audio_map = {}  # text -> data_uri
-
+    audio_map = {}
     for i, text in enumerate(sorted(word_texts), 1):
         print(f"  [{i}/{total}] word: {text[:40]}")
         uri = make_audio_b64(text, is_sentence=False)
@@ -98,68 +98,63 @@ def embed_tts_audio(html: str) -> str:
 
     print(f"[*] Generated {len(audio_map)}/{total} audio items")
 
-    # 注入音频数据池 + 播放函数到 <script> 区域
-    # 用 JSON 格式嵌入所有音频
-    import json
-    # 修复：JSON 不接受 \' 作为转义字符，改为双引号字符串键，或预先转义反斜杠
-    # 正确做法：先把键中的单反斜杠替换为双反斜杠，再 json.dumps
-    fixed_map = {}
-    for k, v in audio_map.items():
-        # 把 \ 替换为 \\（这样 json.dumps 输出 \\，JS 解析为 \）
-        # 把 ' 保留为字面值（JSON 里 ' 不需要转义，但如果键含 '，不影响）
-        fixed_key = k.replace('\\', '\\\\')
-        fixed_map[fixed_key] = v
-    audio_json = json.dumps(fixed_map, ensure_ascii=False)
+    # ── 关键修复（2026-04-20）：改回4月15日方式
+    # 直接写JS对象字面量，不用json.dumps（避免 \' 非法转义导致整个AUDIO_MAP解析失败）
+    # 格式: AUDIO_MAP = { 'word': 'data:audio/mpeg;base64,...' }
+    # base64不含单引号；键中含撇号(如"Don't")时，单引号键在JS里完全合法
+    audio_lines = []
+    for text, uri in audio_map.items():
+        # Python双引号字符串里，text中的单引号/撇号就是普通字符，不需要转义
+        audio_lines.append('  "' + text + '": "' + uri + '"')
+    audio_map_str = ',\n'.join(audio_lines)
 
-    inject_script = f"""
-<script id="audio-pool">
-  const AUDIO_MAP = {audio_json};
-  function playAudio(text, btn) {{
-    // HTML中的转义引号 \' 或 \" 需还原为正常引号
-    const key = text.replace(/\\\\(.)/g, '$1');
-    const uri = AUDIO_MAP[key];
-    if (!uri) {{
-      // 回退到 speechSynthesis
-      if (window.speechSynthesis) {{
-        const u = new SpeechSynthesisUtterance(text);
-        u.lang = 'en-NZ'; u.rate = 0.8;
-        if (btn) {{ btn.classList.add('playing'); u.onend = () => btn.classList.remove('playing'); }}
-        window.speechSynthesis.speak(u);
-      }}
-      return;
-    }}
-    const audio = new Audio(uri);
-    if (btn) {{
-      btn.classList.add('playing');
-      audio.onended = () => btn.classList.remove('playing');
-      audio.onerror = () => btn.classList.remove('playing');
-    }}
-    audio.play().catch(() => {{
-      if (btn) btn.classList.remove('playing');
-    }});
-  }}
-  function speakWord(btn, text)    {{ playAudio(text, btn); }}
-  function speakSentence(btn, text) {{ playAudio(text, btn); }}
-</script>"""
+    inject_script = (
+        '<script id="audio-pool">\n'
+        '  const AUDIO_MAP = {\n'
+        + audio_map_str + '\n'
+        '  };\n'
+        '  function playAudio(text, btn) {\n'
+        '    const uri = AUDIO_MAP[text];\n'
+        '    if (!uri) {\n'
+        '      if (window.speechSynthesis) {\n'
+        "        const u = new SpeechSynthesisUtterance(text);\n"
+        '        u.lang = \'en-NZ\'; u.rate = 0.8;\n'
+        '        if (btn) { btn.classList.add(\'playing\'); u.onend = () => btn.classList.remove(\'playing\'); }\n'
+        '        window.speechSynthesis.speak(u);\n'
+        '      }\n'
+        '      return;\n'
+        '    }\n'
+        '    const audio = new Audio(uri);\n'
+        '    if (btn) {\n'
+        '      btn.classList.add(\'playing\');\n'
+        '      audio.onended = () => btn.classList.remove(\'playing\');\n'
+        '      audio.onerror = () => btn.classList.remove(\'playing\');\n'
+        '    }\n'
+        '    audio.play().catch(() => {\n'
+        '      if (btn) btn.classList.remove(\'playing\');\n'
+        '    });\n'
+        '  }\n'
+        '  function speakWord(btn, text)    { playAudio(text, btn); }\n'
+        '  function speakSentence(btn, text) { playAudio(text, btn); }\n'
+        '</script>\n'
+    )
 
-    # 替换原有 <script> 中的 speechSynthesis 块（整个 <script> 标签）
-    # 找到包含 speechSynthesis 的 script 块并替换
-    synth_script_pattern = re.compile(
+    # 替换原有 speechSynthesis script 块
+    synth_pattern = re.compile(
         r'<script[^>]*>\s*const synth = window\.speechSynthesis.*?</script>',
         re.DOTALL
     )
-    if synth_script_pattern.search(html):
-        html = synth_script_pattern.sub(inject_script, html)
+    if synth_pattern.search(html):
+        html = synth_pattern.sub(inject_script, html)
         print("[*] Replaced speechSynthesis script block with embedded audio player")
     else:
-        # 找不到则在 </body> 前插入
         html = html.replace('</body>', inject_script + '\n</body>')
         print("[*] Injected audio pool script before </body>")
 
     return html
 
 
-# ── 歌曲 MP3 嵌入（原逻辑，保留）───────────────────────────────────────
+# ── 歌曲 MP3 嵌入 ──────────────────────────────────────────────────────
 def get_mp3_from_byfuns(mp3_id):
     api_url = f'https://api.byfuns.top/1/?id={mp3_id}'
     req = urllib.request.Request(api_url, headers={
