@@ -23,10 +23,21 @@ import random
 _pronunciation_cache = {}
 
 def get_phonetic(word):
-    """通过 Free Dictionary API 获取音标和词性"""
+    """
+    获取单词音标、词性、中文释义。
+    优先级：
+    1. 本地 _pronunciation_cache
+    2. api.dictionaryapi.dev → 音标 + 词性（英文释义，仅作参考）
+    3. 有道词典 API → 中文释义（主要返回值）
+    """
     if word in _pronunciation_cache:
         return _pronunciation_cache[word]
-    
+
+    ipa = ""
+    pos = ""
+    definition = ""  # 默认空，等待有道词典填充
+
+    # Step 1: 获取音标和词性（来自英文词典）
     try:
         url = f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}"
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
@@ -34,38 +45,42 @@ def get_phonetic(word):
             data = json.loads(resp.read().decode())
             if data and len(data) > 0:
                 entry = data[0]
-                # 优先取英式音标
                 phonetics = entry.get("phonetics", [])
-                ipa = ""
                 for p in phonetics:
                     if p.get("text", "").startswith("/"):
                         ipa = p["text"]
                         break
                 if not ipa and phonetics:
                     ipa = phonetics[0].get("text", "")
-                
-                # 取词性和释义
                 meanings = entry.get("meanings", [])
-                pos = ""
-                definition = ""
                 if meanings:
                     pos = meanings[0].get("partOfSpeech", "")
-                    defs = meanings[0].get("definitions", [])
-                    if defs:
-                        definition = defs[0].get("definition", "")
-                
-                result = {
-                    "ipa": ipa,
-                    "pos": pos,
-                    "definition": definition
-                }
-                _pronunciation_cache[word] = result
-                return result
-    except Exception as e:
+    except Exception:
         pass
-    
-    _pronunciation_cache[word] = {"ipa": "", "pos": "", "definition": ""}
-    return {"ipa": "", "pos": "", "definition": ""}
+
+    # Step 2: 获取中文释义（来自有道词典）
+    try:
+        url2 = f"https://dict.youdao.com/jsonapi?q={urllib.parse.quote(word)}&doctype=json"
+        req2 = urllib.request.Request(url2, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req2, timeout=10) as resp2:
+            data2 = json.loads(resp2.read().decode())
+            # 优先取 web_trans 中的中文翻译
+            wt = data2.get("web_trans", {}).get("web-translation", [])
+            if wt:
+                trans_list = wt[0].get("trans", [])
+                if trans_list:
+                    # 取第一个中文翻译（通常是最常用义项）
+                    definition = trans_list[0].get("value", "")
+    except Exception:
+        pass
+
+    result = {
+        "ipa": ipa,
+        "pos": pos,
+        "definition": definition
+    }
+    _pronunciation_cache[word] = result
+    return result
 
 def syllabify(word):
     """简单的音节拆分（基于元音分组）"""
@@ -232,6 +247,312 @@ LYRIC_VOCAB = {
     "painful": ("/ˈpeɪnfəl/", "pain·ful", "adj.", "痛苦的"),
     "beautiful": ("/ˈbjuːtɪfəl/", "beau·ti·ful", "adj.", "美丽的"),
     "wonderful": ("/ˈwʌndəfəl/", "won·der·ful", "adj.", "精彩的"),
+    # ===== 以下为扩充：常见英文歌词词汇（中文释义）=====
+    # 情感/心情
+    "swear": ("/sweər/", "swear", "v.", "发誓；承诺"),
+    "swore": ("/swɔːr/", "swore", "v.", "发誓（过去式）"),
+    "sworn": ("/swɔːrn/", "sworn", "v.", "发誓（过去分词）"),
+    "hurt": ("/hɜːrt/", "hurt", "v.", "使受伤；伤害（情感）"),
+    "hurts": ("/hɜːrts/", "hurts", "v.", "伤害（第三人称）"),
+    "ache": ("/eɪk/", "ache", "v./n.", "疼痛；隐隐作痛"),
+    "aches": ("/eɪks/", "ach·es", "v.", "疼痛（复数）"),
+    "lonely": ("/ˈləʊnli/", "lone·ly", "adj.", "孤独的；寂寞的"),
+    "crazy": ("/ˈkreɪzi/", "craz·y", "adj.", "疯狂的；疯狂的"),
+    "wasted": ("/ˈweɪstɪd/", "wast·ed", "adj.", "浪费的；憔悴的"),
+    "wasted": ("/ˈweɪstɪd/", "wast·ed", "adj.", "浪费的；虚度的"),
+    # 人物/称呼
+    "babe": ("/beɪb/", "babe", "n.", "宝贝（对爱人的称呼）"),
+    "baby": ("/ˈbeɪbi/", "ba·by", "n.", "宝宝；宝贝"),
+    "daddy": ("/ˈdædi/", "dad·dy", "n.", "爸爸（口语/儿语）"),
+    "mama": ("/ˈmɑːmə/", "ma·ma", "n.", "妈妈（儿语/歌词）"),
+    "girl": ("/ɡɜːrl/", "girl", "n.", "女孩"),
+    "girls": ("/ɡɜːrlz/", "girls", "n.", "女孩们"),
+    "guy": ("/ɡaɪ/", "guy", "n.", "家伙；小伙子"),
+    "guys": ("/ɡaɪz/", "guys", "n.", "家伙们；各位"),
+    "lady": ("/ˈleɪdi/", "la·dy", "n.", "女士；淑女"),
+    "lover": ("/ˈlʌvər/", "lov·er", "n.", "爱人；情人"),
+    "heroes": ("/ˈhɪərəʊz/", "he·roes", "n.", "英雄们（复数）"),
+    "hero": ("/ˈhɪərəʊ/", "he·ro", "n.", "英雄"),
+    # 日常/饮品
+    "beer": ("/bɪər/", "beer", "n.", "啤酒"),
+    "wine": ("/waɪn/", "wine", "n.", "葡萄酒"),
+    "coffee": ("/ˈkɒfi/", "cof·fee", "n.", "咖啡"),
+    "cigarette": ("/ˌsɪɡəˈret/", "cig·a·rette", "n.", "香烟"),
+    "cigarettes": ("/ˌsɪɡəˈrets/", "cig·a·rettes", "n.", "香烟（复数）"),
+    # 动作/行为
+    "chase": ("/tʃeɪs/", "chase", "v.", "追逐；追赶"),
+    "dance": ("/dɑːns/", "dance", "v.", "跳舞"),
+    "dancing": ("/ˈdɑːnsɪŋ/", "dan·cing", "v.", "跳舞（进行时）"),
+    "cry": ("/kraɪ/", "cry", "v.", "哭泣；哭"),
+    "crying": ("/ˈkraɪɪŋ/", "cry·ing", "v.", "哭泣（进行时）"),
+    "smile": ("/smaɪl/", "smile", "v./n.", "微笑；笑"),
+    "kiss": ("/kɪs/", "kiss", "v./n.", "亲吻；吻"),
+    "hug": ("/hʌɡ/", "hug", "v./n.", "拥抱"),
+    "kissed": ("/kɪst/", "kissed", "v.", "亲吻（过去式）"),
+    "fall": ("/fɔːl/", "fall", "v.", "落下；跌倒"),
+    "fell": ("/fel/", "fell", "v.", "落下（过去式）"),
+    "fallen": ("/ˈfɔːlən/", "fall·en", "v.", "落下（过去分词）"),
+    "break": ("/breɪk/", "break", "v.", "打破；破碎"),
+    "broke": ("/brəʊk/", "broke", "v.", "打破（过去式）"),
+    "broken": ("/ˈbrəʊkən/", "bro·ken", "v.", "破碎（过去分词）"),
+    "lose": ("/luːz/", "lose", "v.", "失去；丢失"),
+    "lost": ("/lɒst/", "lost", "v.", "失去（过去式/过去分词）"),
+    "miss": ("/mɪs/", "miss", "v.", "想念；错过"),
+    "missed": ("/mɪst/", "missed", "v.", "想念（过去式）"),
+    "run": ("/rʌn/", "run", "v.", "跑；奔跑"),
+    "ran": ("/ræn/", "ran", "v.", "跑（过去式）"),
+    "runaway": ("/ˈrʌnəweɪ/", "run·a·way", "n./adj.", "逃跑者；逃跑的"),
+    "drive": ("/draɪv/", "drive", "v.", "驾驶；开车"),
+    "drove": ("/drəʊv/", "drove", "v.", "驾驶（过去式）"),
+    "driving": ("/ˈdraɪvɪŋ/", "driv·ing", "v.", "驾驶（进行时）"),
+    "scream": ("/skriːm/", "scream", "v.", "尖叫；大喊"),
+    "screaming": ("/ˈskriːmɪŋ/", "scream·ing", "v.", "尖叫（进行时）"),
+    "whisper": ("/ˈwɪspər/", "whis·per", "v.", "低声说；耳语"),
+    "lie": ("/laɪ/", "lie", "v.", "躺；说谎"),
+    "lay": ("/leɪ/", "lay", "v.", "躺（过去式）；放置"),
+    "laid": ("/leɪd/", "laid", "v.", "放置（过去式）"),
+    "dream": ("/driːm/", "dream", "v./n.", "做梦；梦想"),
+    "dreamed": ("/driːmd/", "dreamed", "v.", "做梦（过去式）"),
+    "dreamt": ("/dremt/", "dreamt", "v.", "做梦（过去式英式）"),
+    "fade": ("/feɪd/", "fade", "v.", "褪色；逐渐消失"),
+    "fadeaway": ("/ˈfeɪdəweɪ/", "fade·a·way", "n.", "逐渐消失；衰落"),
+    "shine": ("/ʃaɪn/", "shine", "v.", "发光；照耀"),
+    "shining": ("/ˈʃaɪnɪŋ/", "shi·ning", "v.", "发光（进行时）"),
+    "shine": ("/ʃaɪn/", "shine", "v.", "发光；照耀"),
+    # 状态/感受
+    "alive": ("/əˈlaɪv/", "a·live", "adj.", "活着的；活泼的"),
+    "asleep": ("/əˈsliːp/", "a·sleep", "adj.", "睡着的"),
+    "awake": ("/əˈweɪk/", "a·wake", "adj.", "醒着的"),
+    "alone": ("/əˈləʊn/", "a·lone", "adj.", "独自的；单独的"),
+    "afraid": ("/əˈfreɪd/", "a·fraid", "adj.", "害怕的；担心的"),
+    "angry": ("/ˈæŋɡri/", "an·gry", "adj.", "生气的；愤怒的"),
+    "blessed": ("/blest/", "blessed", "adj.", "幸福的；受祝福的"),
+    "drunk": ("/drʌŋk/", "drunk", "adj.", "喝醉的"),
+    "high": ("/haɪ/", "high", "adj.", "高的；兴奋的"),
+    "low": ("/ləʊ/", "low", "adj.", "低的；情绪低落的"),
+    "sick": ("/sɪk/", "sick", "adj.", "生病的；恶心的"),
+    "tired": ("/ˈtaɪərd/", "tired", "adj.", "疲惫的；累的"),
+    # 时间/频度
+    "tonight": ("/təˈnaɪt/", "to·night", "adv.", "今晚；今夜"),
+    "tomorrow": ("/təˈmɒrəʊ/", "to·mor·row", "adv.", "明天"),
+    "yesterday": ("/ˈjestədeɪ/", "yes·ter·day", "adv.", "昨天"),
+    "someday": ("/ˈsʌmdeɪ/", "some·day", "adv.", "有朝一日"),
+    "sometime": ("/ˈsʌmtaɪm/", "some·time", "adv.", "某个时候"),
+    "sometimes": ("/ˈsʌmtaɪmz/", "some·times", "adv.", "有时；偶尔"),
+    "forever": ("/fəˈrevər/", "for·ev·er", "adv.", "永远"),
+    "already": ("/ɔːlˈredi/", "al·read·y", "adv.", "已经"),
+    "still": ("/stɪl/", "still", "adv.", "仍然；还"),
+    "yet": ("/jet/", "yet", "adv.", "还；仍然"),
+    "lately": ("/ˈleɪtli/", "late·ly", "adv.", "最近；近来"),
+    # 情感/心理
+    "trust": ("/trʌst/", "trust", "v./n.", "信任；相信"),
+    "faith": ("/feɪθ/", "faith", "n.", "信仰；信任"),
+    "soul": ("/səʊl/", "soul", "n.", "灵魂；心灵"),
+    "mind": ("/maɪnd/", "mind", "n.", "头脑；心思"),
+    "soulmate": ("/ˈsəʊlmeɪt/", "soul·mate", "n.", "灵魂伴侣；知音"),
+    "pain": ("/peɪn/", "pain", "n.", "疼痛；痛苦"),
+    "tears": ("/tɪərz/", "tears", "n.", "眼泪；泪水"),
+    "cryin": ("/ˈkraɪɪŋ/", "cry·in", "v.", "哭泣（口语拼写）"),
+    "cryin'": ("/ˈkraɪɪŋ/", "cry·in'", "v.", "哭泣（口语拼写）"),
+    "wonder": ("/ˈwʌndər/", "won·der", "v.", "想知道；纳闷"),
+    "wondered": ("/ˈwʌndərd/", "won·dered", "v.", "纳闷（过去式）"),
+    "regret": ("/rɪˈɡret/", "re·gret", "v./n.", "后悔；遗憾"),
+    "regrets": ("/rɪˈɡrets/", "re·grets", "n.", "遗憾（复数）"),
+    "regretted": ("/rɪˈɡretɪd/", "re·gret·ted", "v.", "后悔（过去式）"),
+    # 人生/经历
+    "life": ("/laɪf/", "life", "n.", "生活；生命"),
+    "lives": ("/lɪvz/", "lives", "n.", "生活（复数）；生命"),
+    "death": ("/deθ/", "death", "n.", "死亡"),
+    "alive": ("/əˈlaɪv/", "a·live", "adj.", "活着的"),
+    "born": ("/bɔːrn/", "born", "v.", "出生（过去分词）"),
+    "dead": ("/ded/", "dead", "adj.", "死的"),
+    "die": ("/daɪ/", "die", "v.", "死；死亡"),
+    "died": ("/daɪd/", "died", "v.", "死亡（过去式）"),
+    "dying": ("/ˈdaɪɪŋ/", "dy·ing", "v.", "垂死的；临终的"),
+    "grown": ("/ɡrəʊn/", "grown", "v.", "成长（过去分词）"),
+    "grow": ("/ɡrəʊ/", "grow", "v.", "成长；生长"),
+    "grew": ("/ɡruː/", "grew", "v.", "成长（过去式）"),
+    "adult": ("/ˈædʌlt/", "a·dult", "n.", "成年人"),
+    # 关系/情感
+    "love": ("/lʌv/", "love", "v./n.", "爱；爱情"),
+    "loved": ("/lʌvd/", "loved", "v.", "爱（过去式）"),
+    "lover": ("/ˈlʌvər/", "lov·er", "n.", "爱人；情人"),
+    "loving": ("/ˈlʌvɪŋ/", "lov·ing", "adj.", "亲爱的；充满爱的"),
+    "lovely": ("/ˈlʌvli/", "love·ly", "adj.", "可爱的；美好的"),
+    "wanna": ("/ˈwɒnə/", "wan·na", "v.", "想要（口语）"),
+    "wanna-be": ("/ˈwɒnəbiː/", "wan·na-be", "n.", "追星族；崇拜者"),
+    "kiss": ("/kɪs/", "kiss", "v.", "亲吻"),
+    "kissed": ("/kɪst/", "kissed", "v.", "亲吻（过去式）"),
+    "hold": ("/həʊld/", "hold", "v.", "握住；抱着"),
+    "held": ("/held/", "held", "v.", "握住（过去式）"),
+    "touch": ("/tʌtʃ/", "touch", "v.", "触摸；感动"),
+    "touched": ("/tʌtʃt/", "touched", "v.", "触摸（过去式）"),
+    "hold": ("/həʊld/", "hold", "v.", "握住；拥抱"),
+    "hands": ("/hændz/", "hands", "n.", "手（复数）"),
+    "hand": ("/hænd/", "hand", "n.", "手"),
+    "arms": ("/ɑːrmz/", "arms", "n.", "手臂（复数）"),
+    "arm": ("/ɑːrm/", "arm", "n.", "手臂"),
+    "hug": ("/hʌɡ/", "hug", "v.", "拥抱"),
+    "hugs": ("/hʌɡz/", "hugs", "n.", "拥抱（复数）"),
+    "friend": ("/frend/", "friend", "n.", "朋友"),
+    "friends": ("/frendz/", "friends", "n.", "朋友们"),
+    "boyfriend": ("/ˈbɔɪfrend/", "boy·friend", "n.", "男朋友"),
+    "girlfriend": ("/ˈɡɜːrlfrend/", "girl·friend", "n.", "女朋友"),
+    "kiss": ("/kɪs/", "kiss", "v.", "亲吻"),
+    # 歌词常见动词/短语
+    "say": ("/seɪ/", "say", "v.", "说"),
+    "said": ("/sed/", "said", "v.", "说（过去式）"),
+    "tell": ("/tel/", "tell", "v.", "告诉"),
+    "told": ("/təʊld/", "told", "v.", "告诉（过去式）"),
+    "speak": ("/spiːk/", "speak", "v.", "说话；讲话"),
+    "spoke": ("/spəʊk/", "spoke", "v.", "说话（过去式）"),
+    "spoken": ("/ˈspəʊkən/", "spo·ken", "v.", "说话（过去分词）"),
+    "talk": ("/tɔːk/", "talk", "v.", "谈话"),
+    "talked": ("/tɔːkt/", "talked", "v.", "谈话（过去式）"),
+    "walk": ("/wɔːk/", "walk", "v.", "走路"),
+    "walked": ("/wɔːkt/", "walked", "v.", "走路（过去式）"),
+    "stay": ("/steɪ/", "stay", "v.", "停留；待"),
+    "stayed": ("/steɪd/", "stayed", "v.", "停留（过去式）"),
+    "leave": ("/liːv/", "leave", "v.", "离开"),
+    "left": ("/left/", "left", "v.", "离开（过去式）"),
+    "go": ("/ɡəʊ/", "go", "v.", "去"),
+    "went": ("/went/", "went", "v.", "去（过去式）"),
+    "gone": ("/ɡɒn/", "gone", "v.", "去（过去分词）"),
+    "come": ("/kʌm/", "come", "v.", "来"),
+    "came": ("/keɪm/", "came", "v.", "来（过去式）"),
+    "wanted": ("/ˈwɒntɪd/", "want·ed", "v.", "想要（过去式）"),
+    "needed": ("/ˈniːdɪd/", "need·ed", "v.", "需要（过去式）"),
+    "tried": ("/traɪd/", "tried", "v.", "尝试（过去式）"),
+    "tries": ("/traɪz/", "tries", "v.", "尝试（第三人称）"),
+    "tryin": ("/ˈtraɪɪŋ/", "try·in", "v.", "尝试（口语拼写）"),
+    "tryin'": ("/ˈtraɪɪŋ/", "try·in'", "v.", "尝试（口语拼写）"),
+    "fighting": ("/ˈfaɪtɪŋ/", "fight·ing", "v.", "战斗；打架（进行时）"),
+    "fight": ("/faɪt/", "fight", "v.", "战斗；打架"),
+    "fought": ("/fɔːt/", "fought", "v.", "战斗（过去式）"),
+    "confronted": ("/kənˈfrʌntɪd/", "con·front·ed", "v.", "面对；对峙（过去式）"),
+    "confront": ("/kənˈfrʌnt/", "con·front", "v.", "面对；对峙"),
+    "feels": ("/fiːlz/", "feels", "v.", "感觉（第三人称）"),
+    "feel": ("/fiːl/", "feel", "v.", "感觉；感受"),
+    "felt": ("/felt/", "felt", "v.", "感觉（过去式）"),
+    "feeling": ("/ˈfiːlɪŋ/", "feel·ing", "v.", "感觉（进行时）"),
+    "granted": ("/ˈɡrɑːntɪd/", "grant·ed", "v.", "授予；允许（过去式）"),
+    "grant": ("/ɡrɑːnt/", "grant", "v.", "授予；允许"),
+    "taken": ("/ˈteɪkən/", "tak·en", "v.", "拿取（过去分词）"),
+    "taking": ("/ˈteɪkɪŋ/", "tak·ing", "v.", "拿取（进行时）"),
+    "destroyed": ("/dɪˈstrɔɪd/", "de·stroyed", "v.", "摧毁；毁坏（过去式）"),
+    "destroy": ("/dɪˈstrɔɪ/", "de·stroy", "v.", "摧毁；毁坏"),
+    "begging": ("/ˈbeɡɪŋ/", "beg·ging", "v.", "乞求（进行时）"),
+    "beg": ("/beɡ/", "beg", "v.", "乞求；请求"),
+    "begged": ("/beɡd/", "begged", "v.", "乞求（过去式）"),
+    "beggar": ("/ˈbeɡər/", "beg·gar", "n.", "乞丐"),
+    "beggars": ("/ˈbeɡərz/", "beg·gars", "n.", "乞丐们"),
+    "begging": ("/ˈbeɡɪŋ/", "beg·ging", "v.", "乞求（进行时）"),
+    "wonder": ("/ˈwʌndər/", "won·der", "v.", "想知道；琢磨"),
+    "wasted": ("/ˈweɪstɪd/", "wast·ed", "adj.", "浪费的；虚度的"),
+    "painted": ("/ˈpeɪntɪd/", "paint·ed", "v.", "绘画（过去式）"),
+    "paint": ("/peɪnt/", "paint", "v.", "绘画；涂色"),
+    "burn": ("/bɜːrn/", "burn", "v.", "燃烧；烧伤"),
+    "burned": ("/bɜːrnd/", "burned", "v.", "燃烧（过去式）"),
+    "burnt": ("/bɜːrnt/", "burnt", "v.", "燃烧（过去式英式）"),
+    "breathe": ("/briːð/", "brea·the", "v.", "呼吸"),
+    "breathing": ("/ˈbriːðɪŋ/", "breath·ing", "v.", "呼吸（进行时）"),
+    # 常见名词
+    "sky": ("/skaɪ/", "sky", "n.", "天空"),
+    "star": ("/stɑːr/", "star", "n.", "星星"),
+    "stars": ("/stɑːrz/", "stars", "n.", "星星（复数）"),
+    "moon": ("/muːn/", "moon", "n.", "月亮"),
+    "rain": ("/reɪn/", "rain", "n./v.", "雨；下雨"),
+    "snow": ("/snəʊ/", "snow", "n./v.", "雪；下雪"),
+    "wind": ("/wɪnd/", "wind", "n.", "风"),
+    "road": ("/rəʊd/", "road", "n.", "道路"),
+    "street": ("/striːt/", "street", "n.", "街道"),
+    "home": ("/həʊm/", "home", "n.", "家"),
+    "house": ("/haʊs/", "house", "n.", "房子"),
+    "door": ("/dɔːr/", "door", "n.", "门"),
+    "window": ("/ˈwɪndəʊ/", "win·dow", "n.", "窗户"),
+    "wall": ("/wɔːl/", "wall", "n.", "墙"),
+    "floor": ("/flɔːr/", "floor", "n.", "地板；楼层"),
+    "bed": ("/bed/", "bed", "n.", "床"),
+    "road": ("/rəʊd/", "road", "n.", "路；道路"),
+    "way": ("/weɪ/", "way", "n.", "路；方式"),
+    "mile": ("/maɪl/", "mile", "n.", "英里"),
+    "miles": ("/maɪlz/", "miles", "n.", "英里（复数）"),
+    "heart": ("/hɑːrt/", "heart", "n.", "心；心脏"),
+    "eyes": ("/aɪz/", "eyes", "n.", "眼睛（复数）"),
+    "eye": ("/aɪ/", "eye", "n.", "眼睛"),
+    "face": ("/feɪs/", "face", "n.", "脸"),
+    "head": ("/hed/", "head", "n.", "头"),
+    "hair": ("/heər/", "hair", "n.", "头发"),
+    "blood": ("/blʌd/", "blood", "n.", "血液"),
+    "skin": ("/skɪn/", "skin", "n.", "皮肤"),
+    "bone": ("/bəʊn/", "bone", "n.", "骨头"),
+    # 其他常用
+    "free": ("/friː/", "free", "adj.", "自由的；免费的"),
+    "wild": ("/waɪld/", "wild", "adj.", "野生的；疯狂的"),
+    "wildest": ("/ˈwaɪldɪst/", "wild·est", "adj.", "最疯狂的"),
+    "deep": ("/diːp/", "deep", "adj.", "深的"),
+    "wide": ("/waɪd/", "wide", "adj.", "宽的"),
+    "dark": ("/dɑːrk/", "dark", "adj.", "黑暗的"),
+    "light": ("/laɪt/", "light", "n./adj.", "光；轻的"),
+    "bright": ("/braɪt/", "bright", "adj.", "明亮的"),
+    "real": ("/rɪəl/", "real", "adj.", "真实的"),
+    "reality": ("/rɪˈæləti/", "re·al·i·ty", "n.", "现实"),
+    "fake": ("/feɪk/", "fake", "adj.", "假的"),
+    "truth": ("/truːθ/", "truth", "n.", "真相；真理"),
+    "lie": ("/laɪ/", "lie", "n.", "谎言"),
+    "lies": ("/laɪz/", "lies", "n.", "谎言（复数）"),
+    "secret": ("/ˈsiːkrət/", "se·cret", "n.", "秘密"),
+    "secrets": ("/ˈsiːkrəts/", "se·crets", "n.", "秘密（复数）"),
+    "promise": ("/ˈprɒmɪs/", "prom·ise", "n.", "承诺"),
+    "promises": ("/ˈprɒmɪsɪz/", "prom·is·es", "n.", "承诺（复数）"),
+    "night": ("/naɪt/", "night", "n.", "夜晚"),
+    "nights": ("/naɪts/", "nights", "n.", "夜晚（复数）"),
+    "day": ("/deɪ/", "day", "n.", "白天；一天"),
+    "days": ("/deɪz/", "days", "n.", "天（复数）"),
+    "morning": ("/ˈmɔːrnɪŋ/", "mor·ning", "n.", "早晨；上午"),
+    "evening": ("/ˈiːvnɪŋ/", "eve·ning", "n.", "傍晚"),
+    "year": ("/jɪər/", "year", "n.", "年"),
+    "years": ("/jɪərz/", "years", "n.", "年（复数）"),
+    "time": ("/taɪm/", "time", "n.", "时间；次数"),
+    "times": ("/taɪmz/", "times", "n.", "时间（复数）；次数"),
+    "moment": ("/ˈməʊmənt/", "mo·ment", "n.", "时刻；瞬间"),
+    "hour": ("/ˈaʊər/", "hour", "n.", "小时"),
+    "hours": ("/ˈaʊərz/", "hours", "n.", "小时（复数）"),
+    "summer": ("/ˈsʌmər/", "sum·mer", "n.", "夏天"),
+    "winter": ("/ˈwɪntər/", "win·ter", "n.", "冬天"),
+    "spring": ("/sprɪŋ/", "spring", "n.", "春天"),
+    "autumn": ("/ˈɔːtəm/", "au·tumn", "n.", "秋天"),
+    "sky": ("/skaɪ/", "sky", "n.", "天空"),
+    "clouds": ("/klaʊdz/", "clouds", "n.", "云（复数）"),
+    "cloud": ("/klaʊd/", "cloud", "n.", "云"),
+    "rain": ("/reɪn/", "rain", "n.", "雨"),
+    "fire": ("/ˈfaɪər/", "fire", "n.", "火"),
+    "water": ("/ˈwɔːtər/", "wa·ter", "n.", "水"),
+    "ocean": ("/ˈəʊʃən/", "o·cean", "n.", "海洋"),
+    "sea": ("/siː/", "sea", "n.", "大海"),
+    "mountain": ("/ˈmaʊntən/", "moun·tain", "n.", "山"),
+    "river": ("/ˈrɪvər/", "ri·ver", "n.", "河流"),
+    "tree": ("/triː/", "tree", "n.", "树"),
+    "rose": ("/rəʊz/", "rose", "n.", "玫瑰"),
+    "flower": ("/ˈflaʊər/", "flow·er", "n.", "花"),
+    # 音乐相关
+    "song": ("/sɒŋ/", "song", "n.", "歌曲"),
+    "sing": ("/sɪŋ/", "sing", "v.", "唱歌"),
+    "sang": ("/sæŋ/", "sang", "v.", "唱歌（过去式）"),
+    "sung": ("/sʌŋ/", "sung", "v.", "唱歌（过去分词）"),
+    "singin": ("/ˈsɪŋɪŋ/", "sin·gin", "v.", "唱歌（口语拼写）"),
+    "singin'": ("/ˈsɪŋɪŋ/", "sin·gin'", "v.", "唱歌（口语拼写）"),
+    "melody": ("/ˈmelədi/", "mel·o·dy", "n.", "旋律"),
+    "rhythm": ("/ˈrɪðəm/", "rhyth·m", "n.", "节奏"),
+    "beat": ("/biːt/", "beat", "n.", "节拍；敲打"),
+    # 高级/附加
+    "whore": ("/hɔːr/", "whore", "n.", "妓女；荡妇（含贬义）"),
+    "bastard": ("/ˈbæstərd/", "bas·tard", "n.", "混蛋（含贬义）"),
+    "damn": ("/dæm/", "damn", "v.", "诅咒；该死"),
+    "damned": ("/dæmd/", "damned", "adj.", "该死的；被诅咒的"),
+    "hell": ("/hel/", "hell", "n.", "地狱"),
+    "heaven": ("/ˈhevən/", "heav·en", "n.", "天堂"),
+    "paradise": ("/ˈpærədaɪs/", "par·a·dise", "n.", "天堂；乐园"),
 }
 
 
