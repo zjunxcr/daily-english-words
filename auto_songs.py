@@ -1293,7 +1293,7 @@ def generate_auto_song_html(svg_speaker):
                 "ipa": phonetic["ipa"],
                 "syllables": syll,
                 "pos": phonetic["pos"],
-                "definition": phonetic["definition"]
+                "definition": phonetic["definition"] or "（释义待补充）"
             }
         time.sleep(0.05)  # 避免请求过快
 
