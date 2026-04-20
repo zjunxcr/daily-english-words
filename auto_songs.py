@@ -1309,7 +1309,7 @@ def generate_auto_song_html(svg_speaker):
         for slang in found_slang:
             if slang["phrase"].lower() in en_line.lower():
                 phrase_safe = slang["phrase"].replace("'", "\\'")
-                note_items.append(f'<span class="lyric-note slang-note">💡 {slang["phrase"]} /{slang["meaning"]}/ <button onclick="speakWord(this,\'{phrase_safe}\')">{svg_speaker}</button></span>')
+                note_items.append(f'<span class="lyric-note slang-note">&#x1F4A1; {slang["phrase"]} /{slang["meaning"]}/</span>')
 
         # 检测生词（完整标注：单词 /音标/ 音节 词性 中文释义）
         line_words = extract_words(en_line)
@@ -1328,7 +1328,7 @@ def generate_auto_song_html(svg_speaker):
             syll_str = hw_data.get('syllables', hw)
             pos_str = f" {hw_data.get('pos', '')}" if hw_data.get('pos') else ""
             def_str = f" {hw_data.get('definition', '')}" if hw_data.get('definition') else ""
-            note_items.append(f'<span class="lyric-note hard-note"><b>{hw}</b>{ipa_str} {syll_str}{pos_str} {def_str} <button onclick="speakWord(this,\'{hw_safe}\')">{svg_speaker}</button></span>')
+            note_items.append(f'<span class="lyric-note hard-note"><b>{hw}</b>{ipa_str} {syll_str}{pos_str} {def_str}</span>')
 
         # 合并标注
         notes_html = ""
@@ -1358,7 +1358,7 @@ def generate_auto_song_html(svg_speaker):
             ipa_str = f" {item['ipa']}" if item['ipa'] else ""
             pos_str = f" {item['pos']}." if item['pos'] else ""
             def_str = f" {item['definition']}" if item['definition'] else ""
-            entries.append(f'<p class="phonetic-entry"><strong>{item["word"]}</strong>{ipa_str} {item["syllables"]}{pos_str}{def_str} <button onclick="speakWord(this,\'{word_safe}\')">{svg_speaker}</button></p>')
+            entries.append(f'<p class="phonetic-entry"><strong>{item["word"]}</strong>{ipa_str} {item["syllables"]}{pos_str}{def_str}</p>')
         vocab_phonetic_html = f'''
     <div class="vocab-phonetic">
       <h4 class="vocab-phonetic-title">📝 生词拼读</h4>
@@ -1401,7 +1401,7 @@ def generate_auto_song_html(svg_speaker):
       <div class="pattern-item">
         <p class="pattern-quote">"{item['en']}"</p>
         {ipa_str}
-        <p class="pattern-syllables">{item['en']} <button onclick="speakWord(this,\'{en_safe}\')">{svg_speaker}</button></p>
+        <p class="pattern-syllables">{item['en']}</p>
         <p class="pattern-translation">{item['zh']}</p>
       </div>''')
         key_patterns_html = f'''
