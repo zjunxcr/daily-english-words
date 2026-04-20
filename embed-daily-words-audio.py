@@ -71,10 +71,12 @@ def embed_tts_audio(html: str) -> str:
     # 提取所有唯一文本（避免重复生成）
     # 注意：HTML 中单引号被转义为 \'，正则提取后需要还原为真实撇号
     # 例如: "Here\'s" -> "Here's"
+    # 修复（2026-04-20）：speakWord 也用正确正则，支持含撇号文本
+    # [^'\\] 匹配普通字符，\\. 匹配转义序列（如 \' \" \\）
     def unescape(text):
         return text.replace("\\'", "'").replace('\\"', '"')
 
-    word_texts     = set(unescape(t) for t in re.findall(r"speakWord\(this,'([^']+)'\)", html))
+    word_texts     = set(unescape(t) for t in re.findall(r"speakWord\(this,'((?:[^'\\]|\\.)+)'\)", html))
     sentence_texts = set(unescape(t) for t in re.findall(r'speakSentence\(this,"((?:[^"\\]|\\.)*)"\)', html))
     sentence_texts |= set(unescape(t) for t in re.findall(r"speakSentence\(this,'((?:[^'\\]|\\.)+)'\)", html))
 
