@@ -2756,14 +2756,18 @@ def build_sentence_words_html(sentence_words):
     </div>'''
 
 
-def generate_word_card(w, index):
+def generate_word_card(w, index, today_words_set=None):
     """生成单个单词卡片HTML（04-09完整模板：句内高亮+语法标注+例句生词拼读）"""
     word_safe = w['word'].replace("'", "\\'")
     ex_safe = w['example'].replace("'", "\\'")
     pos_class = "nz" if w['type'] == 'nz' else "ielts"
     pos_label = "NZ日常" if w['type'] == 'nz' else "雅思核心"
 
+    # 过滤例句生词：排除当天的10个单词本身（避免重复标注）
     sentence_words = w.get('sentence_words', [])
+    if today_words_set:
+        sentence_words = [sw for sw in sentence_words
+                         if sw['word'].lower() not in today_words_set]
     grammar = w.get('grammar', '')
 
     # 构建句内高亮例句
@@ -3171,8 +3175,9 @@ def generate_html(words, bonus_html):
     weekday_cn = WEEKDAY_NAMES[WEEKDAY]
 
     words_html = ""
+    today_words_set = {w['word'].lower() for w in words}
     for i, w in enumerate(words, 1):
-        words_html += generate_word_card(w, i)
+        words_html += generate_word_card(w, i, today_words_set)
 
     return f'''<!DOCTYPE html>
 <html lang="zh-CN">
