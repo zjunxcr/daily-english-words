@@ -1470,29 +1470,72 @@ def find_slang_in_lyrics(lyrics_lines):
 
 
 # ============================================================
+# 歌曲历史记录（追加到memory文件）
+# ============================================================
+def append_song_history(song_name, artist):
+    """将今日歌曲追加到memory.md的歌曲历史记录"""
+    import os
+    from datetime import date
+    mem_path = os.path.join(os.path.dirname(__file__), ".codebuddy", "automations", "automation", "memory.md")
+    today_str = date.today().isoformat()
+    new_line = f"song_history: {today_str} {song_name} - {artist}"
+
+    if not os.path.exists(mem_path):
+        # 创建文件
+        with open(mem_path, "w", encoding="utf-8") as f:
+            f.write(f"# 每日英语单词 - 自动化执行记录\n\n## 歌曲历史\n{new_line}\n")
+        return
+
+    with open(mem_path, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    # 追加到文件末尾
+    marker = "## 歌曲历史"
+    if marker in content:
+        content += f"\n{new_line}"
+    else:
+        content += f"\n\n{marker}\n{new_line}\n"
+
+    with open(mem_path, "w", encoding="utf-8") as f:
+        f.write(content)
+
+
+# ============================================================
 # 选择今日歌曲（动态选择，去重）
 # ============================================================
 def get_used_songs():
-    """读取已使用过的歌曲记录（从GitHub Actions的memory中）"""
+    """读取已使用过的歌曲记录（从memory.md的歌曲历史中）"""
     import os
     mem_path = os.path.join(os.path.dirname(__file__), ".codebuddy", "automations", "automation", "memory.md")
     if os.path.exists(mem_path):
         try:
             with open(mem_path, "r", encoding="utf-8") as f:
                 content = f.read()
-            # 查找 ## 已用歌曲 部分或 song_history 行
             used = set()
             for line in content.split("\n"):
-                if line.strip().startswith("song_history:"):
-                    # 解析歌曲名列表
-                    songs_str = line.split("song_history:", 1)[1].strip()
-                    for s in songs_str.split(","):
-                        s = s.strip().strip("'\"")
-                        if s:
-                            used.add(s)
+                stripped = line.strip()
+                # 匹配 song_history: 2026-04-13 Lemon Tree - Artist
+                if stripped.startswith("song_history:"):
+                    parts = stripped.split("song_history:", 1)[1].strip()
+                    # 去掉日期前缀，取 "歌曲名 - 歌手" 部分
+                    # 格式: YYYY-MM-DD Song Name - Artist
+                    import re
+                    m = re.match(r'^\d{4}-\d{2}-\d{2}\s+(.+)$', parts)
+                    if m:
+                        song_str = m.group(1).strip()
+                        # 从 "Song Name - Artist" 中提取歌曲名
+                        if " - " in song_str:
+                            song_name = song_str.split(" - ")[0].strip()
+                            used.add(song_name)
+                    else:
+                        # 兼容旧格式：song_history: Song1, Song2
+                        for s in parts.split(","):
+                            s = s.strip().strip("'\""  )
+                            if s:
+                                used.add(s)
             return used
-        except:
-            pass
+        except Exception as e:
+            print(f"[WARN] 读取歌曲历史失败: {e}")
     return set()
 
 
@@ -1546,6 +1589,9 @@ def generate_auto_song_html(svg_speaker):
     song = select_daily_song(exclude=used)
 
     print(f"  [歌曲] 今日推荐: {song['name']} - {song['artist']} (难度{song['level']})")
+
+    # 写入歌曲历史（用于去重）
+    append_song_history(song['name'], song['artist'])
 
     # 获取歌词（带搜索备选），失败时最多尝试3首不同的歌
     tried = set()
