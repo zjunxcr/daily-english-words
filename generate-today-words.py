@@ -661,6 +661,409 @@ WORD_BANK = {
              {"word": "lose your job", "phonetic": "/luːz jɔː dʒɒb/", "syllable": "lose your job", "meaning": "v. 失业（固定搭配）"},
              {"word": "might be able to", "phonetic": "/maɪt biː ˈeɪbl tuː/", "syllable": "might be a·ble to", "meaning": "v. 可能能够（情态动词+be able to）"},
          ]},
+
+        # ---- 餐饮/咖啡 ----
+        {"word": "flat white", "phonetic": "/flæt waɪt/", "syllable": "flat white", "pos": "n.",
+         "meaning": "馥芮白（NZ特产咖啡）",
+         "example": "I'll have a flat white, please. Extra hot.",
+         "example_cn": "我要一杯馥芮白，少冰/热一点。", "scene": "☕ 咖啡店",
+         "grammar": "一般将来时：will have（将要喝）；extra hot（额外热 = 少冰 NZ说法）",
+         "sentence_words": [
+             {"word": "extra hot", "phonetic": "/ˈekstrə hɒt/", "syllable": "ex·tra hot", "meaning": "phrase. 热一点；少冰（NZ咖啡用语）"},
+             {"word": "flat white", "phonetic": "/flæt waɪt/", "syllable": "flat white", "meaning": "n. 馥芮白（NZ咖啡名）"},
+             {"word": "please", "phonetic": "/pliːz/", "syllable": "please", "meaning": "int. 请（礼貌用语）"}
+         ]},
+        {"word": "takeaway", "phonetic": "/ˈteɪkəweɪ/", "syllable": "take · a · way", "pos": "n.",
+         "meaning": "外卖；外带食物",
+         "example": "Let's get some takeaway for dinner tonight.",
+         "example_cn": "今晚我们点外卖吧。", "scene": "🍽️ 外卖",
+         "grammar": "let's = let us 的缩写，表示建议；for dinner（晚餐）",
+         "sentence_words": [
+             {"word": "dinner", "phonetic": "/ˈdɪnər/", "syllable": "din·ner", "meaning": "n. 晚餐；正餐"},
+             {"word": "tonight", "phonetic": "/təˈnaɪt/", "syllable": "to·night", "meaning": "n./adv. 今晚"},
+             {"word": "takeaway", "phonetic": "/ˈteɪkəweɪ/", "syllable": "take·a·way", "meaning": "n. 外卖；外带"}
+         ]},
+        {"word": "brew", "phonetic": "/bruː/", "syllable": "brew", "pos": "n.",
+         "meaning": "一杯咖啡（咖啡店用语）",
+         "example": "What can I get you? — Just a brew, thanks.",
+         "example_cn": "您要什么？——一杯咖啡就行，谢谢。", "scene": "☕ 咖啡店",
+         "grammar": "简略回答：Just a brew = I'll have a brew；thanks = thank you",
+         "sentence_words": [
+             {"word": "brew", "phonetic": "/bruː/", "syllable": "brew", "meaning": "n. 一杯咖啡（NZ俚语）"},
+             {"word": "thanks", "phonetic": "/θæŋks/", "syllable": "thanks", "meaning": "int. 谢谢（= thank you）"}
+         ]},
+        {"word": "plug", "phonetic": "/plʌɡ/", "syllable": "plug", "pos": "n./v.",
+         "meaning": "插座；插头",
+         "example": "Do you have a plug adapter? The sockets here are different.",
+         "example_cn": "你有转换插头吗？这里的插座规格不一样。", "scene": "🔌 生活用品",
+         "grammar": "一般疑问句：Do you have...?（你有...吗？）；different（不同的）",
+         "sentence_words": [
+             {"word": "adapter", "phonetic": "/əˈdæptər/", "syllable": "a·dap·ter", "meaning": "n. 转换插头；适配器"},
+             {"word": "socket", "phonetic": "/ˈsɒkɪt/", "syllable": "sock·et", "meaning": "n. 插座；插孔"},
+             {"word": "plug", "phonetic": "/plʌɡ/", "syllable": "plug", "meaning": "n. 插头；插座"}
+         ]},
+
+        # ---- 互联网/手机 ----
+        {"word": "broadband", "phonetic": "/ˈbrɔːdbænd/", "syllable": "broad · band", "pos": "n.",
+         "meaning": "宽带网络",
+         "example": "How's the broadband speed at your place?",
+         "example_cn": "你那里的网速怎么样？", "scene": "📶 宽带网络",
+         "grammar": "How's = How is 的缩写；at your place（在你那里）",
+         "sentence_words": [
+             {"word": "speed", "phonetic": "/spiːd/", "syllable": "speed", "meaning": "n. 速度；速率"},
+             {"word": "broadband", "phonetic": "/ˈbrɔːdbænd/", "syllable": "broad·band", "meaning": "n. 宽带"},
+             {"word": "place", "phonetic": "/pleɪs/", "syllable": "place", "meaning": "n. 地方；住处"}
+         ]},
+        {"word": "prepay", "phonetic": "/ˈpriːpeɪ/", "syllable": "pre · pay", "pos": "n./v.",
+         "meaning": "预付费手机套餐",
+         "example": "I'm on prepay. It's cheaper if you don't use much data.",
+         "example_cn": "我用的是预付费套餐。如果你流量用得不多，这个更划算。", "scene": "📱 手机套餐",
+         "grammar": "be on prepay = 使用预付费套餐；比较句：cheaper if...",
+         "sentence_words": [
+             {"word": "data", "phonetic": "/ˈdeɪtə/", "syllable": "da·ta", "meaning": "n. 流量；数据"},
+             {"word": "cheaper", "phonetic": "/ˈtʃiːpər/", "syllable": "cheap·er", "meaning": "adj. 更便宜的（cheap比较级）"},
+             {"word": "prepay", "phonetic": "/ˈpriːpeɪ/", "syllable": "pre·pay", "meaning": "n. 预付费"}
+         ]},
+
+        # ---- 天气/自然 ----
+        {"word": "forecast", "phonetic": "/ˈfɔːkɑːst/", "syllable": "fore · cast", "pos": "n./v.",
+         "meaning": "天气预报",
+         "example": "The forecast says it's going to pour this weekend.",
+         "example_cn": "天气预报说这周末要下大雨。", "scene": "🌤️ 天气",
+         "grammar": "一般现在时（客观陈述）：The forecast says（天气预报说）；be going to（将）",
+         "sentence_words": [
+             {"word": "pour", "phonetic": "/pɔːr/", "syllable": "pour", "meaning": "v. 倾盆大雨；倒（水）"},
+             {"word": "weekend", "phonetic": "/ˌwiːkˈend/", "syllable": "week·end", "meaning": "n. 周末"},
+             {"word": "forecast", "phonetic": "/ˈfɔːkɑːst/", "syllable": "fore·cast", "meaning": "n. 天气预报"}
+         ]},
+        {"word": "sunny", "phonetic": "/ˈsʌni/", "syllable": "sun · ny", "pos": "adj.",
+         "meaning": "晴天；阳光明媚",
+         "example": "It's a beautiful sunny day. Let's go to the beach!",
+         "example_cn": "今天阳光明媚，我们去海滩吧！", "scene": "🌤️ 天气",
+         "grammar": "主系表：It's + adj. + n.；感叹句：Let's do...（让我们做...）",
+         "sentence_words": [
+             {"word": "beautiful", "phonetic": "/ˈbjuːtɪfl/", "syllable": "beau·ti·ful", "meaning": "adj. 美丽的；美好的"},
+             {"word": "beach", "phonetic": "/biːtʃ/", "syllable": "beach", "meaning": "n. 海滩；沙滩"},
+             {"word": "sunny", "phonetic": "/ˈsʌni/", "syllable": "sun·ny", "meaning": "adj. 晴朗的；阳光明媚的"}
+         ]},
+
+        # ---- 社区/邻居 ----
+        {"word": "neighbour", "phonetic": "/ˈneɪbə/", "syllable": "neigh · bour", "pos": "n.",
+         "meaning": "邻居",
+         "example": "Our neighbour brought over a plate of cookies.",
+         "example_cn": "我们邻居送了一盘饼干过来。", "scene": "👥 邻里",
+         "grammar": "一般过去时：brought（bring的过去式）；brought over（送过来）",
+         "sentence_words": [
+             {"word": "brought over", "phonetic": "/brɔːt ˈəʊvər/", "syllable": "brought o·ver", "meaning": "v. 送过来（bring over的过去式）"},
+             {"word": "plate", "phonetic": "/pleɪt/", "syllable": "plate", "meaning": "n. 盘子；一盘"},
+             {"word": "cookies", "phonetic": "/ˈkʊkiz/", "syllable": "cook·ies", "meaning": "n. 饼干；曲奇（复数）"},
+             {"word": "neighbour", "phonetic": "/ˈneɪbə/", "syllable": "neigh·bour", "meaning": "n. 邻居"}
+         ]},
+        {"word": "rubbish", "phonetic": "/ˈrʌbɪʃ/", "syllable": "rub · bish", "pos": "n.",
+         "meaning": "垃圾（NZ/英式）",
+         "example": "When's the rubbish collected in our area?",
+         "example_cn": "我们这片区域什么时候收垃圾？", "scene": "🏘️ 社区生活",
+         "grammar": "When's = When is 的缩写；一般现在时（日常规律）",
+         "sentence_words": [
+             {"word": "collected", "phonetic": "/kəˈlektɪd/", "syllable": "col·lect·ed", "meaning": "v. 收集；回收（过去分词）"},
+             {"word": "area", "phonetic": "/ˈeəriə/", "syllable": "a·re·a", "meaning": "n. 区域；地区"},
+             {"word": "rubbish", "phonetic": "/ˈrʌbɪʃ/", "syllable": "rub·bish", "meaning": "n. 垃圾（英/NZ用法）"}
+         ]},
+        {"word": "community", "phonetic": "/kəˈmjuːnəti/", "syllable": "com · mu · ni · ty", "pos": "n.",
+         "meaning": "社区；群体",
+         "example": "There's a great sense of community in this neighbourhood.",
+         "example_cn": "这个社区的归属感很强。", "scene": "🏘️ 社区",
+         "grammar": "There be 句型：There's a...；sense of community（社区归属感）",
+         "sentence_words": [
+             {"word": "neighbourhood", "phonetic": "/ˈneɪbəhʊd/", "syllable": "neigh·bour·hood", "meaning": "n. 社区；街道"},
+             {"word": "community", "phonetic": "/kəˈmjuːnəti/", "syllable": "com·mu·ni·ty", "meaning": "n. 社区；共同体"}
+         ]},
+
+        # ---- 健身/休闲 ----
+        {"word": "gym", "phonetic": "/dʒɪm/", "syllable": "gym", "pos": "n.",
+         "meaning": "健身房",
+         "example": "I signed up for the gym near my flat.",
+         "example_cn": "我在住的附近办了健身卡。", "scene": "🏋️ 健身",
+         "grammar": "一般过去时：signed up（报名）；near my flat（我公寓附近）",
+         "sentence_words": [
+             {"word": "signed up", "phonetic": "/saɪnd ʌp/", "syllable": "signed up", "meaning": "v. 报名；注册（sign up的过去式）"},
+             {"word": "near", "phonetic": "/nɪər/", "syllable": "near", "meaning": "prep. 在...附近"},
+             {"word": "gym", "phonetic": "/dʒɪm/", "syllable": "gym", "meaning": "n. 健身房"}
+         ]},
+        {"word": "trail", "phonetic": "/treɪl/", "syllable": "trail", "pos": "n.",
+         "meaning": "徒步道；山间小路",
+         "example": "There are some amazing trails up in the hills.",
+         "example_cn": "山里有一些超棒的徒步道。", "scene": "🥾 徒步",
+         "grammar": "There be 句型（复数）：There are...；up in the hills（山里面）",
+         "sentence_words": [
+             {"word": "trails", "phonetic": "/treɪlz/", "syllable": "trails", "meaning": "n. 徒步道；小路（复数）"},
+             {"word": "hills", "phonetic": "/hɪlz/", "syllable": "hills", "meaning": "n. 山丘；小山（复数）"},
+             {"word": "trail", "phonetic": "/treɪl/", "syllable": "trail", "meaning": "n. 徒步道；山野小径"}
+         ]},
+
+        # ---- 学校/孩子 ----
+        {"word": "enrol", "phonetic": "/ɪnˈrəʊl/", "syllable": "en · rol", "pos": "v.",
+         "meaning": "注册；报名（课程）",
+         "example": "You need to enrol your child before the school term starts.",
+         "example_cn": "你需要在开学前给孩子报名注册。", "scene": "🏫 学校报名",
+         "grammar": "need to + 动词原形：需要做某事；before + 时间状语",
+         "sentence_words": [
+             {"word": "child", "phonetic": "/tʃaɪld/", "syllable": "child", "meaning": "n. 孩子"},
+             {"word": "term", "phonetic": "/tɜːm/", "syllable": "term", "meaning": "n. 学期"},
+             {"word": "enrol", "phonetic": "/ɪnˈrəʊl/", "syllable": "en·rol", "meaning": "v. 注册；入学；报名"}
+         ]},
+        {"word": "uniform", "phonetic": "/ˈjuːnɪfɔːm/", "syllable": "uni · form", "pos": "n.",
+         "meaning": "校服；制服",
+         "example": "The kids need to wear a school uniform every day.",
+         "example_cn": "孩子们每天都要穿校服。", "scene": "🏫 学校",
+         "grammar": "need to + 动词原形；every day（每天）频率副词",
+         "sentence_words": [
+             {"word": "kids", "phonetic": "/kɪdz/", "syllable": "kids", "meaning": "n. 孩子们（kid的复数，口语）"},
+             {"word": "wear", "phonetic": "/weər/", "syllable": "wear", "meaning": "v. 穿（衣服）"},
+             {"word": "uniform", "phonetic": "/ˈjuːnɪfɔːm/", "syllable": "u·ni·form", "meaning": "n. 校服；制服"}
+         ]},
+
+        # ---- 宠物 ----
+        {"word": "vet", "phonetic": "/vet/", "syllable": "vet", "pos": "n.",
+         "meaning": "兽医",
+         "example": "My cat needs to see a vet. She's been off her food.",
+         "example_cn": "我的猫要去看兽医。她这几天都不吃东西。", "scene": "🐱 宠物",
+         "grammar": "needs to + 动词原形；现在完成进行时：has been doing（一直...）",
+         "sentence_words": [
+             {"word": "cat", "phonetic": "/kæt/", "syllable": "cat", "meaning": "n. 猫"},
+             {"word": "off her food", "phonetic": "/ɒf hɜː fuːd/", "syllable": "off her food", "meaning": "phrase. 不吃东西；食欲不佳"},
+             {"word": "vet", "phonetic": "/vet/", "syllable": "vet", "meaning": "n. 兽医"}
+         ]},
+
+        # ---- 紧急/报警 ----
+        {"word": "emergency", "phonetic": "/ɪˈmɜːdʒənsi/", "syllable": "e · mer · gen · cy", "pos": "n.",
+         "meaning": "紧急情况",
+         "example": "In an emergency, call 111 straight away.",
+         "example_cn": "遇到紧急情况，立刻拨打111。", "scene": "🚨 紧急电话",
+         "grammar": "In an emergency（介词短语作状语）；call + 数字（打电话）",
+         "sentence_words": [
+             {"word": "emergency", "phonetic": "/ɪˈmɜːdʒənsi/", "syllable": "e·mer·gen·cy", "meaning": "n. 紧急情况；突发事件"},
+             {"word": "straight away", "phonetic": "/streɪt əˈweɪ/", "syllable": "straight a·way", "meaning": "adv. 立刻；马上"}
+         ]},
+
+        # ---- 护照/身份 ----
+        {"word": "passport", "phonetic": "/ˈpɑːspɔːt/", "syllable": "pass · port", "pos": "n.",
+         "meaning": "护照",
+         "example": "Make sure your passport is valid for at least six months.",
+         "example_cn": "确保你的护照有效期至少还有六个月。", "scene": "🛂 护照",
+         "grammar": "Make sure + 从句（确保...）；for at least six months（至少六个月）",
+         "sentence_words": [
+             {"word": "valid", "phonetic": "/ˈvælɪd/", "syllable": "val·id", "meaning": "adj. 有效的"},
+             {"word": "passport", "phonetic": "/ˈpɑːspɔːt/", "syllable": "pass·port", "meaning": "n. 护照"},
+             {"word": "months", "phonetic": "/mʌnθs/", "syllable": "months", "meaning": "n. 月（month的复数）"}
+         ]},
+
+        # ---- 购物/折扣 ----
+        {"word": "refund", "phonetic": "/ˈriːfʌnd/", "syllable": "re · fund", "pos": "n./v.",
+         "meaning": "退款；退换",
+         "example": "Can I get a refund if the item doesn't fit?",
+         "example_cn": "如果东西不合身，我可以退款吗？", "scene": "🛍️ 购物退换",
+         "grammar": "一般疑问句：Can I...?；if 条件句（如果...）",
+         "sentence_words": [
+             {"word": "item", "phonetic": "/ˈaɪtəm/", "syllable": "i·tem", "meaning": "n. 商品；物品"},
+             {"word": "fit", "phonetic": "/fɪt/", "syllable": "fit", "meaning": "v. 合适；合身"},
+             {"word": "refund", "phonetic": "/ˈriːfʌnd/", "syllable": "re·fund", "meaning": "n. 退款；v. 退款"}
+         ]},
+        {"word": "bargain", "phonetic": "/ˈbɑːɡɪn/", "syllable": "bar · gain", "pos": "n.",
+         "meaning": "便宜货；特价商品",
+         "example": "These shoes are a real bargain at that price.",
+         "example_cn": "这个价格的鞋子真的很划算。", "scene": "🛍️ 购物",
+         "grammar": "主系表：are + a real bargain（是很划算的买卖）；at that price（那个价格）",
+         "sentence_words": [
+             {"word": "shoes", "phonetic": "/ʃuːz/", "syllable": "shoes", "meaning": "n. 鞋子（shoe的复数）"},
+             {"word": "bargain", "phonetic": "/ˈbɑːɡɪn/", "syllable": "bar·gain", "meaning": "n. 便宜货；特价品"},
+             {"word": "price", "phonetic": "/praɪs/", "syllable": "price", "meaning": "n. 价格"}
+         ]},
+        {"word": "secondhand", "phonetic": "/ˌsekəndˈhænd/", "syllable": "sec · ond · hand", "pos": "adj.",
+         "meaning": "二手的",
+         "example": "I got this bike secondhand. It was really cheap.",
+         "example_cn": "这辆自行车是二手买的，真的很便宜。", "scene": "🛍️ 二手购物",
+         "grammar": "一般过去时：got（买，get的过去式）；It was + adj.（过去状态）",
+         "sentence_words": [
+             {"word": "bike", "phonetic": "/baɪk/", "syllable": "bike", "meaning": "n. 自行车"},
+             {"word": "cheap", "phonetic": "/tʃiːp/", "syllable": "cheap", "meaning": "adj. 便宜的"},
+             {"word": "secondhand", "phonetic": "/ˌsekəndˈhænd/", "syllable": "sec·ond·hand", "meaning": "adj. 二手的；用过的"}
+         ]},
+
+        # ---- NZ职场 ----
+        {"word": "roster", "phonetic": "/ˈrɒstər/", "syllable": "ros · ter", "pos": "n.",
+         "meaning": "排班表",
+         "example": "Can you check the roster and tell me when I'm working next?",
+         "example_cn": "你能查一下排班表，告诉我下次什么时候上班吗？", "scene": "💼 排班",
+         "grammar": "情态动词 Can + 主语 + 动词原形？表示请求；when 引导宾语从句",
+         "sentence_words": [
+             {"word": "roster", "phonetic": "/ˈrɒstər/", "syllable": "ros·ter", "meaning": "n. 排班表；值班表"}
+         ]},
+        {"word": "hourly rate", "phonetic": "/ˈaʊəli reɪt/", "syllable": "hour · ly rate", "pos": "n.",
+         "meaning": "时薪",
+         "example": "What's the hourly rate for this job?",
+         "example_cn": "这份工作的时薪是多少？", "scene": "💼 薪资",
+         "grammar": "What + be动词 + the + n.?（提问）；What's = What is",
+         "sentence_words": [
+             {"word": "hourly", "phonetic": "/ˈaʊəli/", "syllable": "hour·ly", "meaning": "adj. 每小时的"},
+             {"word": "rate", "phonetic": "/reɪt/", "syllable": "rate", "meaning": "n. 比率；工资标准"},
+             {"word": "job", "phonetic": "/dʒɒb/", "syllable": "job", "meaning": "n. 工作；岗位"}
+         ]},
+        {"word": "shift", "phonetic": "/ʃɪft/", "syllable": "shift", "pos": "n.",
+         "meaning": "班次；轮班",
+         "example": "I'm on the early shift this week. It starts at 6am.",
+         "example_cn": "这周我上早班，6点开始。", "scene": "💼 上班",
+         "grammar": "be on + n.（在...班次）；一般现在时（固定日程）",
+         "sentence_words": [
+             {"word": "shift", "phonetic": "/ʃɪft/", "syllable": "shift", "meaning": "n. 班次；轮班"},
+             {"word": "early shift", "phonetic": "/ˈɜːli ʃɪft/", "syllable": "ear·ly shift", "meaning": "n. 早班"},
+             {"word": "starts", "phonetic": "/stɑːts/", "syllable": "starts", "meaning": "v. 开始（第三人称单数）"}
+         ]},
+        {"word": "deadline", "phonetic": "/ˈdedlaɪn/", "syllable": "dead · line", "pos": "n.",
+         "meaning": "截止日期",
+         "example": "The deadline for the application is next Friday.",
+         "example_cn": "申请截止日期是下周五。", "scene": "💼 工作",
+         "grammar": "一般现在时（客观截止日期）；next Friday（下周五）",
+         "sentence_words": [
+             {"word": "application", "phonetic": "/ˌæplɪˈkeɪʃn/", "syllable": "ap·pli·ca·tion", "meaning": "n. 申请；申请表"},
+             {"word": "deadline", "phonetic": "/ˈdedlaɪn/", "syllable": "dead·line", "meaning": "n. 截止日期；最后期限"}
+         ]},
+        {"word": "overtime", "phonetic": "/ˈəʊvətaɪm/", "syllable": "o · ver · time", "pos": "n.",
+         "meaning": "加班",
+         "example": "We get paid extra for overtime work.",
+         "example_cn": "加班有额外工资。", "scene": "💼 薪资",
+         "grammar": "被动语态：get paid（被支付）；extra for（额外获得...）",
+         "sentence_words": [
+             {"word": "overtime", "phonetic": "/ˈəʊvətaɪm/", "syllable": "o·ver·time", "meaning": "n. 加班；超时"}
+         ]},
+
+        # ---- 移民/签证 ----
+        {"word": "citizenship", "phonetic": "/ˈsɪtɪzənʃɪp/", "syllable": "cit · i · zen · ship", "pos": "n.",
+         "meaning": "公民身份；国籍",
+         "example": "After living here for five years, you can apply for citizenship.",
+         "example_cn": "在这里住满五年后，你可以申请入籍。", "scene": "🛂 移民",
+         "grammar": "After + 动名词/时间名词（...之后）；can + 动词原形（可以）",
+         "sentence_words": [
+             {"word": "citizenship", "phonetic": "/ˈsɪtɪzənʃɪp/", "syllable": "cit·i·zen·ship", "meaning": "n. 公民身份；国籍"}
+         ]},
+        {"word": "resident", "phonetic": "/ˈrezɪdənt/", "syllable": "res · i · dent", "pos": "n.",
+         "meaning": "居民",
+         "example": "As a permanent resident, you have most of the same rights as a citizen.",
+         "example_cn": "作为永久居民，你享有和公民几乎同等的权利。", "scene": "🛂 签证",
+         "grammar": "As + 身份（作为...）；the same...as（和...一样）",
+         "sentence_words": [
+             {"word": "permanent", "phonetic": "/ˈpɜːmənənt/", "syllable": "per·ma·nent", "meaning": "adj. 永久的；长期的"},
+             {"word": "resident", "phonetic": "/ˈrezɪdənt/", "syllable": "res·i·dent", "meaning": "n. 居民；住户"}
+         ]},
+        {"word": "visa", "phonetic": "/ˈviːzə/", "syllable": "vi · sa", "pos": "n.",
+         "meaning": "签证",
+         "example": "Your student visa allows you to work up to 20 hours per week.",
+         "example_cn": "你的学生签证允许你每周工作最多20小时。", "scene": "🛂 签证",
+         "grammar": "一般现在时（规定）；allow + sb. + to do（允许某人做）",
+         "sentence_words": [
+             {"word": "student visa", "phonetic": "/ˈstjuːdnt ˈviːzə/", "syllable": "stu·dent vi·sa", "meaning": "n. 学生签证"},
+             {"word": "visa", "phonetic": "/ˈviːzə/", "syllable": "vi·sa", "meaning": "n. 签证"}
+         ]},
+
+        # ---- NZ生活其他 ----
+        {"word": "stoked", "phonetic": "/stəʊkt/", "syllable": "stoked", "pos": "adj.",
+         "meaning": "超开心；兴奋不已（NZ口语）",
+         "example": "I'm absolutely stoked with my new flat!",
+         "example_cn": "我对我的新公寓简直开心爆了！", "scene": "🗣️ NZ口语",
+         "grammar": "be stoked with（对...超级满意）；absolutely（绝对地，加强语气）",
+         "sentence_words": [
+             {"word": "stoked", "phonetic": "/stəʊkt/", "syllable": "stoked", "meaning": "adj. 超开心的；兴奋不已（NZ俚语）"}
+         ]},
+        {"word": "chur", "phonetic": "/tʃɜː/", "syllable": "chur", "pos": "int.",
+         "meaning": "谢谢（NZ特有俚语）",
+         "example": "Chur, bro! That was a sick wave!",
+         "example_cn": "谢啦兄弟！那个冲浪太帅了！", "scene": "🗣️ NZ俚语",
+         "grammar": "感叹句；bro（brother的缩写，NZ口语）；sick（太棒了，slang）",
+         "sentence_words": [
+             {"word": "chur", "phonetic": "/tʃɜːr/", "syllable": "chur", "meaning": "int. 谢谢（NZ毛利语来源俚语）"},
+             {"word": "bro", "phonetic": "/brəʊ/", "syllable": "bro", "meaning": "n. 兄弟；伙计（brother的口语缩写）"},
+             {"word": "sick", "phonetic": "/sɪk/", "syllable": "sick", "meaning": "adj. 太棒了（NZ俚语，正面意思）"}
+         ]},
+        {"word": "choice", "phonetic": "/tʃɔɪs/", "syllable": "choice", "pos": "adj.",
+         "meaning": "太棒了；绝妙（NZ俚语）",
+         "example": "That fish and chips was choice, mate!",
+         "example_cn": "那个炸鱼薯条太绝了老兄！", "scene": "🗣️ NZ口语",
+         "grammar": "名词作形容词用（NZ特有用法）；mate（伙计，NZ常用）",
+         "sentence_words": [
+             {"word": "choice", "phonetic": "/tʃɔɪs/", "syllable": "choice", "meaning": "adj. 太棒了（NZ俚语）"}
+         ]},
+        {"word": "keen", "phonetic": "/kiːn/", "syllable": "keen", "pos": "adj.",
+         "meaning": "想；想要（NZ口语 = want）",
+         "example": "Are you keen for a drink after work?",
+         "example_cn": "下班后想喝一杯吗？", "scene": "🗣️ NZ口语",
+         "grammar": "be keen for = 想/要（keen = want 的NZ用法）；after work（下班后）",
+         "sentence_words": [
+             {"word": "keen", "phonetic": "/kiːn/", "syllable": "keen", "meaning": "adj. 想；要（NZ口语=want）"}
+         ]},
+        {"word": "fridge", "phonetic": "/frɪdʒ/", "syllable": "fridge", "pos": "n.",
+         "meaning": "冰箱（NZ/英式）",
+         "example": "The milk's in the fridge. Help yourself.",
+         "example_cn": "牛奶在冰箱里，随便喝。", "scene": "🏠 日常",
+         "grammar": "主系表：The milk's = The milk is；Help yourself（随便用）",
+         "sentence_words": [
+             {"word": "fridge", "phonetic": "/frɪdʒ/", "syllable": "fridge", "meaning": "n. 冰箱（英/NZ用法）"}
+         ]},
+        {"word": "ta", "phonetic": "/tɑː/", "syllable": "ta", "pos": "int.",
+         "meaning": "谢谢（NZ/英式，非正式）",
+         "example": "Ta for that! You're a legend.",
+         "example_cn": "谢啦！你是最棒的。", "scene": "🗣️ 日常感谢",
+         "grammar": "感叹句；legend（传奇人物，NZ口语指很棒的人）",
+         "sentence_words": [
+             {"word": "ta", "phonetic": "/tɑː/", "syllable": "ta", "meaning": "int. 谢谢（NZ/英式口语，非正式感谢）"}
+         ]},
+        {"word": "arvo", "phonetic": "/ˈɑːvəʊ/", "syllable": "ar · vo", "pos": "n.",
+         "meaning": "下午（NZ口语）",
+         "example": "Let's catch up this arvo, around 3.",
+         "example_cn": "今天下午约一下，三点左右吧。", "scene": "🗣️ NZ口语",
+         "grammar": "let's = let us 的缩写；catch up（聚聚）；around（大约）",
+         "sentence_words": [
+             {"word": "arvo", "phonetic": "/ˈɑːvəʊ/", "syllable": "ar·vo", "meaning": "n. 下午（NZ俚语 = afternoon）"}
+         ]},
+        {"word": "sparky", "phonetic": "/ˈspɑːki/", "syllable": "spar · ky", "pos": "n.",
+         "meaning": "电工（NZ口语）",
+         "example": "We need to call a sparky. The power's not working.",
+         "example_cn": "得叫个电工了，电不通了。", "scene": "🔧 维修",
+         "grammar": "need to + 动词原形；The power's not working（电不工作了）",
+         "sentence_words": [
+             {"word": "sparky", "phonetic": "/ˈspɑːki/", "syllable": "spar·ky", "meaning": "n. 电工（NZ俚语）"}
+         ]},
+        {"word": "scroggin", "phonetic": "/ˈskrɒɡɪn/", "syllable": "scrog · gin", "pos": "n.",
+         "meaning": "能量棒；坚果干果混合零食",
+         "example": "I always pack some scroggin for the hike.",
+         "example_cn": "徒步的时候我总会带一些能量棒零食。", "scene": "🥾 徒步/零食",
+         "grammar": "一般现在时（习惯）；pack some（打包一些）；for the hike（为了徒步）",
+         "sentence_words": [
+             {"word": "scroggin", "phonetic": "/ˈskrɒɡɪn/", "syllable": "scrog·gin", "meaning": "n. 能量坚果混合零食（NZ特有）"}
+         ]},
+        {"word": "bach", "phonetic": "/bætʃ/", "syllable": "bach", "pos": "n.",
+         "meaning": "海边度假小屋（NZ特有）",
+         "example": "We're heading to the bach for Easter. Wanna come?",
+         "example_cn": "我们去海边小屋过复活节，要不要一起？", "scene": "🏖️ 度假",
+         "grammar": "现在进行时（近期计划）：are heading；Wanna = Want to",
+         "sentence_words": [
+             {"word": "bach", "phonetic": "/bætʃ/", "syllable": "bach", "meaning": "n. 海边度假小屋（NZ特有词汇）"}
+         ]},
+        {"word": "jandal", "phonetic": "/ˈdʒændl/", "syllable": "jan · dal", "pos": "n.",
+         "meaning": "人字拖；拖鞋（NZ特有）",
+         "example": "You can't wear jandals to the restaurant. It's smart casual.",
+         "example_cn": "去那家餐厅不能穿人字拖，是正式休闲装要求。", "scene": "👟 穿搭",
+         "grammar": "can't = cannot（不能）；wear（穿）；smart casual（正式休闲装）",
+         "sentence_words": [
+             {"word": "jandal", "phonetic": "/ˈdʒændl/", "syllable": "jan·dal", "meaning": "n. 人字拖（NZ特有词汇 = flip-flop）"}
+         ]},
+        {"word": "recycle", "phonetic": "/rɪˈsaɪkl/", "syllable": "re · cy · cle", "pos": "v.",
+         "meaning": "回收利用；垃圾分类",
+         "example": "Remember to put the glass bottles in the recycle bin.",
+         "example_cn": "记得把玻璃瓶放进回收桶。", "scene": "♻️ 环保",
+         "grammar": "remember to + 动词原形（记得做...）；put...in（把...放进）",
+         "sentence_words": [
+             {"word": "recycle", "phonetic": "/rɪˈsaɪkl/", "syllable": "re·cy·cle", "meaning": "v. 回收利用；垃圾分类"}
+         ]},
     ],
     "ielts": [
         {"word": "eligible", "phonetic": "/ˈelɪdʒəbl/", "syllable": "el · i · gi · ble", "pos": "adj.",
@@ -989,6 +1392,283 @@ WORD_BANK = {
              {"word": "involved", "phonetic": "/ɪnˈvɒlvd/", "syllable": "in·volved", "meaning": "adj. 参与的"},
              {"word": "local", "phonetic": "/ˈləʊkl/", "syllable": "lo·cal", "meaning": "adj. 当地的"},
              {"word": "settle", "phonetic": "/ˈsetl/", "syllable": "set·tle", "meaning": "v. 安顿；定居"}
+         ]},
+
+        # ---- 教育 ----
+        {"word": "tuition", "phonetic": "/tjuːˈɪʃn/", "syllable": "tu · i · tion", "pos": "n.",
+         "meaning": "学费",
+         "example": "International students pay higher tuition fees than local students.",
+         "example_cn": "国际学生比本地学生交的学费更高。", "scene": "📚 留学费用",
+         "grammar": "一般现在时（客观事实）；比较级：higher...than",
+         "sentence_words": [
+             {"word": "international", "phonetic": "/ˌɪntəˈnæʃnəl/", "syllable": "in·ter·na·tion·al", "meaning": "adj. 国际的"},
+             {"word": "tuition fees", "phonetic": "/tjuːˈɪʃn fiːz/", "syllable": "tu·i·tion fees", "meaning": "n. 学费"},
+             {"word": "fees", "phonetic": "/fiːz/", "syllable": "fees", "meaning": "n. 费用（复数）"}
+         ]},
+        {"word": "bachelor", "phonetic": "/ˈbætʃələr/", "syllable": "bach · e · lor", "pos": "n.",
+         "meaning": "学士学位",
+         "example": "She earned a bachelor's degree in Accounting.",
+         "example_cn": "她获得了会计学学士学位。", "scene": "📚 大学",
+         "grammar": "一般过去时：earned（earn的过去式）；degree in（...学位）",
+         "sentence_words": [
+             {"word": "earned", "phonetic": "/ɜːnd/", "syllable": "earned", "meaning": "v. 获得（过去式）"},
+             {"word": "degree", "phonetic": "/dɪˈɡriː/", "syllable": "de·gree", "meaning": "n. 学位"},
+             {"word": "accounting", "phonetic": "/əˈkaʊntɪŋ/", "syllable": "ac·count·ing", "meaning": "n. 会计学"}
+         ]},
+        {"word": "lecture", "phonetic": "/ˈlektʃər/", "syllable": "lec · ture", "pos": "n.",
+         "meaning": "讲座；大课",
+         "example": "The lecture starts at 9am sharp. Don't be late.",
+         "example_cn": "讲座9点整开始，别迟到。", "scene": "📚 大学",
+         "grammar": "一般现在时（固定安排）；sharp（整点）",
+         "sentence_words": [
+             {"word": "sharp", "phonetic": "/ʃɑːp/", "syllable": "sharp", "meaning": "adv. 整点地"},
+             {"word": "late", "phonetic": "/leɪt/", "syllable": "late", "meaning": "adj. 迟到的"},
+             {"word": "lecture", "phonetic": "/ˈlektʃər/", "syllable": "lec·ture", "meaning": "n. 讲座；大课"}
+         ]},
+        {"word": "assignment", "phonetic": "/əˈsaɪnmənt/", "syllable": "as · sign · ment", "pos": "n.",
+         "meaning": "作业；任务",
+         "example": "I need to finish this assignment before the deadline.",
+         "example_cn": "我得在截止日期前完成这项作业。", "scene": "📚 学习",
+         "grammar": "need to + 动词原形；before + 时间",
+         "sentence_words": [
+             {"word": "assignment", "phonetic": "/əˈsaɪnmənt/", "syllable": "as·sign·ment", "meaning": "n. 作业；任务"}
+         ]},
+        {"word": "scholarship", "phonetic": "/ˈskɒləʃɪp/", "syllable": "schol · ar · ship", "pos": "n.",
+         "meaning": "奖学金",
+         "example": "She won a scholarship to study at university.",
+         "example_cn": "她获得了大学奖学金。", "scene": "📚 留学",
+         "grammar": "一般过去时：won（win的过去式）；to study（不定式表目的）",
+         "sentence_words": [
+             {"word": "won", "phonetic": "/wʌn/", "syllable": "won", "meaning": "v. 赢得（win的过去式）"},
+             {"word": "scholarship", "phonetic": "/ˈskɒləʃɪp/", "syllable": "schol·ar·ship", "meaning": "n. 奖学金"}
+         ]},
+        {"word": "semester", "phonetic": "/sɪˈmestər/", "syllable": "se · mes · ter", "pos": "n.",
+         "meaning": "学期",
+         "example": "The new semester starts in February.",
+         "example_cn": "新学期2月开始。", "scene": "📚 学校",
+         "grammar": "一般现在时（固定日程）；in + 月份（在一月）",
+         "sentence_words": [
+             {"word": "semester", "phonetic": "/sɪˈmestər/", "syllable": "se·mes·ter", "meaning": "n. 学期"}
+         ]},
+
+        # ---- 健康 ----
+        {"word": "symptom", "phonetic": "/ˈsɪmptəm/", "syllable": "symp · tom", "pos": "n.",
+         "meaning": "症状",
+         "example": "Common symptoms include a fever and a dry cough.",
+         "example_cn": "常见症状包括发烧和干咳。", "scene": "🏥 健康",
+         "grammar": "一般现在时（医学描述）；include + 名词（包括）",
+         "sentence_words": [
+             {"word": "symptom", "phonetic": "/ˈsɪmptəm/", "syllable": "symp·tom", "meaning": "n. 症状"},
+             {"word": "fever", "phonetic": "/ˈfiːvər/", "syllable": "fe·ver", "meaning": "n. 发烧"},
+             {"word": "cough", "phonetic": "/kɒf/", "syllable": "cough", "meaning": "n./v. 咳嗽"}
+         ]},
+        {"word": "exercise", "phonetic": "/ˈeksəsaɪz/", "syllable": "ex · er · cise", "pos": "n./v.",
+         "meaning": "锻炼；运动",
+         "example": "Regular exercise is good for both physical and mental health.",
+         "example_cn": "经常锻炼对身心健康都有好处。", "scene": "🏥 健康",
+         "grammar": "主系表结构：is good for（对...有好处）；both...and...（两者都）",
+         "sentence_words": [
+             {"word": "regular", "phonetic": "/ˈreɡjələr/", "syllable": "reg·u·lar", "meaning": "adj. 经常的；有规律的"},
+             {"word": "physical", "phonetic": "/ˈfɪzɪkl/", "syllable": "phys·i·cal", "meaning": "adj. 身体的"},
+             {"word": "mental", "phonetic": "/ˈmentl/", "syllable": "men·tal", "meaning": "adj. 精神的；心理的"},
+             {"word": "health", "phonetic": "/helθ/", "syllable": "health", "meaning": "n. 健康"},
+             {"word": "exercise", "phonetic": "/ˈeksəsaɪz/", "syllable": "ex·er·cise", "meaning": "n./v. 锻炼；运动"}
+         ]},
+        {"word": "balanced", "phonetic": "/ˈbælənst/", "syllable": "bal · anced", "pos": "adj.",
+         "meaning": "均衡的",
+         "example": "A balanced diet includes plenty of vegetables and fruits.",
+         "example_cn": "均衡饮食应包含大量蔬菜和水果。", "scene": "🏥 饮食健康",
+         "grammar": "一般现在时（健康建议）；includes + 名词（包含）",
+         "sentence_words": [
+             {"word": "diet", "phonetic": "/ˈdaɪət/", "syllable": "di·et", "meaning": "n. 饮食"},
+             {"word": "vegetables", "phonetic": "/ˈvedʒtəblz/", "syllable": "veg·e·ta·bles", "meaning": "n. 蔬菜（复数）"},
+             {"word": "fruits", "phonetic": "/fruːts/", "syllable": "fruits", "meaning": "n. 水果（复数）"},
+             {"word": "balanced", "phonetic": "/ˈbælənst/", "syllable": "bal·anced", "meaning": "adj. 均衡的"}
+         ]},
+        {"word": "stress", "phonetic": "/stres/", "syllable": "stress", "pos": "n.",
+         "meaning": "压力",
+         "example": "Too much stress can lead to serious health problems.",
+         "example_cn": "压力过大会导致严重的健康问题。", "scene": "🏥 心理健康",
+         "grammar": "Too much + n.（太多...）；can lead to（会导致）",
+         "sentence_words": [
+             {"word": "lead to", "phonetic": "/liːd tuː/", "syllable": "lead to", "meaning": "v. 导致（固定搭配）"},
+             {"word": "serious", "phonetic": "/ˈsɪəriəs/", "syllable": "se·ri·ous", "meaning": "adj. 严重的"},
+             {"word": "stress", "phonetic": "/stres/", "syllable": "stress", "meaning": "n. 压力；紧张"}
+         ]},
+        {"word": "recover", "phonetic": "/rɪˈkʌvər/", "syllable": "re · cov · er", "pos": "v.",
+         "meaning": "恢复；康复",
+         "example": "It takes time to recover from a major illness.",
+         "example_cn": "大病之后需要时间恢复。", "scene": "🏥 康复",
+         "grammar": "It takes time to do（做...需要时间）；to recover（不定式）",
+         "sentence_words": [
+             {"word": "recover", "phonetic": "/rɪˈkʌvər/", "syllable": "re·cov·er", "meaning": "v. 恢复；康复"}
+         ]},
+
+        # ---- 环境/科技 ----
+        {"word": "climate change", "phonetic": "/ˈklaɪmɪt tʃeɪndʒ/", "syllable": "cli·mate change", "pos": "n.",
+         "meaning": "气候变化",
+         "example": "Climate change is one of the biggest challenges facing humanity.",
+         "example_cn": "气候变化是人类面临的最大挑战之一。", "scene": "🌍 环境",
+         "grammar": "主系表：is one of + the + 最高级 + 复数名词（是...最...之一）",
+         "sentence_words": [
+             {"word": "biggest", "phonetic": "/ˈbɪɡɪst/", "syllable": "big·gest", "meaning": "adj. 最大的（最高级）"},
+             {"word": "challenge", "phonetic": "/ˈtʃælɪndʒ/", "syllable": "chal·lenge", "meaning": "n. 挑战"},
+             {"word": "humanity", "phonetic": "/hjuːˈmænəti/", "syllable": "hu·man·i·ty", "meaning": "n. 人类"},
+             {"word": "climate", "phonetic": "/ˈklaɪmɪt/", "syllable": "cli·mate", "meaning": "n. 气候"}
+         ]},
+        {"word": "renewable", "phonetic": "/rɪˈnjuːəbl/", "syllable": "re · new · a · ble", "pos": "adj.",
+         "meaning": "可再生的",
+         "example": "NZ has great potential for renewable energy like solar and wind.",
+         "example_cn": "新西兰在太阳能、风能等可再生能源方面潜力巨大。", "scene": "🌍 环保/能源",
+         "grammar": "一般现在时（客观描述）；potential for（...的潜力）",
+         "sentence_words": [
+             {"word": "potential", "phonetic": "/pəˈtenʃl/", "syllable": "po·ten·tial", "meaning": "n. 潜力；可能性"},
+             {"word": "renewable", "phonetic": "/rɪˈnjuːəbl/", "syllable": "re·new·a·ble", "meaning": "adj. 可再生的"}
+         ]},
+        {"word": "technology", "phonetic": "/tekˈnɒlədʒi/", "syllable": "tech · nol · o · gy", "pos": "n.",
+         "meaning": "科技",
+         "example": "Technology has changed the way we communicate and work.",
+         "example_cn": "科技改变了我们交流和工作方式。", "scene": "💻 科技",
+         "grammar": "现在完成时：has changed（已经改变）；the way we...（我们...的方式）",
+         "sentence_words": [
+             {"word": "technology", "phonetic": "/tekˈnɒlədʒi/", "syllable": "tech·nol·o·gy", "meaning": "n. 科技；技术"}
+         ]},
+        {"word": "artificial", "phonetic": "/ˌɑːtɪˈfɪʃl/", "syllable": "ar · ti · fi · cial", "pos": "adj.",
+         "meaning": "人工的；人造的",
+         "example": "Artificial intelligence is transforming many industries.",
+         "example_cn": "人工智能正在改变许多行业。", "scene": "💻 AI",
+         "grammar": "现在进行时：is transforming（正在改变）；many industries（许多行业）",
+         "sentence_words": [
+             {"word": "artificial intelligence", "phonetic": "/ˌɑːtɪˈfɪʃl ɪnˈtelɪdʒəns/", "syllable": "ar·ti·fi·cial in·tel·li·gence", "meaning": "n. 人工智能"},
+             {"word": "artificial", "phonetic": "/ˌɑːtɪˈfɪʃl/", "syllable": "ar·ti·fi·cial", "meaning": "adj. 人工的；人造的"}
+         ]},
+        {"word": "digital", "phonetic": "/ˈdɪdʒɪtl/", "syllable": "dig · i · tal", "pos": "adj.",
+         "meaning": "数字化的",
+         "example": "Digital skills are becoming essential in today's job market.",
+         "example_cn": "数字技能在当今就业市场变得越来越重要。", "scene": "💻 数字化",
+         "grammar": "现在进行时（趋势）：are becoming；essential（必不可少的）",
+         "sentence_words": [
+             {"word": "essential", "phonetic": "/ɪˈsenʃl/", "syllable": "es·sen·tial", "meaning": "adj. 必不可少的；必要的"},
+             {"word": "digital", "phonetic": "/ˈdɪdʒɪtl/", "syllable": "dig·i·tal", "meaning": "adj. 数字化的"}
+         ]},
+
+        # ---- 工作/职业 ----
+        {"word": "experience", "phonetic": "/ɪkˈspɪəriəns/", "syllable": "ex · pe · ri · ence", "pos": "n.",
+         "meaning": "经验；经历",
+         "example": "Previous experience in customer service is preferred.",
+         "example_cn": "有客户服务经验者优先。", "scene": "💼 求职",
+         "grammar": "Previous + n.（之前的...）；is preferred（更受欢迎）",
+         "sentence_words": [
+             {"word": "previous", "phonetic": "/ˈpriːviəs/", "syllable": "pre·vi·ous", "meaning": "adj. 之前的"},
+             {"word": "customer service", "phonetic": "/ˈkʌstəmər ˈsɜːvɪs/", "syllable": "cus·to·mer ser·vice", "meaning": "n. 客户服务"},
+             {"word": "preferred", "phonetic": "/prɪˈfɜːd/", "syllable": "pre·ferred", "meaning": "adj. 首选的；更受欢迎的"},
+             {"word": "experience", "phonetic": "/ɪkˈspɪəriəns/", "syllable": "ex·pe·ri·ence", "meaning": "n. 经验；经历"}
+         ]},
+        {"word": "salary", "phonetic": "/ˈsæləri/", "syllable": "sal · a · ry", "pos": "n.",
+         "meaning": "薪水",
+         "example": "The salary for this position is negotiable depending on experience.",
+         "example_cn": "这个职位的薪资可以根据经验协商。", "scene": "💼 薪资",
+         "grammar": "主系表：is negotiable（可以协商）；depending on（取决于）",
+         "sentence_words": [
+             {"word": "negotiable", "phonetic": "/nɪˈɡəʊʃiəbl/", "syllable": "ne·go·ti·a·ble", "meaning": "adj. 可协商的"},
+             {"word": "salary", "phonetic": "/ˈsæləri/", "syllable": "sal·a·ry", "meaning": "n. 薪水（通常指月薪/年薪）"}
+         ]},
+        {"word": "interview", "phonetic": "/ˈɪntəvjuː/", "syllable": "in · ter · view", "pos": "n./v.",
+         "meaning": "面试",
+         "example": "I have a job interview tomorrow morning.",
+         "example_cn": "我明天上午有个工作面试。", "scene": "💼 面试",
+         "grammar": "一般现在时（已有安排）；tomorrow morning（明天下午）",
+         "sentence_words": [
+             {"word": "interview", "phonetic": "/ˈɪntəvjuː/", "syllable": "in·ter·view", "meaning": "n. 面试；v. 面试"}
+         ]},
+        {"word": "qualification", "phonetic": "/ˌkwɒlɪfɪˈkeɪʃn/", "syllable": "qual · i · fi · ca · tion", "pos": "n.",
+         "meaning": "资格；资质",
+         "example": "What qualifications do I need for this job?",
+         "example_cn": "这份工作需要什么资质？", "scene": "💼 求职",
+         "grammar": "What + do + 主语 + need + for?（需要什么...?）",
+         "sentence_words": [
+             {"word": "qualification", "phonetic": "/ˌkwɒlɪfɪˈkeɪʃn/", "syllable": "qual·i·fi·ca·tion", "meaning": "n. 资格；资质；证书"}
+         ]},
+        {"word": "promotion", "phonetic": "/prəˈməʊʃn/", "syllable": "pro · mo · tion", "pos": "n.",
+         "meaning": "晋升；推广",
+         "example": "Hard work can lead to promotion and better pay.",
+         "example_cn": "努力工作可以带来晋升和更好的报酬。", "scene": "💼 职业发展",
+         "grammar": "can + 动词原形（可能）；lead to（导致）",
+         "sentence_words": [
+             {"word": "promotion", "phonetic": "/prəˈməʊʃn/", "syllable": "pro·mo·tion", "meaning": "n. 晋升；升职"}
+         ]},
+        {"word": "retire", "phonetic": "/rɪˈtaɪər/", "syllable": "re · tire", "pos": "v.",
+         "meaning": "退休",
+         "example": "Many people look forward to retiring at 65.",
+         "example_cn": "许多人都期待着65岁退休。", "scene": "💼 退休",
+         "grammar": "现在进行时（期待）：are looking forward to；at 65（65岁时）",
+         "sentence_words": [
+             {"word": "retire", "phonetic": "/rɪˈtaɪər/", "syllable": "re·tire", "meaning": "v. 退休"}
+         ]},
+
+        # ---- 城市/旅游 ----
+        {"word": "tourism", "phonetic": "/ˈtʊərɪzəm/", "syllable": "tour · ism", "pos": "n.",
+         "meaning": "旅游业",
+         "example": "Tourism is a major source of income for NZ.",
+         "example_cn": "旅游业是新西兰的主要收入来源。", "scene": "🌏 旅游",
+         "grammar": "主系表：is a major source of（是...的主要来源）",
+         "sentence_words": [
+             {"word": "source", "phonetic": "/sɔːs/", "syllable": "source", "meaning": "n. 来源"},
+             {"word": "income", "phonetic": "/ˈɪnkʌm/", "syllable": "in·come", "meaning": "n. 收入"},
+             {"word": "tourism", "phonetic": "/ˈtʊərɪzəm/", "syllable": "tour·ism", "meaning": "n. 旅游业"}
+         ]},
+        {"word": "attraction", "phonetic": "/əˈtrækʃn/", "syllable": "at · trac · tion", "pos": "n.",
+         "meaning": "景点；吸引力",
+         "example": "Rotorua is one of NZ's top tourist attractions.",
+         "example_cn": "罗托鲁瓦是新西兰最热门的旅游景点之一。", "scene": "🌏 旅游",
+         "grammar": "主系表：is one of + the top + 复数名词（是...最...之一）",
+         "sentence_words": [
+             {"word": "tourist", "phonetic": "/ˈtʊərɪst/", "syllable": "tour·ist", "meaning": "n. 游客"},
+             {"word": "attraction", "phonetic": "/əˈtrækʃn/", "syllable": "at·trac·tion", "meaning": "n. 景点；吸引力"}
+         ]},
+        {"word": "convenient", "phonetic": "/kənˈviːniənt/", "syllable": "con · ve · nient", "pos": "adj.",
+         "meaning": "方便的；便利的",
+         "example": "Living close to public transport is very convenient.",
+         "example_cn": "住得离公共交通近很方便。", "scene": "🏘️ 住房",
+         "grammar": "动名词作主语：Living close to...（住得离...近）",
+         "sentence_words": [
+             {"word": "convenient", "phonetic": "/kənˈviːniənt/", "syllable": "con·ve·nient", "meaning": "adj. 方便的；便利的"}
+         ]},
+
+        # ---- 社会/家庭 ----
+        {"word": "generation", "phonetic": "/ˌdʒenəˈreɪʃn/", "syllable": "gen · er · a · tion", "pos": "n.",
+         "meaning": "一代人",
+         "example": "Each generation faces different challenges and opportunities.",
+         "example_cn": "每一代人都面临不同的挑战和机遇。", "scene": "👨‍👩‍👧 社会",
+         "grammar": "Each + 单数名词（每一...）；different challenges（不同的挑战）",
+         "sentence_words": [
+             {"word": "generation", "phonetic": "/ˌdʒenəˈreɪʃn/", "syllable": "gen·er·a·tion", "meaning": "n. 一代人；代际"}
+         ]},
+        {"word": "divorce", "phonetic": "/dɪˈvɔːs/", "syllable": "di · vorce", "pos": "n./v.",
+         "meaning": "离婚",
+         "example": "The divorce rate has been increasing in many countries.",
+         "example_cn": "许多国家的离婚率一直在上升。", "scene": "👨‍👩‍👧 家庭",
+         "grammar": "现在完成进行时：has been increasing（一直在上升）",
+         "sentence_words": [
+             {"word": "divorce", "phonetic": "/dɪˈvɔːs/", "syllable": "di·vorce", "meaning": "n. 离婚；v. 离婚"}
+         ]},
+        {"word": "population", "phonetic": "/ˌpɒpjuˈleɪʃn/", "syllable": "pop · u · la · tion", "pos": "n.",
+         "meaning": "人口",
+         "example": "The aging population puts pressure on healthcare systems.",
+         "example_cn": "人口老龄化给医疗系统带来压力。", "scene": "👥 社会",
+         "grammar": "主系表：puts pressure on（给...带来压力）；aging（老龄化的）",
+         "sentence_words": [
+             {"word": "aging", "phonetic": "/ˈeɪdʒɪŋ/", "syllable": "a·ging", "meaning": "adj. 老龄化的"},
+             {"word": "pressure", "phonetic": "/ˈpreʃər/", "syllable": "pres·sure", "meaning": "n. 压力"},
+             {"word": "population", "phonetic": "/ˌpɒpjuˈleɪʃn/", "syllable": "pop·u·la·tion", "meaning": "n. 人口"}
+         ]},
+        {"word": "multicultural", "phonetic": "/ˌmʌltiˈkʌltʃərəl/", "syllable": "mul · ti · cul · tu · ral", "pos": "adj.",
+         "meaning": "多元文化的",
+         "example": "NZ is a multicultural society with people from many backgrounds.",
+         "example_cn": "新西兰是一个多元文化社会，有着来自不同背景的人们。", "scene": "🌏 社会",
+         "grammar": "主系表；with people from many backgrounds（有着不同背景的人）",
+         "sentence_words": [
+             {"word": "multicultural", "phonetic": "/ˌmʌltiˈkʌltʃərəl/", "syllable": "mul·ti·cul·tu·ral", "meaning": "adj. 多元文化的"}
          ]},
     ],
 }
