@@ -1858,6 +1858,134 @@ DIALOGUES = [
             {"en": "Sounds good!", "phonetic": "/saʊndz ɡʊd/", "syllable": "Sounds good!", "cn": "听起来不错！（轻松同意）", "grammar": "Sounds = It sounds 的省略（第三人称单数+s）"},
         ]
     },
+    {
+        "scene": "🏋️ 健身房",
+        "lines": [
+            ("A", "Hey! I haven't seen you here before.", "嘿！之前没见过你啊。"),
+            ("B", "Yeah, I just joined last week.", "是的，我上周刚报名。"),
+            ("A", "Welcome! How are you finding it so far?", "欢迎！你觉得怎么样？"),
+            ("B", "Pretty good. The trainers are really helpful.", "挺不错的。教练们都很热心。"),
+            ("A", "For sure. Do you have a workout plan?", "那倒是。你有训练计划吗？"),
+            ("B", "Not yet. I'm still figuring things out.", "还没有。我还在熟悉情况。"),
+        ],
+        "expressions": [
+            {"en": "I haven't seen you here before", "phonetic": "/aɪ ˈhævnt siːn juː hɪə bɪˈfɔː/", "syllable": "I haven't seen you here be·fore", "cn": "之前没见过你（口语寒暄）", "grammar": "现在完成时：have seen（第一次见面的寒暄语）"},
+            {"en": "How are you finding it so far?", "phonetic": "/haʊ ɑː juː ˈfaɪndɪŋ ɪt səʊ fɑː/", "syllable": "How are you find·ing it so far?", "cn": "你觉得怎么样？（某段时间内的感受）", "grammar": "find + it + adj. = 发现它...；so far = 到目前为止"},
+            {"en": "I'm still figuring things out", "phonetic": "/aɪm stɪl ˈfɪɡərɪŋ θɪŋz aʊt/", "syllable": "I'm still fig·ur·ing things out", "cn": "我还在摸索/想办法", "grammar": "figure out = 想明白，搞清楚（短语动词）"},
+        ]
+    },
+    {
+        "scene": "🏖️ 海边散步",
+        "lines": [
+            ("A", "What a beautiful day! The beach is so peaceful.", "多好的天气啊！海滩好安静。"),
+            ("B", "I know right? Summer in NZ is the best.", "就是！新西兰的夏天最棒了。"),
+            ("A", "Do you come here often?", "你常来这儿吗？"),
+            ("B", "Whenever I can. It helps me relax after work.", "有空就来。帮我缓解工作压力。"),
+            ("A", "Same here. Work gets pretty stressful sometimes.", "我也是。工作有时候压力挺大的。"),
+            ("B", "Totally. That's why we need weekends like this.", "完全同意。所以我们才需要这样的周末。"),
+        ],
+        "expressions": [
+            {"en": "I know right?", "phonetic": "/aɪ nəʊ raɪt/", "syllable": "I know right?", "cn": "就是啊！（强烈同意）", "grammar": "口语常用赞同表达 = I know, right?"},
+            {"en": "Whenever I can", "phonetic": "/wenˈevər aɪ kæn/", "syllable": "When·ev·er I can", "cn": "有空就来（whenever = 无论何时）", "grammar": "whenever = 无论什么时候（比 when 更强调频率自由）"},
+            {"en": "Totally", "phonetic": "/ˈtəʊtəli/", "syllable": "to·tal·ly", "cn": "完全同意！（口语加强语气）", "grammar": "副词，加强语气用（= absolutely / completely）"},
+        ]
+    },
+    {
+        "scene": "🚇 公交车",
+        "lines": [
+            ("A", "Excuse me, is this seat taken?", "不好意思，这个座位有人吗？"),
+            ("B", "No, go ahead!", "没有，你坐吧！"),
+            ("A", "Thanks! Do you know if this bus goes to the CBD?", "谢谢！你知道这趟车去市中心吗？"),
+            ("B", "Yep, this is the right one. It's about 15 minutes.", "是的，就是这趟。大概15分钟。"),
+            ("A", "Perfect. Thanks for letting me know.", "太好了。谢谢你告诉我。"),
+            ("B", "No worries!", "不客气！"),
+        ],
+        "expressions": [
+            {"en": "is this seat taken?", "phonetic": "/ɪz ðɪs siːt ˈteɪkən/", "syllable": "is this seat tak·en?", "cn": "这个座位有人吗？（公共场所礼貌询问）", "grammar": "被动语态：is taken = 被占了（take的过去分词）"},
+            {"en": "go ahead!", "phonetic": "/ɡəʊ əˈhed/", "syllable": "go a·head!", "cn": "你坐吧！（允许别人用）", "grammar": "go ahead = 请便/去做吧（表示允许）"},
+            {"en": "No worries!", "phonetic": "/nəʊ ˈwʌriz/", "syllable": "No wor·ries!", "cn": "不客气！/没关系！（澳洲/新西兰常用）", "grammar": "NZ & AUS 特色口语，等于You're welcome"},
+        ]
+    },
+    {
+        "scene": "🏦 银行办事",
+        "lines": [
+            ("A", "Hi, I'd like to open a bank account please.", "你好，我想开个银行账户。"),
+            ("B", "Sure! Are you after a savings or a current account?", "好的！您要储蓄账户还是活期账户？"),
+            ("A", "A savings account, I think.", "我想开储蓄账户。"),
+            ("B", "No worries. I'll just need some ID and your address.", "没问题。只需要您的身份证件和地址。"),
+            ("A", "Here you go. Is there a minimum deposit?", "给您。有最低存款要求吗？"),
+            ("B", "Not for this account. You're all set!", "这个账户没有。我帮您都办好了！"),
+        ],
+        "expressions": [
+            {"en": "I'd like to open a bank account", "phonetic": "/aɪd laɪk tə ˈəʊpən ə bæŋk əˈkaʊnt/", "syllable": "I'd like to o·pen a bank ac·count", "cn": "我想开个银行账户（正式请求）", "grammar": "I'd like to = I would like to（礼貌请求，比I want更客气）"},
+            {"en": "Are you after...?", "phonetic": "/ɑː juː ˈɑːftər/", "syllable": "Are you af·ter...?", "cn": "您想要...？（NZ口语，代替Do you want...）", "grammar": "Are you after...? = 你要...？（NZ特色口语）"},
+            {"en": "You're all set!", "phonetic": "/jɔːr ɔːl set/", "syllable": "You're all set!", "cn": "都办好了！（办完手续的结束语）", "grammar": "all set = 一切都准备好了/办妥了"},
+        ]
+    },
+    {
+        "scene": "🏥 看医生",
+        "lines": [
+            ("A", "Good morning. Do you have an appointment?", "早上好。您有预约吗？"),
+            ("B", "Yes, I do. My name's Sarah. I booked for 10 o'clock.", "有的。我叫Sarah。约的10点。"),
+            ("A", "Let me check... Yes, I can see you here. What seems to be the problem?", "我查一下……有的。请问您哪里不舒服？"),
+            ("B", "I've had a bad headache for the past two days.", "我头连续疼了两天了。"),
+            ("A", "Okay. Any other symptoms?", "好的。还有其他症状吗？"),
+            ("B", "Just feeling a bit tired and dizzy sometimes.", "就是有时候感觉有点累和头晕。"),
+        ],
+        "expressions": [
+            {"en": "What seems to be the problem?", "phonetic": "/wɒt siːmz tə bi ðə ˈprɒbləm/", "syllable": "What seems to be the prob·lem?", "cn": "请问哪里不舒服？（医生问诊标准句）", "grammar": "seems to be = 似乎是（委婉询问）"},
+            {"en": "I've had...", "phonetic": "/aɪv hæd/", "syllable": "I've had...", "cn": "我...了（现在完成时，表示持续）", "grammar": "现在完成时：have had + 症状（表示持续一段时间）"},
+            {"en": "for the past two days", "phonetic": "/fɔː ðə pɑːst tuː deɪz/", "syllable": "for the past two days", "cn": "过去两天了（持续到现在）", "grammar": "for + 时间段 = 持续了多久（与完成时连用）"},
+        ]
+    },
+    {
+        "scene": "🎓 大学迎新",
+        "lines": [
+            ("A", "Hey! Are you new here too?", "嘿！你也是新来的吗？"),
+            ("B", "Yeah, first year! Are you doing Arts or Science?", "是的，大一！你是读文科还是理科？"),
+            ("A", "Arts. You?", "文科，你呢？"),
+            ("B", "Business. Do you know where the lecture halls are?", "商科。你知道教学楼在哪儿吗？"),
+            ("A", "I think it's just across that grass area.", "我觉得就在那片草地对面。"),
+            ("B", "Great, let's find it together!", "太好了，我们一起去找吧！"),
+        ],
+        "expressions": [
+            {"en": "first year!", "phonetic": "/fɜːst jɪər/", "syllable": "first year!", "cn": "大一！（新西兰大学新生）", "grammar": "first year = 大学一年级（新西兰/澳洲常用）"},
+            {"en": "lecture halls", "phonetic": "/ˈlektʃər hɔːlz/", "syllable": "lec·ture halls", "cn": "教学楼；阶梯教室", "grammar": "lecture = 讲座/授课；hall = 大厅/教室"},
+            {"en": "Let's find it together!", "phonetic": "/lets faɪnd ɪt təˈɡeðər/", "syllable": "Let's find it to·geth·er!", "cn": "我们一起去找吧！", "grammar": "Let's = Let us 的缩写；together = 一起"},
+        ]
+    },
+    {
+        "scene": "🎉 生日聚会",
+        "lines": [
+            ("A", "Happy birthday! This is for you.", "生日快乐！这是给你的。"),
+            ("B", "Oh wow! You shouldn't have! Thank you so much!", "哇！你太客气了！太感谢了！"),
+            ("A", "It's nothing much. Open it!", "没什么。快拆开看看！"),
+            ("B", "A book? This is exactly what I wanted! How did you know?", "一本书？这正是我想要的！你怎么知道的？"),
+            ("A", "You mentioned it last time we talked!", "上次聊天时你提到的！"),
+            ("B", "You actually remembered! That's so sweet of you.", "你居然记得！你太好了。"),
+        ],
+        "expressions": [
+            {"en": "You shouldn't have!", "phonetic": "/juː ˈʃʊdnt hæv/", "syllable": "You shouldn't have!", "cn": "你太客气了！（收到礼物时的礼貌回应）", "grammar": "shouldn't have (done) = 本不必...（表示感谢又略带不好意思）"},
+            {"en": "It's nothing much", "phonetic": "/ɪts ˈnʌθɪŋ mʌtʃ/", "syllable": "It's noth·ing much", "cn": "没什么大不了的（谦辞）", "grammar": "nothing much = 没什么/不贵重"},
+            {"en": "How did you know?", "phonetic": "/haʊ dɪd juː nəʊ/", "syllable": "How did you know?", "cn": "你怎么知道的？（惊喜）", "grammar": "过去时 did you know = 询问信息来源（惊喜/好奇）"},
+        ]
+    },
+    {
+        "scene": "🌿 公园野餐",
+        "lines": [
+            ("A", "This park is amazing! Look at that view.", "这个公园太美了！看那边的风景。"),
+            ("B", "Right? I love coming here on sunny days.", "就是！我喜欢晴天来这儿。"),
+            ("A", "Did you bring enough food? I'm starving.", "你带够吃的了吗？我饿死了。"),
+            ("B", "Yep, plenty. I made some sandwiches and got some fruit.", "够的。我做了三明治，还买了水果。"),
+            ("A", "Perfect! Let's find a nice spot under that tree.", "完美！我们在那棵树下找个好位置吧。"),
+            ("B", "Good idea! The grass looks nice and dry.", "好主意！草看起来又干又舒服。"),
+        ],
+        "expressions": [
+            {"en": "Look at that view", "phonetic": "/lʊk æt ðæt vjuː/", "syllable": "Look at that view", "cn": "看那风景（感叹景色）", "grammar": "感叹句：Look at + 名词（引人注意）"},
+            {"en": "I'm starving", "phonetic": "/aɪm ˈstɑːvɪŋ/", "syllable": "I'm star·ving", "cn": "我饿死了！（口语夸张表达）", "grammar": "starving = 饿死了（口语夸张，非字面饿死）"},
+            {"en": "Good idea!", "phonetic": "/ɡʊd aɪˈdɪə/", "syllable": "Good i·de·a!", "cn": "好主意！（赞同提议）", "grammar": "名词词组，感叹语气表示赞同"},
+        ]
+    },
 ]
 
 
@@ -2360,6 +2488,48 @@ DIALOGUE_WORDS = {
     "modern": ("/ˈmɒdən/", "mod·ern", "adj. 现代的"),
     "ancient": ("/ˈeɪnʃənt/", "an·cient", "adj. 古代的"),
     "traditional": ("/trəˈdɪʃənl/", "tra·di·tion·al", "adj. 传统的"),
+    # ---- 新增对话场景词汇 ----
+    "workout": ("/ˈwɜːkaʊt/", "work·out", "n. 训练计划"),
+    "trainer": ("/ˈtreɪnər/", "train·er", "n. 教练"),
+    "figuring": ("/ˈfɪɡərɪŋ/", "fig·ur·ing", "v. 想办法（现在分词）"),
+    "peaceful": ("/ˈpiːsfl/", "peace·ful", "adj. 安静的"),
+    "beach": ("/biːtʃ/", "beach", "n. 海滩"),
+    "summer": ("/ˈsʌmər/", "sum·mer", "n. 夏天"),
+    "stressful": ("/ˈstresfl/", "stress·ful", "adj. 有压力的"),
+    "weekends": ("/ˌwiːkˈendz/", "week·ends", "n. 周末（复数）"),
+    "seat": ("/siːt/", "seat", "n. 座位"),
+    "taken": ("/ˈteɪkən/", "tak·en", "v. 被占了（take过去分词）"),
+    "ahead": ("/əˈhed/", "a·head", "adv. 请便（go ahead）"),
+    "bus": ("/bʌs/", "bus", "n. 公交车"),
+    "cbd": ("/siː/biː/diː/", "CBD", "n. 市中心商业区（Central Business District）"),
+    "minutes": ("/ˈmɪnɪts/", "min·utes", "n. 分钟（复数）"),
+    "bank": ("/bæŋk/", "bank", "n. 银行"),
+    "account": ("/əˈkaʊnt/", "ac·count", "n. 账户"),
+    "savings": ("/ˈseɪvɪŋz/", "sav·ings", "n. 储蓄（复数）"),
+    "deposit": ("/dɪˈpɒzɪt/", "de·pos·it", "n. 存款"),
+    "minimum": ("/ˈmɪnɪməm/", "min·i·mum", "adj. 最少的"),
+    "appointment": ("/əˈpɔɪntmənt/", "ap·point·ment", "n. 预约"),
+    "headache": ("/ˈhedeɪk/", "head·ache", "n. 头疼"),
+    "symptoms": ("/ˈsɪmptəmz/", "symp·toms", "n. 症状（复数）"),
+    "dizzy": ("/ˈdɪzi/", "diz·zy", "adj. 头晕的"),
+    "arts": ("/ɑːts/", "arts", "n. 文科（arts = 艺术/文科）"),
+    "science": ("/ˈsaɪəns/", "sci·ence", "n. 理科；科学"),
+    "business": ("/ˈbɪznəs/", "busi·ness", "n. 商科；商业"),
+    "lecture": ("/ˈlektʃər/", "lec·ture", "n. 讲座；授课"),
+    "halls": ("/hɔːlz/", "halls", "n. 大厅（复数）"),
+    "grass": ("/ɡrɑːs/", "grass", "n. 草地"),
+    "across": ("/əˈkrɒs/", "a·cross", "adv. 对面"),
+    "birthday": ("/ˈbɜːθdeɪ/", "birth·day", "n. 生日"),
+    "present": ("/ˈpreznt/", "pres·ent", "n. 礼物"),
+    "mentioned": ("/ˈmenʃnd/", "men·tioned", "v. 提到（过去式）"),
+    "remembered": ("/rɪˈmembəd/", "re·mem·bered", "v. 记得（过去式）"),
+    "sweet": ("/swiːt/", "sweet", "adj. 贴心的；甜的"),
+    "park": ("/pɑːk/", "park", "n. 公园"),
+    "view": ("/vjuː/", "view", "n. 风景"),
+    "sandwiches": ("/ˈsænwɪtʃɪz/", "sand·wich·es", "n. 三明治（复数）"),
+    "fruit": ("/fruːt/", "fruit", "n. 水果"),
+    "spot": ("/spɒt/", "spot", "n. 位置；地点"),
+    "tree": ("/triː/", "tree", "n. 树"),
 }
 
 
