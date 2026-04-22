@@ -1,4 +1,15 @@
 """
+# 调试信息
+import sys, os, pathlib
+print(f"[DEBUG] Python: {sys.version}", flush=True)
+print(f"[DEBUG] CWD: {os.getcwd()}", flush=True)
+print(f"[DEBUG] Files: {sorted(pathlib.Path('.').iterdir())[:10]}", flush=True)
+memory_test = pathlib.Path('memory.md')
+print(f"[DEBUG] memory.md exists: {memory_test.exists()}", flush=True)
+if memory_test.exists():
+    print(f"[DEBUG] memory.md size: {memory_test.stat().st_size}", flush=True)
+
+"""
 每日英语单词生成器 v3 - 完全自动化版
 核心改进：
 1. 内建200+词库，自动随机抽取（7 NZ日常 + 3 雅思移民）
