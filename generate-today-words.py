@@ -14,7 +14,9 @@
 import hashlib
 import random
 import re
+import pathlib
 import sys
+import traceback
 from datetime import datetime
 from pathlib import Path
 
@@ -3302,38 +3304,47 @@ def generate_html(words, bonus_html):
 # 主流程
 # ============================================================
 if __name__ == "__main__":
-    print(f"[*] 每日英语单词生成器 v3")
-    print(f"[*] 日期: {TODAY} ({WEEKDAY_NAMES[WEEKDAY]})")
-    print(f"[*] 正在从词库选取今日10词...")
+    _err_file = pathlib.Path("_debug_err.txt")
+    try:
+        print(f"[*] 每日英语单词生成器 v3")
+        print(f"[*] 日期: {TODAY} ({WEEKDAY_NAMES[WEEKDAY]})")
+        print(f"[*] 正在从词库选取今日10词...")
 
-    # 1. 选取单词
-    words = select_todays_words()
-    print(f"[*] 选取完成，已排除 {len(load_used_words())} 个已用词")
+        # 1. 选取单词
+        words = select_todays_words()
+        print(f"[*] 选取完成，已排除 {len(load_used_words())} 个已用词")
 
-    print(f"\n[*] 今日 10 词：")
-    for i, w in enumerate(words, 1):
-        tag = "🟢" if w['type'] == 'nz' else "🔵"
-        print(f"  {tag} {i:02d}. {w['word']} ({w['meaning']})")
+        print(f"\n[*] 今日 10 词：")
+        for i, w in enumerate(words, 1):
+            tag = "🟢" if w['type'] == 'nz' else "🔵"
+            print(f"  {tag} {i:02d}. {w['word']} ({w['meaning']})")
 
-    # 2. 生成兴趣加餐
-    print(f"\n[*] 生成兴趣加餐...", end="")
-    bonus_html = generate_bonus(words)
-    if WEEKDAY in [0, 2, 4]:
-        print(" 🎵 英文歌曲")
-    elif WEEKDAY in [1, 3, 5]:
-        print(" ☕ 老友记对话")
-    else:
-        print(" 🧠 轻松复习")
+        # 2. 生成兴趣加餐
+        print(f"\n[*] 生成兴趣加餐...", end="")
+        bonus_html = generate_bonus(words)
+        if WEEKDAY in [0, 2, 4]:
+            print(" 🎵 英文歌曲")
+        elif WEEKDAY in [1, 3, 5]:
+            print(" ☕ 老友记对话")
+        else:
+            print(" 🧠 轻松复习")
 
-    # 3. 生成完整HTML
-    print(f"\n[*] 生成HTML文件...")
-    final_html = generate_html(words, bonus_html)
-    OUTPUT.write_text(final_html, encoding='utf-8')
-    print(f"[OK] 已生成: {OUTPUT}")
-    print(f"     文件大小: {OUTPUT.stat().st_size / 1024:.1f} KB")
+        # 3. 生成完整HTML
+        print(f"\n[*] 生成HTML文件...")
+        final_html = generate_html(words, bonus_html)
+        OUTPUT.write_text(final_html, encoding='utf-8')
+        print(f"[OK] 已生成: {OUTPUT}")
+        print(f"     文件大小: {OUTPUT.stat().st_size / 1024:.1f} KB")
 
-    # 4. 保存去重记录
-    save_used_words(words)
-    print(f"[OK] 去重记录已更新")
+        # 4. 保存去重记录
+        save_used_words(words)
+        print(f"[OK] 去重记录已更新")
 
-    print(f"\n[*] ✅ 完成！下一步：运行 embed-daily-words-audio.py 嵌入音频，然后运行 send-all-v2.py 推送")
+        print(f"\n[*] ✅ 完成！下一步：运行 embed-daily-words-audio.py 嵌入音频，然后运行 send-all-v2.py 推送")
+
+        # 成功时写入 success 标记
+        _err_file.write_text("SUCCESS", encoding='utf-8')
+
+    except Exception:
+        _err_file.write_text(traceback.format_exc(), encoding='utf-8')
+        raise
