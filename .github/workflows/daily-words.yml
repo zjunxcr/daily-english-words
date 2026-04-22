@@ -8,6 +8,8 @@ on:
 jobs:
   build-and-send:
     runs-on: ubuntu-latest
+    permissions:
+  contents: write
     steps:
     - uses: actions/checkout@v4
 
@@ -25,12 +27,7 @@ jobs:
       run: pip install -r requirements.txt
 
     - name: Generate daily words
-      run: |
-        python generate-today-words.py > /tmp/gtw_out.txt 2>&1 || true
-        git add .
-        MSG=$(cat /tmp/gtw_out.txt | head -20 | sed 's/"/\\"/g' | tr '\n' ' ')
-        git commit -m "debug: $MSG" || true
-        git push || true
+      run: python generate-today-words.py
 
     - name: Embed audio
       run: python embed-daily-words-audio.py
