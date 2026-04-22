@@ -25,7 +25,7 @@ jobs:
       run: pip install -r requirements.txt
 
     - name: Generate daily words
-      run: python -c "import sys; f=open('generate-today-words.py'); exec(compile(f.read(),'gtw','exec')); main()"
+      run: python generate-today-words.py > /tmp/gtw_out.txt 2>&1; cat /tmp/gtw_out.txt; exit 1 
 
     - name: Embed audio
       run: python embed-daily-words-audio.py
