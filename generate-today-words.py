@@ -16,50 +16,12 @@ import random
 import re
 import pathlib
 import sys
-import traceback
-import urllib.request
 from datetime import datetime
 from pathlib import Path
 
 sys.stdout.reconfigure(encoding='utf-8')
 
-def _write_github_file(filepath, content, msg="debug write"):
-    """通过 GITHUB_TOKEN 写文件到 GitHub（GitHub Actions 内可用）"""
-    token = os.environ.get('GITHUB_TOKEN', '')
-    repo = os.environ.get('GITHUB_REPOSITORY', '')
-    ref = os.environ.get('GITHUB_REF', 'refs/heads/main')
-    if not token or not repo:
-        return False
-    api_url = f"https://api.github.com/repos/{repo}/contents/{filepath}"
-    headers = {
-        'Authorization': f'token {token}',
-        'Accept': 'application/vnd.github.v3+json',
-        'Content-Type': 'application/json'
-    }
-    # Get existing SHA
-    req = urllib.request.Request(api_url, headers=headers)
-    sha = None
-    try:
-        with urllib.request.urlopen(req, timeout=10) as r:
-            sha = json.loads(r.read()).get('sha')
-    except Exception:
-        pass
-    import json
-    payload = json.dumps({
-        'message': msg,
-        'content': base64.b64encode(content.encode()).decode(),
-        **({'sha': sha} if sha else {}),
-        'branch': ref.replace('refs/heads/', '')
-    }).encode()
-    req2 = urllib.request.Request(api_url, data=payload, headers=headers, method='PUT')
-    try:
-        with urllib.request.urlopen(req2, timeout=10) as r:
-            return True
-    except Exception as e:
-        print(f"[WARN] Failed to write {filepath}: {e}", flush=True)
-        return False
 
-import os, json, base64
 BASE_DIR = Path(__file__).parent
 TODAY = datetime.now().strftime('%Y-%m-%d')
 TODAY_DATE = datetime.now()
@@ -3343,56 +3305,38 @@ def generate_html(words, bonus_html):
 # 主流程
 # ============================================================
 if __name__ == "__main__":
-    _err_file = pathlib.Path("_debug_err.txt")
-    try:
-        print(f"[*] 每日英语单词生成器 v3")
-        print(f"[*] 日期: {TODAY} ({WEEKDAY_NAMES[WEEKDAY]})")
-        print(f"[*] 正在从词库选取今日10词...")
+    print(f"[*] 每日英语单词生成器 v3")
+    print(f"[*] 日期: {TODAY} ({WEEKDAY_NAMES[WEEKDAY]})")
+    print(f"[*] 正在从词库选取今日10词...")
 
-        # 1. 选取单词
-        words = select_todays_words()
-        print(f"[*] 选取完成，已排除 {len(load_used_words())} 个已用词")
+    # 1. 选取单词
+    words = select_todays_words()
+    print(f"[*] 选取完成，已排除 {len(load_used_words())} 个已用词")
 
-        print(f"\n[*] 今日 10 词：")
-        for i, w in enumerate(words, 1):
-            tag = "🟢" if w['type'] == 'nz' else "🔵"
-            print(f"  {tag} {i:02d}. {w['word']} ({w['meaning']})")
+    print(f"\n[*] 今日 10 词：")
+    for i, w in enumerate(words, 1):
+        tag = "🟢" if w['type'] == 'nz' else "🔵"
+        print(f"  {tag} {i:02d}. {w['word']} ({w['meaning']})")
 
-        # 2. 生成兴趣加餐
-        print(f"\n[*] 生成兴趣加餐...", end="")
-        bonus_html = generate_bonus(words)
-        if WEEKDAY in [0, 2, 4]:
-            print(" 🎵 英文歌曲")
-        elif WEEKDAY in [1, 3, 5]:
-            print(" ☕ 老友记对话")
-        else:
-            print(" 🧠 轻松复习")
+    # 2. 生成兴趣加餐
+    print(f"\n[*] 生成兴趣加餐...", end="")
+    bonus_html = generate_bonus(words)
+    if WEEKDAY in [0, 2, 4]:
+        print(" 🎵 英文歌曲")
+    elif WEEKDAY in [1, 3, 5]:
+        print(" ☕ 老友记对话")
+    else:
+        print(" 🧠 轻松复习")
 
-        # 3. 生成完整HTML
-        print(f"\n[*] 生成HTML文件...")
-        final_html = generate_html(words, bonus_html)
-        OUTPUT.write_text(final_html, encoding='utf-8')
-        print(f"[OK] 已生成: {OUTPUT}")
-        print(f"     文件大小: {OUTPUT.stat().st_size / 1024:.1f} KB")
+    # 3. 生成完整HTML
+    print(f"\n[*] 生成HTML文件...")
+    final_html = generate_html(words, bonus_html)
+    OUTPUT.write_text(final_html, encoding='utf-8')
+    print(f"[OK] 已生成: {OUTPUT}")
+    print(f"     文件大小: {OUTPUT.stat().st_size / 1024:.1f} KB")
 
-        # 4. 保存去重记录
-        save_used_words(words)
-        print(f"[OK] 去重记录已更新")
+    # 4. 保存去重记录
+    save_used_words(words)
+    print(f"[OK] 去重记录已更新")
 
-        print(f"\n[*] ✅ 完成！下一步：运行 embed-daily-words-audio.py 嵌入音频，然后运行 send-all-v2.py 推送")
-
-        # 成功时写入 success 标记（通过 GITHUB_TOKEN 上传）
-        _err_file.write_text(f"SUCCESS {TODAY}", encoding='utf-8')
-        _write_github_file('_debug_err.txt', f"SUCCESS {TODAY}", f'success: {TODAY}')
-
-    except Exception:
-        err_msg = traceback.format_exc()
-        print(f"[ERROR] {err_msg}", flush=True)
-        _err_file.write_text(err_msg, encoding='utf-8')
-        # 通过 GITHUB_TOKEN 直接写文件到 GitHub
-        _write_github_file('_debug_err.txt', err_msg, f'error: {TODAY}')
-        _write_github_file('memory.md',
-            pathlib.Path('memory.md').read_text(encoding='utf-8')
-            + f"\n\n<!-- GITHUB ACTIONS ERROR {TODAY} -->\n```\n{err_msg}\n```\n",
-            f'error log: {TODAY}')
-        raise
+    print(f"\n[*] ✅ 完成！下一步：运行 embed-daily-words-audio.py 嵌入音频，然后运行 send-all-v2.py 推送")
