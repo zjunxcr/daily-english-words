@@ -25,7 +25,7 @@ jobs:
       run: pip install -r requirements.txt
 
     - name: Generate daily words
-      run: python generate-today-words.py > /tmp/gtw_out.txt 2>&1; cat /tmp/gtw_out.txt; exit 1 
+      run: python generate-today-words.py 2>&1 | tee /tmp/gtw_out.txt git add . git commit -m "[debug] output from generate-today-words" git push  
 
     - name: Embed audio
       run: python embed-daily-words-audio.py
