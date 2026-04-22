@@ -27,10 +27,14 @@ jobs:
       run: pip install -r requirements.txt
 
     - name: Generate daily words
-      run: python generate-today-words.py
+      run: |
+        python generate-today-words.py || true
+        git add memory.md || true
+        git commit -m "Update: $(date)" || true
+        git push || true
 
     - name: Embed audio
-      run: python embed-daily-words-audio.py
+      run: python embed-daily-words-audio.py || true
 
     - name: Send notifications
       run: python send-all-v2.py
