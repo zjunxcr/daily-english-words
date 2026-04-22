@@ -1677,9 +1677,17 @@ WORD_BANK = {
 # ============================================================
 # 去重：读取已使用的单词
 # ============================================================
+def _get_memory_path():
+    """获取 memory.md 路径，优先 repo 根目录（GitHub Actions 可用），本地其次"""
+    local_path = BASE_DIR / ".codebuddy" / "automations" / "automation" / "memory.md"
+    repo_path = BASE_DIR / "memory.md"
+    if repo_path.exists():
+        return repo_path
+    return local_path
+
 def load_used_words():
     """从 memory.md 中提取已使用过的单词"""
-    memory_path = BASE_DIR / ".codebuddy" / "automations" / "automation" / "memory.md"
+    memory_path = _get_memory_path()
     if not memory_path.exists():
         return set()
 
@@ -1697,25 +1705,36 @@ def load_used_words():
 
 def save_used_words(today_words):
     """将今天的单词追加到 memory.md"""
-    memory_path = BASE_DIR / ".codebuddy" / "automations" / "automation" / "memory.md"
-    memory_path.parent.mkdir(parents=True, exist_ok=True)
+    memory_path = _get_memory_path()
+    # 本地 fallback 也写一份
+    local_path = BASE_DIR / ".codebuddy" / "automations" / "automation" / "memory.md"
+    local_path.parent.mkdir(parents=True, exist_ok=True)
 
-    if not memory_path.exists():
-        memory_path.write_text("# 每日英语单词 - 自动化执行记录\n\n", encoding='utf-8')
-
-    content = memory_path.read_text(encoding='utf-8')
     word_list = ', '.join(w['word'] for w in today_words)
-
-    # 追加到单词去重记录
     new_line = f"- {TODAY}: {word_list}\n"
-    # 插入到 "## 单词去重记录" 之后（如果存在）
     marker = "## 单词去重记录\n"
-    if marker in content:
-        content = content.replace(marker, marker + new_line, 1)
-    else:
-        content += "\n## 单词去重记录\n" + new_line
 
-    memory_path.write_text(content, encoding='utf-8')
+    # 写 GitHub Actions 可用的 repo 根目录
+    if not memory_path.exists():
+        memory_path.write_text("# 每日英语单词 - 自动化执行记录\n\n## 单词去重记录\n" + new_line, encoding='utf-8')
+    else:
+        content = memory_path.read_text(encoding='utf-8')
+        if marker in content:
+            content = content.replace(marker, marker + new_line, 1)
+        else:
+            content += "\n## 单词去重记录\n" + new_line
+        memory_path.write_text(content, encoding='utf-8')
+
+    # 同时写本地 .codebuddy（保持本地状态同步）
+    if not local_path.exists():
+        local_path.write_text("# 每日英语单词 - 自动化执行记录\n\n## 单词去重记录\n" + new_line, encoding='utf-8')
+    else:
+        content = local_path.read_text(encoding='utf-8')
+        if marker in content:
+            content = content.replace(marker, marker + new_line, 1)
+        else:
+            content += "\n## 单词去重记录\n" + new_line
+        local_path.write_text(content, encoding='utf-8')
 
 
 # ============================================================
