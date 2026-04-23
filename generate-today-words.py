@@ -2007,6 +2007,280 @@ DIALOGUES = [
             {"en": "Good idea!", "phonetic": "/ɡʊd aɪˈdɪə/", "syllable": "Good i·de·a!", "cn": "好主意！（赞同提议）", "grammar": "名词词组，感叹语气表示赞同"},
         ]
     },
+
+    # ===== 以下为新增场景（2026-04-23）=====
+
+    {
+        "scene": "🛫 机场接机",
+        "lines": [
+            ("A", "Flight NZ288 from Auckland, right?", "纽航NZ288对吧？"),
+            ("B", "Yep, that's the one. How do I look?", "对，就是这班。我看起来怎么样？"),
+            ("A", "You look great! Long flight?", "你看起来挺好的！飞行时间长吗？"),
+            ("B", "About twelve hours. I'm totally wrecked.", "大概十二个小时。累死了。"),
+            ("A", "Let's get your bags first, then I'll show you around.", "先去取行李吧，然后带你逛逛。"),
+            ("B", "Sounds good. Is it far from the city?", "听起来不错。离市区远吗？"),
+        ],
+        "expressions": [
+            {"en": "How do I look?", "phonetic": "/haʊ duː aɪ lʊk/", "syllable": "How do I look?", "cn": "我看起来怎么样？（问对方意见）", "grammar": "How do/does + 主语 + look = ...看起来怎么样"},
+            {"en": "I'm totally wrecked", "phonetic": "/aɪm ˈtəʊtəli rekst/", "syllable": "I'm to·tal·ly wrecked", "cn": "我累垮了（非常疲惫）", "grammar": "wrecked = 精疲力竭（口语常用）"},
+            {"en": "Sounds good", "phonetic": "/saʊndz ɡʊd/", "syllable": "Sounds good", "cn": "听起来不错（赞同提议）", "grammar": "Sound(s) + adj = 听起来...（系表结构）"},
+        ]
+    },
+
+    {
+        "scene": "🍽️ 餐厅点餐",
+        "lines": [
+            ("A", "Are you ready to order?", "您准备好点餐了吗？"),
+            ("B", "I'll have the grilled salmon, please.", "我要烤三文鱼，麻烦你了。"),
+            ("A", "Great choice! And to drink?", "好选择！喝点什么？"),
+            ("B", "Just a glass of sparkling water, thanks.", "一杯气泡水就好，谢谢。"),
+            ("A", "Any starters? We have a nice soup today.", "要来个前菜吗？我们今天的汤很不错。"),
+            ("B", "Sure, why not? You pick.", "好啊，来一份吧。你来选。"),
+        ],
+        "expressions": [
+            {"en": "I'll have...", "phonetic": "/aɪl hæv/", "syllable": "I'll have...", "cn": "我要...（点餐常用）", "grammar": "I'll have = I will have，点餐时礼貌说法"},
+            {"en": "Great choice!", "phonetic": "/ɡreɪt tʃɔɪs/", "syllable": "Great choice!", "cn": "好选择！（称赞对方）", "grammar": "choice 名词 = 选择；great修辞夸张"},
+            {"en": "Why not?", "phonetic": "/waɪ nɒt/", "syllable": "Why not?", "cn": "好啊/为什么不（表示同意）", "grammar": "Why not? = 表示同意/接受邀请"},
+        ]
+    },
+
+    {
+        "scene": "📱 视频通话",
+        "lines": [
+            ("A", "Hey, can you see me okay?", "嘿，能看到我吗？"),
+            ("B", "Yeah, perfect! Your camera's so clear.", "能看到，很清晰！你的摄像头真清楚。"),
+            ("A", "This WiFi here is surprisingly good.", "这里的WiFi出奇地好。"),
+            ("B", "Lucky! Mine keeps cutting out.", "你真幸运！我的老断。"),
+            ("A", "How's your new place going?", "你的新住所怎么样了？"),
+            ("B", "It's alright. Still got boxes everywhere.", "还行吧。还是到处都是箱子。"),
+        ],
+        "expressions": [
+            {"en": "Can you see me okay?", "phonetic": "/kæn juː siː miː əˈkeɪ/", "syllable": "Can you see me o·kay?", "cn": "能看到我吗？（视频通话开场）", "grammar": "okay = all right，口语中询问状态"},
+            {"en": "keeps cutting out", "phonetic": "/kiːps kʌtɪŋ aʊt/", "syllable": "keeps cut·ting out", "cn": "老是断线（网络不稳定）", "grammar": "keep doing sth = 持续做某事（此处指反复发生）"},
+            {"en": "Still got boxes everywhere", "phonetic": "/stɪl ɡɒt ˈbɒksɪz ˈevrɪweə/", "syllable": "Still got box·es ev·ery·where", "cn": "还是到处都是箱子", "grammar": "Still got = 仍然有（口语省略have）"},
+        ]
+    },
+
+    {
+        "scene": "🏨 酒店入住",
+        "lines": [
+            ("A", "Hi, I have a reservation under the name Chen.", "你好，我用陈先生的名字订了房间。"),
+            ("B", "Let me check... Yes, confirmed. A double room for two nights?", "我查一下...确认了。大床房两晚对吧？"),
+            ("A", "That's right. Can I check in early?", "对。能提前入住吗？"),
+            ("B", "Let me see... we have a room ready now, actually.", "我看看...其实现在就有空房了。"),
+            ("A", "Brilliant! What's the WiFi password?", "太棒了！WiFi密码是多少？"),
+            ("B", "It's on the card. Breakfast is from 7 to 10.", "在房卡上写着。早餐7点到10点。"),
+        ],
+        "expressions": [
+            {"en": "under the name...", "phonetic": "/ˈʌndə ðə neɪm/", "syllable": "un·der the name", "cn": "以...名字登记（入住/预约用语）", "grammar": "under the name = 登记的名字是"},
+            {"en": "Let me see...", "phonetic": "/let mi siː/", "syllable": "Let me see...", "cn": "让我看看...（查询时等待）", "grammar": "Let me + 动词 = 让我来...（礼貌表述）"},
+            {"en": "Brilliant!", "phonetic": "/ˈbrɪliənt/", "syllable": "Bril·liant!", "cn": "太棒了！（英式口语常用）", "grammar": "Brilliant = 极好（英式英语中非常常见）"},
+        ]
+    },
+
+    {
+        "scene": "🚕 打车",
+        "lines": [
+            ("A", "Where to?", "去哪？"),
+            ("B", "Number 42 Queen Street, please.", "皇后街42号，麻烦你。"),
+            ("A", "Sure thing. Traffic's pretty bad right now.", "好的。现在交通挺堵的。"),
+            ("B", "How long will it take?", "要多久？"),
+            ("A", "Maybe 20 minutes if we're lucky.", "顺利的话大概20分钟。"),
+            ("B", "No worries. I've got time.", "没关系，我有时间。"),
+        ],
+        "expressions": [
+            {"en": "Where to?", "phonetic": "/weə tuː/", "syllable": "Where to?", "cn": "去哪？（打车常用）", "grammar": "Where are you going?的省略，口语极常用"},
+            {"en": "Sure thing", "phonetic": "/ʃɔː θɪŋ/", "syllable": "Sure thing", "cn": "没问题/好的（答应请求）", "grammar": "固定搭配，表示乐于帮忙"},
+            {"en": "No worries", "phonetic": "/nəʊ ˈwʌriz/", "syllable": "No wor·ries", "cn": "没关系/别担心（安慰语）", "grammar": "澳洲/新西兰口语高频表达"},
+        ]
+    },
+
+    {
+        "scene": "🛍️ 商场购物",
+        "lines": [
+            ("A", "That's a really nice jacket. Worth every cent.", "那件夹克真好看，物有所值。"),
+            ("B", "You think so? I was on the fence about it.", "你觉得是吗？我之前还在犹豫。"),
+            ("B", "Do you have this in a medium?", "这件有中码吗？"),
+            ("A", "Let me check in the back.", "我去后面查一下。"),
+            ("B", "Actually, I'll take the large instead.", "其实，我要大码的。"),
+            ("A", "No problem. I'll ring that up for you.", "没问题。我给您结账。"),
+        ],
+        "expressions": [
+            {"en": "Worth every cent", "phonetic": "/wɜːθ ˈevri sent/", "syllable": "Worth ev·ery cent", "cn": "物有所值", "grammar": "worth + 名词 = 值...的；every cent 强调每一分钱都值"},
+            {"en": "on the fence", "phonetic": "/ɒn ðə fendʒ/", "syllable": "on the fence", "cn": "犹豫不决（两边倒）", "grammar": "on the fence = 拿不定主意"},
+            {"en": "I'll ring that up", "phonetic": "/aɪl rɪŋ ðæt ʌp/", "syllable": "I'll ring that up", "cn": "我来给您结账（收银台）", "grammar": "ring up = 用收银机收款"},
+        ]
+    },
+
+    {
+        "scene": "🎬 电影院",
+        "lines": [
+            ("A", "What time's the next showing?", "下一场几点？"),
+            ("B", "There's one at 3:15 and another at 5.", "3点15有一场，5点还有一场。"),
+            ("A", "Two for the 3:15, please. Is it sold out anywhere?", "两张3点15的。有没有哪个位子卖掉了？"),
+            ("B", "The front row is gone, but the middle seats are fine.", "前排没了，中间位子还好。"),
+            ("A", "Perfect. How much are tickets?", "完美。票价多少？"),
+            ("B", "Sixteen each. That comes to thirty-two.", "每人16块。一共32块。"),
+        ],
+        "expressions": [
+            {"en": "sold out", "phonetic": "/səʊld aʊt/", "syllable": "sold out", "cn": "票卖光了", "grammar": "sell out = 售完；sold是过去式/过去分词"},
+            {"en": "That comes to...", "phonetic": "/ðæt kʌmz tuː/", "syllable": "That comes to...", "cn": "一共是...（算总价时用）", "grammar": "come to + 数字 = 总共是...（账单计算）"},
+            {"en": "What time's the next showing?", "phonetic": "/wɒt taɪmz ðə nekst ˈʃəʊɪŋ/", "syllable": "What time's the next show·ing?", "cn": "下一场几点？", "grammar": "showing = 场次（电影/演出）"},
+        ]
+    },
+
+    {
+        "scene": "📚 图书馆",
+        "lines": [
+            ("A", "Excuse me, where can I find the English novels?", "打扰一下，英语小说在哪边？"),
+            ("B", "They're in the fiction section, aisle C.", "在小说区，C排书架。"),
+            ("A", "Great, thanks. And do you have a card reader?", "好，谢谢。有读卡器吗？"),
+            ("B", "There's one on the second floor, near the printers.", "二楼有，在打印机旁边。"),
+            ("A", "Last question — can I borrow more than ten books?", "最后一个问题——我能借超过十本书吗？"),
+            ("B", "Up to twenty with a full membership.", "全会员可以借20本。"),
+        ],
+        "expressions": [
+            {"en": "Excuse me", "phonetic": "/ɪkˈskjuːz mi/", "syllable": "Ex·cuse me", "cn": "打扰一下（礼貌开头语）", "grammar": "向陌生人搭话时的标准开场"},
+            {"en": "Up to twenty", "phonetic": "/ʌp tuː ˈtwenti/", "syllable": "Up to twen·ty", "cn": "最多二十", "grammar": "up to = 最多/高达"},
+            {"en": "flood membership", "phonetic": "/fʊl ˈmembəʃɪp/", "syllable": "full mem·ber·ship", "cn": "全会员（完整权限会员）", "grammar": "full = 完全的/完整的"},
+        ]
+    },
+
+    {
+        "scene": "🏊 游泳池",
+        "lines": [
+            ("A", "Is this lane for fast swimmers?", "这条道是给快泳的人用的吗？"),
+            ("B", "Yes, slow swimmers are over there.", "是的，慢泳的在那边。"),
+            ("A", "Thanks! Water feels freezing today.", "谢谢！今天水好冷。"),
+            ("B", "I know right! It always is in the morning.", "就是说！早上一直这样。"),
+            ("A", "How many laps are you doing?", "你要游几圈？"),
+            ("B", "Just ten today. Feeling lazy.", "今天就十圈，有点懒。"),
+        ],
+        "expressions": [
+            {"en": "I know right!", "phonetic": "/aɪ nəʊ raɪt/", "syllable": "I know right!", "cn": "就是说！（表示强烈同意）", "grammar": "I know, right? = 对吧？/就是说！（感叹认同）"},
+            {"en": "How many laps...?", "phonetic": "/haʊ ˈmeni læps/", "syllable": "How ma·ny laps?", "cn": "游几圈？", "grammar": "lap = 一圈（泳池/跑道用语）"},
+            {"en": "Feeling lazy", "phonetic": "/ˈfiːlɪŋ ˈleɪzi/", "syllable": "Feel·ing la·zy", "cn": "有点懒（状态描述）", "grammar": "Feeling + adj = 感到...的（现在分词结构）"},
+        ]
+    },
+
+    {
+        "scene": "🎄 圣诞派对",
+        "lines": [
+            ("A", "Merry Christmas! Love your ugly sweater.", "圣诞快乐！喜欢你的丑毛衣。"),
+            ("B", "Thanks! I got it from the ops shop.", "谢谢！我从二手店买的。"),
+            ("A", "Classic. What's for dinner?", "经典款。晚餐吃什么？"),
+            ("B", "We're doing a potluck. I brought ham.", "我们吃AA制，我带了火腿。"),
+            ("A", "Nice! Should we do Secret Santa this year?", "不错！今年玩秘密圣诞老人吗？"),
+            ("B", "Already organised. You're buying for Jack.", "已经组织好了，你要给Jack买。"),
+        ],
+        "expressions": [
+            {"en": "ugly sweater", "phonetic": "/ˈʌɡli ˈsweɪtə/", "syllable": "ug·ly swea·ter", "cn": "丑毛衣（圣诞派对手件）", "grammar": "ugly = 丑的；sweater = 毛衣（美式）；英式说jumper"},
+            {"en": "potluck", "phonetic": "/ˈpɒtlʌk/", "syllable": "pot·luck", "cn": "各带一道菜的聚餐", "grammar": "potluck = 每人带一道菜的聚会（AA制聚餐）"},
+            {"en": "Secret Santa", "phonetic": "/ˈsiːkrɪt ˈsæntə/", "syllable": "Se·cret San·ta", "cn": "秘密圣诞老人（互送礼物游戏）", "grammar": "每人抽签匿名送礼的圣诞传统游戏"},
+        ]
+    },
+
+    {
+        "scene": "🌙 夜市",
+        "lines": [
+            ("A", "It's so lively here! When does it close?", "这儿好热闹！几点关门？"),
+            ("B", "Usually around 10. We've got time.", "通常10点左右。咱们还早。"),
+            ("A", "That sausage smells amazing. Shall we share one?", "那个香肠闻着太香了。我们分一根吧？"),
+            ("B", "Good call. I'll grab some chopsticks.", "好主意。我去拿筷子。"),
+            ("A", "Look at all those lights! So pretty.", "看那些灯！真漂亮。"),
+            ("B", "Yeah, the atmosphere here is unreal.", "是的，这儿的氛围太棒了。"),
+        ],
+        "expressions": [
+            {"en": "Good call", "phonetic": "/ɡʊd kɔːl/", "syllable": "Good call", "cn": "好主意（认同提议）", "grammar": "口语常用，比 Good idea 更随意"},
+            {"en": "I'll grab some...", "phonetic": "/aɪl ɡræb sʌm/", "syllable": "I'll grab some...", "cn": "我去拿点...（主动去取）", "grammar": "grab = 顺便拿/快速取（口语高频）"},
+            {"en": "unreal", "phonetic": "/ʌnˈrɪəl/", "syllable": "un·re·al", "cn": "太棒了/超赞（口语感叹）", "grammar": "unreal = 不真实/超赞（口语用法，非字面）"},
+        ]
+    },
+
+    {
+        "scene": "🐕 宠物店",
+        "lines": [
+            ("A", "Oh wow, what a cute dog! What's its name?", "哇，好可爱的狗！叫什么名字？"),
+            ("B", "His name's Buster. He's only four months old.", "他叫Buster，才四个月大。"),
+            ("A", "Does he get on with other dogs?", "他和别的狗相处得好吗？"),
+            ("B", "Yeah, he's super friendly. Loves the park.", "是的，他特别友好，喜欢去公园。"),
+            ("A", "I've been thinking about getting a pet myself.", "我一直在考虑养个宠物。"),
+            ("B", "Do it! The company is worth the cost.", "养吧！有伴的感觉值那个钱。"),
+        ],
+        "expressions": [
+            {"en": "get on with...", "phonetic": "/ɡet ɒn wɪð/", "syllable": "get on with...", "cn": "和...相处得好", "grammar": "get on/along with sb = 与某人相处"},
+            {"en": "I've been thinking about...", "phonetic": "/aɪv biːn ˈθɪŋkɪŋ əˈbaʊt/", "syllable": "I've been think·ing a·bout...", "cn": "我一直考虑...", "grammar": "have been doing = 完成进行时，表示持续状态"},
+            {"en": "Do it!", "phonetic": "/duː ɪt/", "syllable": "Do it!", "cn": "做吧！（鼓励语气）", "grammar": "简短祈使句，表示强烈鼓励"},
+        ]
+    },
+
+    {
+        "scene": "💇 理发店",
+        "lines": [
+            ("A", "How would you like it cut?", "您想怎么剪？"),
+            ("B", "Just a trim, please. Not too short.", "修一下就好，别太短。"),
+            ("A", "No worries. Any particular style?", "没问题。有特别想要的发型吗？"),
+            ("B", "Something easy to manage. I'm lazy with hair.", "好打理的。我懒得弄头发。"),
+            ("A", "Fair enough. Shampoo first?", "理解。先洗头吗？"),
+            ("B", "Yep, that'd be good.", "好的，麻烦你。"),
+        ],
+        "expressions": [
+            {"en": "Just a trim", "phonetic": "/dʒʌst ə trɪm/", "syllable": "Just a trim", "cn": "修一下就好（剪一点）", "grammar": "trim = 修剪；just a trim = 稍微剪一下"},
+            {"en": "Fair enough", "phonetic": "/feər ɪˈnʌf/", "syllable": "Fair e·nough", "cn": "理解/说得对（认可对方）", "grammar": "fair enough = 有道理/说得过去"},
+            {"en": "That'd be good", "phonetic": "/ðætəd biː ɡʊd/", "syllable": "That'd be good", "cn": "好的/没问题（礼貌同意）", "grammar": "That'd = That would，口语缩略"},
+        ]
+    },
+
+    {
+        "scene": "💊 药店买药",
+        "lines": [
+            ("A", "Hi, do you have anything for a cold?", "你好，有治感冒的药吗？"),
+            ("B", "Running nose or blocked nose?", "流鼻涕还是鼻塞？"),
+            ("A", "Both, actually. And a sore throat.", "都有，而且还嗓子疼。"),
+            ("B", "Try this one. It's pretty popular.", "试试这个，挺好卖的。"),
+            ("A", "Any side effects I should know about?", "有什么需要注意的副作用吗？"),
+            ("B", "Might make you a bit drowsy. Don't drive after taking it.", "可能会让你有点困。吃了别开车。"),
+        ],
+        "expressions": [
+            {"en": "anything for...?", "phonetic": "/ˈeniθɪŋ fɔː/", "syllable": "An·y·thing for...?", "cn": "有治...的药吗？", "grammar": "anything for + 症状 = 有治...的药吗（药店用语）"},
+            {"en": "side effects", "phonetic": "/saɪd ɪˈfekts/", "syllable": "side ef·fects", "cn": "副作用", "grammar": "side effect = 副作用；effect = 效果/作用"},
+            {"en": "Might make you...", "phonetic": "/maɪt meɪk juː/", "syllable": "Might make you...", "cn": "可能会让你...", "grammar": "might = 也许（可能性推测，比may更口语）"},
+        ]
+    },
+
+    {
+        "scene": "☎️ 客服电话",
+        "lines": [
+            ("A", "Thank you for calling, how can I help?", "感谢您的来电，有什么可以帮您？"),
+            ("B", "Hi, my order hasn't arrived yet. It's been two weeks.", "你好，我的订单还没到，已经两周了。"),
+            ("A", "I'm sorry to hear that. Can I get your order number?", "抱歉听到这个消息。能告诉我您的订单号吗？"),
+            ("B", "It's ORD-289456.", "是ORD-289456。"),
+            ("A", "Found it. Looks like it's been stuck in transit. I'll organise a replacement.", "找到了，看起来卡在运输中了。我来安排重新发货。"),
+            ("B", "Thanks so much. That would be great.", "非常感谢，那就太好了。"),
+        ],
+        "expressions": [
+            {"en": "Thank you for calling", "phonetic": "/θæŋk juː fɔː ˈkɔːlɪŋ/", "syllable": "Thank you for call·ing", "cn": "感谢您的来电（客服开场白）", "grammar": "Thank you for + doing = 感谢你做某事"},
+            {"en": "I'm sorry to hear that", "phonetic": "/aɪm ˈsɒri tuː hɪə ðæt/", "syllable": "I'm sor·ry to hear that", "cn": "抱歉听到这个消息（同情语）", "grammar": "be sorry to hear that = 听到...很遗憾"},
+            {"en": "organise a replacement", "phonetic": "/ˈɔːɡənaɪz ə rɪˈpleɪsmənt/", "syllable": "or·gan·ise a re·place·ment", "cn": "安排重新发货/换货", "grammar": "organise = 安排；replacement = 替换物"},
+        ]
+    },
+
+    {
+        "scene": "🏢 找办公室",
+        "lines": [
+            ("A", "Hey, do you know where the marketing team sits?", "嘿，你知道市场部在哪吗？"),
+            ("B", "Third floor, next to the kitchen. Take the lift.", "三楼，厨房旁边。坐电梯上去。"),
+            ("A", "Cheers! Is James in today?", "谢了！James今天来吗？"),
+            ("B", "Yeah, he's around. Try after two if you miss him.", "在的，他来了。两点以后来找应该能找到。"),
+            ("A", "Cool, thanks. By the way, is lunch on today?", "好，谢了。对了，今天午饭一起吗？"),
+            ("B", "For sure. Ping me when you're hungry.", "当然饿了叫我。"),
+        ],
+        "expressions": [
+            {"en": "Cheers!", "phonetic": "/tʃɪəz/", "syllable": "Cheers!", "cn": "谢了！（英/新西兰口语谢谢）", "grammar": "Cheers = Thanks的英式/新西兰说法"},
+            {"en": "Ping me when...", "phonetic": "/pɪŋ mi wen/", "syllable": "Ping me when...", "cn": "给我发消息当...", "grammar": "Ping = 发信息/打电话（口语，指发简短消息）"},
+            {"en": "For sure", "phonetic": "/fɔː ʃʊə/", "syllable": "For sure", "cn": "当然/没问题（确定答复）", "grammar": "for sure = definitely，口语高频"},
+        ]
+    },
 ]
 
 
