@@ -8,8 +8,6 @@ on:
 jobs:
   build-and-send:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
     - uses: actions/checkout@v4
 
@@ -27,14 +25,38 @@ jobs:
       run: pip install -r requirements.txt
 
     - name: Generate daily words
-      run: |
-        python generate-today-words.py || true
-        git add memory.md || true
-        git commit -m "Update: $(date)" || true
-        git push || true
+      run: python generate-today-words.py
 
     - name: Embed audio
-      run: python embed-daily-words-audio.py || true
+      run: python embed-daily-words-audio.py
+
+    - name: Sync to Netlify (docs/today.html)
+      run: |
+        python3 << 'PYEOF'
+        import urllib.request, json, ssl, glob, os, base64
+        from datetime import datetime
+        TOKEN = "${{ secrets.GH_PAT }}"
+        HEADERS = {'Authorization': f'token {TOKEN}', 'Accept': 'application/vnd.github.v3+json'}
+        ctx = ssl.create_default_context()
+        ctx.check_hostname = False; ctx.verify_mode = ssl.CERT_NONE
+        REPO = 'zjunxcr/daily-english-words'
+        today = datetime.now().strftime('%Y-%m-%d')
+        html_files = glob.glob(f'每日英语单词_{today}.html')
+        if not html_files:
+            print("No today's HTML found, skipping")
+        else:
+            content = open(html_files[0], 'rb').read()
+            sha = None
+            req = urllib.request.Request(f'https://api.github.com/repos/{REPO}/contents/docs/today.html', headers=HEADERS)
+            try:
+                with urllib.request.urlopen(req, timeout=15, context=ctx) as r:
+                    sha = json.loads(r.read()).get('sha')
+            except: pass
+            payload = json.dumps({'message': f'deploy: {today}', 'content': base64.b64encode(content).decode(), 'sha': sha}).encode()
+            req2 = urllib.request.Request(f'https://api.github.com/repos/{REPO}/contents/docs/today.html', data=payload, headers=HEADERS, method='PUT')
+            with urllib.request.urlopen(req2, timeout=20, context=ctx) as r:
+                print("Netlify sync OK:", json.loads(r.read()).get('commit',{}).get('message','ok')[:50])
+        PYEOF
 
     - name: Send notifications
       run: python send-all-v2.py
