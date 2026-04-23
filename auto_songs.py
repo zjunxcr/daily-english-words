@@ -865,7 +865,7 @@ SONG_LIBRARY = [
     {"name": "Hero", "artist": "Mariah Carey", "year": "1993", "netease_id": "115078",
      "tense": "一般现在时 + 情态动词", "tense_en": "Simple Present + Modals", "level": 3,
      "tense_rule": "you don't need to be afraid = 你不需要害怕"},
-    {"name": "Can You Feel the Love Tonight", "artist": "Elton John", "year": "1994", "netease_id": "153048",
+    {"name": "Can You Feel the Love Tonight", "artist": "Elton John", "year": "1994", "netease_id": "4246313",
      "tense": "一般现在时", "tense_en": "Simple Present", "level": 3,
      "tense_rule": "can you feel = 你能感觉到吗"},
     {"name": "Because of You", "artist": "Kelly Clarkson", "year": "2004", "netease_id": "176459",
