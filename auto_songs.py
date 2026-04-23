@@ -1545,8 +1545,6 @@ def select_daily_song(level=None, exclude=None):
     level: 1=入门, 2=初级, 3=中级, None=随机
     exclude: 需要排除的歌曲名集合
     """
-    import hashlib
-
     if exclude is None:
         exclude = set()
 
@@ -1564,11 +1562,8 @@ def select_daily_song(level=None, exclude=None):
         # 所有歌曲都用过了，重新开始
         pool = SONG_LIBRARY
 
-    # 用日期做种子选择，同一天选同一首
-    from datetime import date
-    today = date.today().isoformat()
-    day_seed = int(hashlib.md5(today.encode()).hexdigest(), 16)
-    return pool[day_seed % len(pool)]
+    # 真正随机选择歌曲
+    return random.choice(pool)
 
 
 # ============================================================
@@ -1579,9 +1574,6 @@ def generate_auto_song_html(svg_speaker):
     自动选择歌曲并生成HTML
     返回: (html_str, song_info_dict)
     """
-    import hashlib
-    from datetime import date
-
     # 获取已用歌曲
     used = get_used_songs()
 
@@ -1610,9 +1602,8 @@ def generate_auto_song_html(svg_speaker):
             pool_retry = [s for s in SONG_LIBRARY if s["name"] not in tried]
         if not pool_retry:
             break
-        # 用retry次序选不同的歌
-        day_seed = int(hashlib.md5(f"{date.today().isoformat()}-retry{retry}".encode()).hexdigest(), 16)
-        song = pool_retry[day_seed % len(pool_retry)]
+        # 真正随机选不同的歌
+        song = random.choice(pool_retry)
         tried.add(song["name"])
         print(f"  [歌曲] 换用: {song['name']} - {song['artist']} (难度{song['level']})")
         en_lyrics, zh_lyrics, actual_id = get_lyrics_with_fallback(
