@@ -197,78 +197,115 @@ def _make_lazy_script(b64: str, audio_id: str) -> str:
 
 
 def _remove_orphaned_song_audio(html: str) -> str:
-    """移除无用的 <audio id="song-audio">（base64已嵌入但从未被 playAudio 调用）。"""
-    # 匹配 <audio ...id="song-audio"...>...</audio>（base64内无换行，中间为空）
-    pattern = re.compile(r'<audio[^>]*id="song-audio"[^>]*>\s*</audio>', re.DOTALL)
+    """
+    清理孤立的 base64 audio（懒加载嵌入后多余的空 audio 标签）。
+    注意：song-audio 标签由 embed_song_mp3 统一处理，这里跳过。
+    """
     before_size = len(html)
+    # 只清理不含 id="song-audio" 的空 audio 标签
+    pattern = re.compile(r'<audio(?!.*id="song-audio")(.*?)>\s*</audio>', re.DOTALL | re.IGNORECASE)
     html = pattern.sub('', html)
     removed = before_size - len(html)
     if removed > 0:
-        print(f"    [CLEANUP] Removed orphaned <audio id=\"song-audio\"> (freed {removed/1024:.0f} KB)")
+        print(f"    [CLEANUP] Removed orphaned audio (freed {removed/1024:.0f} KB)")
+    return html
+
+    def replacer(m):
+        # attrs + whitespace 内容检测
+        inner = m.group(1) + m.group(2) + m.group(3)
+        if '<a ' in inner or '<div' in inner or '<span' in inner:
+            return m.group(0)  # 含 player-fallback，保留
+        return ''  # 真正空标签，删除
+
+    html = pattern.sub(replacer, html)
+    removed = before_size - len(html)
+    if removed > 0:
+        print(f"    [CLEANUP] Removed orphaned song-audio (freed {removed/1024:.0f} KB)")
     return html
 
 
 def embed_song_mp3(html: str) -> str:
     """
     歌曲 MP3 懒加载优化：
-    - 旧方式：<audio src="data:audio/mpeg;base64,XXXX...">  → 浏览器解析 HTML 时处理 5MB 字符串
-    - 新方式：base64 存入 window.SONG_MP3_DATA，audio 无 src
-              用户点击播放时，JavaScript 设置 audio.src = window.SONG_MP3_DATA
-    这样页面 HTML 解析速度不受影响，歌曲音频在播放时才解码。
+    - Worker URL / NetEase链接 → 下载 MP3 → base64 懒加载
+    - 用户点击播放时才解码，不阻塞页面加载
     """
-    # 情况1：Worker URL（generate 阶段尚未嵌入）
-    pattern_worker = re.compile(
-        r'<audio([^>]+)src="(https://quiet-term-cc2f\.zjunxcr\.workers\.dev/proxy/(\d+)[^"]*)"([^>]*)>'
-    )
-    # 情况2：已嵌入的 base64 audio（历史文件重处理）
-    pattern_base64 = re.compile(
-        r'(<audio[^>]+)src="(data:audio/mpeg;base64,([A-Za-z0-9+/=]{100,}))"([^>]*>)'
-    )
-
     matched_any = False
 
-    # 处理 Worker URL
+    # ── 方法1：Worker URL（generate 阶段嵌入的 URL）──────────────────────
+    pattern_worker = re.compile(
+        r'<audio([^>]+?)src="(https://quiet-term-cc2f\.zjunxcr\.workers\.dev/proxy/(\d+)[^"]*)"([^>]*)>',
+        re.DOTALL
+    )
     for attrs_before, worker_url, mp3_id, attrs_after in pattern_worker.findall(html):
         try:
-            print(f"    Fetching song MP3 id={mp3_id} from Worker URL...")
+            print(f"    [Worker] Found audio id={mp3_id}, downloading MP3...")
             mp3_data = get_mp3_from_byfuns(mp3_id)
             b64 = base64.b64encode(mp3_data).decode()
             print(f"    Got {len(mp3_data):,} bytes, applying lazy-load...")
-
-            # 构造旧完整标签
-            full_old = f'<audio{attrs_before}src="{worker_url}"{attrs_after}>'
+            # 重建完整旧标签（含换行后的 </audio>）
+            full_old = f'<audio{attrs_before}src="{worker_url}"{attrs_after}>\n      </audio>'
             audio_id = _extract_id(full_old) or "song-audio"
             new_tag = f'<audio id="{audio_id}" preload="none" controls>'
             lazy = _make_lazy_script(b64, audio_id)
-
             html = html.replace(full_old, new_tag, 1)
             html = html.replace('</body>', lazy + '</body>', 1)
-            print(f"    OK (from Worker URL)")
-            time.sleep(0.5)
+            print(f"    OK (Worker URL → base64 lazy-load)")
             matched_any = True
         except Exception as e:
-            print(f"    [WARN] Song embed from Worker URL failed: {e}")
+            print(f"    [WARN] Worker URL download failed: {e}")
 
-    # 处理已嵌入的 base64
-    # 注意：替换后 HTML 变短，不会重复匹配
-    for tag_start, src_full, b64, tag_end in pattern_base64.findall(html):
-        try:
-            # 提取 id
-            id_m = re.search(r'id="([^"]+)"', tag_start)
-            audio_id = id_m.group(1) if id_m else "song-audio"
-            print(f"    Found embedded base64 audio ({len(b64)} chars), applying lazy-load...")
-            new_tag = f'<audio id="{audio_id}" preload="none" controls>'
-            lazy = _make_lazy_script(b64, audio_id)
-            full_old = f'{tag_start}src="{src_full}"{tag_end}'
-            html = html.replace(full_old, new_tag, 1)
-            html = html.replace('</body>', lazy + '</body>', 1)
-            print(f"    OK (from embedded base64)")
-            matched_any = True
-        except Exception as e:
-            print(f"    [WARN] Song embed from base64 failed: {e}")
+    # ── 方法2：从 NetEase 页面链接下载（无 Worker URL 时兜底）──────────
+    if not matched_any:
+        # 找 https://music.163.com/song?id=12345
+        netease_id_m = re.search(r'music\.163\.com/song\?id=(\d+)', html)
+        if netease_id_m:
+            netease_id = netease_id_m.group(1)
+            try:
+                print(f"    [NetEase] Found song id={netease_id}, downloading MP3...")
+                mp3_data = get_mp3_from_byfuns(netease_id)
+                b64 = base64.b64encode(mp3_data).decode()
+                print(f"    Got {len(mp3_data):,} bytes, applying lazy-load...")
+                # 找到 song-audio 标签并替换
+                pattern_self_close = re.compile(
+                    r'<audio([^>]*)id="song-audio"([^>]*)>\s*</audio>', re.DOTALL
+                )
+                m = pattern_self_close.search(html)
+                if m:
+                    audio_id = "song-audio"
+                    new_tag = f'<audio id="{audio_id}" preload="none" controls>'
+                    lazy = _make_lazy_script(b64, audio_id)
+                    html = html.replace(m.group(0), new_tag, 1)
+                    html = html.replace('</body>', lazy + '</body>', 1)
+                    print(f"    OK (NetEase direct → base64 lazy-load)")
+                    matched_any = True
+            except Exception as e:
+                print(f"    [WARN] NetEase MP3 download failed: {e}")
+
+    # ── 方法3：已嵌入的 base64（历史文件重处理）──────────────────────────
+    if not matched_any:
+        pattern_base64 = re.compile(
+            r'(<audio[^>]+)src="(data:audio/mpeg;base64,([A-Za-z0-9+/=]{100,}))"([^>]*>)',
+            re.DOTALL
+        )
+        for tag_start, src_full, b64, tag_end in pattern_base64.findall(html):
+            try:
+                id_m = re.search(r'id="([^"]+)"', tag_start)
+                audio_id = id_m.group(1) if id_m else "song-audio"
+                print(f"    Found embedded base64 audio ({len(b64)} chars), applying lazy-load...")
+                new_tag = f'<audio id="{audio_id}" preload="none" controls>'
+                lazy = _make_lazy_script(b64, audio_id)
+                full_old = f'{tag_start}src="{src_full}"{tag_end}'
+                html = html.replace(full_old, new_tag, 1)
+                html = html.replace('</body>', lazy + '</body>', 1)
+                print(f"    OK (embedded base64 lazy-load)")
+                matched_any = True
+                break
+            except Exception as e:
+                print(f"    [WARN] base64 embed failed: {e}")
 
     if not matched_any:
-        print("[SKIP] No song audio found (neither Worker URL nor embedded base64), skipping")
+        print("[SKIP] No song audio found, skipping")
     return html
 
 
