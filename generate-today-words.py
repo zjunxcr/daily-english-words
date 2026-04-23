@@ -11,7 +11,6 @@
 5. 使用 speechSynthesis 实现点击发音（不依赖edge-tts）
 """
 
-import hashlib
 import random
 import re
 import pathlib
@@ -2574,9 +2573,8 @@ def annotate_dialogue_text(text):
 
 def generate_dialogue_bonus():
     """生成老友记风格对话兴趣加餐"""
-    # 基于日期确定性选择对话（同一周内不同）
-    day_seed = int(hashlib.md5(TODAY.encode()).hexdigest(), 16)
-    d = DIALOGUES[day_seed % len(DIALOGUES)]
+    # 真正随机选择对话
+    d = random.choice(DIALOGUES)
 
     lines_html = ""
     for speaker, text, trans in d["lines"]:
