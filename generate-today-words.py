@@ -15,16 +15,17 @@ import random
 import re
 import pathlib
 import sys
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 sys.stdout.reconfigure(encoding='utf-8')
 
-
+# 始终使用北京时间（UTC+8），避免 GitHub Actions 在 UTC 时区导致星期几判断偏差
+_BJT = timezone(timedelta(hours=8))
 BASE_DIR = Path(__file__).parent
-TODAY = datetime.now().strftime('%Y-%m-%d')
-TODAY_DATE = datetime.now()
-WEEKDAY = TODAY_DATE.weekday()  # 0=周一 ... 6=周日
+TODAY = datetime.now(_BJT).strftime('%Y-%m-%d')
+TODAY_DATE = datetime.now(_BJT)
+WEEKDAY = TODAY_DATE.weekday()  # 0=周一 ... 6=周日（基于北京时间）
 WEEKDAY_NAMES = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
 OUTPUT = BASE_DIR / f"每日英语单词_{TODAY}.html"
 
