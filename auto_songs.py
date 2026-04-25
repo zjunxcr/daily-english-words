@@ -22,6 +22,47 @@ import random
 # ============================================================
 _pronunciation_cache = {}
 
+# ============================================================
+# 本地歌曲库（Netlify 托管 MP3，优先使用）
+# 格式：song_name -> netlify_slug（对应 docs/audio/{slug}.mp3）
+# 来源：斯里兰卡 Sri Jayewardenepura 大学英语学习资源
+# 许可证：仅供教育用途
+# ============================================================
+NETLIFY_SONGS = {
+    "The Alphabet Song": "alphabet-song",
+    "Alphabet Song": "alphabet-song",
+    "I'm a Little Teapot": "little-teapot",
+    "Little Teapot": "little-teapot",
+    "Pat-a-Cake": "pat-a-cake",
+    "Are You Sleeping?": "are-you-sleeping",
+    "Brother John": "are-you-sleeping",
+    "Row, Row, Row Your Boat": "row-row-row",
+    "One, Two, Buckle My Shoe": "one-two-buckle",
+    "Baa, Baa, Black Sheep": "baa-baa-black-sheep",
+    "Twinkle Twinkle Little Star": "twinkle-twinkle",
+    "Head, Shoulders, Knees and Toes": "head-shoulders",
+    "Hey Diddle Diddle": "hey-diddle",
+    "Incy Wincy Spider": "incy-wincy",
+    "Rock a Bye Baby": "rock-a-bye",
+    "Bingo": "bingo",
+    "Hickory Dickory Dock": "hickory-dickory",
+    "Mary Had a Little Lamb": "mary-little-lamb",
+    "My Father Has a Garden": "father-garden",
+    "If You're Happy and You Know It": "happy-know-it",
+    "If You're Happy": "happy-know-it",
+    "The Wheels on the Bus": "wheels-bus",
+    "Wheels on the Bus": "wheels-bus",
+    "Old MacDonald Had a Farm": "old-macdonald",
+    "Old MacDonald": "old-macdonald",
+    "The Ants Go Marching One by One": "ants-marching",
+    "Hush Little Baby": "hush-little-baby",
+    "I Can Sing a Rainbow": "sing-rainbow",
+    "Home on the Range": "home-range",
+}
+
+NETLIFY_BASE = "https://daily-english-words.netlify.app/audio/"
+
+
 def get_phonetic(word):
     """
     获取单词音标、词性、中文释义。
@@ -1786,8 +1827,17 @@ def generate_auto_song_html(svg_speaker):
       {"".join(pattern_items)}
     </div>'''
 
-    # 播放器：直接显示网易云外链按钮（Worker/byfuns API均已失效，embed脚本负责嵌入MP3）
-    player_html = f'''
+    # 播放器：优先使用本地 MP3（Netlify），否则走网易云外链
+    slug = NETLIFY_SONGS.get(song["name"])
+    if slug:
+        audio_src = f"{NETLIFY_BASE}{slug}.mp3"
+        player_html = f'''
+    <div class="song-player">
+      <audio id="song-audio" src="{audio_src}" preload="metadata" controls style="width:100%;border-radius:10px;">
+      </audio>
+    </div>'''
+    else:
+        player_html = f'''
     <div class="song-player">
       <audio id="song-audio" preload="none" controls style="width:100%;border-radius:10px;display:none;">
       </audio>
