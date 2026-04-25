@@ -2,7 +2,7 @@
 每日英语单词 - 全渠道推送 v2
 功能：
 1. 读取当天 HTML 文件
-2. 上传到 PageDrop 获取公网链接
+2. 从 Netlify 获取公网链接（已由 GitHub Actions 同步）
 3. 推送到飞书（卡片消息）
 4. 推送到 QQ（Qmsg酱）
 5. 推送到微信（PushPlus）
@@ -80,26 +80,12 @@ def upload_to_pagedrop(html_body, cache_path):
     cache_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding='utf-8')
     return payload['data']['url']
 
-def resolve_public_url(html_body, html_path):
-    """获取或生成公网 URL"""
-    cache_path = html_path.with_suffix('.pagedrop.json')
-    current_hash = compute_html_hash(html_body)
-    if cache_path.is_file():
-        try:
-            cache_data = json.loads(cache_path.read_text(encoding='utf-8'))
-            cached_url = cache_data.get('data', {}).get('url', '').strip()
-            cached_hash = cache_data.get('workbuddy', {}).get('html_sha256', '').strip()
-            if cached_url and cached_hash == current_hash:
-                return cached_url, 'cache'
-        except json.JSONDecodeError:
-            pass
+# Netlify 托管地址（固定链接，GitHub Actions 自动同步）
+NETLIFY_URL = "https://daily-english-words.netlify.app/today.html"
 
-    url = upload_to_pagedrop(html_body, cache_path)
-    # 更新缓存中的hash
-    cache_data = json.loads(cache_path.read_text(encoding='utf-8'))
-    cache_data['workbuddy'] = {'html_sha256': current_hash}
-    cache_path.write_text(json.dumps(cache_data, ensure_ascii=False, indent=2), encoding='utf-8')
-    return url, 'pagedrop'
+def resolve_public_url(html_body, html_path):
+    """返回 Netlify 托管的固定 URL"""
+    return NETLIFY_URL, 'netlify'
 
 def extract_bonus(html_body):
     """提取兴趣加餐标题"""
