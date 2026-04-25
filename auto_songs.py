@@ -35,7 +35,7 @@ def get_phonetic(word):
 
     ipa = ""
     pos = ""
-    definition = "（释义待补充）"  # 默认值，API失败时显示
+    definition = ""  # 默认为空，不显示"释义待补充"
 
     # Step 1: 获取音标和词性（来自英文词典）
     try:
@@ -1651,7 +1651,7 @@ def generate_auto_song_html(svg_speaker):
                 "ipa": phonetic["ipa"],
                 "syllables": syll,
                 "pos": phonetic["pos"],
-                "definition": phonetic["definition"] or "（释义待补充）"
+                "definition": phonetic["definition"] or ""
             }
         time.sleep(0.05)  # 避免请求过快
 
@@ -1685,7 +1685,7 @@ def generate_auto_song_html(svg_speaker):
             ipa_str = f" /{hw_data.get('ipa', '')}/" if hw_data.get('ipa') else ""
             syll_str = hw_data.get('syllables', hw)
             pos_str = f" {hw_data.get('pos', '')}" if hw_data.get('pos') else ""
-            def_str = f" {hw_data.get('definition', '')}" if hw_data.get('definition', None) is not None else "（释义待补充）"
+            def_str = f" {hw_data.get('definition', '')}" if hw_data.get('definition') else ""
             note_items.append(f'<span class="lyric-note hard-note"><b>{hw}</b>{ipa_str} {syll_str}{pos_str} {def_str}</span>')
 
         # 合并标注
@@ -1715,7 +1715,7 @@ def generate_auto_song_html(svg_speaker):
             word_safe = item["word"].replace("'", "\\'")
             ipa_str = f" {item['ipa']}" if item['ipa'] else ""
             pos_str = f" {item['pos']}." if item['pos'] else ""
-            def_str = f" {item['definition']}" if item.get('definition', None) is not None else "（释义待补充）"
+            def_str = f" {item['definition']}" if item.get('definition') else ""
             entries.append(
                 f'<div class="phonetic-entry">'
                 f'<strong>{item["word"]}</strong>'
@@ -1786,13 +1786,13 @@ def generate_auto_song_html(svg_speaker):
       {"".join(pattern_items)}
     </div>'''
 
-    # 播放器：内嵌优先 + 备用链接
+    # 播放器：直接显示网易云外链按钮（Worker/byfuns API均已失效，embed脚本负责嵌入MP3）
     player_html = f'''
     <div class="song-player">
-      <audio id="song-audio" src="https://quiet-term-cc2f.zjunxcr.workers.dev/proxy/{mp3_id}.mp3" controls preload="none" style="width:100%;border-radius:10px;">
+      <audio id="song-audio" preload="none" controls style="width:100%;border-radius:10px;display:none;">
       </audio>
-      <div class="player-fallback">
-        🎧 播放失败？<a href="https://music.163.com/song?id={mp3_id}" target="_blank">点击前往网易云音乐收听</a>
+      <div class="player-fallback" style="text-align:center;padding:10px 0;">
+        🎧 <a href="https://music.163.com/song?id={mp3_id}" target="_blank" style="color:#4caf50;font-weight:bold;">点击前往网易云音乐收听 {song["name"]}</a>
       </div>
     </div>'''
 
