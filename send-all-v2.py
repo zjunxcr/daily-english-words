@@ -27,10 +27,10 @@ from uuid import uuid4
 sys.stdout.reconfigure(encoding='utf-8')
 
 # ============ 配置 ============
-FEISHU_WEBHOOK = "https://open.feishu.cn/open-apis/bot/v2/hook/8d37d8fb-d868-4820-b5cf-c31153569508"
+FEISHU_WEBHOOK = os.environ.get("FEISHU_WEBHOOK", "")
 QMSG_KEY = os.environ.get("QMSG_KEY", "")
 QMSG_API = "https://qmsg.zendee.cn/send"
-SERVERCHAN_KEY = os.environ.get("SERVERCHAN_KEY", "SCT335607TXU66l0c7orQDokUTfbNPbmiZ")
+SERVERCHAN_KEY = os.environ.get("SERVERCHAN_KEY", "")
 SERVERCHAN_API = "https://sctapi.ftqq.com"
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -80,8 +80,9 @@ def upload_to_pagedrop(html_body, cache_path):
     cache_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding='utf-8')
     return payload['data']['url']
 
-# Netlify 托管地址（固定链接，GitHub Actions 自动同步）
-NETLIFY_URL = "https://daily-english-words.netlify.app/today.html"
+# Cloudflare Pages 托管地址（无限带宽，不被微信拦截）
+# 用户自定义域名后替换为：https://words.zjunxcr.eu.org/today.html
+NETLIFY_URL = "https://daily-english-words.pages.dev/today.html"
 
 def resolve_public_url(html_body, html_path):
     """返回 Netlify 托管的固定 URL"""
@@ -164,6 +165,8 @@ def build_feishu_card(html_body, public_url):
 
 def send_to_feishu(card):
     """发送飞书消息"""
+    if not FEISHU_WEBHOOK:
+        return False, "FEISHU_WEBHOOK 未配置"
     data = json.dumps(card, ensure_ascii=False).encode('utf-8')
     req = urllib.request.Request(FEISHU_WEBHOOK, data=data, headers={'Content-Type': 'application/json'})
     try:
