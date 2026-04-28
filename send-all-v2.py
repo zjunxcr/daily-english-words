@@ -80,9 +80,8 @@ def upload_to_pagedrop(html_body, cache_path):
     cache_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding='utf-8')
     return payload['data']['url']
 
-# Cloudflare Pages 托管地址（无限带宽，不被微信拦截）
-# 用户自定义域名后替换为：https://words.zjunxcr.eu.org/today.html
-NETLIFY_URL = "https://daily-english-words.pages.dev/today.html"
+# Netlify 托管地址
+NETLIFY_URL = "https://daily-english-words.netlify.app/today.html"
 
 def resolve_public_url(html_body, html_path):
     """返回 Netlify 托管的固定 URL"""
