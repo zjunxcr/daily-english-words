@@ -30,28 +30,7 @@ jobs:
     - name: Embed audio
       run: python embed-daily-words-audio.py
       
-    - name: Commit and push HTML to repo
-      env:
-        GH_TOKEN: ${{ secrets.GH_PAT }}
-      run: |
-        python3 << 'PYEOF'
-        import glob, os, subprocess, datetime
-        today = datetime.datetime.now().strftime('%Y-%m-%d')
-        pattern = f'每日英语单词_{today}.html'
-        files = glob.glob(pattern)
-        if not files:
-            print(f"No file matching {pattern}, skipping")
-        else:
-            f = files[0]
-            print(f"Found: {f} ({os.path.getsize(f)} bytes)")
-            subprocess.run(['git', 'config', 'credential.helper', 'store'], check=True)
-            subprocess.run(['git', 'config', 'remote.origin.url',
-                           f'https://x-access-token:${{ env.GH_TOKEN }}@github.com/zjunxcr/daily-english-words.git'], check=True)
-            subprocess.run(['git', 'add', f], check=True)
-            subprocess.run(['git', 'commit', '-m', f'deploy: {today}'], check=True)
-            subprocess.run(['git', 'push', 'origin', 'main'], check=True)
-            print("Git push OK")
-        PYEOF
+    
 
     - name: Sync to Netlify (docs/today.html)
       run: |
