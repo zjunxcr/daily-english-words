@@ -58,7 +58,7 @@ jobs:
                 print("Netlify sync OK:", json.loads(r.read()).get('commit',{}).get('message','ok')[:50])
         PYEOF
 
-     - name: Send notifications
+    - name: Send notifications
       run: python send-all-v2.py
       env:
         FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
