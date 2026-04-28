@@ -32,7 +32,7 @@ jobs:
       
     
 
-    - name: Sync to Netlify (docs/today.html)
+    - name: Commit HTML to docs
       run: |
         python3 << 'PYEOF'
         import urllib.request, json, ssl, glob, os, base64
