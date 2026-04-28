@@ -2,7 +2,7 @@
 每日英语单词 - 全渠道推送 v2
 功能：
 1. 读取当天 HTML 文件
-2. 从 Netlify 获取公网链接（已由 GitHub Actions 同步）
+2. 使用 GitHub Pages 公网链接（已由 GitHub Actions 同步到 docs/）
 3. 推送到飞书（卡片消息）
 4. 推送到 QQ（Qmsg酱）
 5. 推送到微信（PushPlus）
@@ -80,12 +80,12 @@ def upload_to_pagedrop(html_body, cache_path):
     cache_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding='utf-8')
     return payload['data']['url']
 
-# Netlify 托管地址
-NETLIFY_URL = "https://daily-english-words.netlify.app/today.html"
+# GitHub Pages 托管地址
+GITHUB_PAGES_URL = "https://zjunxcr.github.io/daily-english-words/today.html"
 
 def resolve_public_url(html_body, html_path):
-    """返回 Netlify 托管的固定 URL"""
-    return NETLIFY_URL, 'netlify'
+    """返回 GitHub Pages 托管的固定 URL"""
+    return GITHUB_PAGES_URL, 'github-pages'
 
 def extract_bonus(html_body):
     """提取兴趣加餐标题"""
