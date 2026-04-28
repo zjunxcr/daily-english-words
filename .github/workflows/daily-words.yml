@@ -48,7 +48,7 @@ jobs:
             print("No today's HTML found, skipping")
         else:
             content = open(html_files[0], 'rb').read()
-           for attempt in range(3):
+            for attempt in range(3):
                 sha = None
                 req = urllib.request.Request(f'https://api.github.com/repos/{REPO}/contents/docs/today.html', headers=HEADERS)
                 try:
