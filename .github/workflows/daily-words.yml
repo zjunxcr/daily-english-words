@@ -33,8 +33,13 @@ jobs:
     - name: Commit and push HTML to repo
       run: |
         python3 << 'PYEOF'
-        import glob, os, subprocess, datetime
+        import glob, os, subprocess, datetime, urllib.parse
         today = datetime.datetime.now().strftime('%Y-%m-%d')
+        # 用GH_PAT设置remote URL，让git push能认证
+        subprocess.run([
+            'git', 'remote', 'set-url', 'origin',
+            f'https://x-access-token:${{ secrets.GH_PAT }}@github.com/zjunxcr/daily-english-words.git'
+        ], check=True)
         pattern = f'每日英语单词_{today}.html'
         files = glob.glob(pattern)
         if not files:
