@@ -60,7 +60,7 @@ NETLIFY_SONGS = {
     "Home on the Range": "home-range",
 }
 
-NETLIFY_BASE = "https://daily-english-words.netlify.app/audio/"
+NETLIFY_BASE = "https://zjunxcr.github.io/daily-english-words/audio/"
 
 
 def get_phonetic(word):
@@ -1420,6 +1420,28 @@ def get_lyrics_with_fallback(song_name, artist, netease_id):
     return [], [], None
 
 
+CF_WORKER = "quiet-term-cc2f.zjunxcr.workers.dev"
+
+def fetch_mp3_url(netease_id):
+    """通过第三方API获取网易云音乐MP3直链，并转为 Cloudflare Worker HTTPS 代理地址"""
+    api_url = f"https://api.byfuns.top/1/?id={netease_id}"
+    try:
+        req = urllib.request.Request(api_url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            mp3_url = resp.read().decode("utf-8").strip()
+            if mp3_url.startswith("http://m801.music.126.net/"):
+                # 用 Cloudflare Worker 把 HTTP 转成 HTTPS，手机可内嵌播放
+                audio_path = mp3_url[len("http://"):]  # 去掉 "http://" 剩 "m801.music.126.net/..."
+                return f"https://{CF_WORKER}/proxy/{audio_path}"
+            elif mp3_url.startswith("http"):
+                # 其他 HTTP 源同样处理
+                audio_path = mp3_url[len("http://"):]
+                return f"https://{CF_WORKER}/proxy/{audio_path}"
+            elif mp3_url.startswith("https"):
+                # 已经是 HTTPS 直接返回
+                return mp3_url
+    except Exception as e:
+        print(f"[WARN] 获取MP3链接失败: {e}")
     return None
 
 
