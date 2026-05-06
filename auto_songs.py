@@ -62,6 +62,122 @@ NETLIFY_SONGS = {
 
 NETLIFY_BASE = "https://zjunxcr.github.io/daily-english-words/audio/"
 
+# ============================================================
+# 经典流行歌曲（97首，托管在 GitHub Pages docs/audio/classic/）
+# 歌名 -> 文件名（与实际 mp3 文件名一致）
+# 来源：经典英文歌曲合集（教育用途）
+# ============================================================
+CLASSIC_SONGS = {
+    "Lemon Tree": "Fools Garden - Lemon Tree.mp3",
+    "Right Here Waiting": "Richard Marx - Right Here Waiting.mp3",
+    "My Heart Will Go On": "Celine Dion - My Heart Will Go On.mp3",
+    "What a Wonderful World": "Louis Armstrong - What a Wonderful World.mp3",
+    "Yesterday Once More": "Carpenters - Yesterday Once More.mp3",
+    "Love Story": "Taylor Swift - Love Story.mp3",
+    "Hey Jude": "The Beatles - Hey Jude.mp3",
+    "Let It Be": "The Beatles - Let It Be.mp3",
+    "As Long As You Love Me": "Backstreet Boys - As Long As You Love Me.mp3",
+    "I Want It That Way": "Backstreet Boys - I Want It That Way.mp3",
+    "My Love": "Westlife - My Love.mp3",
+    "Stand By Me": "Ben E King - Stand By Me.mp3",
+    "Just One Last Dance": "Sarah Connor - Just One Last Dance.mp3",
+    "Someone Like You": "Adele - Someone Like You.mp3",
+    "Hotel California": "Eagles - Hotel California.mp3",
+    "Hero": "Mariah Carey - Hero.mp3",
+    "Moon River": "Audrey Hepburn - Moon River.mp3",
+    "Baby One More Time": "Britney Spears - Baby One More Time.mp3",
+    "You Are Not Alone": "Michael Jackson - You Are Not Alone.mp3",
+    # 以下为文件名模糊匹配补充
+    "Rolling In The Deep": "Adele - Rolling In The Deep.mp3",
+    "Take My Breath Away": "Berlin - Take My Breath Away.mp3",
+    "Blowin In The Wind": "Bob Dylan - Blowin In The Wind.mp3",
+    "Total Eclipse of the Heart": "Bonnie Tyler - Total Eclipse of the Heart.mp3",
+    "Everything I Do (I Do It for You)": "Bryan Adams - Everything I Do.mp3",
+    "Call Me Maybe": "Carly Rae Jepsen - Call Me Maybe.mp3",
+    "Because You Loved Me": "Celine Dion - Because You Loved Me.mp3",
+    "Smile": "Charlie Chaplin - Smile.mp3",
+    "Time After Time": "Cyndi Lauper - Time After Time.mp3",
+    "True Colors": "Cyndi Lauper - True Colors.mp3",
+    "Get Lucky": "Daft Punk Pharrell - Get Lucky.mp3",
+    "American Pie": "Don McLean - American Pie.mp3",
+    "Vincent (Starry Starry Night)": "Don McLean - Vincent.mp3",
+    "Shape of You": "Ed Sheeran - Shape of You.mp3",
+    "Thinking Out Loud": "Ed Sheeran - Thinking Out Loud.mp3",
+    "Can't Help Falling in Love": "Elvis Presley - Cant Help Falling In Love.mp3",
+    "Wonderful Tonight": "Eric Clapton - Wonderful Tonight.mp3",
+    "More Than Words": "Extreme - More Than Words.mp3",
+    "I Want To Know What Love Is": "Foreigner - I Want To Know What Love Is.mp3",
+    "Blue Moon": "Frank Sinatra - Blue Moon.mp3",
+    "Fly Me To The Moon": "Frank Sinatra - Fly Me To The Moon.mp3",
+    "My Way": "Frank Sinatra - My Way.mp3",
+    "Nothing's Gonna Change My Love for You": "George Benson - Nothing Gonna Change My Love.mp3",
+    "Careless Whisper": "George Michael - Careless Whisper.mp3",
+    "Don't Cry": "Guns N Roses - Dont Cry.mp3",
+    "Knockin' on Heaven's Door": "Guns N Roses - Knockin on Heavens Door.mp3",
+    "November Rain": "Guns N Roses - November Rain.mp3",
+    "Take Me Home Country Roads": "John Denver - Take Me Home Country Roads.mp3",
+    "All Of Me": "John Legend - All Of Me.mp3",
+    "Imagine": "John Lennon - Imagine.mp3",
+    "Can't Stop The Feeling": "Justin Timberlake - Cant Stop The Feeling.mp3",
+    "Firework": "Katy Perry - Firework.mp3",
+    "I Am You": "Kim Taylor - I Am You.mp3",
+    "Party Rock Anthem": "LMFAO - Party Rock Anthem.mp3",
+    "Bad Romance": "Lady Gaga - Bad Romance.mp3",
+    "Hallelujah": "Leonard Cohen - Hallelujah.mp3",
+    "Someone You Loved": "Lewis Capaldi - Someone You Loved.mp3",
+    "La Vie En Rose": "Louis Armstrong - La Vie En Rose.mp3",
+    "Uptown Funk": "Mark Ronson Bruno Mars - Uptown Funk.mp3",
+    "Sugar": "Maroon 5 - Sugar.mp3",
+    "Moves Like Jagger": "Maroon 5 Christina - Moves Like Jagger.mp3",
+    "Fade To Black": "Metallica - Fade To Black.mp3",
+    "Billie Jean": "Michael Jackson - Billie Jean.mp3",
+    "Thriller": "Michael Jackson - Thriller.mp3",
+    "Unforgettable": "Nat King Cole - Unforgettable.mp3",
+    "Smells Like Teen Spirit": "Nirvana - Smells Like Teen Spirit.mp3",
+    "Don't Speak": "No Doubt - Dont Speak.mp3",
+    "Don't Look Back in Anger": "Oasis - Dont Look Back In Anger.mp3",
+    "Wonderwall": "Oasis - Wonderwall.mp3",
+    "Happy": "Pharrell Williams - Happy.mp3",
+    "Another Brick In The Wall": "Pink Floyd - Another Brick In The Wall.mp3",
+    "Wish You Were Here": "Pink Floyd - Wish You Were Here.mp3",
+    "Bohemian Rhapsody": "Queen - Bohemian Rhapsody.mp3",
+    "Creep": "Radiohead - Creep.mp3",
+    "Unchained Melody": "Righteous Brothers - Unchained Melody.mp3",
+    "(I Can't Get No) Satisfaction": "Rolling Stones - Satisfaction.mp3",
+    "Stay With Me": "Sam Smith - Stay With Me.mp3",
+    "Angel": "Sarah McLachlan - Angel.mp3",
+    "Still Loving You": "Scorpions - Still Loving You.mp3",
+    "Wind of Change": "Scorpions - Wind of Change.mp3",
+    "Bridge Over Troubled Water": "Simon Garfunkel - Bridge Over Troubled Water.mp3",
+    "The Sound of Silence": "Simon Garfunkel - Sound of Silence.mp3",
+    "Fields of Gold": "Sting - Fields of Gold.mp3",
+    "Shape of My Heart": "Sting - Shape of My Heart.mp3",
+    "Yesterday": "The Beatles - Yesterday.mp3",
+    "Closer": "The Chainsmokers Halsey - Closer.mp3",
+    "Zombie": "The Cranberries - Zombie.mp3",
+    "Every Breath You Take": "The Police - Every Breath You Take.mp3",
+    "Free Fallin'": "Tom Petty - Free Fallin.mp3",
+    "One (U2)": "U2 - One.mp3",
+    "I Will Always Love You": "Whitney Houston - I Will Always Love You.mp3",
+    "All That She Wants": "Ace of Base - All That She Wants.mp3",
+    "Wake Me Up": "Avicii - Wake Me Up.mp3",
+    "The Times They Are A-Changin'": "Bob Dylan - The Times They Are A-Changin.mp3",
+    "Stars": "Kat DeLuna - Stars.mp3",
+    "Dreaming My Dreams": "The Cranberries - Dreaming My Dreams.mp3",
+}
+
+CLASSIC_BASE = "https://zjunxcr.github.io/daily-english-words/audio/classic/"
+
+
+def get_classic_audio_url(song_name):
+    """根据歌名获取经典歌曲的 GitHub Pages 音频 URL"""
+    filename = CLASSIC_SONGS.get(song_name)
+    if filename:
+        # 将文件名做 URL 编码（处理空格等特殊字符）
+        encoded = urllib.parse.quote(filename)
+        return f"{CLASSIC_BASE}{encoded}"
+    return None
+
 
 def get_phonetic(word):
     """
@@ -1850,23 +1966,35 @@ def generate_auto_song_html(svg_speaker):
       {"".join(pattern_items)}
     </div>'''
 
-    # 播放器：优先使用本地 MP3（Netlify），否则用网易云直链
-    slug = NETLIFY_SONGS.get(song["name"])
-    # 尝试获取网易云 MP3 直链（所有歌曲都尝试，不依赖 NETLIFY_SONGS）
-    mp3_url = fetch_mp3_url(mp3_id)
-    
+    # 播放器音频优先级：
+    # 1. CLASSIC_SONGS（GitHub Pages 上的97首经典英文歌曲）— 最稳定
+    # 2. NETLIFY_SONGS（Netlify 托管的28首儿童歌曲）
+    # 3. 网易云 MP3 直链（通过第三方 API + CF Worker 代理）
+    # 4. 网易云外链兜底
+    mp3_url = None
+
+    # 优先级1: 检查经典流行歌曲库
+    classic_url = get_classic_audio_url(song["name"])
+    if classic_url:
+        mp3_url = classic_url
+
+    # 优先级2: 检查 Netlify 儿歌库
+    if not mp3_url:
+        slug = NETLIFY_SONGS.get(song["name"])
+        if slug:
+            mp3_url = f"{NETLIFY_BASE}{slug}.mp3"
+
+    # 优先级3: 尝试网易云 MP3 直链
+    if not mp3_url:
+        netease_url = fetch_mp3_url(mp3_id)
+        if netease_url:
+            mp3_url = netease_url
+
+    # 生成播放器 HTML
     if mp3_url:
         player_html = f'''
     <div class="song-player">
       <audio id="song-audio" src="{mp3_url}" preload="metadata" controls style="width:100%;border-radius:10px;">
-      </audio>
-    </div>'''
-    elif slug:
-        # 本地有MP3，优先使用
-        audio_src = f"{NETLIFY_BASE}{slug}.mp3"
-        player_html = f'''
-    <div class="song-player">
-      <audio id="song-audio" src="{audio_src}" preload="metadata" controls style="width:100%;border-radius:10px;">
       </audio>
     </div>'''
     else:
