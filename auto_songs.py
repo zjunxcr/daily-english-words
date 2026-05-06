@@ -1401,14 +1401,37 @@ def fetch_lyrics(netease_id):
         return [], []
 
 
+def get_local_lyrics(song_name):
+    """从本地歌词数据库获取歌词（优先级最高，确保歌词与歌曲匹配）
+    返回: (en_lines, zh_lines) 或 (None, None)
+    """
+    from songs_lyrics_db import SONGS_LYRICS_DB
+    for entry in SONGS_LYRICS_DB:
+        if entry["name"] == song_name:
+            en = entry.get("lyrics_en", [])
+            zh = entry.get("lyrics_zh", [])
+            source = entry.get("lyric_source", "local")
+            note = entry.get("note", "")
+            print(f"  [LYRICS] 本地词库命中: {song_name} ({source}){(' '+note) if note else ''}")
+            return en, zh
+    print(f"  [WARN] 本地词库未找到: {song_name}")
+    return None, None
+
+
 def get_lyrics_with_fallback(song_name, artist, netease_id):
-    """获取歌词，如果指定ID失败则通过搜索查找"""
-    # 先尝试指定的ID
-    en, zh = fetch_lyrics(netease_id)
-    if en:
+    """获取歌词：优先本地数据库 -> 网易云API -> 搜索"""
+    # 1. 优先使用本地歌词数据库（已校验的正确歌词）
+    en, zh = get_local_lyrics(song_name)
+    if en and len(en) > 3:
         return en, zh, netease_id
 
-    # 指定ID失败，通过搜索查找
+    # 2. 回退到网易云API（可能不匹配，作为最后手段）
+    en, zh = fetch_lyrics(netease_id)
+    if en:
+        print(f"  [WARN] {song_name} 使用API歌词(可能不匹配!)")
+        return en, zh, netease_id
+
+    # 3. API失败，通过搜索查找
     print(f"  [WARN] ID:{netease_id} 无歌词，搜索: {song_name} - {artist}")
     found_id, found_artist = search_netease_id(song_name, artist)
     if found_id:
