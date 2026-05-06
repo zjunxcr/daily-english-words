@@ -1,4 +1,4 @@
-"""
+﻿"""
 auto_songs.py - 自动化歌曲学习系统
 根据初一英语水平自动挑选适合的英文歌曲，自动获取歌词、标注生词和俚语
 
@@ -1827,9 +1827,19 @@ def generate_auto_song_html(svg_speaker):
       {"".join(pattern_items)}
     </div>'''
 
-    # 播放器：优先使用本地 MP3（Netlify），否则走网易云外链
+    # 播放器：优先使用本地 MP3（Netlify），否则用网易云直链
     slug = NETLIFY_SONGS.get(song["name"])
-    if slug:
+    # 尝试获取网易云 MP3 直链（所有歌曲都尝试，不依赖 NETLIFY_SONGS）
+    mp3_url = fetch_mp3_url(mp3_id)
+    
+    if mp3_url:
+        player_html = f'''
+    <div class="song-player">
+      <audio id="song-audio" src="{mp3_url}" preload="metadata" controls style="width:100%;border-radius:10px;">
+      </audio>
+    </div>'''
+    elif slug:
+        # 本地有MP3，优先使用
         audio_src = f"{NETLIFY_BASE}{slug}.mp3"
         player_html = f'''
     <div class="song-player">
@@ -1839,8 +1849,6 @@ def generate_auto_song_html(svg_speaker):
     else:
         player_html = f'''
     <div class="song-player">
-      <audio id="song-audio" preload="none" controls style="width:100%;border-radius:10px;display:none;">
-      </audio>
       <div class="player-fallback" style="text-align:center;padding:10px 0;">
         🎧 <a href="https://music.163.com/song?id={mp3_id}" target="_blank" style="color:#4caf50;font-weight:bold;">点击前往网易云音乐收听 {song["name"]}</a>
       </div>
@@ -1908,3 +1916,4 @@ if __name__ == "__main__":
         print(html[:200])
     else:
         print("生成失败")
+
