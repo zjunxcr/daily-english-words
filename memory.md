@@ -12,7 +12,8 @@
 - 2026-04-21: accommodation, approximately, asb, attraction, bachelor, barbie, bargain, beaut, brew, broadband, choice, chur, citizenship, contribute, emergency, forecast, gym, hourly rate, ird number, lecture, multicultural, neighbour, overtime, passport, population, prepay, queue, recycle, refund, semester, stress, sunny, symptom, technology, trail, tramping, uniform, vet, visa
 - 2026-04-22: acc, brekkie, digital, interview, scroggin, special, tenancy, tourism, trolley, winz
 
-- 2026-05-11: 
+
+- 2026-05-11: tramping, bin, emergency, furnished, transfer, bach, radiator, divorce, assignment, scholarship
 
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
