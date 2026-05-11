@@ -3599,26 +3599,57 @@ def generate_html(words, bonus_html):
 # ============================================================
 # 主流程
 # ============================================================
+def load_today_words_from_memory():
+    """从 memory.md 中读取今天已选的单词，重建 word dict 列表"""
+    memory_path = _get_memory_path()
+    if not memory_path.exists():
+        return None
+    content = memory_path.read_text(encoding='utf-8')
+    for line in content.splitlines():
+        line = line.strip()
+        if line.startswith(f'- {TODAY}:'):
+            words_part = line.split(':', 1)[1].strip()
+            names = [w.strip().lower() for w in words_part.split(',') if w.strip()]
+            found = []
+            for name in names:
+                for wb_type in ['nz', 'ielts']:
+                    for w in WORD_BANK[wb_type]:
+                        if w['word'].lower() == name:
+                            found.append(w); break
+                    else: continue
+                    break
+            return found or None
+    return None
+
+
 if __name__ == "__main__":
     print(f"[*] 每日英语单词生成器 v3")
     print(f"[*] 日期: {TODAY} ({WEEKDAY_NAMES[WEEKDAY]})")
 
-    # 检查今天是否已经生成过，防止同一天重复运行
     used_dates = load_used_dates()
+    skip_save = False
     if TODAY in used_dates:
-        print(f"[!] {TODAY} 的单词已生成过（memory.md 已有记录），跳过")
-        exit(0)
+        print(f"[*] {TODAY} 已有记录，复用已选单词重新生成 HTML")
+        words = load_today_words_from_memory()
+        if not words:
+            print(f"[!] 无法从 memory.md 解析，跳过")
+            exit(0)
+        print(f"[*] 复用 {len(words)} 个已选词，跳过选词步骤")
+        skip_save = True
+    else:
+        print(f"[*] 正在从词库选取今日10词...")
+        words = select_todays_words()
+        print(f"[*] 选取完成，已排除 {len(load_used_words())} 个已用词")
 
-    print(f"[*] 正在从词库选取今日10词...")
-
-    # 1. 选取单词
-    words = select_todays_words()
-    print(f"[*] 选取完成，已排除 {len(load_used_words())} 个已用词")
-
-    print(f"\n[*] 今日 10 词：")
-    for i, w in enumerate(words, 1):
-        tag = "🟢" if w['type'] == 'nz' else "🔵"
-        print(f"  {tag} {i:02d}. {w['word']} ({w['meaning']})")
+    if not skip_save:
+        print(f"
+[*] 今日 10 词：")
+        for i, w in enumerate(words, 1):
+            tag = "🟢" if w['type'] == 'nz' else "🔵"
+            print(f"  {tag} {i:02d}. {w['word']} ({w['meaning']})")
+    else:
+        print(f"
+[*] 复用词：{'/ '.join(w['word'] for w in words)}")
 
     # 2. 生成兴趣加餐
     print(f"\n[*] 生成兴趣加餐...", end="")
@@ -3637,8 +3668,11 @@ if __name__ == "__main__":
     print(f"[OK] 已生成: {OUTPUT}")
     print(f"     文件大小: {OUTPUT.stat().st_size / 1024:.1f} KB")
 
-    # 4. 保存去重记录
-    save_used_words(words)
-    print(f"[OK] 去重记录已更新")
+    # 4. 保存去重记录（仅新选词时）
+    if not skip_save:
+        save_used_words(words)
+        print(f"[OK] 去重记录已更新")
+    else:
+        print(f"[OK] 复用模式，跳过保存去重记录")
 
     print(f"\n[*] ✅ 完成！下一步：运行 embed-daily-words-audio.py 嵌入音频，然后运行 send-all-v2.py 推送")
