@@ -1559,7 +1559,7 @@ def get_lyrics_with_fallback(song_name, artist, netease_id):
     return [], [], None
 
 
-CF_WORKER = "quiet-term-cc2f.zjunxcr.workers.dev"
+CF_WORKER = "music.163.com"  # 占位，已改用 protocol-relative URL
 
 def fetch_mp3_url(netease_id):
     """通过第三方API获取网易云音乐MP3直链，并转为 Cloudflare Worker HTTPS 代理地址"""
@@ -1571,11 +1571,11 @@ def fetch_mp3_url(netease_id):
             if mp3_url.startswith("http://m801.music.126.net/"):
                 # 用 Cloudflare Worker 把 HTTP 转成 HTTPS，手机可内嵌播放
                 audio_path = mp3_url[len("http://"):]  # 去掉 "http://" 剩 "m801.music.126.net/..."
-                return f"https://{CF_WORKER}/proxy/{audio_path}"
+                return f"//{audio_path}"  # 相对协议，浏览器自动 https
             elif mp3_url.startswith("http"):
                 # 其他 HTTP 源同样处理
                 audio_path = mp3_url[len("http://"):]
-                return f"https://{CF_WORKER}/proxy/{audio_path}"
+                return f"//{audio_path}"  # 相对协议，浏览器自动 https
             elif mp3_url.startswith("https"):
                 # 已经是 HTTPS 直接返回
                 return mp3_url
