@@ -1,6 +1,7 @@
 # 每日英语单词 - 自动化执行记录
 
 ## 单词去重记录
+- 2026-05-11: jandal, roster, community, roundabout, special, trail, power, salary, convenient, artificial
 - 2026-05-11: tramping, bin, emergency, furnished, transfer, bach, radiator, divorce, assignment, scholarship
 - 2026-04-22: brekkie, scroggin, tenancy, ACC, special, trolley, WINZ, digital, interview, tourism
 - 2026-04-21: hourly rate, uniform, forecast, gym, bargain, brew, trail, technology, stress, semester
@@ -56,3 +57,5 @@
 
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
+
+song_history: 2026-05-11 Always Come Back to Your Love - Samantha Mumba
