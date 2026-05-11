@@ -1702,22 +1702,44 @@ def load_used_words():
     return used
 
 
+def load_used_dates():
+    """从 memory.md 中提取已有记录的日期集合，用于防止同一天重复生成"""
+    memory_path = _get_memory_path()
+    if not memory_path.exists():
+        return set()
+    content = memory_path.read_text(encoding='utf-8')
+    dates = set()
+    for line in content.splitlines():
+        line = line.strip()
+        if line.startswith('- ') and ':' in line:
+            date_part = line.split(':', 1)[0].strip('- ').strip()
+            if date_part:
+                dates.add(date_part)
+    return dates
+
+
 def save_used_words(today_words):
-    """将今天的单词追加到 memory.md"""
+    """将今天的单词追加到 memory.md（追加到单词区末尾，保持时间顺序）"""
     memory_path = _get_memory_path()
     word_list = ', '.join(w['word'] for w in today_words)
     new_line = f"- {TODAY}: {word_list}\n"
-    marker = "## 单词去重记录\n"
 
-    # 写 GitHub Actions 可用的 repo 根目录
     if not memory_path.exists():
-        memory_path.write_text("# 每日英语单词 - 自动化执行记录\n\n## 单词去重记录\n" + new_line, encoding='utf-8')
+        memory_path.write_text(
+            "# 每日英语单词 - 自动化执行记录\n\n## 单词去重记录\n" + new_line + "\n## 歌曲历史\n",
+            encoding='utf-8'
+        )
     else:
         content = memory_path.read_text(encoding='utf-8')
-        if marker in content:
-            content = content.replace(marker, marker + new_line, 1)
+        # 找到单词区的末尾（在 ## 歌曲历史 之前），追加新行
+        if "## 歌曲历史" in content:
+            # 在 ## 歌曲历史 前插入新行
+            content = content.replace("## 歌曲历史", new_line + "\n## 歌曲历史", 1)
         else:
-            content += "\n## 单词去重记录\n" + new_line
+            # 没有歌曲历史标记，直接追加
+            if not content.endswith('\n'):
+                content += '\n'
+            content += new_line
         memory_path.write_text(content, encoding='utf-8')
 
 
@@ -3580,6 +3602,13 @@ def generate_html(words, bonus_html):
 if __name__ == "__main__":
     print(f"[*] 每日英语单词生成器 v3")
     print(f"[*] 日期: {TODAY} ({WEEKDAY_NAMES[WEEKDAY]})")
+
+    # 检查今天是否已经生成过，防止同一天重复运行
+    used_dates = load_used_dates()
+    if TODAY in used_dates:
+        print(f"[!] {TODAY} 的单词已生成过（memory.md 已有记录），跳过")
+        exit(0)
+
     print(f"[*] 正在从词库选取今日10词...")
 
     # 1. 选取单词
