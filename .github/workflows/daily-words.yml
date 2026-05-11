@@ -70,7 +70,7 @@ jobs:
           ctx.check_hostname = False; ctx.verify_mode = ssl.CERT_NONE
           REPO = 'zjunxcr/daily-english-words'
           today = datetime.now().strftime('%Y-%m-%d')
-          html_files = glob.glob(f'单词/每日单词/单词_{today}.html')
+          html_files = glob.glob(f'每日英语单词_{today}.html')
           if not html_files:
               print("No today's HTML found, skipping")
           else:
