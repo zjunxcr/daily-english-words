@@ -1690,7 +1690,7 @@ def load_used_words():
     if not memory_path.exists():
         return set()
 
-    content = memory_path.read_text(encoding='utf-8')
+    content = memory_path.read_text(encoding='utf-8-sig')
     used = set()
     for line in content.splitlines():
         line = line.strip()
@@ -1707,7 +1707,7 @@ def load_used_dates():
     memory_path = _get_memory_path()
     if not memory_path.exists():
         return set()
-    content = memory_path.read_text(encoding='utf-8')
+    content = memory_path.read_text(encoding='utf-8-sig')
     dates = set()
     for line in content.splitlines():
         line = line.strip()
@@ -1730,7 +1730,7 @@ def save_used_words(today_words):
             encoding='utf-8'
         )
     else:
-        content = memory_path.read_text(encoding='utf-8')
+        content = memory_path.read_text(encoding='utf-8-sig')
         # 找到单词区的末尾（在 ## 歌曲历史 之前），追加新行
         if "## 歌曲历史" in content:
             # 在 ## 歌曲历史 前插入新行
@@ -3604,7 +3604,7 @@ def load_today_words_from_memory():
     memory_path = _get_memory_path()
     if not memory_path.exists():
         return None
-    content = memory_path.read_text(encoding='utf-8')
+    content = memory_path.read_text(encoding='utf-8-sig')
     for line in content.splitlines():
         line = line.strip()
         if line.startswith(f'- {TODAY}:'):
