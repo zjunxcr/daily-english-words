@@ -11,7 +11,8 @@
 - 2026-04-20: acknowledge, adapt, application, appointment, bach, bond, bus lane, certificate, cheers, chemist, community, diverse, duration, eftpos, eligible, enrol, flatmate, fluent, furnished, gp, heaps, income, infrastructure, inspection, jandal, landlord, lease, mate, migrate, motorway, ncea, no worries, notice, opportunity, plug, polytechnic, prescription, previous, produce, radiator, rate, receipt, reckon, reference, require, resident, roster, roundabout, stoked, sustainability, sweet as, ta, temporary, transfer
 - 2026-04-21: accommodation, approximately, asb, attraction, bachelor, barbie, bargain, beaut, brew, broadband, choice, chur, citizenship, contribute, emergency, forecast, gym, hourly rate, ird number, lecture, multicultural, neighbour, overtime, passport, population, prepay, queue, recycle, refund, semester, stress, sunny, symptom, technology, trail, tramping, uniform, vet, visa
 - 2026-04-22: acc, brekkie, digital, interview, scroggin, special, tenancy, tourism, trolley, winz
-- 2026-05-11: artificial, assignment, bach, balanced, bin, brew, climate change, community, convenient, divorce, eftpos, emergency, experience, furnished, generation, hourly rate, jandal, keen, power, radiator, reckon, recover, refund, retire, roster, roundabout, salary, scholarship, scroggin, secondhand, special, trail, tramping, transfer
+
+- 2026-05-11: 
 
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
