@@ -1,4 +1,4 @@
-﻿"""
+"""
 auto_songs.py - 自动化歌曲学习系统
 根据初一英语水平自动挑选适合的英文歌曲，自动获取歌词、标注生词和俚语
 
@@ -1004,7 +1004,7 @@ SONG_LIBRARY = [
     {"name": "Perfect", "artist": "Ed Sheeran", "year": "2017", "netease_id": "1877680891",
      "tense": "一般过去时 + 现在完成时", "tense_en": "Simple Past + Present Perfect", "level": 3,
      "tense_rule": "I found a woman = 我遇到了一个女人（过去式）；I have never felt = 我从未感到"},
-    {"name": "Counting Stars", "artist": "OneRepublic", "year": "2013", "netease_id": "436514312",
+    {"name": "Perfect", "artist": "Ed Sheeran", "year": "2017", "netease_id": "1877680891",
      "tense": "一般现在时 + 现在进行时", "tense_en": "Simple Present + Present Continuous", "level": 3,
      "tense_rule": "I see this life = 我看到这生活；make that money = 赚那些钱"},
     {"name": "If I Were a Boy", "artist": "Beyonce", "year": "2008", "netease_id": "441566935",
