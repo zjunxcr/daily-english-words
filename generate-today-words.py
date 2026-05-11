@@ -3633,7 +3633,7 @@ if __name__ == "__main__":
         words = load_today_words_from_memory()
         if not words:
             print(f"[!] 无法从 memory.md 解析，跳过")
-            exit(0)
+            sys.exit(0)
         print(f"[*] 复用 {len(words)} 个已选词，跳过选词步骤")
         skip_save = True
     else:
