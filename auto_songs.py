@@ -1656,7 +1656,7 @@ def append_song_history(song_name, artist):
     """将今日歌曲追加到memory.md的歌曲历史记录"""
     import os
     from datetime import date
-    mem_path = os.path.join(os.path.dirname(__file__), ".codebuddy", "automations", "automation", "memory.md")
+    mem_path = os.path.join(os.path.dirname(__file__), "memory.md")
     today_str = date.today().isoformat()
     new_line = f"song_history: {today_str} {song_name} - {artist}"
 
@@ -1686,7 +1686,7 @@ def append_song_history(song_name, artist):
 def get_used_songs():
     """读取已使用过的歌曲记录（从memory.md的歌曲历史中）"""
     import os
-    mem_path = os.path.join(os.path.dirname(__file__), ".codebuddy", "automations", "automation", "memory.md")
+    mem_path = os.path.join(os.path.dirname(__file__), "memory.md")
     if os.path.exists(mem_path):
         try:
             with open(mem_path, "r", encoding="utf-8") as f:
