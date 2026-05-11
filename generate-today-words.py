@@ -1681,12 +1681,8 @@ WORD_BANK = {
 # 去重：读取已使用的单词
 # ============================================================
 def _get_memory_path():
-    """获取 memory.md 路径，优先 repo 根目录（GitHub Actions 可用），本地其次"""
-    local_path = BASE_DIR / ".codebuddy" / "automations" / "automation" / "memory.md"
-    repo_path = BASE_DIR / "memory.md"
-    if repo_path.exists():
-        return repo_path
-    return local_path
+    """获取 memory.md 路径，repo 根目录（GitHub Actions 和本地统一）"""
+    return BASE_DIR / "memory.md"
 
 def load_used_words():
     """从 memory.md 中提取已使用过的单词"""
@@ -1709,10 +1705,6 @@ def load_used_words():
 def save_used_words(today_words):
     """将今天的单词追加到 memory.md"""
     memory_path = _get_memory_path()
-    # 本地 fallback 也写一份
-    local_path = BASE_DIR / ".codebuddy" / "automations" / "automation" / "memory.md"
-    local_path.parent.mkdir(parents=True, exist_ok=True)
-
     word_list = ', '.join(w['word'] for w in today_words)
     new_line = f"- {TODAY}: {word_list}\n"
     marker = "## 单词去重记录\n"
@@ -1728,17 +1720,6 @@ def save_used_words(today_words):
             content += "\n## 单词去重记录\n" + new_line
         memory_path.write_text(content, encoding='utf-8')
 
-    # 同时写本地 .codebuddy（保持本地状态同步）
-    if not local_path.exists():
-        local_path.write_text("# 每日英语单词 - 自动化执行记录\n\n## 单词去重记录\n" + new_line, encoding='utf-8')
-    else:
-        content = local_path.read_text(encoding='utf-8')
-        if marker in content:
-            content = content.replace(marker, marker + new_line, 1)
-        else:
-            content += "\n## 单词去重记录\n" + new_line
-        local_path.write_text(content, encoding='utf-8')
-
 
 # ============================================================
 # 随机选取今日单词
@@ -1747,21 +1728,40 @@ def select_todays_words():
     """从词库随机选取10个词（7 NZ + 3 雅思），避免重复"""
     used = load_used_words()
 
-    # 过滤已使用的词
-    nz_pool = [w for w in WORD_BANK["nz"] if w["word"].lower() not in used]
-    ielts_pool = [w for w in WORD_BANK["ielts"] if w["word"].lower() not in used]
+    # Step 1: 先去重（词库本身有大量重复），保留每个词第一次出现的条目
+    seen_nz = set()
+    nz_unique = []
+    for w in WORD_BANK["nz"]:
+        key = w["word"].lower()
+        if key not in seen_nz:
+            seen_nz.add(key)
+            nz_unique.append(w)
 
-    # 如果去重后不够，从全池补充
+    seen_ielts = set()
+    ielts_unique = []
+    for w in WORD_BANK["ielts"]:
+        key = w["word"].lower()
+        if key not in seen_ielts:
+            seen_ielts.add(key)
+            ielts_unique.append(w)
+
+    # Step 2: 过滤已使用的词
+    nz_pool = [w for w in nz_unique if w["word"].lower() not in used]
+    ielts_pool = [w for w in ielts_unique if w["word"].lower() not in used]
+
+    # 如果去重后不够，从未用过的全池补充（使用去重后的唯一词库）
     if len(nz_pool) < 7:
-        all_nz_words = set(w["word"].lower() for w in WORD_BANK["nz"])
-        extra_nz = [w for w in WORD_BANK["nz"] if w["word"].lower() in all_nz_words - set(w["word"].lower() for w in nz_pool)]
+        extra_nz = [w for w in nz_unique
+                    if w["word"].lower() not in used
+                    and w not in nz_pool]
         random.shuffle(extra_nz)
-        nz_pool.extend(extra_nz)
+        nz_pool.extend(extra_nz[:7 - len(nz_pool)])
     if len(ielts_pool) < 3:
-        all_ielts_words = set(w["word"].lower() for w in WORD_BANK["ielts"])
-        extra_ielts = [w for w in WORD_BANK["ielts"] if w["word"].lower() in all_ielts_words - set(w["word"].lower() for w in ielts_pool)]
+        extra_ielts = [w for w in ielts_unique
+                       if w["word"].lower() not in used
+                       and w not in ielts_pool]
         random.shuffle(extra_ielts)
-        ielts_pool.extend(extra_ielts)
+        ielts_pool.extend(extra_ielts[:3 - len(ielts_pool)])
 
     random.shuffle(nz_pool)
     random.shuffle(ielts_pool)
