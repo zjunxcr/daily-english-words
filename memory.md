@@ -1,6 +1,7 @@
 # 每日英语单词 - 自动化执行记录
 
 ## 单词去重记录
+- 2026-05-11: secondhand, recover, experience, balanced
 - 2026-05-11: eftpos, scroggin, hourly rate, brew, refund, keen, reckon, generation, climate change, retire
 - 2026-05-11: jandal, roster, community, roundabout, special, trail, power, salary, convenient, artificial
 - 2026-05-11: tramping, bin, emergency, furnished, transfer, bach, radiator, divorce, assignment, scholarship
@@ -61,3 +62,4 @@ song_history: 2026-05-11 Forever Young - Alphaville
 
 song_history: 2026-05-11 Always Come Back to Your Love - Samantha Mumba
 song_history: 2026-05-11 You Are My Sunshine - Christina Perri
+song_history: 2026-05-11 Yesterday Once More - Carpenters
