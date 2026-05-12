@@ -1771,19 +1771,21 @@ def select_todays_words():
     nz_pool = [w for w in nz_unique if w["word"].lower() not in used]
     ielts_pool = [w for w in ielts_unique if w["word"].lower() not in used]
 
-    # 如果去重后不够，从未用过的全池补充（使用去重后的唯一词库）
+    # 如果去重后不够，从已用词中补充（优先选最早使用的词以最大化间隔）
     if len(nz_pool) < 7:
-        extra_nz = [w for w in nz_unique
-                    if w["word"].lower() not in used
-                    and w not in nz_pool]
-        random.shuffle(extra_nz)
-        nz_pool.extend(extra_nz[:7 - len(nz_pool)])
+        reuse_nz = [w for w in nz_unique if w["word"].lower() in used]
+        random.shuffle(reuse_nz)
+        needed = 7 - len(nz_pool)
+        nz_pool.extend(reuse_nz[:needed])
+        if needed > 0:
+            print(f"  [INFO] NZ可用词不足({len(nz_pool)-needed})，补充{min(needed, len(reuse_nz))}个已用词")
     if len(ielts_pool) < 3:
-        extra_ielts = [w for w in ielts_unique
-                       if w["word"].lower() not in used
-                       and w not in ielts_pool]
-        random.shuffle(extra_ielts)
-        ielts_pool.extend(extra_ielts[:3 - len(ielts_pool)])
+        reuse_ielts = [w for w in ielts_unique if w["word"].lower() in used]
+        random.shuffle(reuse_ielts)
+        needed = 3 - len(ielts_pool)
+        ielts_pool.extend(reuse_ielts[:needed])
+        if needed > 0:
+            print(f"  [INFO] 雅思可用词不足({len(ielts_pool)-needed})，补充{min(needed, len(reuse_ielts))}个已用词")
 
     random.shuffle(nz_pool)
     random.shuffle(ielts_pool)
