@@ -215,21 +215,42 @@ def get_phonetic(word):
     except Exception:
         pass
 
-    # Step 2: 获取中文释义（来自有道词典）
+    # Step 2: 获取中文释义（来自有道词典 suggest 端点，比 web_trans 更准确）
     try:
-        url2 = f"https://dict.youdao.com/jsonapi?q={urllib.parse.quote(word)}&doctype=json"
+        url2 = f"https://dict.youdao.com/suggest?q={urllib.parse.quote(word)}&num=1&doctype=json"
         req2 = urllib.request.Request(url2, headers={"User-Agent": "Mozilla/5.0"})
         with urllib.request.urlopen(req2, timeout=10) as resp2:
             data2 = json.loads(resp2.read().decode())
-            # 优先取 web_trans 中的中文翻译
-            wt = data2.get("web_trans", {}).get("web-translation", [])
-            if wt:
-                trans_list = wt[0].get("trans", [])
-                if trans_list:
-                    # 取第一个中文翻译（通常是最常用义项）
-                    definition = trans_list[0].get("value", "")
+            entries = data2.get("data", {}).get("entries", [])
+            if entries:
+                entry = entries[0]
+                if isinstance(entry, dict):
+                    definition = entry.get("explain", "")
+                elif isinstance(entry, str) and "  " in entry:
+                    definition = entry.split("  ", 1)[1].strip()
     except Exception:
         pass
+
+    # Step 2b: 如果 suggest 没返回，回退到 jsonapi 的 ec 词典
+    if not definition:
+        try:
+            url3 = f"https://dict.youdao.com/jsonapi?q={urllib.parse.quote(word)}&doctype=json"
+            req3 = urllib.request.Request(url3, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req3, timeout=10) as resp3:
+                data3 = json.loads(resp3.read().decode())
+                ec = data3.get("ec", {}).get("word", [])
+                if ec:
+                    tr_list = ec[0].get("trs", [])
+                    if tr_list:
+                        tr0 = tr_list[0].get("tr", [])
+                        if tr0 and isinstance(tr0, list):
+                            l_data = tr0[0].get("l", {})
+                            if isinstance(l_data, list):
+                                definition = "; ".join(d.get("#text", "") for d in l_data if isinstance(d, dict))
+                            elif isinstance(l_data, str):
+                                definition = l_data
+        except Exception:
+            pass
 
     result = {
         "ipa": ipa,
