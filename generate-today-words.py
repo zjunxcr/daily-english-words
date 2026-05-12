@@ -3642,14 +3642,12 @@ if __name__ == "__main__":
         print(f"[*] 选取完成，已排除 {len(load_used_words())} 个已用词")
 
     if not skip_save:
-        print(f"
-[*] 今日 10 词：")
+        print(f"\n[*] 今日 10 词：")
         for i, w in enumerate(words, 1):
             tag = "🟢" if w['type'] == 'nz' else "🔵"
             print(f"  {tag} {i:02d}. {w['word']} ({w['meaning']})")
     else:
-        print(f"
-[*] 复用词：{'/ '.join(w['word'] for w in words)}")
+        print(f"\n[*] 复用词：{'/ '.join(w['word'] for w in words)}")
 
     # 2. 生成兴趣加餐
     print(f"\n[*] 生成兴趣加餐...", end="")
