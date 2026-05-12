@@ -695,16 +695,6 @@ WORD_BANK = {
              {"word": "brew", "phonetic": "/bruː/", "syllable": "brew", "meaning": "n. 一杯咖啡（NZ俚语）"},
              {"word": "thanks", "phonetic": "/θæŋks/", "syllable": "thanks", "meaning": "int. 谢谢（= thank you）"}
          ]},
-        {"word": "plug", "phonetic": "/plʌɡ/", "syllable": "plug", "pos": "n./v.",
-         "meaning": "插座；插头",
-         "example": "Do you have a plug adapter? The sockets here are different.",
-         "example_cn": "你有转换插头吗？这里的插座规格不一样。", "scene": "🔌 生活用品",
-         "grammar": "一般疑问句：Do you have...?（你有...吗？）；different（不同的）",
-         "sentence_words": [
-             {"word": "adapter", "phonetic": "/əˈdæptər/", "syllable": "a·dap·ter", "meaning": "n. 转换插头；适配器"},
-             {"word": "socket", "phonetic": "/ˈsɒkɪt/", "syllable": "sock·et", "meaning": "n. 插座；插孔"},
-             {"word": "plug", "phonetic": "/plʌɡ/", "syllable": "plug", "meaning": "n. 插头；插座"}
-         ]},
 
         # ---- 互联网/手机 ----
         {"word": "broadband", "phonetic": "/ˈbrɔːdbænd/", "syllable": "broad · band", "pos": "n.",
@@ -761,16 +751,6 @@ WORD_BANK = {
              {"word": "plate", "phonetic": "/pleɪt/", "syllable": "plate", "meaning": "n. 盘子；一盘"},
              {"word": "cookies", "phonetic": "/ˈkʊkiz/", "syllable": "cook·ies", "meaning": "n. 饼干；曲奇（复数）"},
              {"word": "neighbour", "phonetic": "/ˈneɪbə/", "syllable": "neigh·bour", "meaning": "n. 邻居"}
-         ]},
-        {"word": "rubbish", "phonetic": "/ˈrʌbɪʃ/", "syllable": "rub · bish", "pos": "n.",
-         "meaning": "垃圾（NZ/英式）",
-         "example": "When's the rubbish collected in our area?",
-         "example_cn": "我们这片区域什么时候收垃圾？", "scene": "🏘️ 社区生活",
-         "grammar": "When's = When is 的缩写；一般现在时（日常规律）",
-         "sentence_words": [
-             {"word": "collected", "phonetic": "/kəˈlektɪd/", "syllable": "col·lect·ed", "meaning": "v. 收集；回收（过去分词）"},
-             {"word": "area", "phonetic": "/ˈeəriə/", "syllable": "a·re·a", "meaning": "n. 区域；地区"},
-             {"word": "rubbish", "phonetic": "/ˈrʌbɪʃ/", "syllable": "rub·bish", "meaning": "n. 垃圾（英/NZ用法）"}
          ]},
         {"word": "community", "phonetic": "/kəˈmjuːnəti/", "syllable": "com · mu · ni · ty", "pos": "n.",
          "meaning": "社区；群体",
@@ -894,14 +874,6 @@ WORD_BANK = {
          ]},
 
         # ---- NZ职场 ----
-        {"word": "roster", "phonetic": "/ˈrɒstər/", "syllable": "ros · ter", "pos": "n.",
-         "meaning": "排班表",
-         "example": "Can you check the roster and tell me when I'm working next?",
-         "example_cn": "你能查一下排班表，告诉我下次什么时候上班吗？", "scene": "💼 排班",
-         "grammar": "情态动词 Can + 主语 + 动词原形？表示请求；when 引导宾语从句",
-         "sentence_words": [
-             {"word": "roster", "phonetic": "/ˈrɒstər/", "syllable": "ros·ter", "meaning": "n. 排班表；值班表"}
-         ]},
         {"word": "hourly rate", "phonetic": "/ˈaʊəli reɪt/", "syllable": "hour · ly rate", "pos": "n.",
          "meaning": "时薪",
          "example": "What's the hourly rate for this job?",
@@ -921,15 +893,6 @@ WORD_BANK = {
              {"word": "shift", "phonetic": "/ʃɪft/", "syllable": "shift", "meaning": "n. 班次；轮班"},
              {"word": "early shift", "phonetic": "/ˈɜːli ʃɪft/", "syllable": "ear·ly shift", "meaning": "n. 早班"},
              {"word": "starts", "phonetic": "/stɑːts/", "syllable": "starts", "meaning": "v. 开始（第三人称单数）"}
-         ]},
-        {"word": "deadline", "phonetic": "/ˈdedlaɪn/", "syllable": "dead · line", "pos": "n.",
-         "meaning": "截止日期",
-         "example": "The deadline for the application is next Friday.",
-         "example_cn": "申请截止日期是下周五。", "scene": "💼 工作",
-         "grammar": "一般现在时（客观截止日期）；next Friday（下周五）",
-         "sentence_words": [
-             {"word": "application", "phonetic": "/ˌæplɪˈkeɪʃn/", "syllable": "ap·pli·ca·tion", "meaning": "n. 申请；申请表"},
-             {"word": "deadline", "phonetic": "/ˈdedlaɪn/", "syllable": "dead·line", "meaning": "n. 截止日期；最后期限"}
          ]},
         {"word": "overtime", "phonetic": "/ˈəʊvətaɪm/", "syllable": "o · ver · time", "pos": "n.",
          "meaning": "加班",
@@ -969,14 +932,6 @@ WORD_BANK = {
          ]},
 
         # ---- NZ生活其他 ----
-        {"word": "stoked", "phonetic": "/stəʊkt/", "syllable": "stoked", "pos": "adj.",
-         "meaning": "超开心；兴奋不已（NZ口语）",
-         "example": "I'm absolutely stoked with my new flat!",
-         "example_cn": "我对我的新公寓简直开心爆了！", "scene": "🗣️ NZ口语",
-         "grammar": "be stoked with（对...超级满意）；absolutely（绝对地，加强语气）",
-         "sentence_words": [
-             {"word": "stoked", "phonetic": "/stəʊkt/", "syllable": "stoked", "meaning": "adj. 超开心的；兴奋不已（NZ俚语）"}
-         ]},
         {"word": "chur", "phonetic": "/tʃɜː/", "syllable": "chur", "pos": "int.",
          "meaning": "谢谢（NZ特有俚语）",
          "example": "Chur, bro! That was a sick wave!",
@@ -1011,22 +966,6 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "fridge", "phonetic": "/frɪdʒ/", "syllable": "fridge", "meaning": "n. 冰箱（英/NZ用法）"}
          ]},
-        {"word": "ta", "phonetic": "/tɑː/", "syllable": "ta", "pos": "int.",
-         "meaning": "谢谢（NZ/英式，非正式）",
-         "example": "Ta for that! You're a legend.",
-         "example_cn": "谢啦！你是最棒的。", "scene": "🗣️ 日常感谢",
-         "grammar": "感叹句；legend（传奇人物，NZ口语指很棒的人）",
-         "sentence_words": [
-             {"word": "ta", "phonetic": "/tɑː/", "syllable": "ta", "meaning": "int. 谢谢（NZ/英式口语，非正式感谢）"}
-         ]},
-        {"word": "arvo", "phonetic": "/ˈɑːvəʊ/", "syllable": "ar · vo", "pos": "n.",
-         "meaning": "下午（NZ口语）",
-         "example": "Let's catch up this arvo, around 3.",
-         "example_cn": "今天下午约一下，三点左右吧。", "scene": "🗣️ NZ口语",
-         "grammar": "let's = let us 的缩写；catch up（聚聚）；around（大约）",
-         "sentence_words": [
-             {"word": "arvo", "phonetic": "/ˈɑːvəʊ/", "syllable": "ar·vo", "meaning": "n. 下午（NZ俚语 = afternoon）"}
-         ]},
         {"word": "sparky", "phonetic": "/ˈspɑːki/", "syllable": "spar · ky", "pos": "n.",
          "meaning": "电工（NZ口语）",
          "example": "We need to call a sparky. The power's not working.",
@@ -1043,22 +982,6 @@ WORD_BANK = {
          "sentence_words": [
              {"word": "scroggin", "phonetic": "/ˈskrɒɡɪn/", "syllable": "scrog·gin", "meaning": "n. 能量坚果混合零食（NZ特有）"}
          ]},
-        {"word": "bach", "phonetic": "/bætʃ/", "syllable": "bach", "pos": "n.",
-         "meaning": "海边度假小屋（NZ特有）",
-         "example": "We're heading to the bach for Easter. Wanna come?",
-         "example_cn": "我们去海边小屋过复活节，要不要一起？", "scene": "🏖️ 度假",
-         "grammar": "现在进行时（近期计划）：are heading；Wanna = Want to",
-         "sentence_words": [
-             {"word": "bach", "phonetic": "/bætʃ/", "syllable": "bach", "meaning": "n. 海边度假小屋（NZ特有词汇）"}
-         ]},
-        {"word": "jandal", "phonetic": "/ˈdʒændl/", "syllable": "jan · dal", "pos": "n.",
-         "meaning": "人字拖；拖鞋（NZ特有）",
-         "example": "You can't wear jandals to the restaurant. It's smart casual.",
-         "example_cn": "去那家餐厅不能穿人字拖，是正式休闲装要求。", "scene": "👟 穿搭",
-         "grammar": "can't = cannot（不能）；wear（穿）；smart casual（正式休闲装）",
-         "sentence_words": [
-             {"word": "jandal", "phonetic": "/ˈdʒændl/", "syllable": "jan·dal", "meaning": "n. 人字拖（NZ特有词汇 = flip-flop）"}
-         ]},
         {"word": "recycle", "phonetic": "/rɪˈsaɪkl/", "syllable": "re · cy · cle", "pos": "v.",
          "meaning": "回收利用；垃圾分类",
          "example": "Remember to put the glass bottles in the recycle bin.",
@@ -1066,6 +989,618 @@ WORD_BANK = {
          "grammar": "remember to + 动词原形（记得做...）；put...in（把...放进）",
          "sentence_words": [
              {"word": "recycle", "phonetic": "/rɪˈsaɪkl/", "syllable": "re·cy·cle", "meaning": "v. 回收利用；垃圾分类"}
+         ]},
+
+        # ---- 扩充词汇 ----
+        {"word": "she'll be right", "phonetic": "/\u0283i\u02d0l bi ra\u026at/", "syllable": "she'll be right", "pos": "phrase",
+         "meaning": "\u6ca1\u4e8b\u7684\uff1b\u4f1a\u597d\u7684\uff08NZ\u7ecf\u5178\u53e3\u8bed\uff09",
+         "example": "Don't stress about the exam, she'll be right.", "example_cn": "\u522b\u4e3a\u8003\u8bd5\u7126\u8651\uff0c\u6ca1\u4e8b\u7684\u3002", "scene": "\ud83d\udde3\ufe0f NZ\u53e3\u8bed",
+         "grammar": "\u53e3\u8bed\u7701\u7565\u53e5",
+         "sentence_words": [
+             {"word": "stress", "phonetic": "/stres/", "syllable": "stress", "meaning": "v. \u7126\u8651\uff1b\u7d27\u5f20"},
+             {"word": "exam", "phonetic": "/\u026a\u0261\u02c8z\u00e6m/", "syllable": "ex\u00b7am", "meaning": "n. \u8003\u8bd5"}
+         ]},
+        {"word": "yeah nah", "phonetic": "/je\u0259 n\u0251\u02d0/", "syllable": "yeah nah", "pos": "phrase",
+         "meaning": "\u4e0d\uff1b\u4e0d\u592a\u786e\u5b9a\uff08NZ\u77db\u76fe\u8868\u8fbe\uff0c\u5b9e\u9645\u5426\u5b9a\uff09",
+         "example": "Are you keen to come? Yeah nah, I'm pretty tired tonight.", "example_cn": "\u4f60\u60f3\u6765\u5417\uff1f\u7b97\u4e86\u5427\uff0c\u4eca\u665a\u633a\u7d2f\u7684\u3002", "scene": "\ud83d\udde3\ufe0f NZ\u53e3\u8bed",
+         "grammar": "yeah nah = polite no",
+         "sentence_words": [
+             {"word": "keen", "phonetic": "/ki\u02d0n/", "syllable": "keen", "meaning": "adj. \u6709\u5174\u8da3\u7684"},
+             {"word": "tired", "phonetic": "/ta\u026a\u0259d/", "syllable": "tired", "meaning": "adj. \u7d2f\u7684"}
+         ]},
+        {"word": "hard case", "phonetic": "/h\u0251\u02d0d ke\u026as/", "syllable": "hard case", "pos": "n.",
+         "meaning": "\u6709\u8da3\u7684\u4eba\uff1b\u641e\u7b11\u7684\u4eba\uff08NZ\u53e3\u8bed\uff09",
+         "example": "Dave's a hard case, he always cracks everyone up.", "example_cn": "Dave\u8fd9\u4eba\u8d85\u641e\u7b11\uff0c\u603b\u80fd\u8ba9\u6240\u6709\u4eba\u4e50\u3002", "scene": "\ud83d\udde3\ufe0f NZ\u53e3\u8bed",
+         "grammar": "\u540d\u8bcd\u77ed\u8bed",
+         "sentence_words": [
+             {"word": "cracks up", "phonetic": "/kr\u00e6ks \u028cp/", "syllable": "cracks up", "meaning": "v. \u8ba9\u4eba\u53d1\u7b11"}
+         ]},
+        {"word": "piece of piss", "phonetic": "/pi\u02d0s \u0259v p\u026as/", "syllable": "piece of piss", "pos": "phrase",
+         "meaning": "\u5c0f\u83dc\u4e00\u789f\uff1b\u592a\u7b80\u5355\u4e86\uff08NZ\u53e3\u8bed\uff09",
+         "example": "The test was a piece of piss, finished in ten minutes.", "example_cn": "\u90a3\u8003\u8bd5\u592a\u7b80\u5355\u4e86\uff0c\u5341\u5206\u949f\u641e\u5b9a\u3002", "scene": "\ud83d\udde3\ufe0f NZ\u53e3\u8bed",
+         "grammar": "\u53e3\u8bed\u77ed\u8bed",
+         "sentence_words": [
+             {"word": "finished", "phonetic": "/\u02c8f\u026an\u026a\u0283t/", "syllable": "fin\u00b7ished", "meaning": "v. \u5b8c\u6210"},
+             {"word": "test", "phonetic": "/test/", "syllable": "test", "meaning": "n. \u6d4b\u8bd5"}
+         ]},
+        {"word": "gutted", "phonetic": "/\u02c8\u0261\u028ct\u026ad/", "syllable": "gut\u00b7ted", "pos": "adj.",
+         "meaning": "\u975e\u5e38\u5931\u671b\uff1b\u5d29\u6e83\uff08NZ/UK\u53e3\u8bed\uff09",
+         "example": "I was absolutely gutted when they cancelled the game.", "example_cn": "\u4ed6\u4eec\u53d6\u6d88\u6bd4\u8d5b\u65f6\u6211\u7b80\u76f4\u5d29\u6e83\u4e86\u3002", "scene": "\ud83d\udde3\ufe0f NZ\u53e3\u8bed",
+         "grammar": "\u5f62\u5bb9\u8bcd\u7528\u6cd5",
+         "sentence_words": [
+             {"word": "cancelled", "phonetic": "/\u02c8k\u00e6ns\u0259ld/", "syllable": "can\u00b7celled", "meaning": "v. \u53d6\u6d88"},
+             {"word": "absolutely", "phonetic": "/\u02c8\u00e6bs\u0259lu\u02d0tli/", "syllable": "ab\u00b7so\u00b7lute\u00b7ly", "meaning": "adv. \u7edd\u5bf9\u5730"}
+         ]},
+        {"word": "piker", "phonetic": "/\u02c8pa\u026ak\u0259/", "syllable": "pi\u00b7ker", "pos": "n.",
+         "meaning": "\u80c6\u5c0f\u9b3c\uff1b\u653e\u9e3d\u5b50\u7684\u4eba\uff08NZ\u53e3\u8bed\uff09",
+         "example": "Don't be a piker, come to the party with us!", "example_cn": "\u522b\u505a\u80c6\u5c0f\u9b3c\uff0c\u8ddf\u6211\u4eec\u53bb\u6d3e\u5bf9\uff01", "scene": "\ud83d\udde3\ufe0f NZ\u53e3\u8bed",
+         "grammar": "\u7948\u4f7f\u53e5",
+         "sentence_words": [
+             {"word": "party", "phonetic": "/\u02c8p\u0251\u02d0ti/", "syllable": "par\u00b7ty", "meaning": "n. \u6d3e\u5bf9"}
+         ]},
+        {"word": "pull your socks up", "phonetic": "/p\u028al j\u0254\u02d0 s\u0252ks \u028cp/", "syllable": "pull your socks up", "pos": "phrase",
+         "meaning": "\u632f\u4f5c\u8d77\u6765\uff1b\u52a0\u628a\u52b2",
+         "example": "You need to pull your socks up if you want to pass this course.", "example_cn": "\u5982\u679c\u4f60\u8981\u8fc7\u8fd9\u95e8\u8bfe\uff0c\u5f97\u52a0\u628a\u52b2\u3002", "scene": "\ud83d\udde3\ufe0f NZ\u53e3\u8bed",
+         "grammar": "\u7948\u4f7f\u53e5+\u6761\u4ef6\u53e5",
+         "sentence_words": [
+             {"word": "pass", "phonetic": "/p\u0251\u02d0s/", "syllable": "pass", "meaning": "v. \u901a\u8fc7"},
+             {"word": "course", "phonetic": "/k\u0254\u02d0s/", "syllable": "course", "meaning": "n. \u8bfe\u7a0b"}
+         ]},
+        {"word": "munted", "phonetic": "/\u02c8m\u028cnt\u026ad/", "syllable": "mun\u00b7ted", "pos": "adj.",
+         "meaning": "\u574f\u6389\u7684\uff1b\u641e\u7838\u7684\uff08NZ\u53e3\u8bed\uff09",
+         "example": "My phone screen is completely munted after dropping it.", "example_cn": "\u624b\u673a\u6454\u4e86\u540e\u5c4f\u5e55\u5f7b\u5e95\u788e\u4e86\u3002", "scene": "\ud83d\udde3\ufe0f NZ\u53e3\u8bed",
+         "grammar": "is munted = is broken",
+         "sentence_words": [
+             {"word": "screen", "phonetic": "/skri\u02d0n/", "syllable": "screen", "meaning": "n. \u5c4f\u5e55"},
+             {"word": "dropping", "phonetic": "/\u02c8dr\u0252p\u026a\u014b/", "syllable": "drop\u00b7ping", "meaning": "v. \u6389\u843d"}
+         ]},
+        {"word": "wop-wops", "phonetic": "/w\u0252p w\u0252ps/", "syllable": "wop-wops", "pos": "n.",
+         "meaning": "\u504f\u50fb\u4e61\u4e0b\uff08NZ\u53e3\u8bed\uff09",
+         "example": "They bought a house out in the wop-wops.", "example_cn": "\u4ed6\u4eec\u5728\u5f88\u504f\u7684\u4e61\u4e0b\u4e70\u4e86\u623f\u5b50\u3002", "scene": "\ud83d\udde3\ufe0f NZ\u53e3\u8bed",
+         "grammar": "\u4ecb\u8bcd\u77ed\u8bed",
+         "sentence_words": [
+             {"word": "countryside", "phonetic": "/\u02c8k\u028cntrisa\u026ad/", "syllable": "coun\u00b7try\u00b7side", "meaning": "n. \u4e61\u4e0b"}
+         ]},
+        {"word": "togs", "phonetic": "/t\u0252\u0261z/", "syllable": "togs", "pos": "n.",
+         "meaning": "\u6cf3\u8863\uff08NZ/AU\u53e3\u8bed\uff09",
+         "example": "Don't forget to bring your togs to the beach.", "example_cn": "\u53bb\u6d77\u8fb9\u522b\u5fd8\u4e86\u5e26\u6cf3\u8863\u3002", "scene": "\ud83c\udfd6\ufe0f \u5ea6\u5047",
+         "grammar": "\u540d\u8bcd\u590d\u6570",
+         "sentence_words": [
+             {"word": "beach", "phonetic": "/bi\u02d0t\u0283/", "syllable": "beach", "meaning": "n. \u6d77\u6ee9"}
+         ]},
+        {"word": "chilly bin", "phonetic": "/\u02c8t\u0283\u026ali b\u026an/", "syllable": "chil\u00b7ly bin", "pos": "n.",
+         "meaning": "\u4fdd\u6e29\u7bb1\uff1b\u51b0\u76d2\uff08NZ\u7279\u6709\uff09",
+         "example": "Grab the chilly bin, we're having a BBQ.", "example_cn": "\u62ff\u4e0a\u4fdd\u6e29\u7bb1\uff0c\u6211\u4eec\u53bb\u70e7\u70e4\u3002", "scene": "\ud83c\udfd6\ufe0f \u5ea6\u5047\u751f\u6d3b",
+         "grammar": "\u7948\u4f7f\u53e5",
+         "sentence_words": [
+             {"word": "BBQ", "phonetic": "/\u02ccbi\u02d0bi\u02d0\u02c8kju\u02d0/", "syllable": "B-B-Q", "meaning": "n. \u70e7\u70e4"}
+         ]},
+        {"word": "L&P", "phonetic": "/el \u0259nd pi\u02d0/", "syllable": "L and P", "pos": "n.",
+         "meaning": "Lemon & Paeroa\uff08NZ\u56fd\u6c11\u996e\u6599\uff09",
+         "example": "You haven't tried L&P? It's a classic Kiwi drink.", "example_cn": "\u4f60\u6ca1\u8bd5\u8fc7L&P\uff1f\u90a3\u662f\u65b0\u897f\u5170\u7ecf\u5178\u996e\u6599\u3002", "scene": "\ud83d\udde3\ufe0f NZ\u53e3\u8bed",
+         "grammar": "\u53cd\u95ee\u53e5",
+         "sentence_words": [
+             {"word": "classic", "phonetic": "/\u02c8kl\u00e6s\u026ak/", "syllable": "clas\u00b7sic", "meaning": "adj. \u7ecf\u5178\u7684"}
+         ]},
+        {"word": "banger", "phonetic": "/\u02c8b\u00e6\u014b\u0259/", "syllable": "ban\u00b7ger", "pos": "n.",
+         "meaning": "\u8d85\u68d2\u7684\u6b4c\u66f2/\u7535\u5f71\uff08\u53e3\u8bed\uff09",
+         "example": "That new song by Six60 is an absolute banger.", "example_cn": "Six60\u90a3\u9996\u65b0\u6b4c\u7edd\u4e86\u3002", "scene": "\ud83d\udde3\ufe0f NZ\u53e3\u8bed",
+         "grammar": "\u540d\u8bcd\u77ed\u8bed",
+         "sentence_words": [
+             {"word": "absolute", "phonetic": "/\u02c8\u00e6bs\u0259lu\u02d0t/", "syllable": "ab\u00b7so\u00b7lute", "meaning": "adj. \u7edd\u5bf9\u7684"}
+         ]},
+        {"word": "smoko", "phonetic": "/\u02c8sm\u0259\u028ak\u0259\u028a/", "syllable": "smo\u00b7ko", "pos": "n.",
+         "meaning": "\u5de5\u95f4\u4f11\u606f\uff1b\u8336\u6b47\uff08NZ\u84dd\u9886\u5e38\u7528\uff09",
+         "example": "Let's have a smoko \u2014 I'm knackered.", "example_cn": "\u6b47\u4f1a\u513f\u5427\u2014\u2014\u6211\u7d2f\u6b7b\u4e86\u3002", "scene": "\ud83d\udcbc \u5de5\u4f5c",
+         "grammar": "let's+\u52a8\u8bcd",
+         "sentence_words": [
+             {"word": "knackered", "phonetic": "/\u02c8n\u00e6k\u0259d/", "syllable": "knack\u00b7ered", "meaning": "adj. \u7d2f\u574f\u4e86\u7684"}
+         ]},
+        {"word": "op shop", "phonetic": "/\u0252p \u0283\u0252p/", "syllable": "op shop", "pos": "n.",
+         "meaning": "\u4e8c\u624b\u6148\u5584\u5546\u5e97",
+         "example": "I found this cool jacket at the op shop for only $15.", "example_cn": "\u6211\u5728\u4e8c\u624b\u5e97\u627e\u5230\u8fd9\u4ef6\u5916\u5957\uff0c\u624d15\u5757\u3002", "scene": "\ud83d\udecd\ufe0f \u4e8c\u624b\u8d2d\u7269",
+         "grammar": "\u4e00\u822c\u8fc7\u53bb\u65f6",
+         "sentence_words": [
+             {"word": "jacket", "phonetic": "/\u02c8d\u0292\u00e6k\u026at/", "syllable": "jack\u00b7et", "meaning": "n. \u5916\u5957"}
+         ]},
+        {"word": "docket", "phonetic": "/\u02c8d\u0252k\u026at/", "syllable": "dock\u00b7et", "pos": "n.",
+         "meaning": "\u5c0f\u7968\uff1b\u6536\u636e\uff08NZ\u53e3\u8bed\uff09",
+         "example": "Keep your docket in case you need to return it.", "example_cn": "\u7559\u7740\u5c0f\u7968\uff0c\u4e07\u4e00\u8981\u9000\u8d27\u3002", "scene": "\ud83d\udecd\ufe0f \u8d2d\u7269\u9000\u6362",
+         "grammar": "\u7948\u4f7f\u53e5",
+         "sentence_words": [
+             {"word": "return", "phonetic": "/r\u026a\u02c8t\u025c\u02d0n/", "syllable": "re\u00b7turn", "meaning": "v. \u9000\u8d27"}
+         ]},
+        {"word": "lolly", "phonetic": "/\u02c8l\u0252li/", "syllable": "lol\u00b7ly", "pos": "n.",
+         "meaning": "\u7cd6\u679c\uff08NZ/AU\u7528\u6cd5\uff09",
+         "example": "The kids always want lollies when we go to the dairy.", "example_cn": "\u6bcf\u6b21\u53bb\u4fbf\u5229\u5e97\u5b69\u5b50\u4eec\u90fd\u60f3\u8981\u7cd6\u679c\u3002", "scene": "\ud83c\udfea \u8d85\u5e02",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "kids", "phonetic": "/k\u026adz/", "syllable": "kids", "meaning": "n. \u5b69\u5b50\u4eec"}
+         ]},
+        {"word": "pottle", "phonetic": "/\u02c8p\u0252t\u0259l/", "syllable": "pot\u00b7tle", "pos": "n.",
+         "meaning": "\u5c0f\u5bb9\u5668\uff1b\u5c0f\u5305\u88c5\uff08NZ\u91cf\u8bcd\uff09",
+         "example": "Can I get a pottle of sour cream, please?", "example_cn": "\u8bf7\u7ed9\u6211\u4e00\u5c0f\u76d2\u9178\u5976\u6cb9\u3002", "scene": "\ud83c\udfea \u8d85\u5e02",
+         "grammar": "\u793c\u8c8c\u7528\u8bed",
+         "sentence_words": [
+             {"word": "sour cream", "phonetic": "/sa\u028a\u0259 kri\u02d0m/", "syllable": "sour cream", "meaning": "n. \u9178\u5976\u6cb9"}
+         ]},
+        {"word": "sausage sizzle", "phonetic": "/\u02c8s\u0252s\u026ad\u0292 \u02c8s\u026az\u0259l/", "syllable": "sau\u00b7sage siz\u00b7zle", "pos": "n.",
+         "meaning": "\u9999\u80a0\u70e7\u70e4\u4e49\u5356\uff08NZ\u793e\u533a\u6d3b\u52a8\uff09",
+         "example": "There's a sausage sizzle outside the warehouse this Saturday.", "example_cn": "\u8fd9\u5468\u516dWarehouse\u95e8\u53e3\u6709\u9999\u80a0\u70e7\u70e4\u4e49\u5356\u3002", "scene": "\ud83e\udd7e \u5f92\u6b65",
+         "grammar": "there be",
+         "sentence_words": [
+             {"word": "fundraising", "phonetic": "/f\u028cnd\u02c8re\u026az\u026a\u014b/", "syllable": "fund\u00b7rais\u00b7ing", "meaning": "n. \u7b79\u6b3e"}
+         ]},
+        {"word": "pie", "phonetic": "/pa\u026a/", "syllable": "pie", "pos": "n.",
+         "meaning": "\u8089\u6d3e\uff08NZ\u56fd\u6c11\u5c0f\u5403\uff09",
+         "example": "Grab a pie and a coffee for lunch.", "example_cn": "\u5348\u9910\u4e70\u4e2a\u8089\u6d3e\u548c\u5496\u5561\u3002", "scene": "\ud83c\udf7d\ufe0f \u5916\u5356",
+         "grammar": "\u7948\u4f7f\u53e5",
+         "sentence_words": [
+             {"word": "quick and easy", "phonetic": "/kw\u026ak \u00e6nd \u02c8i\u02d0zi/", "syllable": "quick and ea\u00b7sy", "meaning": "phrase \u5feb\u6377\u65b9\u4fbf"}
+         ]},
+        {"word": "hot chips", "phonetic": "/h\u0252t t\u0283\u026aps/", "syllable": "hot chips", "pos": "n.",
+         "meaning": "\u70b8\u85af\u6761\uff08NZ\u53e3\u8bed\uff09",
+         "example": "Nothing beats hot chips on the beach after a swim.", "example_cn": "\u6e38\u5b8c\u6cf3\u5728\u6d77\u8fb9\u5403\u70ed\u85af\u6761\uff0c\u6ca1\u6709\u6bd4\u8fd9\u66f4\u723d\u7684\u3002", "scene": "\ud83c\udfd6\ufe0f \u5ea6\u5047",
+         "grammar": "nothing beats",
+         "sentence_words": [
+             {"word": "beats", "phonetic": "/bi\u02d0ts/", "syllable": "beats", "meaning": "v. \u80dc\u8fc7"},
+             {"word": "swim", "phonetic": "/sw\u026am/", "syllable": "swim", "meaning": "n. \u6e38\u6cf3"}
+         ]},
+        {"word": "pavlova", "phonetic": "/p\u00e6v\u02c8l\u0259\u028av\u0259/", "syllable": "pav\u00b7lo\u00b7va", "pos": "n.",
+         "meaning": "\u5e15\u8299\u6d1b\u5a03\u86cb\u7cd5\uff08NZ\u7ecf\u5178\u751c\u70b9\uff09",
+         "example": "Mum made a pavlova for Christmas dessert.", "example_cn": "\u5988\u5988\u505a\u4e86\u5e15\u8299\u6d1b\u5a03\u5f53\u5723\u8bde\u751c\u70b9\u3002", "scene": "\ud83c\udf7d\ufe0f \u5916\u5356",
+         "grammar": "\u4e00\u822c\u8fc7\u53bb\u65f6",
+         "sentence_words": [
+             {"word": "dessert", "phonetic": "/d\u026a\u02c8z\u025c\u02d0t/", "syllable": "des\u00b7sert", "meaning": "n. \u751c\u70b9"}
+         ]},
+        {"word": "hangi", "phonetic": "/\u02c8h\u028c\u014bi/", "syllable": "han\u00b7gi", "pos": "n.",
+         "meaning": "\u6bdb\u5229\u5730\u7089\u6599\u7406",
+         "example": "We went to a hangi on the marae \u2014 the food was amazing.", "example_cn": "\u6211\u4eec\u53bb\u6bdb\u5229\u4f1a\u5802\u5403\u5730\u7089\u6599\u7406\u2014\u2014\u592a\u7f8e\u5473\u4e86\u3002", "scene": "\ud83d\udde3\ufe0f NZ\u53e3\u8bed",
+         "grammar": "\u4e00\u822c\u8fc7\u53bb\u65f6",
+         "sentence_words": [
+             {"word": "marae", "phonetic": "/\u02c8m\u00e6re\u026a/", "syllable": "ma\u00b7rae", "meaning": "n. \u6bdb\u5229\u4f1a\u5802"}
+         ]},
+        {"word": "numpty", "phonetic": "/\u02c8n\u028cmpti/", "syllable": "num\u00b7pty", "pos": "n.",
+         "meaning": "\u7b28\u86cb\uff1b\u50bb\u74dc\uff08NZ/UK\u53e3\u8bed\uff09",
+         "example": "I locked my keys in the car \u2014 what a numpty!", "example_cn": "\u6211\u628a\u94a5\u5319\u9501\u8f66\u91cc\u4e86\u2014\u2014\u592a\u8822\u4e86\uff01", "scene": "\ud83d\udde3\ufe0f NZ\u53e3\u8bed",
+         "grammar": "\u611f\u53f9\u53e5",
+         "sentence_words": [
+             {"word": "locked", "phonetic": "/l\u0252kt/", "syllable": "locked", "meaning": "v. \u9501\u4e0a"}
+         ]},
+        {"word": "skite", "phonetic": "/ska\u026at/", "syllable": "skite", "pos": "v.",
+         "meaning": "\u5439\u725b\uff1b\u70ab\u8000\uff08NZ\u65b9\u8a00\uff09",
+         "example": "He's always skiting about how much money he makes.", "example_cn": "\u4ed6\u603b\u5728\u5439\u81ea\u5df1\u6323\u591a\u5c11\u94b1\u3002", "scene": "\ud83d\udde3\ufe0f NZ\u53e3\u8bed",
+         "grammar": "\u73b0\u5728\u8fdb\u884c\u65f6",
+         "sentence_words": [
+             {"word": "always", "phonetic": "/\u02c8\u0254\u02d0lwe\u026az/", "syllable": "al\u00b7ways", "meaning": "adv. \u603b\u662f"}
+         ]},
+        {"word": "dosh", "phonetic": "/d\u0252\u0283/", "syllable": "dosh", "pos": "n.",
+         "meaning": "\u94b1\uff1b\u73b0\u91d1\uff08NZ/UK\u4fda\u8bed\uff09",
+         "example": "I don't have enough dosh for that concert ticket.", "example_cn": "\u6211\u6ca1\u90a3\u4e48\u591a\u94b1\u4e70\u6f14\u5531\u4f1a\u95e8\u7968\u3002", "scene": "\ud83d\udde3\ufe0f NZ\u53e3\u8bed",
+         "grammar": "don't have",
+         "sentence_words": [
+             {"word": "enough", "phonetic": "/\u026a\u02c8n\u028cf/", "syllable": "e\u00b7nough", "meaning": "adj. \u8db3\u591f\u7684"}
+         ]},
+        {"word": "hoon", "phonetic": "/hu\u02d0n/", "syllable": "hoon", "pos": "n.",
+         "meaning": "\u9c81\u83bd\u9a7e\u9a76\u8005\uff1b\u98d9\u8f66\u65cf",
+         "example": "Some hoon in a modified car was doing burnouts.", "example_cn": "\u6709\u4e2a\u5f00\u6539\u88c5\u8f66\u7684\u98d9\u8f66\u65cf\u5728\u70e7\u80ce\u3002", "scene": "\ud83d\ude97 \u79df\u8f66",
+         "grammar": "\u8fc7\u53bb\u8fdb\u884c\u65f6",
+         "sentence_words": [
+             {"word": "modified", "phonetic": "/\u02c8m\u0252d\u026afa\u026ad/", "syllable": "mod\u00b7i\u00b7fied", "meaning": "adj. \u6539\u88c5\u7684"},
+             {"word": "burnout", "phonetic": "/\u02c8b\u025c\u02d0na\u028at/", "syllable": "burn\u00b7out", "meaning": "n. \u70e7\u80ce"}
+         ]},
+        {"word": "tinnie", "phonetic": "/\u02c8t\u026ani/", "syllable": "tin\u00b7nie", "pos": "n.",
+         "meaning": "\u5564\u9152\u7f50\uff1b\u5c0f\u94dd\u8247\uff08\u53e3\u8bed\uff09",
+         "example": "Chuck us a tinnie from the chilly bin, mate.", "example_cn": "\u54e5\u4eec\uff0c\u4ece\u51b0\u76d2\u91cc\u7ed9\u6211\u6254\u7f50\u5564\u9152\u3002", "scene": "\ud83d\udde3\ufe0f NZ\u53e3\u8bed",
+         "grammar": "\u53e3\u8bed\u7528\u6cd5",
+         "sentence_words": [
+             {"word": "chuck", "phonetic": "/t\u0283\u028ck/", "syllable": "chuck", "meaning": "v. \u6254"}
+         ]},
+        {"word": "kia ora", "phonetic": "/ki a \u02c8\u0254\u02d0r\u0259/", "syllable": "ki\u00b7a o\u00b7ra", "pos": "phrase",
+         "meaning": "\u4f60\u597d\uff08\u6bdb\u5229\u8bed\u95ee\u5019\u8bed\uff09",
+         "example": "Kia ora! How's it going?", "example_cn": "\u4f60\u597d\uff01\u6700\u8fd1\u600e\u4e48\u6837\uff1f", "scene": "\ud83d\udde3\ufe0f NZ\u53e3\u8bed",
+         "grammar": "\u6bdb\u5229\u8bed",
+         "sentence_words": [
+             {"word": "how's it going", "phonetic": "/ha\u028az \u026at \u02c8\u0261\u0259\u028a\u026a\u014b/", "syllable": "how's it go\u00b7ing", "meaning": "phrase \u600e\u4e48\u6837\uff1f"}
+         ]},
+        {"word": "poncho", "phonetic": "/\u02c8p\u0252nt\u0283\u0259\u028a/", "syllable": "pon\u00b7cho", "pos": "n.",
+         "meaning": "\u6597\u7bf7\u96e8\u8863",
+         "example": "It's bucketing down \u2014 grab your poncho.", "example_cn": "\u5916\u9762\u4e0b\u5927\u96e8\u2014\u2014\u62ff\u4e0a\u96e8\u62ab\u3002", "scene": "\ud83c\udf24\ufe0f \u5929\u6c14",
+         "grammar": "\u73b0\u5728\u8fdb\u884c\u65f6",
+         "sentence_words": [
+             {"word": "bucketing down", "phonetic": "/\u02c8b\u028ck\u026at\u026a\u014b da\u028an/", "syllable": "buck\u00b7et\u00b7ing down", "meaning": "phrase \u4e0b\u503e\u76c6\u5927\u96e8"}
+         ]},
+        {"word": "nor'wester", "phonetic": "/n\u0254\u02d0\u02c8w\u025bst\u0259/", "syllable": "nor'-wes\u00b7ter", "pos": "n.",
+         "meaning": "\u897f\u5317\u98ce\uff08\u57fa\u7763\u57ce\u7279\u6709\uff09",
+         "example": "The nor'wester makes Christchurch really hot and windy.", "example_cn": "\u897f\u5317\u98ce\u8ba9\u57fa\u7763\u57ce\u53c8\u70ed\u53c8\u98ce\u5927\u3002", "scene": "\ud83c\udf24\ufe0f \u5929\u6c14",
+         "grammar": "\u4f7f\u5f79\u52a8\u8bcd",
+         "sentence_words": [
+             {"word": "windy", "phonetic": "/\u02c8w\u026andi/", "syllable": "win\u00b7dy", "meaning": "adj. \u98ce\u5927\u7684"}
+         ]},
+        {"word": "long black", "phonetic": "/l\u0252\u014b bl\u00e6k/", "syllable": "long black", "pos": "n.",
+         "meaning": "\u957f\u9ed1\u5496\u5561\uff08\u6fb3\u65b0\u7279\u6709\uff09",
+         "example": "I'll just have a long black, thanks.", "example_cn": "\u6211\u8981\u4e00\u676f\u957f\u9ed1\u5496\u5561\uff0c\u8c22\u8c22\u3002", "scene": "\u2615 \u5496\u5561\u5e97",
+         "grammar": "\u70b9\u5355\u7528\u8bed",
+         "sentence_words": [
+             {"word": "espresso", "phonetic": "/e\u02c8spres\u0259\u028a/", "syllable": "es\u00b7pres\u00b7so", "meaning": "n. \u6d53\u7f29\u5496\u5561"}
+         ]},
+        {"word": "short black", "phonetic": "/\u0283\u0254\u02d0t bl\u00e6k/", "syllable": "short black", "pos": "n.",
+         "meaning": "\u77ed\u9ed1\u5496\u5561\uff1b\u7eaf\u6d53\u7f29",
+         "example": "Can I get a double short black to go?", "example_cn": "\u4e00\u676f\u53cc\u4efd\u6d53\u7f29\u5e26\u8d70\u3002", "scene": "\u2615 \u5496\u5561\u5e97",
+         "grammar": "to go = \u6253\u5305",
+         "sentence_words": [
+             {"word": "double", "phonetic": "/\u02c8d\u028cb\u0259l/", "syllable": "dou\u00b7ble", "meaning": "adj. \u53cc\u4efd\u7684"}
+         ]},
+        {"word": "trim flat white", "phonetic": "/tr\u026am fl\u00e6t wa\u026at/", "syllable": "trim flat white", "pos": "n.",
+         "meaning": "\u8131\u8102\u5976\u767d\u5496\u5561\uff08NZ\u7ecf\u5178\uff09",
+         "example": "One trim flat white, please.", "example_cn": "\u4e00\u676f\u8131\u8102\u767d\u5496\u5561\uff0c\u8c22\u8c22\u3002", "scene": "\u2615 \u5496\u5561\u5e97",
+         "grammar": "\u540d\u8bcd\u77ed\u8bed",
+         "sentence_words": [
+             {"word": "trim milk", "phonetic": "/tr\u026am m\u026alk/", "syllable": "trim milk", "meaning": "n. \u8131\u8102\u725b\u5976"}
+         ]},
+        {"word": "babycino", "phonetic": "/\u02ccbe\u026abis\u026a\u02c8n\u0259\u028a/", "syllable": "ba\u00b7by\u00b7ci\u00b7no", "pos": "n.",
+         "meaning": "\u513f\u7ae5\u70ed\u53ef\u53ef\u5976\u6ce1",
+         "example": "Can my kid have a babycino with a marshmallow?", "example_cn": "\u80fd\u7ed9\u6211\u5b69\u5b50\u6765\u4e00\u676f\u5e26\u68c9\u82b1\u7cd6\u7684\u513f\u7ae5\u5976\u6ce1\u5417\uff1f", "scene": "\u2615 \u5496\u5561\u5e97",
+         "grammar": "\u60c5\u6001\u52a8\u8bcd",
+         "sentence_words": [
+             {"word": "marshmallow", "phonetic": "/\u02ccm\u0251\u02d0\u0283\u02c8m\u00e6l\u0259\u028a/", "syllable": "marsh\u00b7mal\u00b7low", "meaning": "n. \u68c9\u82b1\u7cd6"}
+         ]},
+        {"word": "morning tea", "phonetic": "/\u02c8m\u0254\u02d0n\u026a\u014b ti\u02d0/", "syllable": "morn\u00b7ing tea", "pos": "n.",
+         "meaning": "\u4e0a\u5348\u8336\u6b47\uff08NZ\u5de5\u4f5c\u6587\u5316\uff09",
+         "example": "Let's grab a morning tea at the cafe.", "example_cn": "\u53bb\u5496\u5561\u9986\u559d\u4e2a\u4e0a\u5348\u8336\u3002", "scene": "\u2615 \u5496\u5561\u5e97",
+         "grammar": "let's+\u52a8\u8bcd",
+         "sentence_words": [
+             {"word": "across the road", "phonetic": "/\u0259\u02c8kr\u0252s \u00f0\u0259 r\u0259\u028ad/", "syllable": "a\u00b7cross the road", "meaning": "phrase \u9a6c\u8def\u5bf9\u9762"}
+         ]},
+        {"word": "on special", "phonetic": "/\u0252n \u02c8spe\u0283\u0259l/", "syllable": "on spe\u00b7cial", "pos": "phrase",
+         "meaning": "\u7279\u4ef7\uff1b\u6253\u6298\u4e2d",
+         "example": "These avocados are on special this week.", "example_cn": "\u8fd9\u4e9b\u725b\u6cb9\u679c\u8fd9\u5468\u7279\u4ef7\u3002", "scene": "\ud83c\udfea \u8d85\u5e02\u4fc3\u9500",
+         "grammar": "\u4ecb\u8bcd\u77ed\u8bed",
+         "sentence_words": [
+             {"word": "avocados", "phonetic": "/\u02cc\u00e6v\u0259\u02c8k\u0251\u02d0d\u0259\u028az/", "syllable": "a\u00b7vo\u00b7ca\u00b7dos", "meaning": "n. \u725b\u6cb9\u679c"}
+         ]},
+        {"word": "chip packet", "phonetic": "/t\u0283\u026ap \u02c8p\u00e6k\u026at/", "syllable": "chip pack\u00b7et", "pos": "n.",
+         "meaning": "\u85af\u7247\u888b",
+         "example": "Can you grab a couple of chip packets?", "example_cn": "\u4f60\u80fd\u4e70\u51e0\u5305\u85af\u7247\u5417\uff1f", "scene": "\ud83c\udfea \u8d85\u5e02",
+         "grammar": "\u60c5\u6001\u52a8\u8bcd",
+         "sentence_words": [
+             {"word": "couple of", "phonetic": "/\u02c8k\u028cp\u0259l \u0259v/", "syllable": "cou\u00b7ple of", "meaning": "phrase \u51e0\u4e2a"}
+         ]},
+        {"word": "paywave", "phonetic": "/\u02c8pe\u026awe\u026av/", "syllable": "pay\u00b7wave", "pos": "n./v.",
+         "meaning": "\u975e\u63a5\u89e6\u5f0f\u652f\u4ed8",
+         "example": "You can just paywave it, no PIN needed under $200.", "example_cn": "\u76f4\u63a5\u5237\u5c31\u884c\uff0c200\u4ee5\u4e0b\u4e0d\u7528\u5bc6\u7801\u3002", "scene": "\ud83c\udfea \u652f\u4ed8",
+         "grammar": "\u60c5\u6001\u52a8\u8bcd",
+         "sentence_words": [
+             {"word": "PIN", "phonetic": "/p\u026an/", "syllable": "PIN", "meaning": "n. \u5bc6\u7801"}
+         ]},
+        {"word": "flybuys", "phonetic": "/\u02c8fla\u026ab\u028c\u026az/", "syllable": "fly\u00b7buys", "pos": "n.",
+         "meaning": "Fly Buys\u79ef\u5206",
+         "example": "Do you collect Fly Buys?", "example_cn": "\u4f60\u96c6Fly Buys\u79ef\u5206\u5417\uff1f", "scene": "\ud83c\udfea \u8d85\u5e02\u4fc3\u9500",
+         "grammar": "\u4e00\u822c\u7591\u95ee\u53e5",
+         "sentence_words": [
+             {"word": "collect", "phonetic": "/k\u0259\u02c8lekt/", "syllable": "col\u00b7lect", "meaning": "v. \u6536\u96c6"}
+         ]},
+        {"word": "nappy", "phonetic": "/\u02c8n\u00e6pi/", "syllable": "nap\u00b7py", "pos": "n.",
+         "meaning": "\u7eb8\u5c3f\u88e4\uff08NZ/AU\u7528\u6cd5\uff09",
+         "example": "Can you grab a box of nappies?", "example_cn": "\u80fd\u4e70\u4e00\u7bb1\u7eb8\u5c3f\u88e4\u5417\uff1f", "scene": "\ud83c\udfea \u8d85\u5e02",
+         "grammar": "\u60c5\u6001\u52a8\u8bcd",
+         "sentence_words": [
+             {"word": "box", "phonetic": "/b\u0252ks/", "syllable": "box", "meaning": "n. \u76d2"}
+         ]},
+        {"word": "give way", "phonetic": "/\u0261\u026av we\u026a/", "syllable": "give way", "pos": "phrase",
+         "meaning": "\u8ba9\u8def\uff1b\u8ba9\u884c\uff08NZ\u4ea4\u901a\u6807\u5fd7\uff09",
+         "example": "At a Give Way sign, you must slow down.", "example_cn": "\u5728\u8ba9\u884c\u6807\u5fd7\u5904\u5fc5\u987b\u51cf\u901f\u3002", "scene": "\ud83d\ude8c \u4ea4\u901a\u51fa\u884c",
+         "grammar": "\u60c5\u6001\u52a8\u8bcd",
+         "sentence_words": [
+             {"word": "slow down", "phonetic": "/sl\u0259\u028a da\u028an/", "syllable": "slow down", "meaning": "v. \u51cf\u901f"},
+             {"word": "traffic", "phonetic": "/\u02c8tr\u00e6f\u026ak/", "syllable": "traf\u00b7fic", "meaning": "n. \u4ea4\u901a"}
+         ]},
+        {"word": "toll road", "phonetic": "/t\u0259\u028al r\u0259\u028ad/", "syllable": "toll road", "pos": "n.",
+         "meaning": "\u6536\u8d39\u516c\u8def",
+         "example": "The toll road is faster but costs more.", "example_cn": "\u6536\u8d39\u516c\u8def\u66f4\u5feb\u4f46\u66f4\u8d35\u3002", "scene": "\ud83d\ude8c \u4ea4\u901a\u51fa\u884c",
+         "grammar": "\u6bd4\u8f83\u7ea7",
+         "sentence_words": [
+             {"word": "costs", "phonetic": "/k\u0252sts/", "syllable": "costs", "meaning": "v. \u82b1\u8d39"}
+         ]},
+        {"word": "campervan", "phonetic": "/\u02c8k\u00e6mp\u0259v\u00e6n/", "syllable": "cam\u00b7per\u00b7van", "pos": "n.",
+         "meaning": "\u9732\u8425\u8f66\uff1b\u623f\u8f66",
+         "example": "We hired a campervan and drove around the South Island.", "example_cn": "\u6211\u4eec\u79df\u4e86\u623f\u8f66\u73af\u5357\u5c9b\u81ea\u9a7e\u3002", "scene": "\ud83d\ude97 \u79df\u8f66",
+         "grammar": "\u4e00\u822c\u8fc7\u53bb\u65f6",
+         "sentence_words": [
+             {"word": "hired", "phonetic": "/\u02c8ha\u026a\u0259d/", "syllable": "hired", "meaning": "v. \u79df\u7528"},
+             {"word": "South Island", "phonetic": "/sa\u028a\u03b8 \u02c8a\u026al\u0259nd/", "syllable": "South Is\u00b7land", "meaning": "n. \u5357\u5c9b"}
+         ]},
+        {"word": "wof", "phonetic": "/d\u028cb\u0259lju\u02d0 \u0259\u028a ef/", "syllable": "W-O-F", "pos": "n.",
+         "meaning": "\u8f66\u8f86\u5e74\u68c0\uff08Warrant of Fitness\uff09",
+         "example": "Your WOF expires next month.", "example_cn": "\u4f60\u8f66\u5e74\u68c0\u4e0b\u4e2a\u6708\u5230\u671f\u3002", "scene": "\ud83d\ude97 \u79df\u8f66",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "expires", "phonetic": "/\u026ak\u02c8spa\u026a\u0259z/", "syllable": "ex\u00b7pires", "meaning": "v. \u5230\u671f"}
+         ]},
+        {"word": "rego", "phonetic": "/\u02c8re\u0261\u0259\u028a/", "syllable": "re\u00b7go", "pos": "n.",
+         "meaning": "\u8f66\u8f86\u6ce8\u518c\uff08registration\u53e3\u8bed\uff09",
+         "example": "The rego on my car costs about $700 a year.", "example_cn": "\u6211\u8f66\u6ce8\u518c\u8d39\u4e00\u5e74\u5927\u6982700\u5757\u3002", "scene": "\ud83d\ude97 \u79df\u8f66",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "registration", "phonetic": "/\u02ccred\u0292\u026a\u02c8stre\u026a\u0283\u0259n/", "syllable": "reg\u00b7is\u00b7tra\u00b7tion", "meaning": "n. \u6ce8\u518c"}
+         ]},
+        {"word": "footpath", "phonetic": "/\u02c8f\u028atp\u0251\u02d0\u03b8/", "syllable": "foot\u00b7path", "pos": "n.",
+         "meaning": "\u4eba\u884c\u9053\uff08NZ\u7528\u6cd5\uff09",
+         "example": "Watch out for the uneven footpath.", "example_cn": "\u5c0f\u5fc3\u4e0d\u5e73\u7684\u4eba\u884c\u9053\u3002", "scene": "\ud83d\ude8c \u4ea4\u901a\u51fa\u884c",
+         "grammar": "\u7948\u4f7f\u53e5",
+         "sentence_words": [
+             {"word": "uneven", "phonetic": "/\u028cn\u02c8i\u02d0v\u0259n/", "syllable": "un\u00b7e\u00b7ven", "meaning": "adj. \u4e0d\u5e73\u7684"}
+         ]},
+        {"word": "pram", "phonetic": "/pr\u00e6m/", "syllable": "pram", "pos": "n.",
+         "meaning": "\u5a74\u513f\u8f66\uff08NZ/UK\u7528\u6cd5\uff09",
+         "example": "The pram won't fit through that narrow gate.", "example_cn": "\u5a74\u513f\u8f66\u8fc7\u4e0d\u4e86\u90a3\u4e2a\u7a84\u95e8\u3002", "scene": "\ud83d\ude8c \u4ea4\u901a\u51fa\u884c",
+         "grammar": "won't = will not",
+         "sentence_words": [
+             {"word": "narrow", "phonetic": "/\u02c8n\u00e6r\u0259\u028a/", "syllable": "nar\u00b7row", "meaning": "adj. \u7a84\u7684"}
+         ]},
+        {"word": "Snapper", "phonetic": "/\u02c8sn\u00e6p\u0259/", "syllable": "Snap\u00b7per", "pos": "n.",
+         "meaning": "Snapper\u516c\u4ea4\u5361\uff08\u60e0\u7075\u987f\uff09",
+         "example": "Tag on with your Snapper card.", "example_cn": "\u5237Snapper\u5361\u4e0a\u8f66\u3002", "scene": "\ud83d\ude8c \u516c\u4ea4\u901a\u52e4",
+         "grammar": "\u7948\u4f7f\u53e5",
+         "sentence_words": [
+             {"word": "tag on", "phonetic": "/t\u00e6\u0261 \u0252n/", "syllable": "tag on", "meaning": "v. \u5237\u5361\u4e0a\u8f66"}
+         ]},
+        {"word": "term deposit", "phonetic": "/t\u025c\u02d0m d\u026a\u02c8p\u0252z\u026at/", "syllable": "term de\u00b7pos\u00b7it", "pos": "n.",
+         "meaning": "\u5b9a\u671f\u5b58\u6b3e",
+         "example": "I put some savings into a 6-month term deposit.", "example_cn": "\u6211\u653e\u4e866\u4e2a\u6708\u5b9a\u671f\u3002", "scene": "\ud83c\udfe6 \u94f6\u884c\u5f00\u6237",
+         "grammar": "\u4e00\u822c\u8fc7\u53bb\u65f6",
+         "sentence_words": [
+             {"word": "savings", "phonetic": "/\u02c8se\u026av\u026a\u014bz/", "syllable": "sav\u00b7ings", "meaning": "n. \u5b58\u6b3e"}
+         ]},
+        {"word": "kiwisaver", "phonetic": "/\u02ccki\u02d0wi\u02d0\u02c8se\u026av\u0259/", "syllable": "ki\u00b7wi\u00b7sa\u00b7ver", "pos": "n.",
+         "meaning": "KiwiSaver\u9000\u4f11\u50a8\u84c4\u8ba1\u5212",
+         "example": "You should contribute at least 3% to KiwiSaver.", "example_cn": "KiwiSaver\u81f3\u5c11\u5e94\u4ea43%\u3002", "scene": "\ud83d\udcbc \u85aa\u8d44",
+         "grammar": "\u60c5\u6001\u52a8\u8bcd",
+         "sentence_words": [
+             {"word": "contribute", "phonetic": "/k\u0259n\u02c8tr\u026abju\u02d0t/", "syllable": "con\u00b7trib\u00b7ute", "meaning": "v. \u7f34\u7eb3"}
+         ]},
+        {"word": "annual leave", "phonetic": "/\u02c8\u00e6nju\u0259l li\u02d0v/", "syllable": "an\u00b7nu\u00b7al leave", "pos": "n.",
+         "meaning": "\u5e74\u5047\uff08NZ\u6cd5\u5b9a4\u5468\uff09",
+         "example": "I've got two weeks of annual leave coming up.", "example_cn": "\u6211\u6709\u4e24\u5468\u5e74\u5047\u8981\u4f11\u4e86\u3002", "scene": "\ud83d\udcbc \u5de5\u4f5c",
+         "grammar": "\u73b0\u5728\u5b8c\u6210\u65f6",
+         "sentence_words": [
+             {"word": "coming up", "phonetic": "/\u02c8k\u028cm\u026a\u014b \u028cp/", "syllable": "com\u00b7ing up", "meaning": "phrase \u5373\u5c06\u5230\u6765"}
+         ]},
+        {"word": "bank fee", "phonetic": "/b\u00e6\u014bk fi\u02d0/", "syllable": "bank fee", "pos": "n.",
+         "meaning": "\u94f6\u884c\u624b\u7eed\u8d39",
+         "example": "Check your bank fees \u2014 they can add up.", "example_cn": "\u770b\u770b\u4f60\u7684\u624b\u7eed\u8d39\u2014\u2014\u7d2f\u79ef\u8d77\u6765\u4e0d\u5c11\u3002", "scene": "\ud83c\udfe6 \u7a0e\u52a1/\u94f6\u884c",
+         "grammar": "can add up",
+         "sentence_words": [
+             {"word": "add up", "phonetic": "/\u00e6d \u028cp/", "syllable": "add up", "meaning": "v. \u7d2f\u79ef"}
+         ]},
+        {"word": "pension", "phonetic": "/\u02c8pen\u0283\u0259n/", "syllable": "pen\u00b7sion", "pos": "n.",
+         "meaning": "\u517b\u8001\u91d1\uff08NZ Super\uff09",
+         "example": "NZ Super is paid to people over 65.", "example_cn": "NZ Super\u53d1\u7ed965\u5c81\u4ee5\u4e0a\u4eba\u7fa4\u3002", "scene": "\ud83c\udfe6 \u653f\u5e9c\u670d\u52a1",
+         "grammar": "\u88ab\u52a8\u8bed\u6001",
+         "sentence_words": [
+             {"word": "superannuation", "phonetic": "/\u02ccsu\u02d0p\u0259\u02ccr\u00e6nju\u02c8e\u026a\u0283\u0259n/", "syllable": "su\u00b7per\u00b7an\u00b7nu\u00b7a\u00b7tion", "meaning": "n. \u517b\u8001\u91d1"}
+         ]},
+        {"word": "section", "phonetic": "/\u02c8sek\u0283\u0259n/", "syllable": "sec\u00b7tion", "pos": "n.",
+         "meaning": "\u5730\u5757\uff1b\u5b85\u57fa\u5730\uff08NZ\u623f\u4ea7\u7528\u8bed\uff09",
+         "example": "They bought a section and are building a house.", "example_cn": "\u4ed6\u4eec\u4e70\u4e86\u4e00\u5757\u5730\uff0c\u6b63\u5728\u5efa\u623f\u3002", "scene": "\ud83c\udfe0 \u79df\u623f",
+         "grammar": "\u73b0\u5728\u8fdb\u884c\u65f6",
+         "sentence_words": [
+             {"word": "building", "phonetic": "/\u02c8b\u026ald\u026a\u014b/", "syllable": "build\u00b7ing", "meaning": "v. \u5efa\u9020"}
+         ]},
+        {"word": "sleepout", "phonetic": "/\u02c8sli\u02d0pa\u028at/", "syllable": "sleep\u00b7out", "pos": "n.",
+         "meaning": "\u72ec\u7acb\u5c0f\u5c4b\uff08\u9644\u5728\u4e3b\u5c4b\u5916\uff09",
+         "example": "I'm renting the sleepout at the back of the property.", "example_cn": "\u6211\u79df\u4e86\u623f\u5b50\u540e\u9762\u7684\u72ec\u7acb\u5c0f\u5c4b\u3002", "scene": "\ud83c\udfe0 \u5408\u79df\u751f\u6d3b",
+         "grammar": "\u73b0\u5728\u8fdb\u884c\u65f6",
+         "sentence_words": [
+             {"word": "property", "phonetic": "/\u02c8pr\u0252p\u0259ti/", "syllable": "prop\u00b7er\u00b7ty", "meaning": "n. \u623f\u4ea7"}
+         ]},
+        {"word": "water rate", "phonetic": "/\u02c8w\u0254\u02d0t\u0259 re\u026at/", "syllable": "wa\u00b7ter rate", "pos": "n.",
+         "meaning": "\u6c34\u8d39\uff08NZ\u5355\u72ec\u8ba1\u8d39\uff09",
+         "example": "Water rates in Auckland are quite high.", "example_cn": "\u5965\u514b\u5170\u6c34\u8d39\u76f8\u5f53\u9ad8\u3002", "scene": "\ud83c\udfe0 \u751f\u6d3b\u7f34\u8d39",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "rate", "phonetic": "/re\u026at/", "syllable": "rate", "meaning": "n. \u8d39\u7387"}
+         ]},
+        {"word": "rates", "phonetic": "/re\u026ats/", "syllable": "rates", "pos": "n.",
+         "meaning": "\u5e02\u653f\u7a0e\uff08NZ\u623f\u4e3b\u5e74\u5ea6\u8d39\u7528\uff09",
+         "example": "Rates are due at the end of August.", "example_cn": "\u5e02\u653f\u7a0e8\u6708\u5e95\u5230\u671f\u3002", "scene": "\ud83c\udfe0 \u751f\u6d3b\u7f34\u8d39",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "due", "phonetic": "/dju\u02d0/", "syllable": "due", "meaning": "adj. \u5230\u671f\u7684"}
+         ]},
+        {"word": "body corporate", "phonetic": "/\u02c8b\u0252di \u02c8k\u0254\u02d0p\u0259r\u0259t/", "syllable": "body cor\u00b7po\u00b7rate", "pos": "n.",
+         "meaning": "\u7269\u4e1a\u7ba1\u7406\u59d4\u5458\u4f1a",
+         "example": "Our body corporate fee is $400 per quarter.", "example_cn": "\u6211\u4eec\u7269\u4e1a\u8d39\u6bcf\u5b63\u5ea6400\u5757\u3002", "scene": "\ud83c\udfe0 \u79df\u623f",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "quarter", "phonetic": "/\u02c8kw\u0254\u02d0t\u0259/", "syllable": "quar\u00b7ter", "meaning": "n. \u5b63\u5ea6"}
+         ]},
+        {"word": "open home", "phonetic": "/\u02c8\u0259\u028ap\u0259n h\u0259\u028am/", "syllable": "o\u00b7pen home", "pos": "n.",
+         "meaning": "\u5f00\u653e\u770b\u623f\uff08NZ\u623f\u4ea7\u7528\u8bed\uff09",
+         "example": "There's an open home this Saturday from 1 to 1:30pm.", "example_cn": "\u8fd9\u5468\u516d\u4e0b\u53481\u70b9\u52301\u70b9\u534a\u5f00\u653e\u770b\u623f\u3002", "scene": "\ud83c\udfe0 \u79df\u623f",
+         "grammar": "there be",
+         "sentence_words": [
+             {"word": "auction", "phonetic": "/\u02c8\u0254\u02d0k\u0283\u0259n/", "syllable": "auc\u00b7tion", "meaning": "n. \u62cd\u5356"}
+         ]},
+        {"word": "fixture", "phonetic": "/\u02c8f\u026akst\u0283\u0259/", "syllable": "fix\u00b7ture", "pos": "n.",
+         "meaning": "\u56fa\u5b9a\u8bbe\u65bd\uff08\u4e0d\u53ef\u79fb\u52a8\u7269\u54c1\uff09",
+         "example": "The oven and dishwasher are fixtures.", "example_cn": "\u70e4\u7bb1\u548c\u6d17\u7897\u673a\u662f\u56fa\u5b9a\u8bbe\u65bd\u3002", "scene": "\ud83c\udfe0 \u79df\u623f\u68c0\u67e5",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "oven", "phonetic": "/\u02c8\u028cv\u0259n/", "syllable": "o\u00b7ven", "meaning": "n. \u70e4\u7bb1"},
+             {"word": "dishwasher", "phonetic": "/\u02c8d\u026a\u0283w\u0252\u0283\u0259/", "syllable": "dish\u00b7wash\u00b7er", "meaning": "n. \u6d17\u7897\u673a"}
+         ]},
+        {"word": "chattels", "phonetic": "/\u02c8t\u0283\u00e6t\u0259lz/", "syllable": "chat\u00b7tels", "pos": "n.",
+         "meaning": "\u52a8\u4ea7\uff1b\u53ef\u79fb\u52a8\u7269\u54c1",
+         "example": "The curtains are chattels \u2014 you can take them.", "example_cn": "\u7a97\u5e18\u662f\u52a8\u4ea7\u2014\u2014\u53ef\u4ee5\u5e26\u8d70\u3002", "scene": "\ud83c\udfe0 \u9000\u79df",
+         "grammar": "can take",
+         "sentence_words": [
+             {"word": "curtains", "phonetic": "/\u02c8k\u025c\u02d0t\u0259nz/", "syllable": "cur\u00b7tains", "meaning": "n. \u7a97\u5e18"},
+             {"word": "blinds", "phonetic": "/bla\u026andz/", "syllable": "blinds", "meaning": "n. \u767e\u53f6\u7a97"}
+         ]},
+        {"word": "CV", "phonetic": "/\u02ccsi\u02d0\u02c8vi\u02d0/", "syllable": "C-V", "pos": "n.",
+         "meaning": "\u7b80\u5386\uff08Curriculum Vitae\uff09",
+         "example": "Make sure your CV is up to date before applying.", "example_cn": "\u7533\u8bf7\u524d\u786e\u4fdd\u7b80\u5386\u662f\u6700\u65b0\u7684\u3002", "scene": "\ud83d\udcbc \u6c42\u804c",
+         "grammar": "make sure",
+         "sentence_words": [
+             {"word": "up to date", "phonetic": "/\u028cp tu de\u026at/", "syllable": "up to date", "meaning": "phrase \u6700\u65b0\u7684"},
+             {"word": "applying", "phonetic": "/\u0259\u02c8pla\u026a\u026a\u014b/", "syllable": "ap\u00b7ply\u00b7ing", "meaning": "v. \u7533\u8bf7"}
+         ]},
+        {"word": "gap", "phonetic": "/\u0261\u00e6p/", "syllable": "gap", "pos": "n.",
+         "meaning": "\u7a7a\u767d\u671f\uff08\u7b80\u5386\u7a7a\u7a97\u671f\uff09",
+         "example": "Employers might ask about the gap in your CV.", "example_cn": "\u96c7\u4e3b\u53ef\u80fd\u4f1a\u95ee\u7b80\u5386\u4e0a\u7684\u7a7a\u767d\u671f\u3002", "scene": "\ud83d\udcbc \u6c42\u804c",
+         "grammar": "might ask",
+         "sentence_words": [
+             {"word": "employers", "phonetic": "/\u026am\u02c8pl\u0254\u026a\u0259z/", "syllable": "em\u00b7ploy\u00b7ers", "meaning": "n. \u96c7\u4e3b"}
+         ]},
+        {"word": "casual", "phonetic": "/\u02c8k\u00e6\u0292u\u0259l/", "syllable": "cas\u00b7u\u00b7al", "pos": "adj.",
+         "meaning": "\u517c\u804c\u7684\uff1b\u4e34\u65f6\u5de5",
+         "example": "I'm working casual hours \u2014 about 20 a week.", "example_cn": "\u6211\u505a\u4e34\u65f6\u5de5\u2014\u2014\u5927\u6982\u4e00\u546820\u5c0f\u65f6\u3002", "scene": "\ud83d\udcbc \u5de5\u4f5c",
+         "grammar": "\u73b0\u5728\u8fdb\u884c\u65f6",
+         "sentence_words": [
+             {"word": "hours", "phonetic": "/\u02c8a\u028a\u0259z/", "syllable": "hours", "meaning": "n. \u5de5\u65f6"}
+         ]},
+        {"word": "pharmacy", "phonetic": "/\u02c8f\u0251\u02d0m\u0259si/", "syllable": "phar\u00b7ma\u00b7cy", "pos": "n.",
+         "meaning": "\u836f\u623f",
+         "example": "The pharmacy closes at 5pm on Saturdays.", "example_cn": "\u836f\u623f\u5468\u516d5\u70b9\u5173\u95e8\u3002", "scene": "\ud83c\udfe5 \u836f\u5e97",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "closes", "phonetic": "/\u02c8kl\u0259\u028az\u026az/", "syllable": "clo\u00b7ses", "meaning": "v. \u5173\u95e8"}
+         ]},
+        {"word": "subsidised", "phonetic": "/\u02c8s\u028cbs\u026ada\u026azd/", "syllable": "sub\u00b7si\u00b7dised", "pos": "adj.",
+         "meaning": "\u6709\u8865\u8d34\u7684",
+         "example": "Most doctor visits are subsidised if you're a resident.", "example_cn": "\u5c45\u6c11\u591a\u6570\u770b\u75c5\u6709\u8865\u8d34\u3002", "scene": "\ud83c\udfe5 \u9884\u7ea6\u770b\u75c5",
+         "grammar": "\u88ab\u52a8\u8bed\u6001",
+         "sentence_words": [
+             {"word": "subsidy", "phonetic": "/\u02c8s\u028cbs\u026adi/", "syllable": "sub\u00b7sid\u00b7y", "meaning": "n. \u8865\u8d34"}
+         ]},
+        {"word": "potluck", "phonetic": "/\u02ccp\u0252t\u02c8l\u028ck/", "syllable": "pot\u00b7luck", "pos": "n.",
+         "meaning": "\u767e\u4e50\u9910\uff08\u6bcf\u4eba\u5e26\u4e00\u9053\u83dc\uff09",
+         "example": "We're having a potluck dinner on Friday.", "example_cn": "\u5468\u4e94\u641e\u767e\u4e50\u9910\u3002", "scene": "\ud83d\udc65 \u90bb\u91cc",
+         "grammar": "\u73b0\u5728\u8fdb\u884c\u65f6",
+         "sentence_words": [
+             {"word": "dish", "phonetic": "/d\u026a\u0283/", "syllable": "dish", "meaning": "n. \u4e00\u9053\u83dc"}
+         ]},
+        {"word": "bring a plate", "phonetic": "/br\u026a\u014b \u0259 ple\u026at/", "syllable": "bring a plate", "pos": "phrase",
+         "meaning": "\u5e26\u98df\u7269\u6765\u5206\u4eab\uff08NZ\u805a\u4f1a\u7528\u8bed\uff09",
+         "example": "Just bring a plate when you come.", "example_cn": "\u6765\u7684\u65f6\u5019\u5e26\u70b9\u5403\u7684\u5c31\u884c\u3002", "scene": "\ud83d\udc65 \u90bb\u91cc",
+         "grammar": "\u7948\u4f7f\u53e5",
+         "sentence_words": [
+             {"word": "join", "phonetic": "/d\u0292\u0254\u026an/", "syllable": "join", "meaning": "v. \u53c2\u52a0"}
+         ]},
+        {"word": "uni", "phonetic": "/\u02c8ju\u02d0ni/", "syllable": "u\u00b7ni", "pos": "n.",
+         "meaning": "\u5927\u5b66\uff08university\u53e3\u8bed\u7f29\u5199\uff09",
+         "example": "She's at uni in Wellington studying law.", "example_cn": "\u5979\u5728\u60e0\u7075\u987f\u5927\u5b66\u8bfb\u6cd5\u5f8b\u3002", "scene": "\ud83c\udf93 \u5b66\u6821\u6559\u80b2",
+         "grammar": "\u53e3\u8bed\u7f29\u5199",
+         "sentence_words": [
+             {"word": "Wellington", "phonetic": "/\u02c8wel\u026a\u014bt\u0259n/", "syllable": "Wel\u00b7ling\u00b7ton", "meaning": "n. \u60e0\u7075\u987f"}
+         ]},
+        {"word": "assignment", "phonetic": "/\u0259\u02c8sa\u026anm\u0259nt/", "syllable": "as\u00b7sign\u00b7ment", "pos": "n.",
+         "meaning": "\u4f5c\u4e1a\uff1b\u8bfe\u9898",
+         "example": "The assignment is due next Friday.", "example_cn": "\u4f5c\u4e1a\u4e0b\u5468\u4e94\u4ea4\u3002", "scene": "\ud83c\udf93 \u5b66\u6821/\u5de5\u4f5c",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "due", "phonetic": "/dju\u02d0/", "syllable": "due", "meaning": "adj. \u5230\u671f\u7684"}
+         ]},
+        {"word": "soft plastic", "phonetic": "/s\u0252ft \u02c8pl\u00e6st\u026ak/", "syllable": "soft plas\u00b7tic", "pos": "n.",
+         "meaning": "\u8f6f\u5851\u6599\uff08NZ\u6307\u5b9a\u56de\u6536\uff09",
+         "example": "Soft plastics go in the special bin.", "example_cn": "\u8f6f\u5851\u6599\u653e\u4e13\u7528\u56de\u6536\u7bb1\u3002", "scene": "\u267b\ufe0f \u73af\u4fdd",
+         "grammar": "\u7948\u4f7f\u53e5",
+         "sentence_words": [
+             {"word": "recycle", "phonetic": "/ri\u02d0\u02c8sa\u026ak\u0259l/", "syllable": "re\u00b7cy\u00b7cle", "meaning": "v. \u56de\u6536"}
+         ]},
+        {"word": "kerbside", "phonetic": "/\u02c8k\u025c\u02d0bsa\u026ad/", "syllable": "kerb\u00b7side", "pos": "adj.",
+         "meaning": "\u8def\u8fb9\u7684",
+         "example": "Kerbside recycling is collected every Tuesday.", "example_cn": "\u6bcf\u5468\u4e8c\u6536\u8def\u8fb9\u53ef\u56de\u6536\u7269\u3002", "scene": "\u267b\ufe0f \u73af\u4fdd",
+         "grammar": "\u88ab\u52a8\u8bed\u6001",
+         "sentence_words": [
+             {"word": "collected", "phonetic": "/k\u0259\u02c8lekt\u026ad/", "syllable": "col\u00b7lected", "meaning": "v. \u6536\u96c6"}
+         ]},
+        {"word": "gumboots", "phonetic": "/\u02c8\u0261\u028cmbu\u02d0ts/", "syllable": "gum\u00b7boots", "pos": "n.",
+         "meaning": "\u96e8\u9774\uff1b\u6a61\u80f6\u9774",
+         "example": "Grab your gumboots, it's pretty muddy.", "example_cn": "\u7a7f\u4e0a\u96e8\u9774\uff0c\u5916\u9762\u633a\u6ce5\u6cde\u3002", "scene": "\ud83c\udf24\ufe0f \u5929\u6c14",
+         "grammar": "\u7948\u4f7f\u53e5",
+         "sentence_words": [
+             {"word": "muddy", "phonetic": "/\u02c8m\u028cdi/", "syllable": "mud\u00b7dy", "meaning": "adj. \u6ce5\u6cde\u7684"}
+         ]},
+        {"word": "torch", "phonetic": "/t\u0254\u02d0t\u0283/", "syllable": "torch", "pos": "n.",
+         "meaning": "\u624b\u7535\u7b52\uff08NZ/UK\u7528\u6cd5\uff09",
+         "example": "Take a torch if you're walking the dog at night.", "example_cn": "\u665a\u4e0a\u905b\u72d7\u5e26\u4e2a\u624b\u7535\u7b52\u3002", "scene": "\ud83d\udc15 \u5ba0\u7269",
+         "grammar": "\u7948\u4f7f\u53e5+\u6761\u4ef6\u53e5",
+         "sentence_words": [
+             {"word": "walking the dog", "phonetic": "/\u02c8w\u0254\u02d0k\u026a\u014b \u00f0\u0259 d\u0252\u0261/", "syllable": "walk\u00b7ing the dog", "meaning": "phrase \u905b\u72d7"}
+         ]},
+        {"word": "duvet", "phonetic": "/\u02c8dju\u02d0ve\u026a/", "syllable": "du\u00b7vet", "pos": "n.",
+         "meaning": "\u7fbd\u7ed2\u88ab\uff08NZ\u5e38\u7528\uff09",
+         "example": "I need a thicker duvet \u2014 it's getting cold.", "example_cn": "\u6211\u9700\u8981\u66f4\u539a\u7684\u88ab\u5b50\u2014\u2014\u8d8a\u6765\u8d8a\u51b7\u4e86\u3002", "scene": "\ud83c\udfe0 \u65e5\u5e38\u751f\u6d3b",
+         "grammar": "need to",
+         "sentence_words": [
+             {"word": "thicker", "phonetic": "/\u02c8\u03b8\u026ak\u0259/", "syllable": "thick\u00b7er", "meaning": "adj. \u66f4\u539a\u7684"}
+         ]},
+        {"word": "heat pump", "phonetic": "/hi\u02d0t p\u028cmp/", "syllable": "heat pump", "pos": "n.",
+         "meaning": "\u7a7a\u8c03/\u6696\u901a\uff08NZ\u53ebheat pump\uff09",
+         "example": "We got a heat pump installed \u2014 huge difference.", "example_cn": "\u6211\u4eec\u88c5\u4e86\u7a7a\u8c03\u2014\u2014\u5dee\u522b\u592a\u5927\u4e86\u3002", "scene": "\ud83c\udfe0 \u65e5\u5e38\u751f\u6d3b",
+         "grammar": "\u4f7f\u5f79\u52a8\u8bcd",
+         "sentence_words": [
+             {"word": "installed", "phonetic": "/\u026an\u02c8st\u0254\u02d0ld/", "syllable": "in\u00b7stalled", "meaning": "v. \u5b89\u88c5"}
+         ]},
+        {"word": "text", "phonetic": "/tekst/", "syllable": "text", "pos": "v./n.",
+         "meaning": "\u53d1\u77ed\u4fe1",
+         "example": "Just text me when you're on your way.", "example_cn": "\u4f60\u51fa\u53d1\u65f6\u7ed9\u6211\u53d1\u77ed\u4fe1\u3002", "scene": "\ud83d\udcf1 \u624b\u673a\u5957\u9910",
+         "grammar": "\u7948\u4f7f\u53e5",
+         "sentence_words": [
+             {"word": "on your way", "phonetic": "/\u0252n j\u0254\u02d0 we\u026a/", "syllable": "on your way", "meaning": "phrase \u5728\u8def\u4e0a"}
+         ]},
+        {"word": "data cap", "phonetic": "/\u02c8de\u026at\u0259 k\u00e6p/", "syllable": "da\u00b7ta cap", "pos": "n.",
+         "meaning": "\u6d41\u91cf\u4e0a\u9650",
+         "example": "We've hit our data cap \u2014 internet is super slow.", "example_cn": "\u6d41\u91cf\u7528\u5b8c\u4e86\u2014\u2014\u7f51\u8d85\u6162\u3002", "scene": "\ud83d\udcf6 \u5bbd\u5e26\u7f51\u7edc",
+         "grammar": "\u73b0\u5728\u5b8c\u6210\u65f6",
+         "sentence_words": [
+             {"word": "internet", "phonetic": "/\u02c8\u026ant\u0259net/", "syllable": "in\u00b7ter\u00b7net", "meaning": "n. \u4e92\u8054\u7f51"}
+         ]},
+        {"word": "glowing", "phonetic": "/\u02c8\u0261l\u0259\u028a\u026a\u014b/", "syllable": "glow\u00b7ing", "pos": "adj.",
+         "meaning": "\u53d1\u5149\u7684\uff08\u5899\u58c1\u9709\u83cc\u8ff9\u8c61\uff09",
+         "example": "There's a glowing patch on the ceiling \u2014 might be a leak.", "example_cn": "\u5929\u82b1\u677f\u4e0a\u6709\u5757\u53d1\u4eae\u2014\u2014\u53ef\u80fd\u6f0f\u6c34\u3002", "scene": "\ud83d\udd27 \u7ef4\u4fee",
+         "grammar": "there be",
+         "sentence_words": [
+             {"word": "leak", "phonetic": "/li\u02d0k/", "syllable": "leak", "meaning": "n. \u6f0f\u6c34"},
+             {"word": "ceiling", "phonetic": "/\u02c8si\u02d0l\u026a\u014b/", "syllable": "ceil\u00b7ing", "meaning": "n. \u5929\u82b1\u677f"}
+         ]},
+        {"word": "DIY", "phonetic": "/di\u02d0 a\u026a wa\u026a/", "syllable": "D-I-Y", "pos": "n./adj.",
+         "meaning": "\u81ea\u5df1\u52a8\u624b\u505a\uff08NZ\u6587\u5316\uff09",
+         "example": "He fixed the fence himself, full DIY.", "example_cn": "\u4ed6\u81ea\u5df1\u4fee\u597d\u4e86\u6805\u680f\uff0c\u5b8c\u5168DIY\u3002", "scene": "\ud83d\udd27 \u7ef4\u4fee",
+         "grammar": "\u4e00\u822c\u8fc7\u53bb\u65f6",
+         "sentence_words": [
+             {"word": "handy", "phonetic": "/\u02c8h\u00e6ndi/", "syllable": "hand\u00b7y", "meaning": "adj. \u624b\u5de7\u7684"}
+         ]},
+        {"word": "mitre 10", "phonetic": "/\u02c8ma\u026at\u0259 ten/", "syllable": "mi\u00b7tre 10", "pos": "n.",
+         "meaning": "Mitre 10 MEGA\uff08NZ\u4e94\u91d1\u8fde\u9501\uff09",
+         "example": "I need to pop into Mitre 10 to get some paint.", "example_cn": "\u6211\u5f97\u53bbMitre 10\u4e70\u70b9\u6cb9\u6f06\u3002", "scene": "\ud83d\udd27 \u7ef4\u4fee",
+         "grammar": "need to pop into",
+         "sentence_words": [
+             {"word": "paint", "phonetic": "/pe\u026ant/", "syllable": "paint", "meaning": "n. \u6cb9\u6f06"}
+         ]},
+        {"word": "INZ", "phonetic": "/a\u026a en ze\u026a/", "syllable": "I-N-Z", "pos": "n.",
+         "meaning": "\u65b0\u897f\u5170\u79fb\u6c11\u5c40",
+         "example": "Submit your application through the INZ portal.", "example_cn": "\u901a\u8fc7\u79fb\u6c11\u5c40\u5b98\u7f51\u63d0\u4ea4\u7533\u8bf7\u3002", "scene": "\ud83d\udec2 \u7b7e\u8bc1",
+         "grammar": "\u7948\u4f7f\u53e5",
+         "sentence_words": [
+             {"word": "portal", "phonetic": "/\u02c8p\u0254\u02d0t\u0259l/", "syllable": "por\u00b7tal", "meaning": "n. \u7f51\u4e0a\u5165\u53e3"},
+             {"word": "submit", "phonetic": "/s\u0259b\u02c8m\u026at/", "syllable": "sub\u00b7mit", "meaning": "v. \u63d0\u4ea4"}
+         ]},
+        {"word": "e-visa", "phonetic": "/\u02c8i\u02d0 vi\u02d0z\u0259/", "syllable": "e-vi\u00b7sa", "pos": "n.",
+         "meaning": "\u7535\u5b50\u7b7e\u8bc1",
+         "example": "Your e-visa will be emailed once approved.", "example_cn": "\u7b7e\u8bc1\u6279\u51c6\u540e\u7535\u5b50\u7b7e\u8bc1\u53d1\u5230\u4f60\u90ae\u7bb1\u3002", "scene": "\ud83d\udec2 \u7b7e\u8bc1",
+         "grammar": "\u4e00\u822c\u5c06\u6765\u65f6",
+         "sentence_words": [
+             {"word": "approved", "phonetic": "/\u0259\u02c8pru\u02d0vd/", "syllable": "ap\u00b7proved", "meaning": "v. \u6279\u51c6"}
+         ]},
+        {"word": "expression of interest", "phonetic": "/\u026ak\u02c8spre\u0283\u0259n \u0259v \u02c8\u026antr\u0259st/", "syllable": "ex\u00b7pres\u00b7sion of in\u00b7ter\u00b7est", "pos": "n.",
+         "meaning": "\u610f\u5411\u7533\u8bf7\uff08EOI\uff09",
+         "example": "The EOI pool is drawn every two weeks.", "example_cn": "EOI\u6c60\u6bcf\u4e24\u5468\u62bd\u4e00\u6b21\u3002", "scene": "\ud83d\udec2 \u79fb\u6c11",
+         "grammar": "\u88ab\u52a8\u8bed\u6001",
+         "sentence_words": [
+             {"word": "pool", "phonetic": "/pu\u02d0l/", "syllable": "pool", "meaning": "n. \u5019\u9009\u6c60"}
          ]},
     ],
     "ielts": [
@@ -1398,16 +1933,6 @@ WORD_BANK = {
          ]},
 
         # ---- 教育 ----
-        {"word": "tuition", "phonetic": "/tjuːˈɪʃn/", "syllable": "tu · i · tion", "pos": "n.",
-         "meaning": "学费",
-         "example": "International students pay higher tuition fees than local students.",
-         "example_cn": "国际学生比本地学生交的学费更高。", "scene": "📚 留学费用",
-         "grammar": "一般现在时（客观事实）；比较级：higher...than",
-         "sentence_words": [
-             {"word": "international", "phonetic": "/ˌɪntəˈnæʃnəl/", "syllable": "in·ter·na·tion·al", "meaning": "adj. 国际的"},
-             {"word": "tuition fees", "phonetic": "/tjuːˈɪʃn fiːz/", "syllable": "tu·i·tion fees", "meaning": "n. 学费"},
-             {"word": "fees", "phonetic": "/fiːz/", "syllable": "fees", "meaning": "n. 费用（复数）"}
-         ]},
         {"word": "bachelor", "phonetic": "/ˈbætʃələr/", "syllable": "bach · e · lor", "pos": "n.",
          "meaning": "学士学位",
          "example": "She earned a bachelor's degree in Accounting.",
@@ -1672,6 +2197,470 @@ WORD_BANK = {
          "grammar": "主系表；with people from many backgrounds（有着不同背景的人）",
          "sentence_words": [
              {"word": "multicultural", "phonetic": "/ˌmʌltiˈkʌltʃərəl/", "syllable": "mul·ti·cul·tu·ral", "meaning": "adj. 多元文化的"}
+         ]},
+
+        # ---- 扩充词汇 ----
+        {"word": "sponsor", "phonetic": "/\u02c8sp\u0252ns\u0259/", "syllable": "spon\u00b7sor", "pos": "v./n.",
+         "meaning": "\u62c5\u4fdd\uff1b\u8d44\u52a9\uff08\u7b7e\u8bc1\u62c5\u4fdd\u4eba\uff09",
+         "example": "Your employer needs to sponsor your work visa.", "example_cn": "\u4f60\u7684\u96c7\u4e3b\u9700\u8981\u4e3a\u5de5\u4f5c\u7b7e\u8bc1\u505a\u62c5\u4fdd\u3002", "scene": "\ud83d\udccb \u7b7e\u8bc1\u7533\u8bf7",
+         "grammar": "need to+\u52a8\u8bcd",
+         "sentence_words": [
+             {"word": "employer", "phonetic": "/\u026am\u02c8pl\u0254\u026a\u0259/", "syllable": "em\u00b7ploy\u00b7er", "meaning": "n. \u96c7\u4e3b"}
+         ]},
+        {"word": "dependant", "phonetic": "/d\u026a\u02c8pend\u0259nt/", "syllable": "de\u00b7pen\u00b7dant", "pos": "n.",
+         "meaning": "\u53d7\u517b\u4eba\uff1b\u5bb6\u5c5e",
+         "example": "You can include your dependants on the same application.", "example_cn": "\u4f60\u53ef\u4ee5\u5728\u540c\u4e00\u7533\u8bf7\u4e2d\u5305\u542b\u5bb6\u5c5e\u3002", "scene": "\ud83d\udccb \u7b7e\u8bc1\u7533\u8bf7",
+         "grammar": "can include",
+         "sentence_words": [
+             {"word": "application", "phonetic": "/\u02cc\u00e6pl\u026a\u02c8ke\u026a\u0283\u0259n/", "syllable": "ap\u00b7pli\u00b7ca\u00b7tion", "meaning": "n. \u7533\u8bf7"}
+         ]},
+        {"word": "deport", "phonetic": "/d\u026a\u02c8p\u0254\u02d0t/", "syllable": "de\u00b7port", "pos": "v.",
+         "meaning": "\u9a71\u9010\u51fa\u5883",
+         "example": "People who overstay may be deported.", "example_cn": "\u903e\u671f\u6ede\u7559\u7684\u4eba\u53ef\u80fd\u88ab\u9a71\u9010\u3002", "scene": "\ud83d\udccb \u7b7e\u8bc1",
+         "grammar": "\u88ab\u52a8\u8bed\u6001",
+         "sentence_words": [
+             {"word": "overstay", "phonetic": "/\u02cc\u0259\u028av\u0259\u02c8ste\u026a/", "syllable": "o\u00b7ver\u00b7stay", "meaning": "v. \u903e\u671f\u6ede\u7559"}
+         ]},
+        {"word": "permanent", "phonetic": "/\u02c8p\u025c\u02d0m\u0259n\u0259nt/", "syllable": "per\u00b7ma\u00b7nent", "pos": "adj.",
+         "meaning": "\u6c38\u4e45\u7684",
+         "example": "After 5 years you can apply for permanent residency.", "example_cn": "5\u5e74\u540e\u53ef\u7533\u8bf7\u6c38\u4e45\u5c45\u7559\u6743\u3002", "scene": "\ud83d\udccb \u79fb\u6c11",
+         "grammar": "can apply for",
+         "sentence_words": [
+             {"word": "residency", "phonetic": "/\u02c8rez\u026ad\u0259nsi/", "syllable": "res\u00b7i\u00b7den\u00b7cy", "meaning": "n. \u5c45\u7559\u6743"}
+         ]},
+        {"word": "quota", "phonetic": "/\u02c8kw\u0259\u028at\u0259/", "syllable": "quo\u00b7ta", "pos": "n.",
+         "meaning": "\u914d\u989d\uff1b\u540d\u989d",
+         "example": "The skilled migrant category has an annual quota.", "example_cn": "\u6280\u672f\u79fb\u6c11\u7c7b\u522b\u6709\u5e74\u5ea6\u914d\u989d\u3002", "scene": "\ud83d\udccb \u79fb\u6c11",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "annual", "phonetic": "/\u02c8\u00e6nju\u0259l/", "syllable": "an\u00b7nu\u00b7al", "meaning": "adj. \u5e74\u5ea6\u7684"}
+         ]},
+        {"word": "assessment", "phonetic": "/\u0259\u02c8sesm\u0259nt/", "syllable": "as\u00b7sess\u00b7ment", "pos": "n.",
+         "meaning": "\u8bc4\u4f30\uff1b\u5ba1\u6838",
+         "example": "Your overseas qualification needs a NZQA assessment.", "example_cn": "\u6d77\u5916\u5b66\u5386\u9700\u8981NZQA\u8ba4\u8bc1\u3002", "scene": "\ud83d\udccb \u7b7e\u8bc1\u6750\u6599",
+         "grammar": "need to",
+         "sentence_words": [
+             {"word": "qualification", "phonetic": "/\u02cckw\u0252l\u026af\u026a\u02c8ke\u026a\u0283\u0259n/", "syllable": "qual\u00b7i\u00b7fi\u00b7ca\u00b7tion", "meaning": "n. \u5b66\u5386"}
+         ]},
+        {"word": "predominantly", "phonetic": "/pr\u026a\u02c8d\u0252m\u026an\u0259ntli/", "syllable": "pre\u00b7dom\u00b7i\u00b7nant\u00b7ly", "pos": "adv.",
+         "meaning": "\u4e3b\u8981\u5730",
+         "example": "The population is predominantly in urban areas.", "example_cn": "\u4eba\u53e3\u4e3b\u8981\u96c6\u4e2d\u5728\u57ce\u5e02\u5730\u533a\u3002", "scene": "\ud83d\udcdd \u96c5\u601d\u5199\u4f5c",
+         "grammar": "\u88ab\u52a8+\u526f\u8bcd",
+         "sentence_words": [
+             {"word": "concentrated", "phonetic": "/\u02c8k\u0252ns\u0259ntre\u026at\u026ad/", "syllable": "con\u00b7cen\u00b7tra\u00b7ted", "meaning": "adj. \u96c6\u4e2d\u7684"},
+             {"word": "urban", "phonetic": "/\u02c8\u025c\u02d0b\u0259n/", "syllable": "ur\u00b7ban", "meaning": "adj. \u57ce\u5e02\u7684"}
+         ]},
+        {"word": "deteriorate", "phonetic": "/d\u026a\u02c8t\u026a\u0259ri\u0259re\u026at/", "syllable": "de\u00b7te\u00b7ri\u00b7o\u00b7rate", "pos": "v.",
+         "meaning": "\u6076\u5316\uff1b\u53d8\u574f",
+         "example": "Air quality has deteriorated significantly.", "example_cn": "\u7a7a\u6c14\u8d28\u91cf\u663e\u8457\u6076\u5316\u3002", "scene": "\ud83d\udcdd \u96c5\u601d\u5199\u4f5c",
+         "grammar": "\u73b0\u5728\u5b8c\u6210\u65f6",
+         "sentence_words": [
+             {"word": "significantly", "phonetic": "/s\u026a\u0261\u02c8n\u026af\u026ak\u0259ntli/", "syllable": "sig\u00b7nif\u00b7i\u00b7cant\u00b7ly", "meaning": "adv. \u663e\u8457\u5730"}
+         ]},
+        {"word": "inevitable", "phonetic": "/\u026an\u02c8ev\u026at\u0259b\u0259l/", "syllable": "in\u00b7ev\u00b7i\u00b7ta\u00b7ble", "pos": "adj.",
+         "meaning": "\u4e0d\u53ef\u907f\u514d\u7684",
+         "example": "Climate change is an inevitable consequence.", "example_cn": "\u6c14\u5019\u53d8\u5316\u662f\u5fc5\u7136\u7ed3\u679c\u3002", "scene": "\ud83d\udcdd \u96c5\u601d\u5199\u4f5c",
+         "grammar": "\u540d\u8bcd\u77ed\u8bed",
+         "sentence_words": [
+             {"word": "consequence", "phonetic": "/\u02c8k\u0252ns\u026akw\u0259ns/", "syllable": "con\u00b7se\u00b7quence", "meaning": "n. \u7ed3\u679c"}
+         ]},
+        {"word": "mitigate", "phonetic": "/\u02c8m\u026at\u026a\u0261e\u026at/", "syllable": "mit\u00b7i\u00b7gate", "pos": "v.",
+         "meaning": "\u7f13\u89e3\uff1b\u51cf\u8f7b",
+         "example": "Governments must take action to mitigate climate effects.", "example_cn": "\u653f\u5e9c\u5fc5\u987b\u884c\u52a8\u7f13\u89e3\u6c14\u5019\u5f71\u54cd\u3002", "scene": "\ud83d\udcdd \u96c5\u601d\u5199\u4f5c",
+         "grammar": "must+\u52a8\u8bcd",
+         "sentence_words": [
+             {"word": "effects", "phonetic": "/\u026a\u02c8fekts/", "syllable": "ef\u00b7fects", "meaning": "n. \u5f71\u54cd"}
+         ]},
+        {"word": "demographic", "phonetic": "/\u02ccdem\u0259\u02c8\u0261r\u00e6f\u026ak/", "syllable": "de\u00b7mo\u00b7graph\u00b7ic", "pos": "n./adj.",
+         "meaning": "\u4eba\u53e3\u7edf\u8ba1",
+         "example": "Demographic changes have led to an ageing population.", "example_cn": "\u4eba\u53e3\u7ed3\u6784\u53d8\u5316\u5bfc\u81f4\u8001\u9f84\u5316\u3002", "scene": "\ud83d\udcdd \u96c5\u601d\u5199\u4f5c",
+         "grammar": "\u73b0\u5728\u5b8c\u6210\u65f6",
+         "sentence_words": [
+             {"word": "ageing", "phonetic": "/\u02c8e\u026ad\u0292\u026a\u014b/", "syllable": "ag\u00b7ing", "meaning": "adj. \u8001\u9f84\u5316\u7684"}
+         ]},
+        {"word": "phenomenon", "phonetic": "/f\u026a\u02c8n\u0252m\u026an\u0259n/", "syllable": "phe\u00b7nom\u00b7e\u00b7non", "pos": "n.",
+         "meaning": "\u73b0\u8c61",
+         "example": "Globalisation is a phenomenon that has reshaped societies.", "example_cn": "\u5168\u7403\u5316\u662f\u91cd\u5851\u793e\u4f1a\u7684\u73b0\u8c61\u3002", "scene": "\ud83d\udcdd \u96c5\u601d\u5199\u4f5c",
+         "grammar": "\u73b0\u5728\u5b8c\u6210\u65f6",
+         "sentence_words": [
+             {"word": "reshaped", "phonetic": "/ri\u02d0\u02c8\u0283e\u026apt/", "syllable": "re\u00b7shaped", "meaning": "v. \u91cd\u5851"},
+             {"word": "globalisation", "phonetic": "/\u02cc\u0261l\u0259\u028ab\u0259la\u026a\u02c8ze\u026a\u0283\u0259n/", "syllable": "glo\u00b7bal\u00b7i\u00b7sa\u00b7tion", "meaning": "n. \u5168\u7403\u5316"}
+         ]},
+        {"word": "comprehensive", "phonetic": "/\u02cck\u0252mpr\u026a\u02c8hens\u026av/", "syllable": "com\u00b7pre\u00b7hen\u00b7sive", "pos": "adj.",
+         "meaning": "\u5168\u9762\u7684\uff1b\u7efc\u5408\u7684",
+         "example": "A comprehensive approach is needed.", "example_cn": "\u9700\u8981\u5168\u9762\u7684\u65b9\u6cd5\u3002", "scene": "\ud83d\udcdd \u96c5\u601d\u5199\u4f5c",
+         "grammar": "\u88ab\u52a8\u8bed\u6001",
+         "sentence_words": [
+             {"word": "address", "phonetic": "/\u0259\u02c8dres/", "syllable": "ad\u00b7dress", "meaning": "v. \u5904\u7406\uff1b\u89e3\u51b3"}
+         ]},
+        {"word": "substantial", "phonetic": "/s\u0259b\u02c8st\u00e6n\u0283\u0259l/", "syllable": "sub\u00b7stan\u00b7tial", "pos": "adj.",
+         "meaning": "\u5927\u91cf\u7684\uff1b\u91cd\u5927\u7684",
+         "example": "There has been a substantial increase in housing prices.", "example_cn": "\u623f\u4ef7\u6709\u4e86\u5927\u5e45\u4e0a\u6da8\u3002", "scene": "\ud83d\udcdd \u96c5\u601d\u5199\u4f5c",
+         "grammar": "\u73b0\u5728\u5b8c\u6210\u65f6",
+         "sentence_words": [
+             {"word": "increase", "phonetic": "/\u02c8\u026ankri\u02d0s/", "syllable": "in\u00b7crease", "meaning": "n. \u589e\u957f"}
+         ]},
+        {"word": "subsequent", "phonetic": "/\u02c8s\u028cbs\u026akw\u0259nt/", "syllable": "sub\u00b7se\u00b7quent", "pos": "adj.",
+         "meaning": "\u968f\u540e\u7684\uff1b\u540e\u6765\u7684",
+         "example": "The subsequent investigation revealed new evidence.", "example_cn": "\u968f\u540e\u7684\u8c03\u67e5\u53d1\u73b0\u4e86\u65b0\u8bc1\u636e\u3002", "scene": "\ud83d\udcdd \u96c5\u601d\u5199\u4f5c",
+         "grammar": "\u4e00\u822c\u8fc7\u53bb\u65f6",
+         "sentence_words": [
+             {"word": "investigation", "phonetic": "/\u026an\u02ccvest\u026a\u02c8\u0261e\u026a\u0283\u0259n/", "syllable": "in\u00b7ves\u00b7ti\u00b7ga\u00b7tion", "meaning": "n. \u8c03\u67e5"}
+         ]},
+        {"word": "perceive", "phonetic": "/p\u0259\u02c8si\u02d0v/", "syllable": "per\u00b7ceive", "pos": "v.",
+         "meaning": "\u8ba4\u4e3a\uff1b\u611f\u77e5",
+         "example": "Education is perceived as the key to social mobility.", "example_cn": "\u6559\u80b2\u88ab\u89c6\u4e3a\u793e\u4f1a\u6d41\u52a8\u7684\u5173\u952e\u3002", "scene": "\ud83d\udcdd \u96c5\u601d\u5199\u4f5c",
+         "grammar": "\u88ab\u52a8\u8bed\u6001",
+         "sentence_words": [
+             {"word": "social mobility", "phonetic": "/\u02c8s\u0259\u028a\u0283\u0259l m\u0259\u028a\u02c8b\u026al\u0259ti/", "syllable": "so\u00b7cial mo\u00b7bi\u00b7li\u00b7ty", "meaning": "n. \u793e\u4f1a\u6d41\u52a8"}
+         ]},
+        {"word": "biodiversity", "phonetic": "/\u02ccba\u026a\u0259\u028ada\u026a\u02c8v\u025c\u02d0s\u0259ti/", "syllable": "bi\u00b7o\u00b7di\u00b7ver\u00b7si\u00b7ty", "pos": "n.",
+         "meaning": "\u751f\u7269\u591a\u6837\u6027",
+         "example": "NZ is known for its unique biodiversity.", "example_cn": "NZ\u4ee5\u72ec\u7279\u7684\u751f\u7269\u591a\u6837\u6027\u8457\u79f0\u3002", "scene": "\ud83c\udf0d \u73af\u5883",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "unique", "phonetic": "/ju\u02d0\u02c8ni\u02d0k/", "syllable": "u\u00b7nique", "meaning": "adj. \u72ec\u7279\u7684"}
+         ]},
+        {"word": "deforestation", "phonetic": "/di\u02d0\u02ccf\u0252r\u026a\u02c8ste\u026a\u0283\u0259n/", "syllable": "de\u00b7for\u00b7es\u00b7ta\u00b7tion", "pos": "n.",
+         "meaning": "\u780d\u4f10\u68ee\u6797",
+         "example": "Deforestation contributes to global warming.", "example_cn": "\u780d\u4f10\u68ee\u6797\u52a0\u5267\u4e86\u5168\u7403\u53d8\u6696\u3002", "scene": "\ud83c\udf0d \u73af\u5883",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "contributes to", "phonetic": "/k\u0259n\u02c8tr\u026abju\u02d0ts tu\u02d0/", "syllable": "con\u00b7tributes to", "meaning": "v. \u5bfc\u81f4"}
+         ]},
+        {"word": "emission", "phonetic": "/\u026a\u02c8m\u026a\u0283\u0259n/", "syllable": "e\u00b7mis\u00b7sion", "pos": "n.",
+         "meaning": "\u6392\u653e\uff08\u5c24\u6307\u6e29\u5ba4\u6c14\u4f53\uff09",
+         "example": "NZ has committed to reducing carbon emissions by 2050.", "example_cn": "NZ\u627f\u8bfa2050\u5e74\u524d\u51cf\u5c11\u78b3\u6392\u653e\u3002", "scene": "\ud83c\udf0d \u73af\u4fdd/\u80fd\u6e90",
+         "grammar": "\u73b0\u5728\u5b8c\u6210\u65f6",
+         "sentence_words": [
+             {"word": "carbon", "phonetic": "/\u02c8k\u0251\u02d0b\u0259n/", "syllable": "car\u00b7bon", "meaning": "n. \u78b3"},
+             {"word": "committed", "phonetic": "/k\u0259\u02c8m\u026at\u026ad/", "syllable": "com\u00b7mit\u00b7ted", "meaning": "v. \u627f\u8bfa"}
+         ]},
+        {"word": "fluctuate", "phonetic": "/\u02c8fl\u028ckt\u0283ue\u026at/", "syllable": "fluc\u00b7tu\u00b7ate", "pos": "v.",
+         "meaning": "\u6ce2\u52a8\uff1b\u8d77\u4f0f",
+         "example": "Exchange rates fluctuate depending on market conditions.", "example_cn": "\u6c47\u7387\u968f\u5e02\u573a\u6761\u4ef6\u6ce2\u52a8\u3002", "scene": "\ud83d\udcdd \u96c5\u601d\u5199\u4f5c",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "exchange rate", "phonetic": "/\u026aks\u02c8t\u0283e\u026and\u0292 re\u026at/", "syllable": "ex\u00b7change rate", "meaning": "n. \u6c47\u7387"}
+         ]},
+        {"word": "surplus", "phonetic": "/\u02c8s\u025c\u02d0pl\u0259s/", "syllable": "sur\u00b7plus", "pos": "n./adj.",
+         "meaning": "\u76c8\u4f59\uff1b\u8fc7\u5269\u7684",
+         "example": "The country reported a trade surplus last quarter.", "example_cn": "\u8be5\u56fd\u4e0a\u5b63\u5ea6\u62a5\u544a\u4e86\u8d38\u6613\u76c8\u4f59\u3002", "scene": "\ud83d\udcdd \u96c5\u601d\u5199\u4f5c",
+         "grammar": "\u4e00\u822c\u8fc7\u53bb\u65f6",
+         "sentence_words": [
+             {"word": "trade", "phonetic": "/tre\u026ad/", "syllable": "trade", "meaning": "n. \u8d38\u6613"}
+         ]},
+        {"word": "curriculum", "phonetic": "/k\u0259\u02c8r\u026akj\u0259l\u0259m/", "syllable": "cur\u00b7ric\u00b7u\u00b7lum", "pos": "n.",
+         "meaning": "\u8bfe\u7a0b\u4f53\u7cfb",
+         "example": "The school offers a broad curriculum including arts and sciences.", "example_cn": "\u5b66\u6821\u63d0\u4f9b\u5305\u62ec\u827a\u672f\u548c\u79d1\u5b66\u7684\u5e7f\u6cdb\u8bfe\u7a0b\u3002", "scene": "\ud83c\udf93 \u5b66\u6821\u6559\u80b2",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "broad", "phonetic": "/br\u0254\u02d0d/", "syllable": "broad", "meaning": "adj. \u5e7f\u6cdb\u7684"}
+         ]},
+        {"word": "plagiarism", "phonetic": "/\u02c8ple\u026ad\u0292\u0259r\u026az\u0259m/", "syllable": "pla\u00b7gia\u00b7rism", "pos": "n.",
+         "meaning": "\u6284\u88ad\uff1b\u527d\u7a83",
+         "example": "Plagiarism is a serious academic offence in NZ universities.", "example_cn": "\u6284\u88ad\u662fNZ\u5927\u5b66\u4e25\u91cd\u7684\u5b66\u672f\u8fdd\u89c4\u3002", "scene": "\ud83c\udf93 \u96c5\u601d\u5199\u4f5c",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "academic offence", "phonetic": "/\u02cc\u00e6k\u0259\u02c8dem\u026ak \u0259\u02c8fens/", "syllable": "ac\u00b7a\u00b7dem\u00b7ic of\u00b7fence", "meaning": "n. \u5b66\u672f\u8fdd\u89c4"}
+         ]},
+        {"word": "tuition fees", "phonetic": "/tju\u02c8\u026a\u0283\u0259n fi\u02d0z/", "syllable": "tu\u00b7i\u00b7tion fees", "pos": "n.",
+         "meaning": "\u5b66\u8d39",
+         "example": "International tuition fees in NZ are around $30,000 per year.", "example_cn": "NZ\u56fd\u9645\u5b66\u751f\u5b66\u8d39\u7ea6\u6bcf\u5e743\u4e07\u3002", "scene": "\ud83d\udcda \u7559\u5b66\u8d39\u7528",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "international", "phonetic": "/\u02cc\u026ant\u0259\u02c8n\u00e6\u0283\u0259n\u0259l/", "syllable": "in\u00b7ter\u00b7na\u00b7tion\u00b7al", "meaning": "adj. \u56fd\u9645\u7684"}
+         ]},
+        {"word": "tutorial", "phonetic": "/tju\u02d0\u02c8t\u0254\u02d0ri\u0259l/", "syllable": "tu\u00b7to\u00b7ri\u00b7al", "pos": "n.",
+         "meaning": "\u8f85\u5bfc\u8bfe\uff1b\u5c0f\u73ed\u8bfe",
+         "example": "I have a chemistry tutorial every Wednesday afternoon.", "example_cn": "\u6211\u6bcf\u5468\u4e09\u4e0b\u5348\u6709\u5316\u5b66\u8f85\u5bfc\u8bfe\u3002", "scene": "\ud83d\udcda \u5b66\u4e60",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "chemistry", "phonetic": "/\u02c8kem\u026astri/", "syllable": "chem\u00b7is\u00b7try", "meaning": "n. \u5316\u5b66"}
+         ]},
+        {"word": "dissertation", "phonetic": "/\u02ccd\u026as\u0259\u02c8te\u026a\u0283\u0259n/", "syllable": "dis\u00b7ser\u00b7ta\u00b7tion", "pos": "n.",
+         "meaning": "\u5b66\u4f4d\u8bba\u6587",
+         "example": "My dissertation focuses on NZ immigration policy.", "example_cn": "\u6211\u7684\u8bba\u6587\u7814\u7a76\u65b0\u897f\u5170\u79fb\u6c11\u653f\u7b56\u3002", "scene": "\ud83d\udcda \u5927\u5b66",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "focuses on", "phonetic": "/\u02c8f\u0259\u028ak\u0259s\u026az \u0252n/", "syllable": "fo\u00b7cus\u00b7es on", "meaning": "v. \u4e13\u6ce8\u4e8e"}
+         ]},
+        {"word": "credential", "phonetic": "/kr\u026a\u02c8den\u0283\u0259l/", "syllable": "cre\u00b7den\u00b7tial", "pos": "n.",
+         "meaning": "\u8d44\u683c\u8bc1\u4e66\uff1b\u51ed\u8bc1",
+         "example": "Your professional credentials need to be verified by NZQA.", "example_cn": "\u4f60\u7684\u4e13\u4e1a\u8d44\u8d28\u9700\u8981NZQA\u8ba4\u8bc1\u3002", "scene": "\ud83d\udccb \u7b7e\u8bc1\u6750\u6599",
+         "grammar": "need to be+\u8fc7\u53bb\u5206\u8bcd",
+         "sentence_words": [
+             {"word": "verified", "phonetic": "/\u02c8ver\u026afa\u026ad/", "syllable": "ver\u00b7i\u00b7fied", "meaning": "v. \u8ba4\u8bc1"}
+         ]},
+        {"word": "accommodate", "phonetic": "/\u0259\u02c8k\u0252m\u0259de\u026at/", "syllable": "ac\u00b7com\u00b7mo\u00b7date", "pos": "v.",
+         "meaning": "\u5bb9\u7eb3\uff1b\u63d0\u4f9b\u4f4f\u5bbf",
+         "example": "The university can accommodate over 5,000 international students.", "example_cn": "\u5927\u5b66\u80fd\u5bb9\u7eb35000\u591a\u540d\u56fd\u9645\u5b66\u751f\u3002", "scene": "\ud83d\udcda \u5927\u5b66",
+         "grammar": "\u60c5\u6001\u52a8\u8bcd+\u52a8\u8bcd",
+         "sentence_words": [
+             {"word": "international students", "phonetic": "/\u02cc\u026ant\u0259\u02c8n\u00e6\u0283\u0259n\u0259l \u02c8stju\u02d0d\u0259nts/", "syllable": "in\u00b7ter\u00b7na\u00b7tion\u00b7al stu\u00b7dents", "meaning": "n. \u56fd\u9645\u5b66\u751f"}
+         ]},
+        {"word": "expenditure", "phonetic": "/\u026ak\u02c8spend\u026at\u0283\u0259/", "syllable": "ex\u00b7pen\u00b7di\u00b7ture", "pos": "n.",
+         "meaning": "\u652f\u51fa\uff1b\u82b1\u8d39",
+         "example": "Government expenditure on healthcare has increased steadily.", "example_cn": "\u653f\u5e9c\u5728\u533b\u7597\u4e0a\u7684\u652f\u51fa\u7a33\u6b65\u589e\u957f\u3002", "scene": "\ud83d\udcdd \u96c5\u601d\u5199\u4f5c",
+         "grammar": "\u73b0\u5728\u5b8c\u6210\u65f6",
+         "sentence_words": [
+             {"word": "healthcare", "phonetic": "/\u02c8hel\u03b8ke\u0259/", "syllable": "health\u00b7care", "meaning": "n. \u533b\u7597"}
+         ]},
+        {"word": "inequality", "phonetic": "/\u02cc\u026an\u026a\u02c8kw\u0252l\u0259ti/", "syllable": "in\u00b7e\u00b7qual\u00b7i\u00b7ty", "pos": "n.",
+         "meaning": "\u4e0d\u5e73\u7b49",
+         "example": "Income inequality remains a significant issue in NZ.", "example_cn": "\u6536\u5165\u4e0d\u5e73\u7b49\u4ecd\u662fNZ\u7684\u91cd\u8981\u95ee\u9898\u3002", "scene": "\ud83d\udcdd \u96c5\u601d\u5199\u4f5c",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "income", "phonetic": "/\u02c8\u026ank\u028cm/", "syllable": "in\u00b7come", "meaning": "n. \u6536\u5165"}
+         ]},
+        {"word": "assimilate", "phonetic": "/\u0259\u02c8s\u026am\u026ale\u026at/", "syllable": "as\u00b7sim\u00b7i\u00b7late", "pos": "v.",
+         "meaning": "\u540c\u5316\uff1b\u878d\u5165",
+         "example": "New migrants often struggle to assimilate into the local culture.", "example_cn": "\u65b0\u79fb\u6c11\u5e38\u5e38\u96be\u4ee5\u878d\u5165\u5f53\u5730\u6587\u5316\u3002", "scene": "\ud83d\udccb \u79fb\u6c11\u751f\u6d3b",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "migrant", "phonetic": "/\u02c8ma\u026a\u0261r\u0259nt/", "syllable": "mi\u00b7grant", "meaning": "n. \u79fb\u6c11"}
+         ]},
+        {"word": "entrepreneur", "phonetic": "/\u02cc\u0252ntr\u0259pr\u0259\u02c8n\u025c\u02d0/", "syllable": "en\u00b7tre\u00b7pre\u00b7neur", "pos": "n.",
+         "meaning": "\u4f01\u4e1a\u5bb6\uff1b\u521b\u4e1a\u8005",
+         "example": "The government offers grants for young entrepreneurs.", "example_cn": "\u653f\u5e9c\u4e3a\u5e74\u8f7b\u521b\u4e1a\u8005\u63d0\u4f9b\u8d44\u52a9\u3002", "scene": "\ud83d\udcbc \u804c\u4e1a\u53d1\u5c55",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "grants", "phonetic": "/\u0261r\u0251\u02d0nts/", "syllable": "grants", "meaning": "n. \u8d44\u52a9\uff1b\u62e8\u6b3e"}
+         ]},
+        {"word": "freelance", "phonetic": "/\u02c8fri\u02d0l\u0251\u02d0ns/", "syllable": "free\u00b7lance", "pos": "adj./v.",
+         "meaning": "\u81ea\u7531\u804c\u4e1a\u7684",
+         "example": "More people are choosing freelance work over traditional employment.", "example_cn": "\u8d8a\u6765\u8d8a\u591a\u4eba\u9009\u62e9\u81ea\u7531\u804c\u4e1a\u800c\u975e\u4f20\u7edf\u5c31\u4e1a\u3002", "scene": "\ud83d\udcbc \u5de5\u4f5c/\u751f\u6d3b",
+         "grammar": "\u6bd4\u8f83\u7ed3\u6784",
+         "sentence_words": [
+             {"word": "traditional", "phonetic": "/tr\u0259\u02c8d\u026a\u0283\u0259n\u0259l/", "syllable": "tra\u00b7di\u00b7tion\u00b7al", "meaning": "adj. \u4f20\u7edf\u7684"}
+         ]},
+        {"word": "remuneration", "phonetic": "/r\u026a\u02ccmju\u02d0n\u0259\u02c8re\u026a\u0283\u0259n/", "syllable": "re\u00b7mu\u00b7ner\u00b7a\u00b7tion", "pos": "n.",
+         "meaning": "\u62a5\u916c\uff1b\u85aa\u916c",
+         "example": "The remuneration package includes salary, super and health insurance.", "example_cn": "\u85aa\u916c\u5305\u5305\u62ec\u5de5\u8d44\u3001\u517b\u8001\u91d1\u548c\u533b\u7597\u4fdd\u9669\u3002", "scene": "\ud83d\udcbc \u85aa\u8d44",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "salary", "phonetic": "/\u02c8s\u00e6l\u0259ri/", "syllable": "sal\u00b7a\u00b7ry", "meaning": "n. \u5de5\u8d44"},
+             {"word": "insurance", "phonetic": "/\u026an\u02c8\u0283\u028a\u0259r\u0259ns/", "syllable": "in\u00b7sur\u00b7ance", "meaning": "n. \u4fdd\u9669"}
+         ]},
+        {"word": "probation", "phonetic": "/pr\u0259\u02c8be\u026a\u0283\u0259n/", "syllable": "pro\u00b7ba\u00b7tion", "pos": "n.",
+         "meaning": "\u8bd5\u7528\u671f",
+         "example": "You'll be on a 3-month probation period.", "example_cn": "\u4f60\u5c06\u67093\u4e2a\u6708\u7684\u8bd5\u7528\u671f\u3002", "scene": "\ud83d\udcbc \u5de5\u4f5c",
+         "grammar": "\u4e00\u822c\u5c06\u6765\u65f6",
+         "sentence_words": [
+             {"word": "period", "phonetic": "/\u02c8p\u026a\u0259ri\u0259d/", "syllable": "pe\u00b7ri\u00b7od", "meaning": "n. \u671f\u95f4"}
+         ]},
+        {"word": "redundancy", "phonetic": "/r\u026a\u02c8d\u028cnd\u0259nsi/", "syllable": "re\u00b7dun\u00b7dan\u00b7cy", "pos": "n.",
+         "meaning": "\u88c1\u5458\uff1b\u5197\u4f59",
+         "example": "He was made redundant when the company downsized.", "example_cn": "\u516c\u53f8\u7f29\u7f16\u65f6\u4ed6\u88ab\u88c1\u4e86\u3002", "scene": "\ud83d\udcbc \u5de5\u4f5c",
+         "grammar": "\u88ab\u52a8\u8bed\u6001",
+         "sentence_words": [
+             {"word": "downsized", "phonetic": "/\u02c8da\u028ansa\u026azd/", "syllable": "down\u00b7sized", "meaning": "v. \u7f29\u7f16"}
+         ]},
+        {"word": "inflation", "phonetic": "/\u026an\u02c8fle\u026a\u0283\u0259n/", "syllable": "in\u00b7fla\u00b7tion", "pos": "n.",
+         "meaning": "\u901a\u8d27\u81a8\u80c0",
+         "example": "Inflation in NZ reached 7.3% last year.", "example_cn": "NZ\u53bb\u5e74\u901a\u80c0\u7387\u8fbe\u52307.3%\u3002", "scene": "\ud83d\udcdd \u96c5\u601d\u5199\u4f5c",
+         "grammar": "\u4e00\u822c\u8fc7\u53bb\u65f6",
+         "sentence_words": [
+             {"word": "reached", "phonetic": "/ri\u02d0t\u0283t/", "syllable": "reached", "meaning": "v. \u8fbe\u5230"}
+         ]},
+        {"word": "census", "phonetic": "/\u02c8sens\u0259s/", "syllable": "cen\u00b7sus", "pos": "n.",
+         "meaning": "\u4eba\u53e3\u666e\u67e5",
+         "example": "The NZ census is conducted every five years.", "example_cn": "NZ\u4eba\u53e3\u666e\u67e5\u6bcf\u4e94\u5e74\u8fdb\u884c\u4e00\u6b21\u3002", "scene": "\ud83d\udcdd \u96c5\u601d\u5199\u4f5c",
+         "grammar": "\u88ab\u52a8\u8bed\u6001",
+         "sentence_words": [
+             {"word": "conducted", "phonetic": "/k\u0259n\u02c8d\u028ckt\u026ad/", "syllable": "con\u00b7duc\u00b7ted", "meaning": "v. \u8fdb\u884c"}
+         ]},
+        {"word": "adolescent", "phonetic": "/\u02cc\u00e6d\u0259\u02c8les\u0259nt/", "syllable": "ad\u00b7o\u00b7les\u00b7cent", "pos": "n./adj.",
+         "meaning": "\u9752\u5c11\u5e74\uff1b\u9752\u6625\u671f\u7684",
+         "example": "Adolescent mental health is a growing concern in NZ.", "example_cn": "\u9752\u5c11\u5e74\u5fc3\u7406\u5065\u5eb7\u662fNZ\u65e5\u76ca\u5173\u6ce8\u7684\u95ee\u9898\u3002", "scene": "\ud83c\udfe5 \u5fc3\u7406\u5065\u5eb7",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "mental health", "phonetic": "/\u02c8ment\u0259l hel\u03b8/", "syllable": "men\u00b7tal health", "meaning": "n. \u5fc3\u7406\u5065\u5eb7"}
+         ]},
+        {"word": "nutrient", "phonetic": "/\u02c8nju\u02d0tri\u0259nt/", "syllable": "nu\u00b7tri\u00b7ent", "pos": "n.",
+         "meaning": "\u8425\u517b\u7d20",
+         "example": "A balanced diet provides all essential nutrients.", "example_cn": "\u5747\u8861\u996e\u98df\u63d0\u4f9b\u6240\u6709\u5fc5\u9700\u8425\u517b\u7d20\u3002", "scene": "\ud83c\udfe5 \u996e\u98df\u5065\u5eb7",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "balanced diet", "phonetic": "/\u02c8b\u00e6l\u0259nst \u02c8da\u026a\u0259t/", "syllable": "bal\u00b7anced di\u00b7et", "meaning": "n. \u5747\u8861\u996e\u98df"}
+         ]},
+        {"word": "sedentary", "phonetic": "/\u02c8sed\u0259nt\u0259ri/", "syllable": "sed\u00b7en\u00b7tar\u00b7y", "pos": "adj.",
+         "meaning": "\u4e45\u5750\u7684",
+         "example": "A sedentary lifestyle increases the risk of heart disease.", "example_cn": "\u4e45\u5750\u7684\u751f\u6d3b\u65b9\u5f0f\u589e\u52a0\u5fc3\u810f\u75c5\u98ce\u9669\u3002", "scene": "\ud83c\udfe5 \u5065\u5eb7",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "lifestyle", "phonetic": "/\u02c8la\u026afsta\u026al/", "syllable": "life\u00b7style", "meaning": "n. \u751f\u6d3b\u65b9\u5f0f"}
+         ]},
+        {"word": "rehabilitation", "phonetic": "/\u02ccri\u02d0h\u0259\u02ccb\u026al\u026a\u02c8te\u026a\u0283\u0259n/", "syllable": "re\u00b7ha\u00b7bil\u00b7i\u00b7ta\u00b7tion", "pos": "n.",
+         "meaning": "\u5eb7\u590d\uff1b\u6062\u590d",
+         "example": "ACC provides rehabilitation services for accident victims.", "example_cn": "ACC\u4e3a\u610f\u5916\u53d7\u5bb3\u8005\u63d0\u4f9b\u5eb7\u590d\u670d\u52a1\u3002", "scene": "\ud83c\udfe5 \u5eb7\u590d",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "services", "phonetic": "/\u02c8s\u025c\u02d0v\u026as\u026az/", "syllable": "ser\u00b7vic\u00b7es", "meaning": "n. \u670d\u52a1"}
+         ]},
+        {"word": "wellbeing", "phonetic": "/wel\u02c8bi\u02d0\u026a\u014b/", "syllable": "well\u00b7be\u00b7ing", "pos": "n.",
+         "meaning": "\u798f\u7949\uff1b\u5065\u5eb7",
+         "example": "The government has launched a wellbeing budget.", "example_cn": "\u653f\u5e9c\u63a8\u51fa\u4e86\u798f\u7949\u9884\u7b97\u3002", "scene": "\ud83c\udfe5 \u5fc3\u7406\u5065\u5eb7",
+         "grammar": "\u73b0\u5728\u5b8c\u6210\u65f6",
+         "sentence_words": [
+             {"word": "budget", "phonetic": "/\u02c8b\u028cd\u0292\u026at/", "syllable": "bud\u00b7get", "meaning": "n. \u9884\u7b97"}
+         ]},
+        {"word": "pedestrian", "phonetic": "/p\u0259\u02c8destri\u0259n/", "syllable": "pe\u00b7des\u00b7tri\u00b7an", "pos": "n./adj.",
+         "meaning": "\u884c\u4eba\uff1b\u6b65\u884c\u7684",
+         "example": "Pedestrian safety is a priority in urban planning.", "example_cn": "\u884c\u4eba\u5b89\u5168\u662f\u57ce\u5e02\u89c4\u5212\u7684\u4f18\u5148\u4e8b\u9879\u3002", "scene": "\ud83d\udcdd \u96c5\u601d\u5199\u4f5c",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "priority", "phonetic": "/pra\u026a\u02c8\u0252r\u0259ti/", "syllable": "pri\u00b7or\u00b7i\u00b7ty", "meaning": "n. \u4f18\u5148\u4e8b\u9879"}
+         ]},
+        {"word": "commute", "phonetic": "/k\u0259\u02c8mju\u02d0t/", "syllable": "com\u00b7mute", "pos": "v./n.",
+         "meaning": "\u901a\u52e4",
+         "example": "The average commute time in Auckland is about 30 minutes.", "example_cn": "\u5965\u514b\u5170\u5e73\u5747\u901a\u52e4\u65f6\u95f4\u7ea630\u5206\u949f\u3002", "scene": "\ud83d\ude8c \u4ea4\u901a\u51fa\u884c",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "average", "phonetic": "/\u02c8\u00e6v\u0259r\u026ad\u0292/", "syllable": "av\u00b7er\u00b7age", "meaning": "adj. \u5e73\u5747\u7684"}
+         ]},
+        {"word": "conservation", "phonetic": "/\u02cck\u0252ns\u0259\u02c8ve\u026a\u0283\u0259n/", "syllable": "con\u00b7ser\u00b7va\u00b7tion", "pos": "n.",
+         "meaning": "\u4fdd\u62a4\uff1b\u4fdd\u80b2",
+         "example": "NZ has strong conservation policies for native species.", "example_cn": "NZ\u5bf9\u672c\u571f\u7269\u79cd\u6709\u4e25\u683c\u7684\u4fdd\u62a4\u653f\u7b56\u3002", "scene": "\ud83c\udf0d \u73af\u5883",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "native species", "phonetic": "/\u02c8ne\u026at\u026av \u02c8spi\u02d0\u0283i\u02d0z/", "syllable": "na\u00b7tive spe\u00b7cies", "meaning": "n. \u672c\u571f\u7269\u79cd"}
+         ]},
+        {"word": "ecosystem", "phonetic": "/\u02c8i\u02d0k\u0259\u028as\u026ast\u0259m/", "syllable": "e\u00b7co\u00b7sys\u00b7tem", "pos": "n.",
+         "meaning": "\u751f\u6001\u7cfb\u7edf",
+         "example": "The marine ecosystem around NZ is incredibly diverse.", "example_cn": "NZ\u5468\u56f4\u6d77\u6d0b\u751f\u6001\u7cfb\u7edf\u6781\u5176\u591a\u6837\u3002", "scene": "\ud83c\udf0d \u73af\u5883",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "marine", "phonetic": "/m\u0259\u02c8ri\u02d0n/", "syllable": "ma\u00b7rine", "meaning": "adj. \u6d77\u6d0b\u7684"},
+             {"word": "diverse", "phonetic": "/da\u026a\u02c8v\u025c\u02d0s/", "syllable": "di\u00b7verse", "meaning": "adj. \u591a\u6837\u7684"}
+         ]},
+        {"word": "sustainable", "phonetic": "/s\u0259\u02c8ste\u026an\u0259b\u0259l/", "syllable": "sus\u00b7tain\u00b7a\u00b7ble", "pos": "adj.",
+         "meaning": "\u53ef\u6301\u7eed\u7684",
+         "example": "NZ aims to be carbon neutral by 2050 through sustainable practices.", "example_cn": "NZ\u901a\u8fc7\u53ef\u6301\u7eed\u5b9e\u8df5\u76ee\u68072050\u5e74\u78b3\u4e2d\u548c\u3002", "scene": "\ud83c\udf0d \u73af\u4fdd/\u80fd\u6e90",
+         "grammar": "\u4e0d\u5b9a\u5f0f",
+         "sentence_words": [
+             {"word": "carbon neutral", "phonetic": "/\u02c8k\u0251\u02d0b\u0259n \u02c8nju\u02d0tr\u0259l/", "syllable": "car\u00b7bon neu\u00b7tral", "meaning": "phrase \u78b3\u4e2d\u548c"}
+         ]},
+        {"word": "horticulture", "phonetic": "/\u02c8h\u0254\u02d0t\u026ak\u028clt\u0283\u0259/", "syllable": "hor\u00b7ti\u00b7cul\u00b7ture", "pos": "n.",
+         "meaning": "\u56ed\u827a\uff1b\u56ed\u827a\u5b66",
+         "example": "NZ's horticulture industry is a major export earner.", "example_cn": "NZ\u56ed\u827a\u4ea7\u4e1a\u662f\u4e3b\u8981\u51fa\u53e3\u6536\u5165\u6765\u6e90\u3002", "scene": "\ud83d\udcdd \u96c5\u601d\u5199\u4f5c",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "export", "phonetic": "/\u026ak\u02c8sp\u0254\u02d0t/", "syllable": "ex\u00b7port", "meaning": "n. \u51fa\u53e3"}
+         ]},
+        {"word": "legislation", "phonetic": "/\u02ccled\u0292\u026as\u02c8le\u026a\u0283\u0259n/", "syllable": "leg\u00b7is\u00b7la\u00b7tion", "pos": "n.",
+         "meaning": "\u6cd5\u5f8b\uff1b\u6cd5\u89c4",
+         "example": "New legislation aims to protect migrant workers' rights.", "example_cn": "\u65b0\u6cd5\u89c4\u65e8\u5728\u4fdd\u62a4\u79fb\u6c11\u5de5\u6743\u5229\u3002", "scene": "\ud83d\udccb \u7b7e\u8bc1/\u79fb\u6c11",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "migrant workers", "phonetic": "/\u02c8ma\u026a\u0261r\u0259nt \u02c8w\u025c\u02d0k\u0259z/", "syllable": "mi\u00b7grant work\u00b7ers", "meaning": "n. \u79fb\u6c11\u5de5\u4eba"}
+         ]},
+        {"word": "jurisdiction", "phonetic": "/\u02ccd\u0292\u028a\u0259r\u026as\u02c8d\u026ak\u0283\u0259n/", "syllable": "ju\u00b7ris\u00b7dic\u00b7tion", "pos": "n.",
+         "meaning": "\u7ba1\u8f96\u6743\uff1b\u53f8\u6cd5\u533a",
+         "example": "This falls under NZ jurisdiction.", "example_cn": "\u8fd9\u5c5e\u4e8eNZ\u7ba1\u8f96\u8303\u56f4\u3002", "scene": "\ud83d\udccb \u7b7e\u8bc1",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "falls under", "phonetic": "/f\u0254\u02d0lz \u02c8\u028cnd\u0259/", "syllable": "falls un\u00b7der", "meaning": "v. \u5c5e\u4e8e"}
+         ]},
+        {"word": "diploma", "phonetic": "/d\u026a\u02c8pl\u0259\u028am\u0259/", "syllable": "di\u00b7plo\u00b7ma", "pos": "n.",
+         "meaning": "\u6587\u51ed\uff1b\u6bd5\u4e1a\u8bc1\u4e66",
+         "example": "A Level 7 diploma is equivalent to a bachelor's degree.", "example_cn": "7\u7ea7\u6587\u51ed\u76f8\u5f53\u4e8e\u5b66\u58eb\u5b66\u4f4d\u3002", "scene": "\ud83c\udf93 \u5b66\u6821\u6559\u80b2",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "equivalent", "phonetic": "/\u026a\u02c8kw\u026av\u0259l\u0259nt/", "syllable": "e\u00b7quiv\u00b7a\u00b7lent", "meaning": "adj. \u76f8\u5f53\u7684"}
+         ]},
+        {"word": "bachelor's degree", "phonetic": "/\u02c8b\u00e6t\u0283\u0259l\u0259z d\u026a\u02c8\u0261ri\u02d0/", "syllable": "bach\u00b7e\u00b7lor's de\u00b7gree", "pos": "n.",
+         "meaning": "\u5b66\u58eb\u5b66\u4f4d",
+         "example": "A typical bachelor's degree in NZ takes three years.", "example_cn": "NZ\u5b66\u58eb\u5b66\u4f4d\u901a\u5e38\u4e09\u5e74\u3002", "scene": "\ud83d\udcda \u5927\u5b66",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "typical", "phonetic": "/\u02c8t\u026ap\u026ak\u0259l/", "syllable": "typ\u00b7i\u00b7cal", "meaning": "adj. \u5178\u578b\u7684"}
+         ]},
+        {"word": "peer-reviewed", "phonetic": "/p\u026a\u0259 r\u026a\u02c8vju\u02d0d/", "syllable": "peer-re\u00b7viewed", "pos": "adj.",
+         "meaning": "\u540c\u884c\u8bc4\u5ba1\u7684",
+         "example": "Only peer-reviewed journals should be cited in academic papers.", "example_cn": "\u5b66\u672f\u8bba\u6587\u53ea\u5e94\u5f15\u7528\u540c\u884c\u8bc4\u5ba1\u671f\u520a\u3002", "scene": "\ud83d\udcdd \u96c5\u601d\u5199\u4f5c",
+         "grammar": "\u60c5\u6001\u52a8\u8bcd+\u88ab\u52a8",
+         "sentence_words": [
+             {"word": "cited", "phonetic": "/\u02c8sa\u026at\u026ad/", "syllable": "cit\u00b7ed", "meaning": "v. \u5f15\u7528"},
+             {"word": "journal", "phonetic": "/\u02c8d\u0292\u025c\u02d0n\u0259l/", "syllable": "jour\u00b7nal", "meaning": "n. \u671f\u520a"}
+         ]},
+        {"word": "methodology", "phonetic": "/\u02ccme\u03b8\u0259\u02c8d\u0252l\u0259d\u0292i/", "syllable": "meth\u00b7od\u00b7ol\u00b7o\u00b7gy", "pos": "n.",
+         "meaning": "\u65b9\u6cd5\u8bba",
+         "example": "The research methodology was both qualitative and quantitative.", "example_cn": "\u7814\u7a76\u65b9\u6cd5\u8bba\u517c\u5177\u5b9a\u6027\u548c\u5b9a\u91cf\u3002", "scene": "\ud83d\udcdd \u96c5\u601d\u5199\u4f5c",
+         "grammar": "\u4e00\u822c\u8fc7\u53bb\u65f6",
+         "sentence_words": [
+             {"word": "qualitative", "phonetic": "/\u02c8kw\u0252l\u026at\u0259t\u026av/", "syllable": "qual\u00b7i\u00b7ta\u00b7tive", "meaning": "adj. \u5b9a\u6027\u7684"},
+             {"word": "quantitative", "phonetic": "/\u02c8kw\u0252nt\u026at\u0259t\u026av/", "syllable": "quan\u00b7ti\u00b7ta\u00b7tive", "meaning": "adj. \u5b9a\u91cf\u7684"}
+         ]},
+        {"word": "hypothesis", "phonetic": "/ha\u026a\u02c8p\u0252\u03b8\u0259s\u026as/", "syllable": "hy\u00b7poth\u00b7e\u00b7sis", "pos": "n.",
+         "meaning": "\u5047\u8bf4\uff1b\u5047\u8bbe",
+         "example": "The hypothesis was supported by the experimental data.", "example_cn": "\u5b9e\u9a8c\u6570\u636e\u652f\u6301\u4e86\u8be5\u5047\u8bbe\u3002", "scene": "\ud83d\udcdd \u96c5\u601d\u5199\u4f5c",
+         "grammar": "\u88ab\u52a8\u8bed\u6001",
+         "sentence_words": [
+             {"word": "experimental", "phonetic": "/\u026ak\u02ccsper\u026a\u02c8ment\u0259l/", "syllable": "ex\u00b7per\u00b7i\u00b7men\u00b7tal", "meaning": "adj. \u5b9e\u9a8c\u7684"}
+         ]},
+        {"word": "ergonomic", "phonetic": "/\u02cc\u025c\u02d0\u0261\u0259\u02c8n\u0252m\u026ak/", "syllable": "er\u00b7go\u00b7nom\u00b7ic", "pos": "adj.",
+         "meaning": "\u4eba\u4f53\u5de5\u7a0b\u5b66\u7684",
+         "example": "Using ergonomic equipment reduces workplace injuries.", "example_cn": "\u4f7f\u7528\u4eba\u4f53\u5de5\u7a0b\u5b66\u8bbe\u5907\u51cf\u5c11\u5de5\u4f24\u3002", "scene": "\ud83d\udcbc \u5de5\u4f5c",
+         "grammar": "\u52a8\u540d\u8bcd\u4e3b\u8bed",
+         "sentence_words": [
+             {"word": "workplace injuries", "phonetic": "/\u02c8w\u025c\u02d0kple\u026as \u02c8\u026and\u0292\u0259riz/", "syllable": "work\u00b7place in\u00b7ju\u00b7ries", "meaning": "n. \u5de5\u4f24"}
+         ]},
+        {"word": "advocate", "phonetic": "/\u02c8\u00e6dv\u0259ke\u026at/", "syllable": "ad\u00b7vo\u00b7cate", "pos": "v./n.",
+         "meaning": "\u5021\u5bfc\uff1b\u62e5\u62a4\u8005",
+         "example": "Many groups advocate for tighter environmental regulations.", "example_cn": "\u8bb8\u591a\u56e2\u4f53\u5021\u5bfc\u66f4\u4e25\u683c\u7684\u73af\u4fdd\u6cd5\u89c4\u3002", "scene": "\ud83c\udf0d \u73af\u5883",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "regulations", "phonetic": "/\u02ccre\u0261j\u028a\u02c8le\u026a\u0283\u0259nz/", "syllable": "reg\u00b7u\u00b7la\u00b7tions", "meaning": "n. \u6cd5\u89c4"}
+         ]},
+        {"word": "implement", "phonetic": "/\u02c8\u026ampl\u026ament/", "syllable": "im\u00b7ple\u00b7ment", "pos": "v.",
+         "meaning": "\u5b9e\u65bd\uff1b\u6267\u884c",
+         "example": "The government plans to implement new immigration policies.", "example_cn": "\u653f\u5e9c\u8ba1\u5212\u5b9e\u65bd\u65b0\u7684\u79fb\u6c11\u653f\u7b56\u3002", "scene": "\ud83d\udccb \u79fb\u6c11",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "policies", "phonetic": "/\u02c8p\u0252l\u026asiz/", "syllable": "pol\u00b7i\u00b7cies", "meaning": "n. \u653f\u7b56"}
+         ]},
+        {"word": "decline", "phonetic": "/d\u026a\u02c8kla\u026an/", "syllable": "de\u00b7cline", "pos": "v./n.",
+         "meaning": "\u4e0b\u964d\uff1b\u8870\u9000",
+         "example": "The population of rural areas has been in steady decline.", "example_cn": "\u519c\u6751\u4eba\u53e3\u4e00\u76f4\u5728\u7a33\u6b65\u4e0b\u964d\u3002", "scene": "\ud83d\udcdd \u96c5\u601d\u5199\u4f5c",
+         "grammar": "\u73b0\u5728\u5b8c\u6210\u65f6",
+         "sentence_words": [
+             {"word": "steady", "phonetic": "/\u02c8stedi/", "syllable": "stead\u00b7y", "meaning": "adj. \u7a33\u6b65\u7684"}
+         ]},
+        {"word": "embrace", "phonetic": "/\u026am\u02c8bre\u026as/", "syllable": "em\u00b7brace", "pos": "v.",
+         "meaning": "\u62e5\u62b1\uff1b\u63a5\u53d7",
+         "example": "NZ was one of the first countries to embrace same-sex marriage.", "example_cn": "NZ\u662f\u6700\u65e9\u63a5\u53d7\u540c\u6027\u5a5a\u59fb\u7684\u56fd\u5bb6\u4e4b\u4e00\u3002", "scene": "\ud83d\udcdd \u96c5\u601d\u5199\u4f5c",
+         "grammar": "\u4e0d\u5b9a\u5f0f",
+         "sentence_words": [
+             {"word": "same-sex marriage", "phonetic": "/se\u026am seks \u02c8m\u00e6r\u026ad\u0292/", "syllable": "same-sex mar\u00b7riage", "meaning": "n. \u540c\u6027\u5a5a\u59fb"}
+         ]},
+        {"word": "resilience", "phonetic": "/r\u026a\u02c8z\u026ali\u0259ns/", "syllable": "re\u00b7sil\u00b7ience", "pos": "n.",
+         "meaning": "\u97e7\u6027\uff1b\u6062\u590d\u529b",
+         "example": "The community showed remarkable resilience after the earthquake.", "example_cn": "\u793e\u533a\u5728\u5730\u9707\u540e\u5c55\u73b0\u4e86\u975e\u51e1\u7684\u97e7\u6027\u3002", "scene": "\ud83d\udcdd \u96c5\u601d\u5199\u4f5c",
+         "grammar": "\u4e00\u822c\u8fc7\u53bb\u65f6",
+         "sentence_words": [
+             {"word": "remarkable", "phonetic": "/r\u026a\u02c8m\u0251\u02d0k\u0259b\u0259l/", "syllable": "re\u00b7mark\u00b7a\u00b7ble", "meaning": "adj. \u975e\u51e1\u7684"}
+         ]},
+        {"word": "threshold", "phonetic": "/\u02c8\u03b8re\u0283h\u0259\u028ald/", "syllable": "thresh\u00b7old", "pos": "n.",
+         "meaning": "\u95e8\u69db\uff1b\u4e34\u754c\u70b9",
+         "example": "You need to earn above a certain threshold to qualify.", "example_cn": "\u4f60\u9700\u8981\u6536\u5165\u8d85\u8fc7\u4e00\u5b9a\u95e8\u69db\u624d\u80fd\u7b26\u5408\u6761\u4ef6\u3002", "scene": "\ud83d\udccb \u7b7e\u8bc1/\u79fb\u6c11",
+         "grammar": "need to+\u52a8\u8bcd",
+         "sentence_words": [
+             {"word": "qualify", "phonetic": "/\u02c8kw\u0252l\u026afa\u026a/", "syllable": "qual\u00b7i\u00b7fy", "meaning": "v. \u7b26\u5408\u6761\u4ef6"}
+         ]},
+        {"word": "statutory", "phonetic": "/\u02c8st\u00e6t\u0283\u0259t\u0259ri/", "syllable": "stat\u00b7u\u00b7to\u00b7ry", "pos": "adj.",
+         "meaning": "\u6cd5\u5b9a\u7684",
+         "example": "Employees are entitled to 4 weeks of statutory annual leave.", "example_cn": "\u5458\u5de5\u6709\u6743\u4eab\u53d74\u5468\u6cd5\u5b9a\u5e74\u5047\u3002", "scene": "\ud83d\udcbc \u5de5\u4f5c",
+         "grammar": "\u88ab\u52a8\u8bed\u6001",
+         "sentence_words": [
+             {"word": "entitled to", "phonetic": "/\u026an\u02c8ta\u026atld tu\u02d0/", "syllable": "en\u00b7titled to", "meaning": "adj. \u6709\u6743\u4eab\u53d7"}
+         ]},
+        {"word": "endeavour", "phonetic": "/\u026an\u02c8dev\u0259/", "syllable": "en\u00b7deav\u00b7our", "pos": "n./v.",
+         "meaning": "\u52aa\u529b\uff1b\u5c1d\u8bd5",
+         "example": "Learning a new language requires considerable endeavour.", "example_cn": "\u5b66\u4e60\u65b0\u8bed\u8a00\u9700\u8981\u76f8\u5f53\u5927\u7684\u52aa\u529b\u3002", "scene": "\ud83d\udcdd \u96c5\u601d\u5199\u4f5c",
+         "grammar": "\u4e00\u822c\u73b0\u5728\u65f6",
+         "sentence_words": [
+             {"word": "considerable", "phonetic": "/k\u0259n\u02c8s\u026ad\u0259r\u0259b\u0259l/", "syllable": "con\u00b7sid\u00b7er\u00b7a\u00b7ble", "meaning": "adj. \u76f8\u5f53\u5927\u7684"}
          ]},
     ],
 }
