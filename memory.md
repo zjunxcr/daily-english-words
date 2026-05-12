@@ -15,7 +15,6 @@
 
 - 2026-05-11: tramping, bin, emergency, furnished, transfer, bach, radiator, divorce, assignment, scholarship
 
-- 2026-05-12: secondhand, experience, artificial, recover
 
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
