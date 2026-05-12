@@ -16,6 +16,8 @@
 - 2026-05-11: tramping, bin, emergency, furnished, transfer, bach, radiator, divorce, assignment, scholarship
 
 
+- 2026-05-12: transfer, kiwi, no worries, stoked, arvo, secondhand, uniform, recover, climate change, retire
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
