@@ -1,4 +1,4 @@
-"""
+﻿"""
 auto_songs.py - 自动化歌曲学习系统
 根据初一英语水平自动挑选适合的英文歌曲，自动获取歌词、标注生词和俚语
 
@@ -215,42 +215,43 @@ def get_phonetic(word):
     except Exception:
         pass
 
-    # Step 2: 获取中文释义（来自有道词典 suggest 端点，比 web_trans 更准确）
+    # Step 2: 获取中文释义（来自有道词典）
     try:
-        url2 = f"https://dict.youdao.com/suggest?q={urllib.parse.quote(word)}&num=1&doctype=json"
+        url2 = f"https://dict.youdao.com/jsonapi?q={urllib.parse.quote(word)}&doctype=json"
         req2 = urllib.request.Request(url2, headers={"User-Agent": "Mozilla/5.0"})
         with urllib.request.urlopen(req2, timeout=10) as resp2:
             data2 = json.loads(resp2.read().decode())
-            entries = data2.get("data", {}).get("entries", [])
-            if entries:
-                entry = entries[0]
-                if isinstance(entry, dict):
-                    definition = entry.get("explain", "")
-                elif isinstance(entry, str) and "  " in entry:
-                    definition = entry.split("  ", 1)[1].strip()
+            # 优先从 ec（英汉词典）取中文释义，只取第一个义项
+            ec = data2.get("ec", {}).get("word", [])
+            if ec:
+                for item in ec:
+                    tr = item.get("tr", [])
+                    if tr:
+                        # tr[0]["l"]["i"][0] 通常包含中文释义列表
+                        l_list = tr[0].get("l", [])
+                        if l_list and isinstance(l_list, list) and len(l_list) > 0:
+                            i_list = l_list[0].get("i", [])
+                            if i_list and isinstance(i_list, list):
+                                # 只取第一个中文释义，截断到30字以内
+                                first_def = i_list[0] if isinstance(i_list[0], str) else str(i_list[0])
+                                definition = first_def[:30]
+                                break
+            # 如果 ec 没取到，回退到 web_trans（仅取中文部分）
+            if not definition:
+                wt = data2.get("web_trans", {}).get("web-translation", [])
+                if wt:
+                    trans_list = wt[0].get("trans", [])
+                    if trans_list:
+                        val = trans_list[0].get("value", "")
+                        # 只保留中文部分（过滤掉英文释义）
+                        cn_parts = re.findall(r'[\u4e00-\u9fff]+[；;，,、？?！!·]*', val)
+                        if cn_parts:
+                            definition = cn_parts[0][:30]
+                        else:
+                            # 如果全是英文，不使用
+                            definition = ""
     except Exception:
         pass
-
-    # Step 2b: 如果 suggest 没返回，回退到 jsonapi 的 ec 词典
-    if not definition:
-        try:
-            url3 = f"https://dict.youdao.com/jsonapi?q={urllib.parse.quote(word)}&doctype=json"
-            req3 = urllib.request.Request(url3, headers={"User-Agent": "Mozilla/5.0"})
-            with urllib.request.urlopen(req3, timeout=10) as resp3:
-                data3 = json.loads(resp3.read().decode())
-                ec = data3.get("ec", {}).get("word", [])
-                if ec:
-                    tr_list = ec[0].get("trs", [])
-                    if tr_list:
-                        tr0 = tr_list[0].get("tr", [])
-                        if tr0 and isinstance(tr0, list):
-                            l_data = tr0[0].get("l", {})
-                            if isinstance(l_data, list):
-                                definition = "; ".join(d.get("#text", "") for d in l_data if isinstance(d, dict))
-                            elif isinstance(l_data, str):
-                                definition = l_data
-        except Exception:
-            pass
 
     result = {
         "ipa": ipa,
@@ -1025,9 +1026,6 @@ SONG_LIBRARY = [
     {"name": "Perfect", "artist": "Ed Sheeran", "year": "2017", "netease_id": "1877680891",
      "tense": "一般过去时 + 现在完成时", "tense_en": "Simple Past + Present Perfect", "level": 3,
      "tense_rule": "I found a woman = 我遇到了一个女人（过去式）；I have never felt = 我从未感到"},
-    {"name": "Perfect", "artist": "Ed Sheeran", "year": "2017", "netease_id": "1877680891",
-     "tense": "一般现在时 + 现在进行时", "tense_en": "Simple Present + Present Continuous", "level": 3,
-     "tense_rule": "I see this life = 我看到这生活；make that money = 赚那些钱"},
     {"name": "If I Were a Boy", "artist": "Beyonce", "year": "2008", "netease_id": "441566935",
      "tense": "虚拟语气（过去式表非现实）", "tense_en": "Subjunctive Mood", "level": 3,
      "tense_rule": "if I were... I would... = 如果我是...我会...（虚拟语气）"},
@@ -1763,6 +1761,11 @@ def select_daily_song(level=None, exclude=None):
         # 所有歌曲都用过了，重新开始
         pool = SONG_LIBRARY
 
+    # 优先选择有本地 MP3 的歌曲（CLASSIC_SONGS 或 NETLIFY_SONGS）
+    local_pool = [s for s in pool if s["name"] in CLASSIC_SONGS or s["name"] in NETLIFY_SONGS]
+    if local_pool:
+        return random.choice(local_pool)
+
     # 真正随机选择歌曲
     return random.choice(pool)
 
@@ -1887,7 +1890,14 @@ def generate_auto_song_html(svg_speaker):
             syll_str = hw_data.get('syllables', hw)
             pos_str = f" {hw_data.get('pos', '')}" if hw_data.get('pos') else ""
             def_str = f" {hw_data.get('definition', '')}" if hw_data.get('definition') else ""
-            note_items.append(f'<span class="lyric-note hard-note"><b>{hw}</b>{ipa_str} {syll_str}{pos_str} {def_str}</span>')
+            # 行内生词也带发音按钮
+            speak_btn = (
+                f'<button class="lyric-speak-btn" onclick="speakWord(this,\'{hw_safe}\')">'
+                f'<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2">'
+                f'<path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/>'
+                f'</svg></button>'
+            )
+            note_items.append(f'<span class="lyric-note hard-note"><b>{hw}</b>{ipa_str}{pos_str} {def_str} {speak_btn}</span>')
 
         # 合并标注
         notes_html = ""
