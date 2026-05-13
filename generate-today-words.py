@@ -4068,8 +4068,8 @@ def generate_word_card(w, index, today_words_set=None):
     """生成单个单词卡片HTML（04-09完整模板：句内高亮+语法标注+例句生词拼读）"""
     word_safe = w['word'].replace("'", "\\'")
     ex_safe = w['example'].replace("'", "\\'")
-    pos_class = "nz" if w['type'] == 'nz' else "ielts"
-    pos_label = "NZ日常" if w['type'] == 'nz' else "雅思核心"
+    pos_class = "nz" if w.get('type', 'ielts') == 'nz' else "ielts"
+    pos_label = "NZ日常" if w.get('type', 'ielts') == 'nz' else "雅思核心"
 
     # 过滤例句生词：排除当天的10个单词本身（避免重复标注）
     sentence_words = w.get('sentence_words', [])
@@ -4635,7 +4635,7 @@ if __name__ == "__main__":
     if not skip_save:
         print(f"\n[*] 今日 10 词：")
         for i, w in enumerate(words, 1):
-            tag = "🟢" if w['type'] == 'nz' else "🔵"
+            tag = "🟢" if w.get('type', 'ielts') == 'nz' else "🔵"
             print(f"  {tag} {i:02d}. {w['word']} ({w['meaning']})")
     else:
         print(f"\n[*] 复用词：{'/ '.join(w['word'] for w in words)}")
