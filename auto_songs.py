@@ -215,42 +215,33 @@ def get_phonetic(word):
     except Exception:
         pass
 
-    # Step 2: 获取中文释义（来自有道词典 suggest 端点，比 web_trans 更准确）
+    # Step 2: 获取中文释义（优先用 jsonapi 的 ec 英汉词典，比 suggest 更准确）
     try:
-        url2 = f"https://dict.youdao.com/suggest?q={urllib.parse.quote(word)}&num=1&doctype=json"
+        url2 = f"https://dict.youdao.com/jsonapi?q={urllib.parse.quote(word)}&doctype=json"
         req2 = urllib.request.Request(url2, headers={"User-Agent": "Mozilla/5.0"})
         with urllib.request.urlopen(req2, timeout=10) as resp2:
             data2 = json.loads(resp2.read().decode())
-            entries = data2.get("data", {}).get("entries", [])
-            if entries:
-                entry = entries[0]
-                if isinstance(entry, dict):
-                    definition = entry.get("explain", "")
-                elif isinstance(entry, str) and "  " in entry:
-                    definition = entry.split("  ", 1)[1].strip()
+            ec = data2.get("ec", {}).get("word", [])
+            if ec:
+                tr_list = ec[0].get("trs", [])
+                if tr_list:
+                    tr0 = tr_list[0].get("tr", [])
+                    if tr0 and isinstance(tr0, list):
+                        l_data = tr0[0].get("l", {})
+                        # l_data 是 dict: {"i": ["v. 释义；释义"]}
+                        if isinstance(l_data, dict):
+                            i_list = l_data.get("i", [])
+                            if i_list and isinstance(i_list, list) and i_list[0]:
+                                definition = i_list[0][:30]
+                        elif isinstance(l_data, list):
+                            definition = "; ".join(d.get("#text", "") for d in l_data if isinstance(d, dict))[:30]
+                        elif isinstance(l_data, str):
+                            definition = l_data[:30]
     except Exception:
         pass
 
-    # Step 2b: 如果 suggest 没返回，回退到 jsonapi 的 ec 词典
-    if not definition:
-        try:
-            url3 = f"https://dict.youdao.com/jsonapi?q={urllib.parse.quote(word)}&doctype=json"
-            req3 = urllib.request.Request(url3, headers={"User-Agent": "Mozilla/5.0"})
-            with urllib.request.urlopen(req3, timeout=10) as resp3:
-                data3 = json.loads(resp3.read().decode())
-                ec = data3.get("ec", {}).get("word", [])
-                if ec:
-                    tr_list = ec[0].get("trs", [])
-                    if tr_list:
-                        tr0 = tr_list[0].get("tr", [])
-                        if tr0 and isinstance(tr0, list):
-                            l_data = tr0[0].get("l", {})
-                            if isinstance(l_data, list):
-                                definition = "; ".join(d.get("#text", "") for d in l_data if isinstance(d, dict))
-                            elif isinstance(l_data, str):
-                                definition = l_data
-        except Exception:
-            pass
+    except Exception:
+        pass
 
     result = {
         "ipa": ipa,
@@ -1899,7 +1890,13 @@ def generate_auto_song_html(svg_speaker):
             syll_str = hw_data.get('syllables', hw)
             pos_str = f" {hw_data.get('pos', '')}" if hw_data.get('pos') else ""
             def_str = f" {hw_data.get('definition', '')}" if hw_data.get('definition') else ""
-            note_items.append(f'<span class="lyric-note hard-note"><b>{hw}</b>{ipa_str} {syll_str}{pos_str} {def_str}</span>')
+            speak_btn = (
+                f'<button class="lyric-speak-btn" onclick="speakWord(this,\'{hw_safe}\')">'
+                f'<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2">'
+                f'<path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/>'
+                f'</svg></button>'
+            )
+            note_items.append(f'<span class="lyric-note hard-note"><b>{hw}</b>{ipa_str} {syll_str}{pos_str} {def_str} {speak_btn}</span>')
 
         # 合并标注
         notes_html = ""
