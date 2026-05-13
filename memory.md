@@ -18,9 +18,12 @@
 
 - 2026-05-12: transfer, kiwi, no worries, stoked, arvo, secondhand, uniform, recover, climate change, retire
 
+- 2026-05-13: term deposit, munted, flybuys, gap, INZ, morning tea, banger, balanced, generation, salary
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
 song_history: 2026-05-11 Always Come Back to Your Love - Samantha Mumba
 song_history: 2026-05-11 You Are My Sunshine - Christina Perri
 song_history: 2026-05-11 Yesterday Once More - Carpenters
+song_history: 2026-05-13 Perfect - Ed Sheeran
