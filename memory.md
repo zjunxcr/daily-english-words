@@ -27,3 +27,4 @@ song_history: 2026-05-11 Always Come Back to Your Love - Samantha Mumba
 song_history: 2026-05-11 You Are My Sunshine - Christina Perri
 song_history: 2026-05-11 Yesterday Once More - Carpenters
 song_history: 2026-05-13 Perfect - Ed Sheeran
+song_history: 2026-05-13 Hero - Mariah Carey
