@@ -20,6 +20,8 @@
 
 - 2026-05-13: term deposit, munted, flybuys, gap, INZ, morning tea, banger, balanced, generation, salary
 
+- 2026-05-14: short black, water rate, bank fee, data cap, e-visa, chip packet, lolly, hypothesis, demographic, convenient
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
