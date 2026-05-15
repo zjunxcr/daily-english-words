@@ -22,6 +22,8 @@
 
 - 2026-05-14: short black, water rate, bank fee, data cap, e-visa, chip packet, lolly, hypothesis, demographic, convenient
 
+- 2026-05-15: potluck, duvet, she'll be right, babycino, rego, sleepout, wop-wops, permanent, perceive, tuition fees
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
@@ -31,3 +33,4 @@ song_history: 2026-05-11 Yesterday Once More - Carpenters
 song_history: 2026-05-13 Perfect - Ed Sheeran
 song_history: 2026-05-13 Hero - Mariah Carey
 song_history: 2026-05-13 Just One Last Dance - Sarah Connor
+song_history: 2026-05-15 Baby One More Time - Britney Spears
