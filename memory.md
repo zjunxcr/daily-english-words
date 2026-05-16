@@ -24,6 +24,8 @@
 
 - 2026-05-15: potluck, duvet, she'll be right, babycino, rego, sleepout, wop-wops, permanent, perceive, tuition fees
 
+- 2026-05-16: L&P, pharmacy, hoon, kia ora, glowing, gutted, rates, legislation, adolescent, rehabilitation
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
