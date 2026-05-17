@@ -26,6 +26,8 @@
 
 - 2026-05-16: L&P, pharmacy, hoon, kia ora, glowing, gutted, rates, legislation, adolescent, rehabilitation
 
+- 2026-05-17: subsidised, torch, pram, heat pump, pottle, tinnie, expression of interest, mitigate, nutrient, plagiarism
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
