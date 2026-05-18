@@ -28,6 +28,8 @@
 
 - 2026-05-17: subsidised, torch, pram, heat pump, pottle, tinnie, expression of interest, mitigate, nutrient, plagiarism
 
+- 2026-05-18: nappy, piker, annual leave, kerbside, DIY, mitre 10, on special, probation, freelance, experience
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
@@ -38,3 +40,4 @@ song_history: 2026-05-13 Perfect - Ed Sheeran
 song_history: 2026-05-13 Hero - Mariah Carey
 song_history: 2026-05-13 Just One Last Dance - Sarah Connor
 song_history: 2026-05-15 Baby One More Time - Britney Spears
+song_history: 2026-05-18 You Are Not Alone - Michael Jackson
