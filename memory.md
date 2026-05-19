@@ -30,6 +30,8 @@
 
 - 2026-05-18: nappy, piker, annual leave, kerbside, DIY, mitre 10, on special, probation, freelance, experience
 
+- 2026-05-19: chattels, toll road, op shop, give way, wof, trim flat white, CV, predominantly, exercise, census
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
