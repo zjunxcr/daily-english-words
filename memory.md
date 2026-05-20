@@ -32,6 +32,8 @@
 
 - 2026-05-19: chattels, toll road, op shop, give way, wof, trim flat white, CV, predominantly, exercise, census
 
+- 2026-05-20: pension, dosh, casual, gumboots, body corporate, soft plastic, hangi, endeavour, comprehensive, peer-reviewed
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
@@ -43,3 +45,4 @@ song_history: 2026-05-13 Hero - Mariah Carey
 song_history: 2026-05-13 Just One Last Dance - Sarah Connor
 song_history: 2026-05-15 Baby One More Time - Britney Spears
 song_history: 2026-05-18 You Are Not Alone - Michael Jackson
+song_history: 2026-05-20 My Heart Will Go On - Celine Dion
