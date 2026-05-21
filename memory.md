@@ -34,6 +34,8 @@
 
 - 2026-05-20: pension, dosh, casual, gumboots, body corporate, soft plastic, hangi, endeavour, comprehensive, peer-reviewed
 
+- 2026-05-21: kiwisaver, pull your socks up, bring a plate, text, long black, campervan, yeah nah, jurisdiction, wellbeing, dependant
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
