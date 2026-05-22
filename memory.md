@@ -36,6 +36,8 @@
 
 - 2026-05-21: kiwisaver, pull your socks up, bring a plate, text, long black, campervan, yeah nah, jurisdiction, wellbeing, dependant
 
+- 2026-05-22: pie, skite, uni, togs, fixture, piece of piss, smoko, accommodate, assimilate, inequality
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
@@ -48,3 +50,4 @@ song_history: 2026-05-13 Just One Last Dance - Sarah Connor
 song_history: 2026-05-15 Baby One More Time - Britney Spears
 song_history: 2026-05-18 You Are Not Alone - Michael Jackson
 song_history: 2026-05-20 My Heart Will Go On - Celine Dion
+song_history: 2026-05-22 Moon River - Audrey Hepburn
