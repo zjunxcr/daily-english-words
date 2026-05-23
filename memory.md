@@ -38,6 +38,8 @@
 
 - 2026-05-22: pie, skite, uni, togs, fixture, piece of piss, smoko, accommodate, assimilate, inequality
 
+- 2026-05-23: numpty, poncho, hot chips, nor'wester, pavlova, docket, footpath, fluctuate, redundancy, remuneration
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
