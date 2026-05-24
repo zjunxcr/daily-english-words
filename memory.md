@@ -40,6 +40,8 @@
 
 - 2026-05-23: numpty, poncho, hot chips, nor'wester, pavlova, docket, footpath, fluctuate, redundancy, remuneration
 
+- 2026-05-24: open home, paywave, Snapper, hard case, sausage sizzle, piker, chilly bin, decline, credential, deport
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
