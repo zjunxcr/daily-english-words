@@ -42,6 +42,8 @@
 
 - 2026-05-24: open home, paywave, Snapper, hard case, sausage sizzle, piker, chilly bin, decline, credential, deport
 
+- 2026-05-25: toll road, choice, term deposit, neighbour, sweet as, bargain, overtime, sponsor, artificial, ecosystem
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
@@ -55,3 +57,4 @@ song_history: 2026-05-15 Baby One More Time - Britney Spears
 song_history: 2026-05-18 You Are Not Alone - Michael Jackson
 song_history: 2026-05-20 My Heart Will Go On - Celine Dion
 song_history: 2026-05-22 Moon River - Audrey Hepburn
+song_history: 2026-05-25 Hotel California - Eagles
