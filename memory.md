@@ -44,6 +44,8 @@
 
 - 2026-05-25: toll road, choice, term deposit, neighbour, sweet as, bargain, overtime, sponsor, artificial, ecosystem
 
+- 2026-05-26: roundabout, uni, toll road, no worries, lolly, special, fridge, inflation, entrepreneur, tutorial
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
