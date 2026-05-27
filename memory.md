@@ -46,6 +46,8 @@
 
 - 2026-05-26: roundabout, uni, toll road, no worries, lolly, special, fridge, inflation, entrepreneur, tutorial
 
+- 2026-05-27: fridge, carpark, overtime, mitre 10, brekkie, sparky, queue, statutory, deforestation, diploma
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
@@ -60,3 +62,4 @@ song_history: 2026-05-18 You Are Not Alone - Michael Jackson
 song_history: 2026-05-20 My Heart Will Go On - Celine Dion
 song_history: 2026-05-22 Moon River - Audrey Hepburn
 song_history: 2026-05-25 Hotel California - Eagles
+song_history: 2026-05-27 What a Wonderful World - Louis Armstrong
