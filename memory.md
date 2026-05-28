@@ -48,6 +48,8 @@
 
 - 2026-05-27: fridge, carpark, overtime, mitre 10, brekkie, sparky, queue, statutory, deforestation, diploma
 
+- 2026-05-28: nappy, scroggin, rates, assignment, special, dosh, sunny, threshold, renewable, deteriorate
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
