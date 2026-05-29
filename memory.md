@@ -50,6 +50,8 @@
 
 - 2026-05-28: nappy, scroggin, rates, assignment, special, dosh, sunny, threshold, renewable, deteriorate
 
+- 2026-05-29: receipt, docket, eftpos, piker, torch, campervan, scroggin, sustainable, sedentary, ergonomic
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
@@ -65,3 +67,4 @@ song_history: 2026-05-20 My Heart Will Go On - Celine Dion
 song_history: 2026-05-22 Moon River - Audrey Hepburn
 song_history: 2026-05-25 Hotel California - Eagles
 song_history: 2026-05-27 What a Wonderful World - Louis Armstrong
+song_history: 2026-05-29 Lemon Tree - Fool's Garden
