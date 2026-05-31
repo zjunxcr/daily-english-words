@@ -54,6 +54,8 @@
 
 - 2026-05-30: hire, op shop, tinnie, chip packet, expression of interest, assignment, sausage sizzle, substantial, qualification, emission
 
+- 2026-05-31: bargain, nor'wester, gap, assignment, rate, on special, bach, quota, bachelor's degree, subsequent
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
