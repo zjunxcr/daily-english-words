@@ -4654,7 +4654,7 @@ if __name__ == "__main__":
     print(f"\n[*] 生成HTML文件...")
     final_html = generate_html(words, bonus_html)
     # 清理 surrogate pairs（避免 UTF-8 编码错误）
-    final_html = final_html.encode('utf-8', 'surrogatepass').decode('utf-8', 'replace')
+    final_html = final_html.encode('utf-8', 'surrogatepass').decode('utf-8', 'surrogatepass')
     OUTPUT.write_text(final_html, encoding='utf-8')
     print(f"[OK] 已生成: {OUTPUT}")
     print(f"     文件大小: {OUTPUT.stat().st_size / 1024:.1f} KB")
