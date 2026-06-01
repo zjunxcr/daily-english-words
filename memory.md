@@ -56,6 +56,8 @@
 
 - 2026-05-31: bargain, nor'wester, gap, assignment, rate, on special, bach, quota, bachelor's degree, subsequent
 
+- 2026-06-01: community, bring a plate, plug, dairy, pie, lease, NCEA, biodiversity, conservation, resilience
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
@@ -72,3 +74,4 @@ song_history: 2026-05-22 Moon River - Audrey Hepburn
 song_history: 2026-05-25 Hotel California - Eagles
 song_history: 2026-05-27 What a Wonderful World - Louis Armstrong
 song_history: 2026-05-29 Lemon Tree - Fool's Garden
+song_history: 2026-06-01 I Want It That Way - Backstreet Boys
