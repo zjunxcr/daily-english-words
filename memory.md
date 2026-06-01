@@ -77,3 +77,4 @@ song_history: 2026-05-29 Lemon Tree - Fool's Garden
 song_history: 2026-06-01 I Want It That Way - Backstreet Boys
 song_history: 2026-06-01 Hey Jude - The Beatles
 song_history: 2026-06-01 As Long As You Love Me - Backstreet Boys
+song_history: 2026-06-01 My Love - Westlife
