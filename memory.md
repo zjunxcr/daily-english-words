@@ -58,6 +58,8 @@
 
 - 2026-06-01: community, bring a plate, plug, dairy, pie, lease, NCEA, biodiversity, conservation, resilience
 
+- 2026-06-02: short black, takeaway, pavlova, trolley, kia ora, flybuys, carpark, inevitable, promotion, implement
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
