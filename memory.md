@@ -60,6 +60,8 @@
 
 - 2026-06-02: short black, takeaway, pavlova, trolley, kia ora, flybuys, carpark, inevitable, promotion, implement
 
+- 2026-06-03: hot chips, gym, dosh, kiwisaver, chip packet, op shop, landlord, advocate, phenomenon, curriculum
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
@@ -80,3 +82,4 @@ song_history: 2026-06-01 I Want It That Way - Backstreet Boys
 song_history: 2026-06-01 Hey Jude - The Beatles
 song_history: 2026-06-01 As Long As You Love Me - Backstreet Boys
 song_history: 2026-06-01 My Love - Westlife
+song_history: 2026-06-03 Someone Like You - Adele
