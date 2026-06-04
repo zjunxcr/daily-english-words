@@ -62,6 +62,8 @@
 
 - 2026-06-03: hot chips, gym, dosh, kiwisaver, chip packet, op shop, landlord, advocate, phenomenon, curriculum
 
+- 2026-06-04: power, arvo, barbie, hire, plug, stoked, prepay, dissertation, assessment, horticulture
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
