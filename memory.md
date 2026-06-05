@@ -64,6 +64,8 @@
 
 - 2026-06-04: power, arvo, barbie, hire, plug, stoked, prepay, dissertation, assessment, horticulture
 
+- 2026-06-05: roundabout, banger, lolly, kerbside, jandal, sparky, beaut, expenditure, embrace, pedestrian
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
@@ -85,3 +87,4 @@ song_history: 2026-06-01 Hey Jude - The Beatles
 song_history: 2026-06-01 As Long As You Love Me - Backstreet Boys
 song_history: 2026-06-01 My Love - Westlife
 song_history: 2026-06-03 Someone Like You - Adele
+song_history: 2026-06-05 Right Here Waiting - Richard Marx
