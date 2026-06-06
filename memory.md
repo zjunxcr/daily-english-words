@@ -66,6 +66,8 @@
 
 - 2026-06-05: roundabout, banger, lolly, kerbside, jandal, sparky, beaut, expenditure, embrace, pedestrian
 
+- 2026-06-06: duvet, NCEA, power, keen, receipt, rubbish, forecast, exercise, surplus, methodology
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
