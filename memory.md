@@ -68,6 +68,8 @@
 
 - 2026-06-06: duvet, NCEA, power, keen, receipt, rubbish, forecast, exercise, surplus, methodology
 
+- 2026-06-07: banger, pension, long black, hourly rate, wof, pottle, roster, comprehensive, quota, accommodation
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
