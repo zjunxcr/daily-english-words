@@ -72,6 +72,8 @@
 
 - 2026-06-08: chemist, chur, sleepout, hoon, casual, plug, lease, assimilate, diploma, inequality
 
+- 2026-06-09: brekkie, polytechnic, trolley, choice, flatmate, mitre 10, keen, infrastructure, permanent, deport
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
