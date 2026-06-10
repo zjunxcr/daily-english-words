@@ -74,6 +74,8 @@
 
 - 2026-06-09: brekkie, polytechnic, trolley, choice, flatmate, mitre 10, keen, infrastructure, permanent, deport
 
+- 2026-06-10: rate, cheers, gutted, trail, bin, short black, togs, subsequent, assimilate, predominantly
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
@@ -97,3 +99,4 @@ song_history: 2026-06-01 My Love - Westlife
 song_history: 2026-06-03 Someone Like You - Adele
 song_history: 2026-06-05 Right Here Waiting - Richard Marx
 song_history: 2026-06-08 Let It Be - The Beatles
+song_history: 2026-06-10 Love Story - Taylor Swift
