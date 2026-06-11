@@ -76,6 +76,8 @@
 
 - 2026-06-10: rate, cheers, gutted, trail, bin, short black, togs, subsequent, assimilate, predominantly
 
+- 2026-06-11: she'll be right, paywave, munted, bank fee, give way, chemist, trolley, interview, statutory, recommend
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
