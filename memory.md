@@ -78,6 +78,8 @@
 
 - 2026-06-11: she'll be right, paywave, munted, bank fee, give way, chemist, trolley, interview, statutory, recommend
 
+- 2026-06-12: kia ora, receipt, hoon, reference, jandal, gumboots, no worries, deteriorate, biodiversity, curriculum
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
@@ -102,3 +104,4 @@ song_history: 2026-06-03 Someone Like You - Adele
 song_history: 2026-06-05 Right Here Waiting - Richard Marx
 song_history: 2026-06-08 Let It Be - The Beatles
 song_history: 2026-06-10 Love Story - Taylor Swift
+song_history: 2026-06-12 Stand By Me - Ben E. King
