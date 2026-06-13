@@ -80,6 +80,8 @@
 
 - 2026-06-12: kia ora, receipt, hoon, reference, jandal, gumboots, no worries, deteriorate, biodiversity, curriculum
 
+- 2026-06-13: motorway, roundabout, Snapper, CV, secondhand, tinnie, citizenship, migrate, fluent, application
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
