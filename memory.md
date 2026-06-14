@@ -82,6 +82,8 @@
 
 - 2026-06-13: motorway, roundabout, Snapper, CV, secondhand, tinnie, citizenship, migrate, fluent, application
 
+- 2026-06-14: bin, rates, assignment, sleepout, fixture, munted, hangi, probation, comprehensive, legislation
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
