@@ -84,6 +84,8 @@
 
 - 2026-06-14: bin, rates, assignment, sleepout, fixture, munted, hangi, probation, comprehensive, legislation
 
+- 2026-06-15: chilly bin, landlord, pram, togs, pension, hourly rate, fixture, opportunity, fluctuate, substantial
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
@@ -109,3 +111,4 @@ song_history: 2026-06-05 Right Here Waiting - Richard Marx
 song_history: 2026-06-08 Let It Be - The Beatles
 song_history: 2026-06-10 Love Story - Taylor Swift
 song_history: 2026-06-12 Stand By Me - Ben E. King
+song_history: 2026-06-15 Yesterday Once More - Carpenters
