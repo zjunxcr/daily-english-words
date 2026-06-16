@@ -86,6 +86,8 @@
 
 - 2026-06-15: chilly bin, landlord, pram, togs, pension, hourly rate, fixture, opportunity, fluctuate, substantial
 
+- 2026-06-16: NCEA, kerbside, bach, ta, tenancy, short black, power, diploma, multicultural, decline
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
