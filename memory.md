@@ -88,6 +88,8 @@
 
 - 2026-06-16: NCEA, kerbside, bach, ta, tenancy, short black, power, diploma, multicultural, decline
 
+- 2026-06-17: gutted, tinnie, gym, chilly bin, assignment, AT HOP card, gumboots, recommend, tuition, dependant
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
@@ -114,3 +116,4 @@ song_history: 2026-06-08 Let It Be - The Beatles
 song_history: 2026-06-10 Love Story - Taylor Swift
 song_history: 2026-06-12 Stand By Me - Ben E. King
 song_history: 2026-06-15 Yesterday Once More - Carpenters
+song_history: 2026-06-17 Hey Jude - The Beatles
