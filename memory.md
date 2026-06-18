@@ -90,6 +90,8 @@
 
 - 2026-06-17: gutted, tinnie, gym, chilly bin, assignment, AT HOP card, gumboots, recommend, tuition, dependant
 
+- 2026-06-18: banger, wof, poncho, NCEA, toll road, L&P, GP, diploma, convenient, essential
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
