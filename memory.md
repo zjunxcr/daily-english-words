@@ -92,6 +92,8 @@
 
 - 2026-06-18: banger, wof, poncho, NCEA, toll road, L&P, GP, diploma, convenient, essential
 
+- 2026-06-19: prepay, carpark, neighbour, WINZ, NCEA, overtime, togs, diploma, recover, attraction
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
@@ -119,3 +121,4 @@ song_history: 2026-06-10 Love Story - Taylor Swift
 song_history: 2026-06-12 Stand By Me - Ben E. King
 song_history: 2026-06-15 Yesterday Once More - Carpenters
 song_history: 2026-06-17 Hey Jude - The Beatles
+song_history: 2026-06-19 Lemon Tree - Fool's Garden
