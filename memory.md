@@ -94,6 +94,8 @@
 
 - 2026-06-19: prepay, carpark, neighbour, WINZ, NCEA, overtime, togs, diploma, recover, attraction
 
+- 2026-06-20: flybuys, annual leave, pull your socks up, power, eftpos, mate, passport, artificial, digital, scholarship
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
