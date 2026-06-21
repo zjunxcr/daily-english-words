@@ -96,6 +96,8 @@
 
 - 2026-06-20: flybuys, annual leave, pull your socks up, power, eftpos, mate, passport, artificial, digital, scholarship
 
+- 2026-06-21: lolly, glowing, citizenship, open home, L&P, yeah nah, takeaway, infrastructure, accommodate, inequality
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
