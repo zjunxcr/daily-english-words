@@ -98,6 +98,8 @@
 
 - 2026-06-21: lolly, glowing, citizenship, open home, L&P, yeah nah, takeaway, infrastructure, accommodate, inequality
 
+- 2026-06-22: jandal, NCEA, dosh, toll road, hangi, sweet as, shift, decline, exercise, technology
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
@@ -126,3 +128,4 @@ song_history: 2026-06-12 Stand By Me - Ben E. King
 song_history: 2026-06-15 Yesterday Once More - Carpenters
 song_history: 2026-06-17 Hey Jude - The Beatles
 song_history: 2026-06-19 Lemon Tree - Fool's Garden
+song_history: 2026-06-22 As Long As You Love Me - Backstreet Boys
