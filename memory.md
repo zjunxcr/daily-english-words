@@ -102,6 +102,8 @@
 
 - 2026-06-23: water rate, visa, power, special, brekkie, keen, footpath, biodiversity, bachelor, acknowledge
 
+- 2026-06-24: potluck, landlord, pottle, heat pump, pull your socks up, fixture, sweet as, sustainability, eligible, peer-reviewed
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
@@ -131,3 +133,4 @@ song_history: 2026-06-15 Yesterday Once More - Carpenters
 song_history: 2026-06-17 Hey Jude - The Beatles
 song_history: 2026-06-19 Lemon Tree - Fool's Garden
 song_history: 2026-06-22 As Long As You Love Me - Backstreet Boys
+song_history: 2026-06-24 Moon River - Audrey Hepburn
