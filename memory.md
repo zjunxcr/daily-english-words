@@ -104,6 +104,8 @@
 
 - 2026-06-24: potluck, landlord, pottle, heat pump, pull your socks up, fixture, sweet as, sustainability, eligible, peer-reviewed
 
+- 2026-06-25: sleepout, visa, kia ora, community, piece of piss, hot chips, rego, divorce, tourism, recover
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
