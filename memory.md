@@ -106,6 +106,8 @@
 
 - 2026-06-25: sleepout, visa, kia ora, community, piece of piss, hot chips, rego, divorce, tourism, recover
 
+- 2026-06-26: campervan, vet, rubbish, sweet as, water rate, kiwisaver, IRD number, accommodate, expenditure, plagiarism
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
@@ -136,3 +138,4 @@ song_history: 2026-06-17 Hey Jude - The Beatles
 song_history: 2026-06-19 Lemon Tree - Fool's Garden
 song_history: 2026-06-22 As Long As You Love Me - Backstreet Boys
 song_history: 2026-06-24 Moon River - Audrey Hepburn
+song_history: 2026-06-26 Hotel California - Eagles
