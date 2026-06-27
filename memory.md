@@ -108,6 +108,8 @@
 
 - 2026-06-26: campervan, vet, rubbish, sweet as, water rate, kiwisaver, IRD number, accommodate, expenditure, plagiarism
 
+- 2026-06-27: water rate, she'll be right, choice, sweet as, vet, GP, arvo, tourism, advocate, adolescent
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
