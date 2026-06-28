@@ -110,6 +110,8 @@
 
 - 2026-06-27: water rate, she'll be right, choice, sweet as, vet, GP, arvo, tourism, advocate, adolescent
 
+- 2026-06-28: banger, piker, motorway, scroggin, wop-wops, babycino, hire, deteriorate, redundancy, migrate
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
