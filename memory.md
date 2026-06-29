@@ -112,6 +112,8 @@
 
 - 2026-06-28: banger, piker, motorway, scroggin, wop-wops, babycino, hire, deteriorate, redundancy, migrate
 
+- 2026-06-29: sparky, brew, IRD number, AT HOP card, INZ, passport, body corporate, diploma, acknowledge, climate change
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
@@ -143,3 +145,4 @@ song_history: 2026-06-19 Lemon Tree - Fool's Garden
 song_history: 2026-06-22 As Long As You Love Me - Backstreet Boys
 song_history: 2026-06-24 Moon River - Audrey Hepburn
 song_history: 2026-06-26 Hotel California - Eagles
+song_history: 2026-06-29 Hero - Mariah Carey
