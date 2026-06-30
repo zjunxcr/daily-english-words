@@ -114,6 +114,8 @@
 
 - 2026-06-29: sparky, brew, IRD number, AT HOP card, INZ, passport, body corporate, diploma, acknowledge, climate change
 
+- 2026-06-30: keen, prescription, roster, hourly rate, hard case, no worries, pram, community, generation, bachelor's degree
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
