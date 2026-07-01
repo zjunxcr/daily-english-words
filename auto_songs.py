@@ -1,4 +1,4 @@
-"""
+﻿"""
 auto_songs.py - 自动化歌曲学习系统
 根据初一英语水平自动挑选适合的英文歌曲，自动获取歌词、标注生词和俚语
 
@@ -215,31 +215,19 @@ def get_phonetic(word):
     except Exception:
         pass
 
-    # Step 2: 获取中文释义（优先用 jsonapi 的 ec 英汉词典，比 suggest 更准确）
+    # Step 2: 获取中文释义（来自有道词典）
     try:
         url2 = f"https://dict.youdao.com/jsonapi?q={urllib.parse.quote(word)}&doctype=json"
         req2 = urllib.request.Request(url2, headers={"User-Agent": "Mozilla/5.0"})
         with urllib.request.urlopen(req2, timeout=10) as resp2:
             data2 = json.loads(resp2.read().decode())
-            ec = data2.get("ec", {}).get("word", [])
-            if ec:
-                tr_list = ec[0].get("trs", [])
-                if tr_list:
-                    tr0 = tr_list[0].get("tr", [])
-                    if tr0 and isinstance(tr0, list):
-                        l_data = tr0[0].get("l", {})
-                        # l_data 是 dict: {"i": ["v. 释义；释义"]}
-                        if isinstance(l_data, dict):
-                            i_list = l_data.get("i", [])
-                            if i_list and isinstance(i_list, list) and i_list[0]:
-                                definition = i_list[0][:30]
-                        elif isinstance(l_data, list):
-                            definition = "; ".join(d.get("#text", "") for d in l_data if isinstance(d, dict))[:30]
-                        elif isinstance(l_data, str):
-                            definition = l_data[:30]
-    except Exception:
-        pass
-
+            # 优先取 web_trans 中的中文翻译
+            wt = data2.get("web_trans", {}).get("web-translation", [])
+            if wt:
+                trans_list = wt[0].get("trans", [])
+                if trans_list:
+                    # 取第一个中文翻译（通常是最常用义项）
+                    definition = trans_list[0].get("value", "")
     except Exception:
         pass
 
@@ -937,25 +925,25 @@ SONG_LIBRARY = [
     {"name": "You Are My Sunshine", "artist": "Christina Perri", "year": "经典民谣", "netease_id": "1339805651",
      "tense": "一般现在时", "tense_en": "Simple Present", "level": 1,
      "tense_rule": "主语+动词原形(三单加s)，表达习惯和事实"},
-    {"name": "Right Here Waiting", "artist": "Richard Marx", "year": "1989", "netease_id": "21568021",
+    {"name": "Right Here Waiting", "artist": "Richard Marx", "year": "1989", "netease_id": "109673",
      "tense": "现在进行时", "tense_en": "Present Continuous", "level": 1,
      "tense_rule": "am/is/are + 动词ing"},
-    {"name": "My Heart Will Go On", "artist": "Celine Dion", "year": "1997", "netease_id": "2308499",
+    {"name": "My Heart Will Go On", "artist": "Celine Dion", "year": "1997", "netease_id": "188200",
      "tense": "一般将来时", "tense_en": "Simple Future", "level": 1,
      "tense_rule": "will + 动词原形"},
-    {"name": "What a Wonderful World", "artist": "Louis Armstrong", "year": "1967", "netease_id": "1649082",
+    {"name": "What a Wonderful World", "artist": "Louis Armstrong", "year": "1967", "netease_id": "4215755",
      "tense": "一般现在时", "tense_en": "Simple Present", "level": 1,
      "tense_rule": "主语+动词原形，描述看到的世界"},
     {"name": "Yesterday Once More", "artist": "Carpenters", "year": "1973", "netease_id": "3986241",
      "tense": "一般过去时", "tense_en": "Simple Past", "level": 1,
      "tense_rule": "主语+动词过去式，描述过去的经历"},
-    {"name": "The Day You Went Away", "artist": "M2M", "year": "2000", "netease_id": "21198949",
+    {"name": "The Day You Went Away", "artist": "M2M", "year": "2000", "netease_id": "572378",
      "tense": "一般过去时 + 现在完成时", "tense_en": "Simple Past + Present Perfect", "level": 1,
      "tense_rule": "过去式描述具体事件；have/has+过去分词描述对现在的影响"},
-    {"name": "Pretty Boy", "artist": "M2M", "year": "2000", "netease_id": "21198952",
+    {"name": "Pretty Boy", "artist": "M2M", "year": "2000", "netease_id": "572375",
      "tense": "一般现在时", "tense_en": "Simple Present", "level": 1,
      "tense_rule": "主语+动词原形(三单加s)"},
-    {"name": "Scarborough Fair", "artist": "Sarah Brightman", "year": "经典民歌", "netease_id": "19168948",
+    {"name": "Scarborough Fair", "artist": "Sarah Brightman", "year": "经典民歌", "netease_id": "2082132",
      "tense": "祈使句", "tense_en": "Imperative Mood", "level": 1,
      "tense_rule": "动词原形开头，表示请求或命令"},
 
@@ -966,25 +954,25 @@ SONG_LIBRARY = [
     {"name": "Hey Jude", "artist": "The Beatles", "year": "1968", "netease_id": "4331344",
      "tense": "祈使句 + let's结构", "tense_en": "Imperative + Let's", "level": 2,
      "tense_rule": "let's + 动词原形 = 让我们做某事"},
-    {"name": "Let It Be", "artist": "The Beatles", "year": "1970", "netease_id": "4336098",
+    {"name": "Let It Be", "artist": "The Beatles", "year": "1970", "netease_id": "167876",
      "tense": "祈使句 + 一般现在时", "tense_en": "Imperative + Simple Present", "level": 2,
      "tense_rule": "let it be = 随它去吧"},
-    {"name": "Take Me To Your Heart", "artist": "Michael Learns to Rock", "year": "2004", "netease_id": "4173190",
+    {"name": "Take Me To Your Heart", "artist": "Michael Learns to Rock", "year": "2004", "netease_id": "209401",
      "tense": "祈使句 + 一般现在时", "tense_en": "Imperative + Simple Present", "level": 2,
      "tense_rule": "take me to = 带我去..."},
-    {"name": "As Long As You Love Me", "artist": "Backstreet Boys", "year": "1997", "netease_id": "16835303",
+    {"name": "As Long As You Love Me", "artist": "Backstreet Boys", "year": "1997", "netease_id": "191248",
      "tense": "一般现在时 + 条件句", "tense_en": "Simple Present + Conditionals", "level": 2,
      "tense_rule": "as long as = 只要；条件状语从句"},
     {"name": "I Want It That Way", "artist": "Backstreet Boys", "year": "1999", "netease_id": "16835293",
      "tense": "一般现在时", "tense_en": "Simple Present", "level": 2,
      "tense_rule": "主语+动词原形，表达想法和感受"},
-    {"name": "My Love", "artist": "Westlife", "year": "2000", "netease_id": "2080607",
+    {"name": "My Love", "artist": "Westlife", "year": "2000", "netease_id": "230232",
      "tense": "一般现在时 + 现在进行时", "tense_en": "Simple Present + Present Continuous", "level": 2,
      "tense_rule": "混合时态表达"},
-    {"name": "Heal the World", "artist": "Michael Jackson", "year": "1991", "netease_id": "1698413",
+    {"name": "Heal the World", "artist": "Michael Jackson", "year": "1991", "netease_id": "1697541",
      "tense": "祈使句 + 一般将来时", "tense_en": "Imperative + Simple Future", "level": 2,
      "tense_rule": "there will be = 将会有；make it a better place = 让它成为更好的地方"},
-    {"name": "Last Christmas", "artist": "Wham!", "year": "1984", "netease_id": "19805471",
+    {"name": "Last Christmas", "artist": "Wham!", "year": "1984", "netease_id": "347405",
      "tense": "一般过去时", "tense_en": "Simple Past", "level": 2,
      "tense_rule": "gave my heart = 给了我我的心（过去式）"},
     {"name": "Seasons in the Sun", "artist": "Terry Jacks", "year": "1974", "netease_id": "1839654699",
@@ -993,16 +981,16 @@ SONG_LIBRARY = [
     {"name": "Cry On My Shoulder", "artist": "Deutschland Sucht Den Superstar", "year": "2003", "netease_id": "191595",
      "tense": "一般将来时 + 祈使句", "tense_en": "Simple Future + Imperative", "level": 2,
      "tense_rule": "if you need someone = 如果你需要某人"},
-    {"name": "Never Had A Dream Come True", "artist": "S Club 7", "year": "2001", "netease_id": "21687057",
+    {"name": "Never Had A Dream Come True", "artist": "S Club 7", "year": "2001", "netease_id": "228711",
      "tense": "现在完成时", "tense_en": "Present Perfect", "level": 2,
      "tense_rule": "have never done = 从未做过"},
-    {"name": "Stand By Me", "artist": "Ben E. King", "year": "1961", "netease_id": "1354428092",
+    {"name": "Stand By Me", "artist": "Ben E. King", "year": "1961", "netease_id": "27731176",
      "tense": "一般将来时 + 条件句", "tense_en": "Simple Future + Conditionals", "level": 2,
      "tense_rule": "I won't be afraid = 我不会害怕；if you just stand by me = 如果你陪着我"},
-    {"name": "Just One Last Dance", "artist": "Sarah Connor", "year": "2003", "netease_id": "21674656",
+    {"name": "Just One Last Dance", "artist": "Sarah Connor", "year": "2003", "netease_id": "190574",
      "tense": "一般现在时", "tense_en": "Simple Present", "level": 2,
      "tense_rule": "just one last dance = 就最后一支舞"},
-    {"name": "Burning", "artist": "Maria Arredondo", "year": "2004", "netease_id": "3026472",
+    {"name": "Burning", "artist": "Maria Arredondo", "year": "2004", "netease_id": "190557",
      "tense": "现在进行时", "tense_en": "Present Continuous", "level": 2,
      "tense_rule": "is burning = 正在燃烧"},
     {"name": "Anyone of Us", "artist": "Gareth Gates", "year": "2002", "netease_id": "227912",
@@ -1013,99 +1001,99 @@ SONG_LIBRARY = [
     {"name": "Monsters", "artist": "All Time Low ft. blackbear", "year": "2020", "netease_id": "1436357204",
      "tense": "一般将来时", "tense_en": "Simple Future", "level": 3,
      "tense_rule": "I'll tell you = 我会告诉你"},
-    {"name": "Perfect", "artist": "Ed Sheeran", "year": "2017", "netease_id": "1294978740",
+    {"name": "Perfect", "artist": "Ed Sheeran", "year": "2017", "netease_id": "1877680891",
      "tense": "一般过去时 + 现在完成时", "tense_en": "Simple Past + Present Perfect", "level": 3,
      "tense_rule": "I found a woman = 我遇到了一个女人（过去式）；I have never felt = 我从未感到"},
-    {"name": "Perfect", "artist": "Ed Sheeran", "year": "2017", "netease_id": "1294978740",
+    {"name": "Counting Stars", "artist": "OneRepublic", "year": "2013", "netease_id": "436514312",
      "tense": "一般现在时 + 现在进行时", "tense_en": "Simple Present + Present Continuous", "level": 3,
      "tense_rule": "I see this life = 我看到这生活；make that money = 赚那些钱"},
     {"name": "If I Were a Boy", "artist": "Beyonce", "year": "2008", "netease_id": "441566935",
      "tense": "虚拟语气（过去式表非现实）", "tense_en": "Subjunctive Mood", "level": 3,
      "tense_rule": "if I were... I would... = 如果我是...我会...（虚拟语气）"},
-    {"name": "Someone Like You", "artist": "Adele", "year": "2011", "netease_id": "16435049",
+    {"name": "Someone Like You", "artist": "Adele", "year": "2011", "netease_id": "152916",
      "tense": "一般过去时 + 一般将来时", "tense_en": "Simple Past + Simple Future", "level": 3,
      "tense_rule": "I heard that = 我听说；nevermind I'll find = 没关系我会找到"},
-    {"name": "Hotel California", "artist": "Eagles", "year": "1977", "netease_id": "26289183",
+    {"name": "Hotel California", "artist": "Eagles", "year": "1977", "netease_id": "441491828",
      "tense": "一般过去时", "tense_en": "Simple Past", "level": 3,
      "tense_rule": "could not stop = 停不下来"},
-    {"name": "When You Believe", "artist": "Whitney Houston & Mariah Carey", "year": "1998", "netease_id": "19827080",
+    {"name": "When You Believe", "artist": "Whitney Houston & Mariah Carey", "year": "1998", "netease_id": "110472",
      "tense": "一般现在时 + 一般过去时", "tense_en": "Simple Present + Simple Past", "level": 3,
      "tense_rule": "when you believe = 当你相信时"},
-    {"name": "Hero", "artist": "Mariah Carey", "year": "1993", "netease_id": "21233873",
+    {"name": "Hero", "artist": "Mariah Carey", "year": "1993", "netease_id": "115078",
      "tense": "一般现在时 + 情态动词", "tense_en": "Simple Present + Modals", "level": 3,
      "tense_rule": "you don't need to be afraid = 你不需要害怕"},
     {"name": "Can You Feel the Love Tonight", "artist": "Elton John", "year": "1994", "netease_id": "4246313",
      "tense": "一般现在时", "tense_en": "Simple Present", "level": 3,
      "tense_rule": "can you feel = 你能感觉到吗"},
-    {"name": "Because of You", "artist": "Kelly Clarkson", "year": "2004", "netease_id": "16232697",
+    {"name": "Because of You", "artist": "Kelly Clarkson", "year": "2004", "netease_id": "176459",
      "tense": "一般现在时 + 一般过去时", "tense_en": "Simple Present + Simple Past", "level": 3,
      "tense_rule": "because of you = 因为你"},
-    {"name": "My Happy Ending", "artist": "Avril Lavigne", "year": "2004", "netease_id": "16432073",
+    {"name": "My Happy Ending", "artist": "Avril Lavigne", "year": "2004", "netease_id": "246695",
      "tense": "一般过去时", "tense_en": "Simple Past", "level": 3,
      "tense_rule": "all the things you said = 你说过的所有话"},
-    {"name": "Tomorrow", "artist": "Avril Lavigne", "year": "2002", "netease_id": "16431885",
+    {"name": "Tomorrow", "artist": "Avril Lavigne", "year": "2002", "netease_id": "246700",
      "tense": "一般将来时", "tense_en": "Simple Future", "level": 3,
      "tense_rule": "I'll be there = 我会在那里"},
     {"name": "Thank You", "artist": "Dido", "year": "1999", "netease_id": "106841",
      "tense": "一般现在时 + 一般过去时", "tense_en": "Simple Present + Simple Past", "level": 3,
      "tense_rule": "my tea's gone cold = 我的茶凉了"},
-    {"name": "Moon River", "artist": "Audrey Hepburn", "year": "1961", "netease_id": "1378191393",
+    {"name": "Moon River", "artist": "Audrey Hepburn", "year": "1961", "netease_id": "115114",
      "tense": "一般将来时", "tense_en": "Simple Future", "level": 3,
      "tense_rule": "wherever you're going = 无论你去哪里"},
-    {"name": "Show Me The Meaning of Being Lonely", "artist": "Backstreet Boys", "year": "2000", "netease_id": "16835294",
+    {"name": "Show Me The Meaning of Being Lonely", "artist": "Backstreet Boys", "year": "2000", "netease_id": "191251",
      "tense": "一般现在时 + 动名词", "tense_en": "Simple Present + Gerund", "level": 3,
      "tense_rule": "show me the meaning = 告诉我这个意义"},
-    {"name": "Baby One More Time", "artist": "Britney Spears", "year": "1998", "netease_id": "446508865",
+    {"name": "Baby One More Time", "artist": "Britney Spears", "year": "1998", "netease_id": "115174",
      "tense": "祈使句 + 一般现在时", "tense_en": "Imperative + Simple Present", "level": 3,
      "tense_rule": "hit me baby one more time = 宝贝再打我一次（再来一次）"},
-    {"name": "It's My Life", "artist": "Bon Jovi", "year": "2000", "netease_id": "3950546",
+    {"name": "It's My Life", "artist": "Bon Jovi", "year": "2000", "netease_id": "271555",
      "tense": "一般现在时", "tense_en": "Simple Present", "level": 3,
      "tense_rule": "it's my life = 这是我的人生"},
-    {"name": "Love To Be Loved By You", "artist": "Marc Terenzi", "year": "2005", "netease_id": "21116721",
+    {"name": "Love To Be Loved By You", "artist": "Marc Terenzi", "year": "2005", "netease_id": "199243",
      "tense": "不定式", "tense_en": "Infinitive", "level": 3,
      "tense_rule": "love to be loved = 爱被爱"},
-    {"name": "Amarantine", "artist": "Enya", "year": "2005", "netease_id": "17645920",
+    {"name": "Amarantine", "artist": "Enya", "year": "2005", "netease_id": "220346",
      "tense": "一般现在时", "tense_en": "Simple Present", "level": 3,
      "tense_rule": "you are = 你是（永恒不变）"},
 
     # ---- 中高级（词汇较丰富，适合进阶）----
-    {"name": "Make You Feel My Love", "artist": "Bob Dylan", "year": "1997", "netease_id": "26473400",
+    {"name": "Make You Feel My Love", "artist": "Bob Dylan", "year": "1997", "netease_id": "286868",
      "tense": "一般将来时", "tense_en": "Simple Future", "level": 3,
      "tense_rule": "I'd go hungry = 我宁愿挨饿"},
-    {"name": "Million Reasons", "artist": "Lady Gaga", "year": "2016", "netease_id": "433223079",
+    {"name": "Million Reasons", "artist": "Lady Gaga", "year": "2016", "netease_id": "424525172",
      "tense": "一般现在时", "tense_en": "Simple Present", "level": 3,
      "tense_rule": "I bow down to pray = 我跪下祈祷"},
-    {"name": "Always Come Back to Your Love", "artist": "Samantha Mumba", "year": "2000", "netease_id": "19135189",
+    {"name": "Always Come Back to Your Love", "artist": "Samantha Mumba", "year": "2000", "netease_id": "227908",
      "tense": "一般将来时", "tense_en": "Simple Future", "level": 3,
      "tense_rule": "will always come back = 总会回来"},
-    {"name": "She", "artist": "Groove Coverage", "year": "2004", "netease_id": "1969039780",
+    {"name": "She", "artist": "Groove Coverage", "year": "2004", "netease_id": "195984",
      "tense": "一般现在时", "tense_en": "Simple Present", "level": 3,
      "tense_rule": "she may be the face = 她可能是那张面孔"},
-    {"name": "One Love", "artist": "Blue", "year": "2002", "netease_id": "22494912",
+    {"name": "One Love", "artist": "Blue", "year": "2002", "netease_id": "227909",
      "tense": "一般现在时", "tense_en": "Simple Present", "level": 3,
      "tense_rule": "one love = 一个爱"},
-    {"name": "If You Come Back", "artist": "Blue", "year": "2001", "netease_id": "22576668",
+    {"name": "If You Come Back", "artist": "Blue", "year": "2001", "netease_id": "227907",
      "tense": "条件句", "tense_en": "Conditional", "level": 3,
      "tense_rule": "if you come back = 如果你回来"},
     {"name": "You Are Not Alone", "artist": "Michael Jackson", "year": "1995", "netease_id": "1697507",
      "tense": "一般现在时 + 一般将来时", "tense_en": "Simple Present + Simple Future", "level": 2,
      "tense_rule": "you are not alone = 你不是一个人"},
-    {"name": "May It Be", "artist": "Enya", "year": "2001", "netease_id": "1428295",
+    {"name": "May It Be", "artist": "Enya", "year": "2001", "netease_id": "220340",
      "tense": "情态动词 + 祈使句", "tense_en": "Modals + Imperative", "level": 2,
      "tense_rule": "may it be = 但愿"},
     {"name": "Fighter", "artist": "Christina Aguilera", "year": "2002", "netease_id": "115129",
      "tense": "一般过去时", "tense_en": "Simple Past", "level": 3,
      "tense_rule": "made me that much stronger = 让我更强大"},
-    {"name": "Forever Young", "artist": "Alphaville", "year": "1984", "netease_id": "16493666",
+    {"name": "Forever Young", "artist": "Alphaville", "year": "1984", "netease_id": "195918",
      "tense": "祈使句", "tense_en": "Imperative", "level": 2,
      "tense_rule": "let's stay young = 让我们保持年轻"},
-    {"name": "Toxic", "artist": "Britney Spears", "year": "2003", "netease_id": "1964549096",
+    {"name": "Toxic", "artist": "Britney Spears", "year": "2003", "netease_id": "115175",
      "tense": "现在进行时", "tense_en": "Present Continuous", "level": 3,
      "tense_rule": "don't you know that you're toxic = 你不知道你有毒吗"},
-    {"name": "Winter Things", "artist": "Ariana Grande", "year": "2015", "netease_id": "39436194",
+    {"name": "Winter Things", "artist": "Ariana Grande", "year": "2015", "netease_id": "37075507",
      "tense": "一般将来时", "tense_en": "Simple Future", "level": 3,
      "tense_rule": "wouldn't call it = 不会称之为"},
-    {"name": "You Must Love Me", "artist": "Madonna", "year": "1996", "netease_id": "3030097",
+    {"name": "You Must Love Me", "artist": "Madonna", "year": "1996", "netease_id": "115132",
      "tense": "情态动词", "tense_en": "Modals", "level": 3,
      "tense_rule": "you must love me = 你必须爱我"},
 ]
@@ -1571,7 +1559,7 @@ def get_lyrics_with_fallback(song_name, artist, netease_id):
     return [], [], None
 
 
-CF_WORKER = "music.163.com"  # 占位，已改用 protocol-relative URL
+CF_WORKER = "quiet-term-cc2f.zjunxcr.workers.dev"
 
 def fetch_mp3_url(netease_id):
     """通过第三方API获取网易云音乐MP3直链，并转为 Cloudflare Worker HTTPS 代理地址"""
@@ -1583,11 +1571,11 @@ def fetch_mp3_url(netease_id):
             if mp3_url.startswith("http://m801.music.126.net/"):
                 # 用 Cloudflare Worker 把 HTTP 转成 HTTPS，手机可内嵌播放
                 audio_path = mp3_url[len("http://"):]  # 去掉 "http://" 剩 "m801.music.126.net/..."
-                return f"//{audio_path}"  # 相对协议，浏览器自动 https
+                return f"https://{CF_WORKER}/proxy/{audio_path}"
             elif mp3_url.startswith("http"):
                 # 其他 HTTP 源同样处理
                 audio_path = mp3_url[len("http://"):]
-                return f"//{audio_path}"  # 相对协议，浏览器自动 https
+                return f"https://{CF_WORKER}/proxy/{audio_path}"
             elif mp3_url.startswith("https"):
                 # 已经是 HTTPS 直接返回
                 return mp3_url
@@ -1662,107 +1650,142 @@ def find_slang_in_lyrics(lyrics_lines):
 
 
 # ============================================================
-# 歌曲历史记录（追加到memory文件）
+# 歌曲历史记录（存储在 GitHub 仓库 docs/song_history.json）
+# GitHub Actions 每次运行都能持久化，彻底解决重复问题
 # ============================================================
-def append_song_history(song_name, artist):
-    """将今日歌曲追加到memory.md的歌曲历史记录"""
+_SONG_HISTORY_FILE = "docs/song_history.json"
+_SONG_HISTORY_REPO = "zjunxcr/daily-english-words"
+
+
+def _get_gh_token():
+    """从环境变量读取 GitHub PAT Token"""
     import os
-    from datetime import date
-    mem_path = os.path.join(os.path.dirname(__file__), "memory.md")
-    today_str = date.today().isoformat()
-    new_line = f"song_history: {today_str} {song_name} - {artist}"
-
-    if not os.path.exists(mem_path):
-        # 创建文件
-        with open(mem_path, "w", encoding="utf-8") as f:
-            f.write(f"# 每日英语单词 - 自动化执行记录\n\n## 歌曲历史\n{new_line}\n")
-        return
-
-    with open(mem_path, "r", encoding="utf-8") as f:
-        content = f.read()
-
-    # 追加到文件末尾
-    marker = "## 歌曲历史"
-    if marker in content:
-        content += f"\n{new_line}"
-    else:
-        content += f"\n\n{marker}\n{new_line}\n"
-
-    with open(mem_path, "w", encoding="utf-8") as f:
-        f.write(content)
+    token = os.environ.get("GH_PAT", "")
+    if not token:
+        token = os.environ.get("GITHUB_TOKEN", "")
+    return token
 
 
-# ============================================================
-# 选择今日歌曲（动态选择，去重）
-# ============================================================
 def get_used_songs():
-    """读取已使用过的歌曲记录（从memory.md的歌曲历史中）"""
-    import os
-    mem_path = os.path.join(os.path.dirname(__file__), "memory.md")
-    if os.path.exists(mem_path):
-        try:
-            with open(mem_path, "r", encoding="utf-8") as f:
-                content = f.read()
-            used = set()
-            for line in content.split("\n"):
-                stripped = line.strip()
-                # 匹配 song_history: 2026-04-13 Lemon Tree - Artist
-                if stripped.startswith("song_history:"):
-                    parts = stripped.split("song_history:", 1)[1].strip()
-                    # 去掉日期前缀，取 "歌曲名 - 歌手" 部分
-                    # 格式: YYYY-MM-DD Song Name - Artist
-                    import re
-                    m = re.match(r'^\d{4}-\d{2}-\d{2}\s+(.+)$', parts)
-                    if m:
-                        song_str = m.group(1).strip()
-                        # 从 "Song Name - Artist" 中提取歌曲名
-                        if " - " in song_str:
-                            song_name = song_str.split(" - ")[0].strip()
-                            used.add(song_name)
-                    else:
-                        # 兼容旧格式：song_history: Song1, Song2
-                        for s in parts.split(","):
-                            s = s.strip().strip("'\""  )
-                            if s:
-                                used.add(s)
-            return used
-        except Exception as e:
-            print(f"[WARN] 读取歌曲历史失败: {e}")
-    return set()
+    """
+    从 GitHub 仓库 docs/song_history.json 读取已使用过的歌曲记录
+    GitHub Actions 每次运行都从远端读取，确保去重生效
+    """
+    import urllib.request, json, ssl, base64
+    token = _get_gh_token()
+    if not token:
+        print("[WARN] 未找到 GH_PAT 环境变量，无法读取歌曲历史（本次将随机选歌）")
+        return set()
+    url = f"https://api.github.com/repos/{_SONG_HISTORY_REPO}/contents/{_SONG_HISTORY_FILE}"
+    req = urllib.request.Request(url, headers={
+        "Authorization": f"token {token}",
+        "Accept": "application/vnd.github.v3+json",
+        "User-Agent": "daily-english-words-bot"
+    })
+    ctx = ssl.create_default_context()
+    ctx.check_hostname = False
+    ctx.verify_mode = ssl.CERT_NONE
+    try:
+        with urllib.request.urlopen(req, timeout=15, context=ctx) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+            content = base64.b64decode(data["content"]).decode("utf-8")
+            history = json.loads(content)
+            songs = history.get("songs", [])
+            print(f"  [历史] 已用歌曲 {len(songs)} 首: {songs[-5:] if len(songs)>5 else songs}")
+            return set(songs)
+    except urllib.error.HTTPError as e:
+        if e.code == 404:
+            print("  [历史] song_history.json 不存在，首次运行，返回空历史")
+        else:
+            print(f"  [WARN] 读取歌曲历史失败 HTTP {e.code}: {e}")
+        return set()
+    except Exception as e:
+        print(f"  [WARN] 读取歌曲历史失败: {e}")
+        return set()
+
+
+def append_song_history(song_name, artist):
+    """
+    将今日歌曲写入 GitHub 仓库 docs/song_history.json
+    通过 GitHub Contents API PUT 更新（需先 GET sha）
+    保留最近 200 条记录，防止文件无限增长
+    """
+    import urllib.request, json, ssl, base64
+    from datetime import date
+    token = _get_gh_token()
+    if not token:
+        print("[WARN] 未找到 GH_PAT 环境变量，无法保存歌曲历史")
+        return
+    url = f"https://api.github.com/repos/{_SONG_HISTORY_REPO}/contents/{_SONG_HISTORY_FILE}"
+    headers = {
+        "Authorization": f"token {token}",
+        "Accept": "application/vnd.github.v3+json",
+        "Content-Type": "application/json",
+        "User-Agent": "daily-english-words-bot"
+    }
+    ctx = ssl.create_default_context()
+    ctx.check_hostname = False
+    ctx.verify_mode = ssl.CERT_NONE
+    # 1. 先 GET 读取当前文件和 sha
+    sha = None
+    songs = []
+    try:
+        req = urllib.request.Request(url, headers=headers)
+        with urllib.request.urlopen(req, timeout=15, context=ctx) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+            sha = data.get("sha")
+            old_content = base64.b64decode(data["content"]).decode("utf-8")
+            old_history = json.loads(old_content)
+            songs = old_history.get("songs", [])
+    except urllib.error.HTTPError as e:
+        if e.code != 404:
+            print(f"  [WARN] 读取 song_history.json 失败: {e}")
+    except Exception as e:
+        print(f"  [WARN] 读取 song_history.json 失败: {e}")
+    # 2. 追加今日歌曲（去重，最多保留200条）
+    today_str = date.today().isoformat()
+    if song_name not in songs:
+        songs.append(song_name)
+    songs = songs[-200:]
+    # 3. PUT 更新文件
+    new_content = json.dumps({"songs": songs, "last_updated": today_str}, ensure_ascii=False, indent=2)
+    payload = {"message": f"chore: 更新歌曲历史 {today_str} {song_name}", "content": base64.b64encode(new_content.encode("utf-8")).decode()}
+    if sha:
+        payload["sha"] = sha
+    req2 = urllib.request.Request(url, data=json.dumps(payload).encode(), headers=headers, method="PUT")
+    try:
+        with urllib.request.urlopen(req2, timeout=30, context=ctx) as resp:
+            result = json.loads(resp.read().decode("utf-8"))
+            commit_sha = result.get("commit", {}).get("sha", "")[:7]
+            print(f"  [历史] 已保存歌曲历史到 GitHub ({commit_sha}): {song_name} (共{len(songs)}首)")
+    except Exception as e:
+        print(f"  [WARN] 保存歌曲历史到 GitHub 失败: {e}")
 
 
 def select_daily_song(level=None, exclude=None):
     """
-    动态选择一首歌曲 — 只从有本地音频的歌曲中选（CLASSIC_SONGS 或 NETLIFY_SONGS）
+    动态选择一首歌曲
     level: 1=入门, 2=初级, 3=中级, None=随机
     exclude: 需要排除的歌曲名集合
     """
     if exclude is None:
         exclude = set()
 
-    # 只保留有本地音频的歌曲（95首经典 + 29首儿童 = 124首）
-    local_pool = [s for s in SONG_LIBRARY
-                  if s["name"] in CLASSIC_SONGS or s["name"] in NETLIFY_SONGS]
-
-    # 根据level筛选
+    # 根据level筛选歌曲
     if level:
-        pool = [s for s in local_pool if s["level"] == level and s["name"] not in exclude]
+        pool = [s for s in SONG_LIBRARY if s["level"] == level and s["name"] not in exclude]
     else:
-        pool = [s for s in local_pool if s["name"] not in exclude]
+        pool = [s for s in SONG_LIBRARY if s["name"] not in exclude]
 
     if not pool:
-        # level筛选后没歌了，放宽level限制
-        pool = [s for s in local_pool if s["name"] not in exclude]
+        # 如果筛选后没有歌曲，回退到全部歌曲
+        pool = [s for s in SONG_LIBRARY if s["name"] not in exclude]
 
     if not pool:
-        # 所有歌都用过了，重新开始（但仍限本地音频池）
-        pool = local_pool
-
-    if not pool:
-        # 极端情况：本地音频池为空（不应发生）
-        print("  [WARN] 本地音频池为空，回退到全部歌曲库")
+        # 所有歌曲都用过了，重新开始
         pool = SONG_LIBRARY
 
+    # 真正随机选择歌曲
     return random.choice(pool)
 
 
@@ -1796,18 +1819,14 @@ def generate_auto_song_html(svg_speaker):
     while not en_lyrics and retry < max_retry:
         retry += 1
         print(f"  [WARN] 歌词获取失败，换下一首（第{retry}次重试）")
-        # 从本地音频池里选另一首（排除已用和已尝试的）
-        local_retry = [s for s in SONG_LIBRARY
-                       if (s["name"] in CLASSIC_SONGS or s["name"] in NETLIFY_SONGS)
-                       and s["name"] not in used and s["name"] not in tried]
-        if not local_retry:
-            local_retry = [s for s in SONG_LIBRARY
-                           if (s["name"] in CLASSIC_SONGS or s["name"] in NETLIFY_SONGS)
-                           and s["name"] not in tried]
-        if not local_retry:
+        # 从库里选另一首（排除已用和已尝试的）
+        pool_retry = [s for s in SONG_LIBRARY if s["name"] not in used and s["name"] not in tried]
+        if not pool_retry:
+            pool_retry = [s for s in SONG_LIBRARY if s["name"] not in tried]
+        if not pool_retry:
             break
         # 真正随机选不同的歌
-        song = random.choice(local_retry)
+        song = random.choice(pool_retry)
         tried.add(song["name"])
         print(f"  [歌曲] 换用: {song['name']} - {song['artist']} (难度{song['level']})")
         en_lyrics, zh_lyrics, actual_id = get_lyrics_with_fallback(
@@ -1890,13 +1909,7 @@ def generate_auto_song_html(svg_speaker):
             syll_str = hw_data.get('syllables', hw)
             pos_str = f" {hw_data.get('pos', '')}" if hw_data.get('pos') else ""
             def_str = f" {hw_data.get('definition', '')}" if hw_data.get('definition') else ""
-            speak_btn = (
-                f'<button class="lyric-speak-btn" onclick="speakWord(this,\'{hw_safe}\')">'
-                f'<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2">'
-                f'<path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/>'
-                f'</svg></button>'
-            )
-            note_items.append(f'<span class="lyric-note hard-note"><b>{hw}</b>{ipa_str} {syll_str}{pos_str} {def_str} {speak_btn}</span>')
+            note_items.append(f'<span class="lyric-note hard-note"><b>{hw}</b>{ipa_str} {syll_str}{pos_str} {def_str}</span>')
 
         # 合并标注
         notes_html = ""
