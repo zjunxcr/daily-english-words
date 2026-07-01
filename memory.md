@@ -116,6 +116,8 @@
 
 - 2026-06-30: keen, prescription, roster, hourly rate, hard case, no worries, pram, community, generation, bachelor's degree
 
+- 2026-07-01: subsidised, trolley, wof, chur, pottle, DIY, tenancy, decline, remuneration, inequality
+
 ## 歌曲历史
 song_history: 2026-05-11 Forever Young - Alphaville
 
@@ -148,3 +150,4 @@ song_history: 2026-06-22 As Long As You Love Me - Backstreet Boys
 song_history: 2026-06-24 Moon River - Audrey Hepburn
 song_history: 2026-06-26 Hotel California - Eagles
 song_history: 2026-06-29 Hero - Mariah Carey
+song_history: 2026-07-01 Hero - Mariah Carey
