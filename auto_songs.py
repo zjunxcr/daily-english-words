@@ -1789,29 +1789,70 @@ def append_song_history(song_name, artist):
 
 def select_daily_song(level=None, exclude=None):
     """
-    动态选择一首歌曲
+    动态选择一首歌曲。
+    **重要**：只从 CLASSIC_SONGS 库（GitHub Pages 本地 MP3）中选歌，
+    保证每首歌都有可播放的本地音频。不再使用网易云链接。
+
     level: 1=入门, 2=初级, 3=中级, None=随机
     exclude: 需要排除的歌曲名集合
     """
     if exclude is None:
         exclude = set()
 
-    # 根据level筛选歌曲
-    if level:
-        pool = [s for s in SONG_LIBRARY if s["level"] == level and s["name"] not in exclude]
-    else:
-        pool = [s for s in SONG_LIBRARY if s["name"] not in exclude]
+    # 建立"歌名 -> SONG_LIBRARY 元数据"的索引
+    song_lib_index = {s["name"]: s for s in SONG_LIBRARY}
 
-    if not pool:
-        # 如果筛选后没有歌曲，回退到全部歌曲
-        pool = [s for s in SONG_LIBRARY if s["name"] not in exclude]
+    # 默认元数据（针对 CLASSIC_SONGS 中没有详细元数据的歌曲）
+    DEFAULT_TENSES = [
+        {"tense": "一般现在时", "tense_en": "Simple Present", "level": 2,
+         "tense_rule": "主语+动词原形(三单加s)，表达习惯、状态或事实"},
+        {"tense": "一般过去时", "tense_en": "Simple Past", "level": 2,
+         "tense_rule": "主语+动词过去式，描述过去的经历或动作"},
+        {"tense": "一般将来时", "tense_en": "Simple Future", "level": 2,
+         "tense_rule": "will + 动词原形，表示将要发生的事"},
+        {"tense": "现在进行时", "tense_en": "Present Continuous", "level": 2,
+         "tense_rule": "am/is/are + 动词ing，表示正在发生的动作"},
+    ]
 
-    if not pool:
-        # 所有歌曲都用过了，重新开始
-        pool = SONG_LIBRARY
+    # 从 CLASSIC_SONGS 的歌名中选（这些歌都有本地 MP3）
+    available_names = [name for name in CLASSIC_SONGS.keys() if name not in exclude]
 
-    # 真正随机选择歌曲
-    return random.choice(pool)
+    if not available_names:
+        # 全部用过了，重新开始（保留 exclude 中的最近 50 首仍然排除）
+        available_names = list(CLASSIC_SONGS.keys())
+
+    # 真正随机选择
+    chosen_name = random.choice(available_names)
+
+    # 构造完整的 song dict（合并 SONG_LIBRARY 元数据或用默认值）
+    if chosen_name in song_lib_index:
+        return song_lib_index[chosen_name]
+
+    # 没有详细元数据，从 CLASSIC_SONGS 文件名解析歌手，用默认时态
+    filename = CLASSIC_SONGS[chosen_name]
+    # 文件名格式: "Artist - SongName.mp3"
+    artist = ""
+    if " - " in filename:
+        artist = filename.split(" - ")[0].strip()
+    # 移除文件名扩展名得到歌名部分
+    song_part = filename.rsplit(".mp3", 1)[0]
+    if " - " in song_part:
+        song_part = song_part.split(" - ", 1)[1].strip()
+
+    # 用基于歌名的稳定哈希选择默认时态（避免每次同一首歌元数据不同）
+    hash_val = sum(ord(c) for c in chosen_name) % len(DEFAULT_TENSES)
+    default_meta = DEFAULT_TENSES[hash_val]
+
+    return {
+        "name": chosen_name,
+        "artist": artist,
+        "year": "经典",
+        "netease_id": "",  # 没有网易云 ID，歌词通过 search_netease_id 搜索
+        "tense": default_meta["tense"],
+        "tense_en": default_meta["tense_en"],
+        "level": default_meta["level"],
+        "tense_rule": default_meta["tense_rule"],
+    }
 
 
 # ============================================================
@@ -1844,15 +1885,17 @@ def generate_auto_song_html(svg_speaker):
     while not en_lyrics and retry < max_retry:
         retry += 1
         print(f"  [WARN] 歌词获取失败，换下一首（第{retry}次重试）")
-        # 从库里选另一首（排除已用和已尝试的）
-        pool_retry = [s for s in SONG_LIBRARY if s["name"] not in used and s["name"] not in tried]
+        # 从 CLASSIC_SONGS 选另一首（排除已用和已尝试的）
+        pool_retry = [name for name in CLASSIC_SONGS.keys()
+                      if name not in used and name not in tried]
         if not pool_retry:
-            pool_retry = [s for s in SONG_LIBRARY if s["name"] not in tried]
+            pool_retry = [name for name in CLASSIC_SONGS.keys() if name not in tried]
         if not pool_retry:
             break
         # 真正随机选不同的歌
-        song = random.choice(pool_retry)
-        tried.add(song["name"])
+        chosen_name = random.choice(pool_retry)
+        tried.add(chosen_name)
+        song = select_daily_song(exclude=used | tried)
         print(f"  [歌曲] 换用: {song['name']} - {song['artist']} (难度{song['level']})")
         en_lyrics, zh_lyrics, actual_id = get_lyrics_with_fallback(
             song["name"], song["artist"], song["netease_id"]
@@ -2034,46 +2077,37 @@ def generate_auto_song_html(svg_speaker):
       {"".join(pattern_items)}
     </div>'''
 
-    # 播放器音频优先级：
-    # 1. CLASSIC_SONGS（GitHub Pages 上的97首经典英文歌曲）— 最稳定
-    # 2. NETLIFY_SONGS（Netlify 托管的28首儿童歌曲）
-    # 3. 网易云 MP3 直链（通过第三方 API + CF Worker 代理）
-    # 4. 网易云外链兜底
+    # 播放器音频策略：**只用 GitHub Pages 本地 MP3 库**（CLASSIC_SONGS + NETLIFY_SONGS）
+    # 用户明确要求：去掉所有网易云链接，使用 GitHub 自身的歌曲库（约 100 首足够用）
     mp3_url = None
 
-    # 优先级1: 检查经典流行歌曲库
+    # 优先级1: 经典流行歌曲库（GitHub Pages docs/audio/classic/，95首）
     classic_url = get_classic_audio_url(song["name"])
     if classic_url:
         mp3_url = classic_url
 
-    # 优先级2: 检查 Netlify 儿歌库
+    # 优先级2: Netlify 儿歌库（28首）
     if not mp3_url:
         slug = NETLIFY_SONGS.get(song["name"])
         if slug:
             mp3_url = f"{NETLIFY_BASE}{slug}.mp3"
 
-    # 优先级3: 尝试网易云 MP3 直链
-    if not mp3_url:
-        netease_url = fetch_mp3_url(mp3_id)
-        if netease_url:
-            mp3_url = netease_url
-
-    # 生成播放器 HTML（audio + 网易云 iframe 双保险）
-    netease_player = f'<iframe src="//music.163.com/outchain/player?type=2&id={mp3_id}&auto=0&height=66" width="100%" height="86" frameborder="0" style="border-radius:10px;margin-top:8px;"></iframe>'
+    # 生成播放器 HTML（只用本地 MP3，不再使用任何网易云链接）
     if mp3_url:
         player_html = f'''
     <div class="song-player">
       <audio id="song-audio" src="{mp3_url}" preload="metadata" controls style="width:100%;border-radius:10px;">
       </audio>
-      {netease_player}
     </div>'''
     else:
+        # 极端情况：选到的歌既不在 CLASSIC_SONGS 也不在 NETLIFY_SONGS
+        # 这种情况理论上不应该发生（因为 select_daily_song 只从 CLASSIC_SONGS 选）
+        # 但作为兜底，显示提示信息（不带任何外部链接）
         player_html = f'''
     <div class="song-player">
-      <div class="player-fallback" style="text-align:center;padding:10px 0;">
-        🎧 <a href="https://music.163.com/song?id={mp3_id}" target="_blank" style="color:#4caf50;font-weight:bold;">点击前往网易云音乐收听 {song["name"]}</a>
+      <div class="player-fallback" style="text-align:center;padding:10px 0;color:#888;">
+        🎵 今日歌曲：{song["name"]} - {song["artist"]}（音频暂未上架）
       </div>
-      {netease_player}
     </div>'''
 
     # 难度标签
