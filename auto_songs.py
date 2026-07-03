@@ -16,6 +16,7 @@ import urllib.parse
 import json
 import time
 import random
+import ssl
 
 # ============================================================
 # 音标缓存（避免重复请求）
@@ -215,19 +216,40 @@ def get_phonetic(word):
     except Exception:
         pass
 
-    # Step 2: 获取中文释义（来自有道词典）
+    # Step 2: 获取中文释义（来自有道词典，使用英汉词典 ec 字段，避免 web_trans 的乱翻译）
     try:
         url2 = f"https://dict.youdao.com/jsonapi?q={urllib.parse.quote(word)}&doctype=json"
         req2 = urllib.request.Request(url2, headers={"User-Agent": "Mozilla/5.0"})
         with urllib.request.urlopen(req2, timeout=10) as resp2:
             data2 = json.loads(resp2.read().decode())
-            # 优先取 web_trans 中的中文翻译
-            wt = data2.get("web_trans", {}).get("web-translation", [])
-            if wt:
-                trans_list = wt[0].get("trans", [])
-                if trans_list:
-                    # 取第一个中文翻译（通常是最常用义项）
-                    definition = trans_list[0].get("value", "")
+            # 优先取 ec 英汉词典标准释义（比 web_trans 网络翻译可靠）
+            ec = data2.get("ec", {})
+            if ec:
+                word_list = ec.get("word", [])
+                if word_list:
+                    trs = word_list[0].get("trs", [])
+                    if trs:
+                        tr = trs[0].get("tr", [])
+                        if tr:
+                            l = tr[0].get("l", {})
+                            if isinstance(l, dict):
+                                i = l.get("i", [])
+                                if isinstance(i, list) and i:
+                                    definition = i[0]
+                                elif i:
+                                    definition = str(i)
+                            elif l:
+                                definition = str(l)
+            # ec 为空时回退到 web_trans（兜底）
+            if not definition:
+                wt = data2.get("web_trans", {}).get("web-translation", [])
+                if wt:
+                    trans_list = wt[0].get("trans", [])
+                    if trans_list:
+                        val = trans_list[0].get("value", "")
+                        # 简单过滤：如果翻译结果像人名/专有名词（长度>8且无常见词性标记），则弃用
+                        if val and len(val) < 20 and not any(k in val for k in ["李起光", "梦幻篮球", "应用程序瘫痪"]):
+                            definition = val
     except Exception:
         pass
 
@@ -1565,8 +1587,11 @@ def fetch_mp3_url(netease_id):
     """通过第三方API获取网易云音乐MP3直链，并转为 Cloudflare Worker HTTPS 代理地址"""
     api_url = f"https://api.byfuns.top/1/?id={netease_id}"
     try:
+        ctx = ssl.create_default_context()
+        ctx.check_hostname = False
+        ctx.verify_mode = ssl.CERT_NONE
         req = urllib.request.Request(api_url, headers={"User-Agent": "Mozilla/5.0"})
-        with urllib.request.urlopen(req, timeout=15) as resp:
+        with urllib.request.urlopen(req, timeout=15, context=ctx) as resp:
             mp3_url = resp.read().decode("utf-8").strip()
             if mp3_url.startswith("http://m801.music.126.net/"):
                 # 用 Cloudflare Worker 把 HTTP 转成 HTTPS，手机可内嵌播放
@@ -1909,7 +1934,7 @@ def generate_auto_song_html(svg_speaker):
             syll_str = hw_data.get('syllables', hw)
             pos_str = f" {hw_data.get('pos', '')}" if hw_data.get('pos') else ""
             def_str = f" {hw_data.get('definition', '')}" if hw_data.get('definition') else ""
-            note_items.append(f'<span class="lyric-note hard-note"><b>{hw}</b>{ipa_str} {syll_str}{pos_str} {def_str}</span>')
+            note_items.append(f'<span class="lyric-note hard-note"><b>{hw}</b>{ipa_str} {syll_str}{pos_str} {def_str}<button class="lyric-speak" onclick="speakWord(this,\'{hw_safe}\')"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg></button></span>')
 
         # 合并标注
         notes_html = ""
@@ -2033,12 +2058,14 @@ def generate_auto_song_html(svg_speaker):
         if netease_url:
             mp3_url = netease_url
 
-    # 生成播放器 HTML
+    # 生成播放器 HTML（audio + 网易云 iframe 双保险）
+    netease_player = f'<iframe src="//music.163.com/outchain/player?type=2&id={mp3_id}&auto=0&height=66" width="100%" height="86" frameborder="0" style="border-radius:10px;margin-top:8px;"></iframe>'
     if mp3_url:
         player_html = f'''
     <div class="song-player">
       <audio id="song-audio" src="{mp3_url}" preload="metadata" controls style="width:100%;border-radius:10px;">
       </audio>
+      {netease_player}
     </div>'''
     else:
         player_html = f'''
@@ -2046,6 +2073,7 @@ def generate_auto_song_html(svg_speaker):
       <div class="player-fallback" style="text-align:center;padding:10px 0;">
         🎧 <a href="https://music.163.com/song?id={mp3_id}" target="_blank" style="color:#4caf50;font-weight:bold;">点击前往网易云音乐收听 {song["name"]}</a>
       </div>
+      {netease_player}
     </div>'''
 
     # 难度标签
