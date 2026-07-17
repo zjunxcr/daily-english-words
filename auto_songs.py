@@ -17,6 +17,7 @@ import json
 import time
 import random
 import ssl
+import os
 
 # ============================================================
 # 音标缓存（避免重复请求）
