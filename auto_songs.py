@@ -1816,7 +1816,7 @@ def append_song_history(song_name, artist):
         print(f"  [WARN] 保存歌曲历史到 GitHub 失败: {e}")
 
 
-def select_daily_song(level=None, exclude=None):
+def select_daily_song(level=None, exclude=None, preferred=None):
     """
     动态选择一首歌曲。
     **重要**：只从 CLASSIC_SONGS 库（GitHub Pages 本地 MP3）中选歌，
@@ -1824,6 +1824,7 @@ def select_daily_song(level=None, exclude=None):
 
     level: 1=入门, 2=初级, 3=中级, None=随机
     exclude: 需要排除的歌曲名集合
+    preferred: 优先选择的歌曲名（用于修复历史错误时强制指定某首歌）
     """
     if exclude is None:
         exclude = set()
@@ -1850,8 +1851,12 @@ def select_daily_song(level=None, exclude=None):
         # 全部用过了，重新开始（保留 exclude 中的最近 50 首仍然排除）
         available_names = list(CLASSIC_SONGS.keys())
 
-    # 真正随机选择
-    chosen_name = random.choice(available_names)
+    # 优先使用 preferred（修复历史错误时用）
+    if preferred and preferred in CLASSIC_SONGS:
+        chosen_name = preferred
+    else:
+        # 真正随机选择
+        chosen_name = random.choice(available_names)
 
     # 构造完整的 song dict（合并 SONG_LIBRARY 元数据或用默认值）
     if chosen_name in song_lib_index:
@@ -1891,12 +1896,26 @@ def generate_auto_song_html(svg_speaker):
     """
     自动选择歌曲并生成HTML
     返回: (html_str, song_info_dict)
+
+    支持环境变量 FORCE_SONG_NAME：指定歌名时强制使用该歌曲（用于修复历史推送错误）。
     """
     # 获取已用歌曲
     used = get_used_songs()
 
+    # 支持强制指定歌曲（修复历史错误时使用）
+    force_song = os.environ.get("FORCE_SONG_NAME", "").strip()
+    if force_song:
+        # 从 CLASSIC_SONGS 找指定歌曲
+        if force_song in CLASSIC_SONGS:
+            # 暂时从 used 里移除，避免被排除
+            used = used - {force_song}
+            print(f"  [歌曲] FORCE_SONG_NAME 命中: {force_song}")
+        else:
+            print(f"  [WARN] FORCE_SONG_NAME={force_song} 不在 CLASSIC_SONGS 中，忽略")
+            force_song = ""
+
     # 动态选择（不带level限制，让系统自然轮换）
-    song = select_daily_song(exclude=used)
+    song = select_daily_song(exclude=used, preferred=force_song or None)
 
     print(f"  [歌曲] 今日推荐: {song['name']} - {song['artist']} (难度{song['level']})")
 
