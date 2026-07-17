@@ -1485,9 +1485,34 @@ def parse_lyric_lines(raw_lyric):
     return lines
 
 
-def fetch_lyrics(netease_id):
+def _norm_text(s):
+    """标准化文本用于比较：去标点、去空格、转小写"""
+    return re.sub(r'[^a-z0-9]', '', (s or '').lower())
+
+
+def _strip_lrc_title_lines(lines, song_name="", artist=""):
+    """过滤 LRC 开头的"歌名/艺术家"标题行（网易云常见模式）
+
+    网易云 LRC 通常在前几行用 [00:01.22]歌名 [00:02.07]艺术家 的方式标记标题，
+    这些不是真实歌词。这里检查前 5 行，如果文本与歌名或艺术家同名就跳过。
+    """
+    if not lines:
+        return lines
+    targets = {_norm_text(song_name), _norm_text(artist)} - {''}
+    if not targets:
+        return lines
+    keep = []
+    for i, (ts, text) in enumerate(lines):
+        if i < 5 and _norm_text(text) in targets:
+            continue  # 跳过标题行
+        keep.append((ts, text))
+    return keep
+
+
+def fetch_lyrics(netease_id, song_name="", artist=""):
     """通过网易云API获取歌词和中文翻译，返回 (英文字幕列表, 中文字幕列表)
     智能判断：如果是英文歌用lrc作主歌词，如果是中文歌用tlyric作主歌词（英文翻译）
+    会自动过滤 LRC 开头与歌名/艺术家同名的标题行。
     """
     api_url = f"https://music.163.com/api/song/lyric?id={netease_id}&lv=1&tv=1"
     try:
@@ -1504,6 +1529,10 @@ def fetch_lyrics(netease_id):
         # 解析两套歌词
         lrc_lines = parse_lyric_lines(lrc_data) if lrc_data else []
         tlyric_lines = parse_lyric_lines(tlyric_data) if tlyric_data else []
+
+        # 过滤 LRC 开头的"歌名/艺术家"标题行（网易云常见模式）
+        lrc_lines = _strip_lrc_title_lines(lrc_lines, song_name, artist)
+        tlyric_lines = _strip_lrc_title_lines(tlyric_lines, song_name, artist)
 
         # 建立时间戳到文本的映射
         lrc_map = {ts: text for ts, text in lrc_lines}
@@ -1564,7 +1593,7 @@ def get_lyrics_with_fallback(song_name, artist, netease_id):
         return en, zh, netease_id
 
     # 2. 回退到网易云API（可能不匹配，作为最后手段）
-    en, zh = fetch_lyrics(netease_id)
+    en, zh = fetch_lyrics(netease_id, song_name, artist)
     if en:
         print(f"  [WARN] {song_name} 使用API歌词(可能不匹配!)")
         return en, zh, netease_id
@@ -1574,7 +1603,7 @@ def get_lyrics_with_fallback(song_name, artist, netease_id):
     found_id, found_artist = search_netease_id(song_name, artist)
     if found_id:
         print(f"  [INFO] 搜索到ID:{found_id} ({found_artist})")
-        en, zh = fetch_lyrics(found_id)
+        en, zh = fetch_lyrics(found_id, song_name, artist)
         if en:
             return en, zh, found_id
 
