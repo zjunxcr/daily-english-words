@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: '0 1 * * *'
   workflow_dispatch:
+    inputs:
+      force_song:
+        description: '强制指定歌曲名（可选，用于修复推送错误时重生成指定歌曲）'
+        required: false
+        default: ''
 
 jobs:
   build-and-send:
@@ -30,6 +35,7 @@ jobs:
       run: python generate-today-words.py
       env:
         GH_PAT: ${{ secrets.GH_PAT }}
+        FORCE_SONG_NAME: ${{ github.event.inputs.force_song }}
 
     - name: Embed audio
       run: python embed-daily-words-audio.py
